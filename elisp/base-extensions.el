@@ -11,6 +11,9 @@
 
 (use-package dashboard
   :config
+  (setq dashboard-startup-banner "~/.emacs.d/private/logos/scream2.png")
+  (setq dashboard-banner-logo-title
+	"Vous entrez dans le monde de la peur et des poignets cassés")
   (dashboard-setup-startup-hook))
 
 (use-package ediff
@@ -57,6 +60,10 @@
   (setq ivy-use-virtual-buffers nil)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
+(use-package highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (add-hook 'prog-mode-hook #'highlight-indent-guides-mode))
 
 (use-package hlinum
   :config

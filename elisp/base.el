@@ -1,3 +1,4 @@
+
 (package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/")
@@ -33,6 +34,7 @@
       save-interprogram-paste-before-kill t
       mouse-yank-at-point                 t
       electric-pair-mode                  t
+      column-number-mode                  t
       require-final-newline               t
       visible-bell                        nil
       ring-bell-function                  'ignore
