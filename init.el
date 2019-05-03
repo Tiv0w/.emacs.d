@@ -40,3 +40,5 @@
 (require 'lang-racket)
 
 (require 'lang-c)
+
+(require 'lang-vue2)
