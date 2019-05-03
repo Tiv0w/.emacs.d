@@ -42,3 +42,6 @@
 (require 'lang-c)
 
 (require 'lang-vue2)
+
+
+(require 'mode-on-region)
