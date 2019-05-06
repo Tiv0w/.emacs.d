@@ -144,6 +144,14 @@
 
   (setq projectile-completion-system 'ivy)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+  ;; Projectile setup for npm
+  (projectile-register-project-type 'npm '("package.json")
+                  :compile "npm install"
+                  :test "npm test"
+                  :run "npm run serve"
+                  :test-suffix ".spec")
+
   (projectile-global-mode))
 
 (use-package recentf

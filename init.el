@@ -27,9 +27,9 @@
 
 (require 'lang-php)
 
-(require 'lang-javascript)
-
 (require 'lang-web)
+
+(require 'lang-javascript)
 
 (require 'lang-haskell)
 
