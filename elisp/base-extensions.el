@@ -1,4 +1,6 @@
 
+(use-package all-the-icons)
+
 (use-package avy
   :bind
   ("C-c SPC" . avy-goto-char))
@@ -14,6 +16,11 @@
   (setq dashboard-startup-banner "~/.emacs.d/private/logos/scream2.png")
   (setq dashboard-banner-logo-title
 	"Vous entrez dans le monde de la peur et des poignets cassés")
+  (setq dashboard-items '((recents . 5)
+                          (projects . 5)
+                          (bookmarks . 5)
+                          (agenda . 5)
+                          (registers . 5)))
   (dashboard-setup-startup-hook))
 
 (use-package ediff
@@ -100,11 +107,12 @@
 
 (use-package neotree
   :config
-  (setq neo-theme 'arrow
+  (setq neo-theme 'icons 'arrow
         neotree-smart-optn t
         neo-window-fixed-size nil)
   ;; Disable linum for neotree
-  (add-hook 'neo-after-create-hook 'disable-neotree-hook))
+  (add-hook 'neo-after-create-hook
+	    (lambda (&optional dummy) (linum-mode nil))))
 
 (use-package org
   :config
@@ -135,7 +143,7 @@
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
 
   (setq projectile-completion-system 'ivy)
-
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-global-mode))
 
 (use-package recentf
@@ -162,10 +170,10 @@
 
 (use-package windmove
   :bind
-  ("C-x <up>" . windmove-up)
-  ("C-x <down>" . windmove-down)
-  ("C-x <left>" . windmove-left)
-  ("C-x <right>" . windmove-right))
+  ("S-<up>" . windmove-up)
+  ("S-<down>" . windmove-down)
+  ("S-<left>" . windmove-left)
+  ("S-<right>" . windmove-right))
 
 (use-package wgrep)
 

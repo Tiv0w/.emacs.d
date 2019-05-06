@@ -36,7 +36,8 @@
       electric-pair-mode                  t
       column-number-mode                  t
       require-final-newline               t
-      visible-bell                        nil
+      load-prefer-newer                   t
+      visible-bell                        t
       ring-bell-function                  'ignore
       custom-file                         "~/.emacs.d/.custom.el"
       ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
@@ -82,7 +83,7 @@
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-(when (  fboundp 'scroll-bar-mode)
+(when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 (show-paren-mode 1)
