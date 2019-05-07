@@ -107,8 +107,8 @@
 
 (use-package neotree
   :config
-  (setq neo-theme 'icons 'arrow
-        neotree-smart-optn t
+  (setq neo-theme 'icons
+        neo-smart-open t
         neo-window-fixed-size nil)
   ;; Disable linum for neotree
   (add-hook 'neo-after-create-hook
@@ -188,5 +188,13 @@
 (use-package yasnippet
   :config
   (yas-global-mode 1))
+
+(use-package xah-fly-keys
+  :config
+  (xah-fly-keys-set-layout "qwerty")
+
+  (define-key xah-fly-leader-key-map (kbd "u") 'counsel-switch-buffer)
+  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+  (xah-fly-keys 1))
 
 (provide 'base-extensions)
