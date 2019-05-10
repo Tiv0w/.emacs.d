@@ -17,6 +17,7 @@
   (let ((project-dir (projectile-project-root))
         (file-name (buffer-file-name)))
     (neotree-toggle)
+    (linum-mode nil)
     (if project-dir
 	(if (neo-global--window-exists-p)
             (progn

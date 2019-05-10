@@ -154,6 +154,10 @@
 
   (projectile-global-mode))
 
+(use-package rainbow-delimiters
+  :config
+  (rainbow-delimiters-mode 1))
+
 (use-package recentf
   :config
   (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
@@ -193,7 +197,8 @@
   :config
   (xah-fly-keys-set-layout "qwerty")
 
-  (define-key xah-fly-leader-key-map (kbd "u") 'counsel-switch-buffer)
+  (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
+  (define-key xah-fly-key-map (kbd "8") 'er/expand-region)
   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
   (xah-fly-keys 1))
 
