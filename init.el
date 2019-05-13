@@ -42,3 +42,6 @@
 (require 'lang-c)
 
 (require 'lang-vue)
+
+
+(require 'xah-fly-keys-setup)

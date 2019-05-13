@@ -137,6 +137,10 @@
 
 (use-package page-break-lines)
 
+(use-package popwin
+  :config
+  (popwin-mode 1))
+
 (use-package projectile
   :config
   (setq projectile-known-projects-file
@@ -193,13 +197,13 @@
   :config
   (yas-global-mode 1))
 
-(use-package xah-fly-keys
-  :config
-  (xah-fly-keys-set-layout "qwerty")
+;; (use-package xah-fly-keys
+;;   :config
+;;   (xah-fly-keys-set-layout "qwerty")
 
-  (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
-  (define-key xah-fly-key-map (kbd "8") 'er/expand-region)
-  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-  (xah-fly-keys 1))
+;;   (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
+;;   (define-key xah-fly-key-map (kbd "8") 'er/expand-region)
+;;   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+;;   (xah-fly-keys 1))
 
 (provide 'base-extensions)
