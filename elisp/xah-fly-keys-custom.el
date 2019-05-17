@@ -3766,7 +3766,7 @@ Version 2017-01-21"
      ("b" . isearch-forward-regexp)
      ("c" . previous-line)
      ("d" . xah-beginning-of-line-or-block)
-     ("e" . xah-delete-backward-char-or-bracket-text)
+     ("e" . delete-backward-char)
      ("f" . undo)
      ("g" . backward-word)
      ("h" . backward-char)

@@ -87,7 +87,7 @@
   (scroll-bar-mode -1))
 
 (show-paren-mode 1)
-
+(electric-pair-mode 1)
 
 ;; Emacsclient setup
 (add-hook 'server-switch-hook (lambda () (select-frame-set-input-focus (selected-frame))))
