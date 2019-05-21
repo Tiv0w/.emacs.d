@@ -49,4 +49,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.vue$" . web-mode))
 
+(require 'lang-vue-helper)
+
 (provide 'lang-vue)

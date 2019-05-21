@@ -50,4 +50,6 @@
     (js2r-add-keybindings-with-prefix "C-c j r"))
   (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
+(require 'lang-javascript-helper)
+
 (provide 'lang-javascript)
