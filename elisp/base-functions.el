@@ -25,5 +25,9 @@
               (neotree-find file-name)))
       (message "Could not find git project root."))))
 
+(defun load-theme--disable-old-theme(theme &rest args)
+  "Disable current theme before loading new one."
+  (mapcar #'disable-theme custom-enabled-themes))
+(advice-add 'load-theme :before #'load-theme--disable-old-theme)
 
 (provide 'base-functions)
