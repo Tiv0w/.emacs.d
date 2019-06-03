@@ -19,15 +19,15 @@
 		(flycheck-select-checker 'javascript-eslint))))
 
 
-  (require mode-on-region)
+  ;; (require mode-on-region)
 
-  (eval-after-load 'mode-on-region
-    '(progn
-       (setq mor-format-automatically-p nil)
-       (setq mor-readonly-for-extra-protection-p t)
-       (custom-set-faces
-	`(mor-readonly-face
-	  ((t (:background "black" :foreground "red" :strike-through t))))))))
+  ;; (eval-after-load 'mode-on-region
+  ;;   '(progn
+  ;;      (setq mor-format-automatically-p nil)
+  ;;      (setq mor-readonly-for-extra-protection-p t)
+  ;;      (custom-set-faces
+  ;; 	`(mor-readonly-face
+  ;; 	  ((t (:background "black" :foreground "red" :strike-through t))))))))
 
   ;; (defun edit-region-in-js-mode (beg end)
   ;;   (interactive "@r")
@@ -43,7 +43,8 @@
   (setq web-mode-code-indent-offset 2)
   ;;  (setq web-mode-enable-auto-indentation t)
   ;;  (setq web-mode-indent-style 2)
-  (setq web-mode-enable-auto-indentation nil))
+  (setq web-mode-enable-auto-indentation nil)
+  (setq web-mode-enable-auto-closing t))
 
 (add-hook 'web-mode-hook 'my-vue-mode-hook)
 

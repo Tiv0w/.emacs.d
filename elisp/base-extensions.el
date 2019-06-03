@@ -23,6 +23,11 @@
                           (registers . 5)))
   (dashboard-setup-startup-hook))
 
+(use-package doom-modeline
+  :config
+  (setq doom-modeline-buffer-file-name-style 'buffer-name)
+  :hook (after-init . doom-modeline-mode))
+
 (use-package ediff
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -137,6 +142,10 @@
 
 (use-package page-break-lines)
 
+(use-package persistent-scratch
+  :config
+  (persistent-scratch-setup-default))
+
 (use-package popwin
   :config
   (popwin-mode 1))
@@ -205,5 +214,7 @@
 ;;   (define-key xah-fly-key-map (kbd "8") 'er/expand-region)
 ;;   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 ;;   (xah-fly-keys 1))
+
+(use-package zeal-at-point)
 
 (provide 'base-extensions)
