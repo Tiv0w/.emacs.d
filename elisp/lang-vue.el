@@ -16,7 +16,7 @@
             (defun my-js2-mode-setup ()
               (flycheck-mode t)
               (when (executable-find "eslint")
-		(flycheck-select-checker 'javascript-eslint))))
+		(flycheck-select-checker 'javascript-eslint)))))
 
 
   ;; (require mode-on-region)
