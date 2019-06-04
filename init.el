@@ -43,5 +43,7 @@
 
 (require 'lang-vue)
 
+(require 'lang-markdown)
+
 
 (require 'xah-fly-keys-setup)
