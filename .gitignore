@@ -1,2 +1,11 @@
 elpa/
 private/
+semanticdb/
+transient/
+url/
+.mc-lists.el
+ede-projects.el
+smex-items
+init.el~
+.custom.el
+.persistent-scratch
