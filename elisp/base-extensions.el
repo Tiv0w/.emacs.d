@@ -15,7 +15,7 @@
   :config
   (setq dashboard-startup-banner "~/.emacs.d/private/logos/scream2.png")
   (setq dashboard-banner-logo-title
-	"Vous entrez dans le monde de la peur et des poignets cassés")
+        "Vous entrez dans le monde de la peur et des poignets cassés")
   (setq dashboard-items '((recents . 5)
                           (projects . 5)
                           (bookmarks . 5)
@@ -108,7 +108,9 @@
   ("C-S-c C-S-c" . mc/edit-lines)
   ("C->" . mc/mark-next-like-this)
   ("C-<" . mc/mark-previous-like-this)
-  ("C-c C->" . mc/mark-all-like-this))
+  ("C-c C->" . mc/mark-all-like-this)
+  :config
+  (define-key mc/keymap (kbd "<return>") nil))
 
 (use-package neotree
   :config
@@ -117,7 +119,7 @@
         neo-window-fixed-size nil)
   ;; Disable linum for neotree
   (add-hook 'neo-after-create-hook
-	    (lambda (&optional dummy) (linum-mode nil))))
+            (lambda (&optional dummy) (linum-mode nil))))
 
 (use-package org
   :config
@@ -131,7 +133,7 @@
   :config
   (org-projectile-per-project)
   (setq org-projectile-per-project-filepath "todo.org"
-	org-agenda-files (append org-agenda-files (org-projectile-todo-files))))
+        org-agenda-files (append org-agenda-files (org-projectile-todo-files))))
 
 (use-package org-bullets
   :config
