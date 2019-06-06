@@ -1,7 +1,7 @@
 
 (package-initialize)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/")
+             '("melpa" . "https://melpa.org/packages/")
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (when (not package-archive-contents)
@@ -74,7 +74,7 @@
  auto-save-file-name-transforms    `((".*" ,(concat temp-dir "/auto-save-list/") t)))
 
 (unless (file-exists-p (concat temp-dir "/auto-save-list"))
-		       (make-directory (concat temp-dir "/auto-save-list") :parents))
+                       (make-directory (concat temp-dir "/auto-save-list") :parents))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
@@ -98,6 +98,14 @@
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; Font setup
+
+;;(set-face-attribute 'default nil :font "DejaVu Sans Mono") ;; default
+(set-face-attribute 'default nil :font "Fira Mono" :height 100)
+;;(set-face-attribute 'default nil :font "Iosevka Term SS05" :height 110)
+
 
 (provide 'base)
 ;;; base ends here

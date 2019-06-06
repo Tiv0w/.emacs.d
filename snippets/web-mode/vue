@@ -1,0 +1,39 @@
+# -*- mode: snippet -*-
+# name: Vue component
+# key: vue
+# --
+<template>
+  $0
+</template>
+
+<script>
+import  from ''
+
+export default {
+  name: '${1:}',
+
+  props: [],
+
+  data: () => ({
+    ${2:}
+  }),
+
+  mounted () {
+  },
+
+  watch: {
+  },
+
+  computed: {
+  },
+
+  methods: {
+  },
+
+  beforeDestroy () {
+  },
+}
+</script>
+
+<style scoped>
+</style>
