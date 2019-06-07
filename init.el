@@ -45,5 +45,6 @@
 
 (require 'lang-markdown)
 
+(require 'pretty-code)
 
 (require 'xah-fly-keys-setup)
