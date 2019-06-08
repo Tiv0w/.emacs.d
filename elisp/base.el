@@ -103,7 +103,7 @@
 ;; Font setup
 
 ;;(set-face-attribute 'default nil :font "DejaVu Sans Mono") ;; default
-(set-face-attribute 'default nil :font "Fira Mono" :height 100)
+(set-face-attribute 'default nil :font "Fira Mono" :height 120)
 ;;(set-face-attribute 'default nil :font "Iosevka Term SS05" :height 110)
 
 
