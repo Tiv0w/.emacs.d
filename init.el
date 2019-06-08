@@ -19,6 +19,9 @@
 (require 'base-functions)
 (require 'base-global-keys)
 
+(require 'pretty-code)
+
+
 (require 'lang-python)
 
 (require 'lang-ruby)
@@ -45,6 +48,6 @@
 
 (require 'lang-markdown)
 
-(require 'pretty-code)
+(require 'lang-clojure)
 
 (require 'xah-fly-keys-setup)

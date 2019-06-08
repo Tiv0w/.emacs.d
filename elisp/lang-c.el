@@ -82,4 +82,24 @@
 (add-hook 'c-mode-hook 'alexott/cedet-hook)
 (add-hook 'c++-mode-hook 'alexott/cedet-hook)
 
+(set-pretty-symbols! '(c-mode c++-mode)
+    ;; Functional
+    ;; :def "void "
+    ;; Types
+    :null "NULL"
+    :true "true"
+    :false "false"
+    :int "int"
+    :float "float"
+    :str "std::string"
+    :bool "bool"
+    ;; Flow
+    :not "!"
+    :and "&&"
+    :or "||"
+    :for "for"
+    :return "return"
+    :yield "#require")
+
+
 (provide 'lang-c)

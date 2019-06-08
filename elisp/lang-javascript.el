@@ -50,6 +50,24 @@
     (js2r-add-keybindings-with-prefix "C-c j r"))
   (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
+(set-pretty-symbols! '(js2-mode rjsx-mode web-mode)
+    ;; Functional
+    :def "function"
+    :lambda "() =>"
+    :composition "compose"
+    ;; Types
+    :null "null"
+    :true "true"
+    :false "false"
+    ;; Flow
+    :not "!"
+    :and "&&"
+    :or "||"
+    :for "for"
+    :return "return"
+    ;; Other
+    :yield "import")
+
 (require 'lang-javascript-helper)
 
 (provide 'lang-javascript)
