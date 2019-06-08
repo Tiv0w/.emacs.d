@@ -28,6 +28,8 @@
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
   :hook (after-init . doom-modeline-mode))
 
+(use-package dumb-jump)
+
 (use-package ediff
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -62,6 +64,8 @@
   ("C-x c p" . counsel-projectile-ag)
   :config
   (counsel-projectile-on))
+
+(use-package deadgrep)
 
 (use-package ivy
   :bind
@@ -170,13 +174,14 @@
   (projectile-global-mode))
 
 (use-package rainbow-delimiters
-  :config
-  (rainbow-delimiters-mode 1))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package recentf
   :config
   (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
   (recentf-mode 1))
+
+(use-package scratch)
 
 (use-package smartparens)
 
