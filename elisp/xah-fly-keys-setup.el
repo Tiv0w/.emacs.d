@@ -14,9 +14,12 @@
 
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
 (define-key xah-fly-dot-keymap (kbd "e") 'er/expand-region)
+(define-key xah-fly-dot-keymap (kbd "i") 'dumb-jump-go)
 (define-key xah-fly-dot-keymap (kbd "j") 'mc/mark-all-like-this-dwim)
 (define-key xah-fly-dot-keymap (kbd "k") 'mc/edit-lines)
 (define-key xah-fly-dot-keymap (kbd "n") 'web-mode-navigate)
+(define-key xah-fly-dot-keymap (kbd "o") 'dumb-jump-go-prompt)
+(define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
 (define-key xah-fly-dot-keymap (kbd "x") 'zeal-at-point-search)
 
 
