@@ -26,9 +26,12 @@
 (use-package doom-modeline
   :config
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
+  (setq doom-modeline-icon t)
   :hook (after-init . doom-modeline-mode))
 
-(use-package dumb-jump)
+(use-package dumb-jump
+  :config
+  (setq dumb-jump-selector 'ivy))
 
 (use-package ediff
   :config
@@ -122,8 +125,7 @@
         neo-smart-open t
         neo-window-fixed-size nil)
   ;; Disable linum for neotree
-  (add-hook 'neo-after-create-hook
-            (lambda (&optional dummy) (linum-mode nil))))
+  (add-hook 'neo-after-create-hook #'linum-mode))
 
 (use-package org
   :config

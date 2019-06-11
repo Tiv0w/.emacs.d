@@ -12,6 +12,7 @@
 
 (define-key xah-fly-key-map (kbd "8") 'er/expand-region)
 
+(define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
 (define-key xah-fly-dot-keymap (kbd "e") 'er/expand-region)
 (define-key xah-fly-dot-keymap (kbd "i") 'dumb-jump-go)
