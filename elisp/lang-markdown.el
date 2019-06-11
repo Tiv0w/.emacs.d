@@ -24,4 +24,18 @@
       (browse-url url)))
   (setq flymd-browser-open-function 'my-flymd-browser-function))
 
+(use-package flycheck
+  :config
+  (flycheck-mode))
+
+
+(use-package flycheck-grammalecte
+  :init
+  (setq flycheck-grammalecte-enabled-modes
+      '(org-mode text-mode mail-mode latex-mode markdown-mode)))
+
+(use-package darkroom
+  :config
+  (darkroom-tentative-mode))
+
 (provide 'lang-markdown)
