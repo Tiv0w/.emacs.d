@@ -1,4 +1,4 @@
-(require 'prettify-utils)
+;; (require 'prettify-utils)
 
 (add-hook 'prog-mode-hook 'prettify-symbols-mode)
 
