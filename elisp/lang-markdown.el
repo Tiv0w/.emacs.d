@@ -25,8 +25,7 @@
   (setq flymd-browser-open-function 'my-flymd-browser-function))
 
 (use-package flycheck
-  :config
-  (flycheck-mode))
+  :hook (markdown-mode . flycheck-mode))
 
 
 (use-package flycheck-grammalecte
@@ -35,7 +34,6 @@
       '(org-mode text-mode mail-mode latex-mode markdown-mode)))
 
 (use-package darkroom
-  :config
-  (darkroom-tentative-mode))
+  :hook (markdown-mode . darkroom-tentative-mode))
 
 (provide 'lang-markdown)
