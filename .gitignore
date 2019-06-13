@@ -9,3 +9,5 @@ smex-items
 init.el~
 .custom.el
 .persistent-scratch
+tramp
+eshell/
