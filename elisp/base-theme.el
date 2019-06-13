@@ -6,6 +6,6 @@
 (use-package doom-themes
   :defer t
   :init
-  (load-theme 'doom-peacock t))
+  (load-theme 'doom-Iosvkem t))
 
 (provide 'base-theme)
