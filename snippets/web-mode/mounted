@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Mounted auto-log
+# key: mounted
+# --
+
+  mounted () {
+    console.log('mounted'$0)
+  },
