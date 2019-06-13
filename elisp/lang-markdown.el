@@ -31,9 +31,13 @@
 (use-package flycheck-grammalecte
   :init
   (setq flycheck-grammalecte-enabled-modes
-      '(org-mode text-mode mail-mode latex-mode markdown-mode)))
+	'(org-mode text-mode mail-mode latex-mode markdown-mode))
+  :config
+  (setq flycheck-grammalecte-report-apos nil))
 
 (use-package darkroom
-  :hook (markdown-mode . darkroom-tentative-mode))
+  :hook (markdown-mode . darkroom-tentative-mode)
+  :config
+  (add-hook 'darkroom-tentative-mode-hook #'visual-line-mode))
 
 (provide 'lang-markdown)
