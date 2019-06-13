@@ -6,34 +6,16 @@
 
 (defun my-vue-mode-hook ()
   (use-package flycheck
+    :hook ((web-mode js2-mode) . flycheck-mode)
     :config
     ;; disable jshint since we prefer eslint checking
+    (flycheck-add-mode 'javascript-eslint 'web-mode)
     (setq-default flycheck-disabled-checkers
-		  (append flycheck-disabled-checkers
-			  '(javascript-jshint))))
-
-  (add-hook 'js2-mode-hook
-            (defun my-js2-mode-setup ()
-              (flycheck-mode t)
-              (when (executable-find "eslint")
-		(flycheck-select-checker 'javascript-eslint)))))
-
-
-  ;; (require mode-on-region)
-
-  ;; (eval-after-load 'mode-on-region
-  ;;   '(progn
-  ;;      (setq mor-format-automatically-p nil)
-  ;;      (setq mor-readonly-for-extra-protection-p t)
-  ;;      (custom-set-faces
-  ;; 	`(mor-readonly-face
-  ;; 	  ((t (:background "black" :foreground "red" :strike-through t))))))))
-
-  ;; (defun edit-region-in-js-mode (beg end)
-  ;;   (interactive "@r")
-  ;;   (let ((new-buffer (clone-indirect-buffer nil t)))
-  ;;     (narrow-to-region beg end)
-  ;;     (js2-mode))))
+                  (append flycheck-disabled-checkers
+                          '(javascript-jshint)))
+    (when (executable-find "eslint")
+      (flycheck-select-checker 'javascript-eslint))
+    (flycheck-mode)))
 
 
 (use-package web-mode
