@@ -50,4 +50,6 @@
 
 (require 'lang-clojure)
 
+(require 'lang-latex)
+
 (require 'xah-fly-keys-setup)
