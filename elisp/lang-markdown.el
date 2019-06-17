@@ -25,7 +25,10 @@
   (setq flymd-browser-open-function 'my-flymd-browser-function))
 
 (use-package flycheck
-  :hook (markdown-mode . flycheck-mode))
+  :hook (markdown-mode . flycheck-mode)
+  :config
+  (setq ispell-program-name "hunspell")
+  (ispell-change-dictionary "francais"))
 
 
 (use-package flycheck-grammalecte
@@ -36,8 +39,8 @@
   (setq flycheck-grammalecte-report-apos nil))
 
 (use-package darkroom
-  :hook (markdown-mode . darkroom-tentative-mode)
+  :hook (markdown-mode . darkroom-mode)
   :config
-  (add-hook 'darkroom-tentative-mode-hook #'visual-line-mode))
+  (add-hook 'darkroom-mode-hook #'visual-line-mode))
 
 (provide 'lang-markdown)
