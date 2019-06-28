@@ -13,19 +13,18 @@
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)
 
-(define-key xah-fly-key-map (kbd "8") 'er/expand-region)
 
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
 (define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
 (define-key xah-fly-dot-keymap (kbd "e") 'er/expand-region)
 (define-key xah-fly-dot-keymap (kbd "i") 'dumb-jump-go)
-(define-key xah-fly-dot-keymap (kbd "j") 'mc/mark-all-like-this-dwim)
-(define-key xah-fly-dot-keymap (kbd "k") 'mc/edit-lines)
+(define-key xah-fly-dot-keymap (kbd "j") 'projectile-command-map)
+(define-key xah-fly-dot-keymap (kbd "l") 'mc/mark-all-like-this-dwim)
 (define-key xah-fly-dot-keymap (kbd "n") 'web-mode-navigate)
 (define-key xah-fly-dot-keymap (kbd "o") 'dumb-jump-go-prompt)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
-(define-key xah-fly-dot-keymap (kbd "x") 'zeal-at-point-search)
+
 
 
 ;; send C-g when pressing ESC
