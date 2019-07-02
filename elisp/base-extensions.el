@@ -5,6 +5,13 @@
   :bind
   ("C-c SPC" . avy-goto-char))
 
+(use-package ace-isearch
+  :config
+  (setq ace-isearch-function-from-isearch 'ace-isearch-swiper-from-isearch)
+  (setq ace-isearch-use-jump 'printing-char)
+  (setq ace-isearch-function 'avy-goto-word-1)
+  (setq ace-isearch-input-length 4)
+  (global-ace-isearch-mode +1))
 
 (use-package company
   :config
@@ -22,6 +29,8 @@
                           (agenda . 5)
                           (registers . 5)))
   (dashboard-setup-startup-hook))
+
+(use-package deadgrep)
 
 (use-package doom-modeline
   :config
@@ -68,8 +77,6 @@
   :config
   (counsel-projectile-on))
 
-(use-package deadgrep)
-
 (use-package ivy
   :bind
   ("C-x s" . swiper)
@@ -79,6 +86,7 @@
   (setq ivy-use-virtual-buffers nil)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
+
 (use-package highlight-indent-guides
   :config
   (setq highlight-indent-guides-method 'column)
@@ -87,6 +95,10 @@
 (use-package hlinum
   :config
   (hlinum-activate))
+
+(use-package key-chord
+  :config
+  (key-chord-mode 1))
 
 (use-package linum
   :config
@@ -224,6 +236,5 @@
 ;;   (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 ;;   (xah-fly-keys 1))
 
-(use-package zeal-at-point)
 
 (provide 'base-extensions)
