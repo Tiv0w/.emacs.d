@@ -1,3 +1,7 @@
+(use-package use-package-chords
+  :config
+  (key-chord-mode 1))
+
 
 (use-package all-the-icons)
 
@@ -28,6 +32,9 @@
                           (bookmarks . 5)
                           (agenda . 5)
                           (registers . 5)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-navigator t)
   (dashboard-setup-startup-hook))
 
 (use-package deadgrep)
@@ -98,6 +105,7 @@
 
 (use-package key-chord
   :config
+  (setq key-chord-two-keys-delay 0.03)
   (key-chord-mode 1))
 
 (use-package linum
@@ -197,7 +205,14 @@
 
 (use-package scratch)
 
-(use-package smartparens)
+(use-package smartparens
+  :chords
+  (("kj" . 'sp-backward-slurp-sexp)
+   ("kl" . 'sp-forward-slurp-sexp)
+   ("ij" . 'sp-backward-barf-sexp)
+   ("il" . 'sp-forward-barf-sexp)
+   ("jl" . 'sp-slurp-hybrid-sexp)
+   ("ik" . 'sp-transpose-hybrid-sexp)))
 
 (use-package smex)
 
