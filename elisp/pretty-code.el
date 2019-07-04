@@ -27,7 +27,7 @@
     :str           "𝕊"
     :bool          "𝔹"
     ;; Flow
-    :not           "￢"
+    :not           "¬"
     :in            "∈"
     :not-in        "∉"
     :and           "∧"
