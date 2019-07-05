@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: lang get html
+# key: langgh
+# --
+
+<lang $1get="$0" />

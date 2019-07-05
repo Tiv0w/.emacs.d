@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: lang get script
+# key: langgs
+# --
+
+this.$lang.get('$0')
