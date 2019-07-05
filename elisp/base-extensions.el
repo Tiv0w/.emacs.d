@@ -69,6 +69,15 @@
 
 (use-package flycheck)
 
+(use-package god-mode
+  :config
+  (defun god-mode-update-cursor ()
+    (setq cursor-type (if god-local-mode
+                          '(hbar . 2)
+                        't)))
+  :hook
+  ((god-mode-enabled . god-mode-update-cursor)
+   (god-mode-disabled . god-mode-update-cursor)))
 
 (use-package counsel
   :bind
@@ -207,12 +216,12 @@
 
 (use-package smartparens
   :chords
-  (("kj" . 'sp-backward-slurp-sexp)
-   ("kl" . 'sp-forward-slurp-sexp)
-   ("ij" . 'sp-backward-barf-sexp)
-   ("il" . 'sp-forward-barf-sexp)
-   ("jl" . 'sp-slurp-hybrid-sexp)
-   ("ik" . 'sp-transpose-hybrid-sexp)))
+  (("kj" . sp-backward-slurp-sexp)
+   ("kl" . sp-forward-slurp-sexp)
+   ("ij" . sp-backward-barf-sexp)
+   ("il" . sp-forward-barf-sexp)
+   ("jl" . sp-slurp-hybrid-sexp)
+   ("ik" . sp-transpose-hybrid-sexp)))
 
 (use-package smex)
 
