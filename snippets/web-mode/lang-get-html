@@ -3,4 +3,4 @@
 # key: langgh
 # --
 
-<lang $1get="$0" />
+<lang get="$0" />
