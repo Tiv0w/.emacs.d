@@ -23,6 +23,7 @@
 (define-key xah-fly-dot-keymap (kbd "l") 'mc/mark-all-like-this-dwim)
 (define-key xah-fly-dot-keymap (kbd "n") 'web-mode-navigate)
 (define-key xah-fly-dot-keymap (kbd "o") 'dumb-jump-go-prompt)
+(define-key xah-fly-dot-keymap (kbd "t") 'untabify)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
 
 
