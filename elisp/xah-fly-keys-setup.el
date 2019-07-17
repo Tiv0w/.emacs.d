@@ -9,6 +9,12 @@
 (define-key xah-fly-key-map (kbd "n") 'isearch-forward-regexp)
 (define-key xah-fly-key-map (kbd "a") 'counsel-M-x)
 
+;;;;;;;;;;;;;;;;;;;;
+;; too much power ;;
+;;;;;;;;;;;;;;;;;;;;
+(define-key xah-fly-leader-key-map (kbd "m") 'major-mode-hydra)
+;;;;;;;;;;;;;;;;;;;;
+
 (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)

@@ -2,6 +2,8 @@
   :config
   (key-chord-mode 1))
 
+(use-package major-mode-hydra)
+
 
 (use-package all-the-icons)
 
@@ -16,6 +18,15 @@
   (setq ace-isearch-function 'avy-goto-word-1)
   (setq ace-isearch-input-length 4)
   (global-ace-isearch-mode +1))
+
+(use-package buffer-move
+  :pretty-hydra
+  ((:color teal :quit-key "q")
+   ("Buffer-move"
+    (("i" buf-move-up "↑")
+     ("j" buf-move-left "←")
+     ("k" buf-move-down "↓")
+     ("l" buf-move-right "→")))))
 
 (use-package company
   :config
@@ -112,6 +123,8 @@
   :config
   (hlinum-activate))
 
+(use-package hydra)
+
 (use-package key-chord
   :config
   (setq key-chord-two-keys-delay 0.03)
@@ -124,9 +137,7 @@
 
 (use-package magit
   :config
-
   (setq magit-completing-read-function 'ivy-completing-read)
-
   :bind
   ;; Magic
   ("C-x g s" . magit-status)
