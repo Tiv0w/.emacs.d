@@ -75,7 +75,16 @@
   ;; https://github.com/osv/company-web
   (use-package company-web)
 
-  (add-hook 'web-mode-hook 'company-mode))
+  (add-hook 'web-mode-hook 'company-mode)
+
+
+  :mode-hydra
+  ((:title "Web-mode" :color teal :quit-key "q")
+   ("Web-mode"
+    (("w" web-mode-element-wrap "wrap")
+     ("r" web-mode-element-rename "rename")
+     ("v" web-mode-element-vanish "vanish")
+     ("n" web-mode-navigate "navigate")))))
 
 ;; configure CSS mode company backends
 (use-package css-mode
