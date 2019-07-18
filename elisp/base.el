@@ -93,8 +93,10 @@
 (add-hook 'server-switch-hook (lambda () (select-frame-set-input-focus (selected-frame))))
 
 ;; Start with maximized frame
-(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;;works with emacsclient too yay
+(add-to-list 'default-frame-alist '(fullscreen . maximized));;works with emacsclient too yay
 ;;(toggle-frame-maximized)
+
+(add-to-list 'default-frame-alist '(alpha . 90))
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
