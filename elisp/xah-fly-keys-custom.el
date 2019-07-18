@@ -3137,6 +3137,12 @@ Version 2019-02-12"
 
 (defvar xah-fly-key-map (make-sparse-keymap) "Keybinding for `xah-fly-keys' minor mode.")
 
+(xah-fly--define-keys
+ (define-prefix-command 'xah-fly-hydra-keymap)
+ ;; this is empty. use it a (define-key xah-fly-hydra-keymap (kbd "") 'function-hydra/body)
+ '())
+
+
 ;; commands related to highlight
 (xah-fly--define-keys
  (define-prefix-command 'xah-fly-dot-keymap)
@@ -3466,7 +3472,7 @@ Version 2019-02-12"
    ("w" . xah-fly-w-keymap)
    ("x" . xah-toggle-previous-letter-case)
    ("y" . xah-show-kill-ring)
-   ;; z
+   ("z" . xah-fly-hydra-keymap)
    ;;
    ))
 
