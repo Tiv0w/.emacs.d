@@ -16,7 +16,9 @@
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2)
+        web-mode-code-indent-offset 2
+        web-mode-script-padding 0
+        web-mode-style-padding 0)
 
   (add-hook 'web-mode-hook 'jsx-flycheck)
 
@@ -58,12 +60,12 @@
     "Set `tern-mode' based on current language before running company-tern."
     (message "advice")
     (if (equal major-mode 'web-mode)
-	(let ((web-mode-cur-language
-	       (web-mode-language-at-pos)))
-	  (if (or (string= web-mode-cur-language "javascript")
-		  (string= web-mode-cur-language "jsx"))
-	      (unless tern-mode (tern-mode))
-	    (if tern-mode (tern-mode -1))))))
+        (let ((web-mode-cur-language
+               (web-mode-language-at-pos)))
+          (if (or (string= web-mode-cur-language "javascript")
+                  (string= web-mode-cur-language "jsx"))
+              (unless tern-mode (tern-mode))
+            (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
 
   ;; to get completion data for angularJS
@@ -79,12 +81,23 @@
 
 
   :mode-hydra
-  ((:title "Web-mode" :color teal :quit-key "q")
-   ("Web-mode"
-    (("w" web-mode-element-wrap "wrap")
-     ("r" web-mode-element-rename "rename")
-     ("v" web-mode-element-vanish "vanish")
-     ("n" web-mode-navigate "navigate")))))
+  ((:title "Web-mode" :color red :quit-key "q")
+   ("Navigation"
+    (("m" web-mode-navigate "navigate")
+     ("h" web-mode-element-beginning "beginning")
+     (";" web-mode-element-end "end")
+     ("k" web-mode-element-next "next")
+     ("i" web-mode-element-previous "previous")
+     ("l" web-mode-element-child "child")
+     ("h" web-mode-element-parent "parent"))
+    "Editing"
+    (("w" web-mode-element-wrap "wrap" :color blue)
+     ("c" web-mode-element-clone "clone" :color blue)
+     ("i" web-mode-element-insert "insert" :color blue)
+     ("r" web-mode-element-rename "rename" :color blue)
+     ("s" web-mode-element-select "select" :color blue)
+     ("t" web-mode-element-transpose "transpose" :color blue)
+     ("v" web-mode-element-vanish "vanish" :color blue)))))
 
 ;; configure CSS mode company backends
 (use-package css-mode
