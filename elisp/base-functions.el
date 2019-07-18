@@ -51,4 +51,25 @@
          '(85 . 50) '(100 . 100)))))
 
 
+(pretty-hydra-define multiple-cursors-hydra
+  (:title "Multiple-cursors" :color amaranth :quit-key "q")
+  ("Mark"
+   (("l" mc/mark-next-like-this "next")
+    ("j" mc/mark-previous-like-this "previous")
+    ("m" mc/mark-more-like-this-extended "more-like-this-extended" :color blue))
+   "Unmark"
+   (("h" mc/unmark-next-like-this "next")
+    (";" mc/unmark-previous-like-this "previous"))
+   "Multiple occurrences"
+   (("e" mc/edit-lines "edit-lines" :color blue)
+    ("a" mc/mark-all-like-this-dwim "mark-all-like-this-dwim"))
+   "Special"
+   (("t" mc/mark-sgml-tag-pair "mark-sgml-tag-pair" :color blue)
+    ("f" mc/insert-numbers "insert-numbers" :color blue)
+    ("g" mc/insert-letters "insert-letters" :color blue))
+   "Special 2"
+   (("s" mc/sort-regions "sort-regions" :color blue)
+    ("r" mc/reverse-regions "reverse-regions" :color blue))))
+
+
 (provide 'base-functions)
