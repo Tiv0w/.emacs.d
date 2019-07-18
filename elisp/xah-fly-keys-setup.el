@@ -19,6 +19,7 @@
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)
 
+(define-key xah-fly-hydra-keymap (kbd "j") 'multiple-cursors-hydra/body)
 
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
 (define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
@@ -32,7 +33,7 @@
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
 
-
+(define-key xah-fly-w-keymap (kbd "x") 'server-shutdown)
 
 ;; send C-g when pressing ESC
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
