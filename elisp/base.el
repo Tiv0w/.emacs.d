@@ -52,8 +52,10 @@
       indent-tabs-mode                   nil
       inhibit-startup-message            t
       fringes-outside-margins            t
-      x-select-enable-clipboard          t
+      select-enable-clipboard            t
       use-package-always-ensure          t)
+
+;; (setq use-package-verbose t)
 
 ;; Bookmarks
 (setq
