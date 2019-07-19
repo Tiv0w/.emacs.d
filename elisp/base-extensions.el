@@ -11,14 +11,6 @@
   :bind
   ("C-c SPC" . avy-goto-char))
 
-(use-package ace-isearch
-  :config
-  (setq ace-isearch-function-from-isearch 'ace-isearch-swiper-from-isearch)
-  (setq ace-isearch-use-jump 'printing-char)
-  (setq ace-isearch-function 'avy-goto-word-1)
-  (setq ace-isearch-input-length 4)
-  (global-ace-isearch-mode +1))
-
 (use-package buffer-move
   :pretty-hydra
   ((:color teal :quit-key "q")
