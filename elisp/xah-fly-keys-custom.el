@@ -3727,7 +3727,7 @@ Argument must be one of:
 Version 2019-02-12"
   (interactive)
   (setq xah-fly-key--current-layout @layout)
-  (load "xah-fly-keys"))
+  (load "xah-fly-keys-custom"))
 
 (defun xah-fly-command-mode-init ()
   "Set command mode keys.
@@ -3769,7 +3769,7 @@ Version 2017-01-21"
      ("0" . xah-pop-local-mark-ring)
 
      ("a" . execute-extended-command)
-     ("b" . isearch-forward-regexp)
+     ("b" . swiper)
      ("c" . previous-line)
      ("d" . xah-beginning-of-line-or-block)
      ("e" . delete-backward-char)
