@@ -13,17 +13,35 @@
 
 (use-package buffer-move
   :pretty-hydra
-  ((:color teal :quit-key "q")
+  ((:color red :quit-key "q")
    ("Buffer-move"
     (("i" buf-move-up "↑")
-     ("j" buf-move-left "←")
      ("k" buf-move-down "↓")
-     ("l" buf-move-right "→")))))
+     ("j" buf-move-left "←")
+     ("l" buf-move-right "→"))
+    "Switch window"
+    (("," xah-next-window-or-frame "other-window-or-frame"))
+    "Resize"
+    (("J" move-border-left "←")
+     ("K" move-border-down "↓")
+     ("I" move-border-up "↑")
+     ("L" move-border-right "→")
+     ("5" balance-windows "balance"))
+    "Split"
+    (("4" split-window-right "horizontally")
+     ("3" split-window-below "vertically"))
+    "Zoom"
+    (("+" text-scale-increase "in")
+     ("=" text-scale-increase)
+     ("-" text-scale-decrease "out")
+     ("0" text-scale-adjust "reset")))))
 
 (use-package company
+  :commands global-company-mode
+  :init
+  (add-hook 'after-init-hook #'global-company-mode)
   :config
-  (setq company-idle-delay 0)
-  (add-hook 'after-init-hook 'global-company-mode))
+  (setq company-idle-delay 0))
 
 (use-package dashboard
   :config
@@ -107,9 +125,10 @@
 
 
 (use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
   :config
-  (setq highlight-indent-guides-method 'column)
-  (add-hook 'prog-mode-hook #'highlight-indent-guides-mode))
+  (setq highlight-indent-guides-method 'column))
+  ;; (add-hook 'prog-mode-hook #'highlight-indent-guides-mode))
 
 (use-package hlinum
   :config
@@ -123,9 +142,10 @@
   (key-chord-mode 1))
 
 (use-package linum
+  :hook ((prog-mode text-mode) . linum-mode)
   :config
-  (setq linum-format " %3d ")
-  (global-linum-mode nil))
+  (setq linum-format " %3d "))
+  ;; (global-linum-mode nil))
 
 (use-package magit
   :config
@@ -155,9 +175,9 @@
   :config
   (setq neo-theme 'icons
         neo-smart-open t
-        neo-window-fixed-size nil)
+        neo-window-fixed-size nil))
   ;; Disable linum for neotree
-  (add-hook 'neo-after-create-hook #'linum-mode))
+  ;; (add-hook 'neo-after-create-hook #'(lambda (arg) (linum-mode 1))))
 
 (use-package org
   :config
@@ -168,6 +188,9 @@
   ("C-c a" . org-agenda))
 
 (use-package org-projectile
+  :bind
+  (("C-c n p" . org-projectile-project-todo-completing-read)
+   ("C-c c" . org-capture))
   :config
   (org-projectile-per-project)
   (setq org-projectile-per-project-filepath "todo.org"
@@ -191,6 +214,8 @@
   (popwin-mode 1))
 
 (use-package projectile
+  :bind
+  ("C-c p" . projectile-command-map)
   :config
   (setq projectile-known-projects-file
         (expand-file-name "projectile-bookmarks.eld" temp-dir))
@@ -251,8 +276,8 @@
 (use-package wgrep)
 
 (use-package yasnippet
-  :config
-  (yas-global-mode 1))
+  :hook
+  (prog-mode . yas-global-mode))
 
 ;; (use-package xah-fly-keys
 ;;   :config
