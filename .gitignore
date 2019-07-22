@@ -11,3 +11,4 @@ init.el~
 .persistent-scratch
 tramp
 eshell/
+*.elc
