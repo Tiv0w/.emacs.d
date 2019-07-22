@@ -182,10 +182,24 @@
 (use-package org
   :config
   (setq org-directory "~/org-files"
-        org-default-notes-file (concat org-directory "/todo.org"))
+        org-default-notes-file (concat org-directory "/todo.org")
+	org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
+	org-log-done 'time)
+
   :bind
   ("C-c l" . org-store-link)
-  ("C-c a" . org-agenda))
+  ("C-c a" . org-agenda)
+  :mode-hydra
+  (org-mode
+   (:title "Org" :color amaranth :quit-key "q")
+   ("TODO"
+    (("t" org-todo "cycle state")
+     ("y" org-insert-todo-subheading "insert"))
+    "Clock"
+    (("i" org-clock-in "in")
+     ("o" org-clock-out "out")
+     ("e" org-clock-modify-effort-estimate "update effort")
+     ("p" org-clock-evaluate-time-range "compute time")))))
 
 (use-package org-projectile
   :bind
