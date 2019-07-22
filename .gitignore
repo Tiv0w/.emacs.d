@@ -12,3 +12,4 @@ init.el~
 tramp
 eshell/
 *.elc
+emojis/
