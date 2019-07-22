@@ -191,14 +191,14 @@
   ("C-c a" . org-agenda)
   :mode-hydra
   (org-mode
-   (:title "Org" :color amaranth :quit-key "q")
+   (:title "Org" :color blue :quit-key "q")
    ("TODO"
-    (("t" org-todo "cycle state")
+    (("t" org-todo "cycle state" :color amaranth)
      ("y" org-insert-todo-subheading "insert"))
     "Clock"
     (("i" org-clock-in "in")
      ("o" org-clock-out "out")
-     ("e" org-clock-modify-effort-estimate "update effort")
+     ("e" org-clock-modify-effort-estimate "update effort" :color amaranth)
      ("p" org-clock-evaluate-time-range "compute time")))))
 
 (use-package org-projectile
