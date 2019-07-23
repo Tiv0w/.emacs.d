@@ -43,6 +43,24 @@
   :config
   (setq company-idle-delay 0))
 
+(use-package counsel-spotify
+  :config
+  (setq counsel-spotify-client-id "515f0ff545a349bcadf98efab945972f"
+	counsel-spotify-client-secret "7618bf445df14b568782b13e37cf63e6")
+  :pretty-hydra
+  ((:title "Counsel-Spotify" :color amaranth :quit-key "q")
+   ("Commands"
+    (("p" counsel-spotify-previous "previous")
+     ("n" counsel-spotify-next "next")
+     ("SPC" counsel-spotify-toggle-play-pause "play/pause")
+     ("x" counsel-spotify-play "play (unused)"))
+    "Search"
+    (("a" counsel-spotify-search-artist "artist" :color blue)
+     ("b" counsel-spotify-search-album "album" :color blue)
+     ("t" counsel-spotify-search-track "track" :color blue)
+     ("r" counsel-spotify-search-tracks-by-artist "tracks-by-artist" :color blue)
+     ("e" counsel-spotify-search-tracks-by-albums "tracks-by-albums" :color blue)))))
+
 (use-package dashboard
   :config
   (setq dashboard-startup-banner "~/.emacs.d/private/logos/scream2.png")
@@ -239,10 +257,10 @@
 
   ;; Projectile setup for npm
   (projectile-register-project-type 'npm '("package.json")
-                  :compile "npm install"
-                  :test "npm test"
-                  :run "npm run serve"
-                  :test-suffix ".spec")
+				    :compile "npm install"
+				    :test "npm test"
+				    :run "npm run serve"
+				    :test-suffix ".spec")
 
   (projectile-global-mode))
 
