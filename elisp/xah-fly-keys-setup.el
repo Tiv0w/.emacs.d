@@ -20,13 +20,16 @@
 ;;;;;;;;;;;;;;;;;;;;
 (define-key xah-fly-leader-key-map (kbd "7") 'magit-status)
 (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
-(define-key xah-fly-leader-key-map (kbd "p") 'multiple-cursors-hydra/body)
+(define-key xah-fly-leader-key-map (kbd "p") 'projectile-command-map)
+(define-key xah-fly-leader-key-map (kbd "q") 'exchange-point-and-mark)
+(define-key xah-fly-leader-key-map (kbd "s") 'multiple-cursors-hydra/body)
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)
 
 ;; hydra key map
 (define-key xah-fly-hydra-keymap (kbd "b") 'buffer-move-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "SPC") 'multiple-cursors-hydra/body)
+(define-key xah-fly-hydra-keymap (kbd "s") 'counsel-spotify-hydra/body)
 
 ;; dot key map
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
