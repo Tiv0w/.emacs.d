@@ -66,7 +66,12 @@
   "ouipou"
   (interactive)
   (ivy-read "Choose a gitmoji: "
-		 gitmoji--all-emoji
+	    (mapcar (lambda (x)
+		      (cons (concat (cdr x)
+				    " — "
+				    (car x))
+			    x))
+		    gitmoji--all-emoji)
 	    :action (lambda (x)
-		      (insert (cdr x))
+		      (insert (cdr (cdr x)))
 		      (insert " "))))
