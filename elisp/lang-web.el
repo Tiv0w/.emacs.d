@@ -93,7 +93,7 @@
     "Editing"
     (("w" web-mode-element-wrap "wrap" :color blue)
      ("c" web-mode-element-clone "clone" :color blue)
-     ("i" web-mode-element-insert "insert" :color blue)
+     ("u" web-mode-element-insert "insert" :color blue)
      ("r" web-mode-element-rename "rename" :color blue)
      ("s" web-mode-element-select "select" :color blue)
      ("t" web-mode-element-transpose "transpose" :color blue)
