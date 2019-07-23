@@ -203,7 +203,6 @@
         org-default-notes-file (concat org-directory "/todo.org")
 	org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
 	org-log-done 'time)
-
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
@@ -217,7 +216,7 @@
     (("i" org-clock-in "in")
      ("o" org-clock-out "out")
      ("e" org-clock-modify-effort-estimate "update effort" :color amaranth)
-     ("p" org-clock-evaluate-time-range "compute time")))))
+     ("p" org-clock-update-time-maybe "compute time")))))
 
 (use-package org-projectile
   :bind
