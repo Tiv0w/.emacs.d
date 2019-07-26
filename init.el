@@ -9,7 +9,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;; (package-initialize)
 
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
@@ -22,34 +22,34 @@
 (require 'pretty-code)
 
 
-(require 'lang-python)
+;; (require 'lang-python)
 
-(require 'lang-ruby)
+;; (require 'lang-ruby)
 
-(require 'lang-go)
+;; (require 'lang-go)
 
-(require 'lang-php)
+;; (require 'lang-php)
 
 (require 'lang-web)
 
 (require 'lang-javascript)
 
-(require 'lang-haskell)
+;; (require 'lang-haskell)
 
-(require 'lang-elixir)
+;; (require 'lang-elixir)
 
-(require 'lang-rust)
+;; (require 'lang-rust)
 
-(require 'lang-racket)
+;; (require 'lang-racket)
 
-(require 'lang-c)
+;; (require 'lang-c)
 
 (require 'lang-vue)
 
-(require 'lang-markdown)
+;; (require 'lang-markdown)
 
-(require 'lang-clojure)
+;; (require 'lang-clojure)
 
-(require 'lang-latex)
+;; (require 'lang-latex)
 
 (require 'xah-fly-keys-setup)
