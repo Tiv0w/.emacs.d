@@ -142,6 +142,8 @@
   ((god-mode-enabled . god-mode-update-cursor)
    (god-mode-disabled . god-mode-update-cursor)))
 
+(use-package helpful)
+
 (use-package counsel
   :bind
   ("M-x" . counsel-M-x)

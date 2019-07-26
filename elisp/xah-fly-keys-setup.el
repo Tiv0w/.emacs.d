@@ -47,6 +47,11 @@
 ;; w key map
 (define-key xah-fly-w-keymap (kbd "x") 'server-shutdown)
 
+;; h key map
+(define-key xah-fly-h-keymap (kbd "j") 'helpful-callable)
+(define-key xah-fly-h-keymap (kbd "k") 'helpful-at-point)
+(define-key xah-fly-h-keymap (kbd "l") 'helpful-variable)
+(define-key xah-fly-h-keymap (kbd "v") 'helpful-key)
 
 ;; send C-g when pressing ESC
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
