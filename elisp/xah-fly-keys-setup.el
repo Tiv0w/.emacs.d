@@ -43,6 +43,9 @@
 (define-key xah-fly-dot-keymap (kbd "o") 'dumb-jump-go-prompt)
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
+;; keybinds for git commit
+(define-key xah-fly-dot-keymap (kbd ";") 'with-editor-finish)
+(define-key xah-fly-dot-keymap (kbd "k") 'with-editor-cancel)
 
 ;; w key map
 (define-key xah-fly-w-keymap (kbd "x") 'server-shutdown)
