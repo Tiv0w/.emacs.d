@@ -62,16 +62,15 @@
     ("Work about Kubernetes" . ":wheel_of_dharma:")
     ("Adding or updating types (Flow, TypeScript)" . ":label:")))
 
-(defun gitmoji-list-all ()
-  "ouipou"
+(defun gitmoji-picker ()
+  "Choose a gitmoji."
   (interactive)
   (ivy-read "Choose a gitmoji: "
-	    (mapcar (lambda (x)
-		      (cons (concat (cdr x)
-				    " — "
-				    (car x))
-			    x))
-		    gitmoji--all-emoji)
-	    :action (lambda (x)
-		      (insert (cdr (cdr x)))
-		      (insert " "))))
+            (mapcar (lambda (x)
+                      (cons
+                       (concat (cdr x) " — " (car x))
+                       x))
+                    gitmoji--all-emoji)
+            :action (lambda (x)
+                      (insert (cdr (cdr x)))
+                      (insert " "))))
