@@ -3799,6 +3799,9 @@ Version 2017-01-21"
   (define-key xah-fly-key-map (kbd (xah-fly--key-char "a"))
     (if (fboundp 'counsel-M-x) 'counsel-M-x (if (fboundp 'helm-M-x) 'helm-M-x 'execute-extended-command)))
 
+  (define-key xah-fly-leader-key-map (kbd (xah-fly--key-char "f"))
+    (if (fboundp 'swiper-thing-at-point) 'swiper-thing-at-point 'xah-search-current-word))
+
   ;; (when xah-fly-swapped-1-8-and-2-7-p
   ;;     (xah-fly--define-keys
   ;;      xah-fly-key-map
