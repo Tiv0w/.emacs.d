@@ -12,6 +12,8 @@
   ("C-c SPC" . avy-goto-char))
 
 (use-package buffer-move
+  :init
+  (require 'move-border)
   :pretty-hydra
   ((:color red :quit-key "q")
    ("Buffer-move"
@@ -117,6 +119,11 @@
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
+
+(use-package elcord
+  :config
+  (setq elcord-use-major-mode-as-main-icon t)
+  (elcord-mode 1))
 
 (use-package exec-path-from-shell
   :config
