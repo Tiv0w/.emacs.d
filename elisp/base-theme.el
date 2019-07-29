@@ -9,6 +9,5 @@
   :init
   (load-theme 'doom-Iosvkem t))
 
-(set-face-font 'default "Fira Mono")
 
 (provide 'base-theme)

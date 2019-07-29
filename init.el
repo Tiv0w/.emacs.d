@@ -15,6 +15,7 @@
 
 (require 'base)
 (require 'base-theme)
+(require 'base-font)
 (require 'base-extensions)
 (require 'base-functions)
 (require 'base-global-keys)
