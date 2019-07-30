@@ -7,7 +7,7 @@
   :defer nil
   :demand t
   :init
-  (load-theme 'doom-Iosvkem t))
+  (load-theme 'doom-vibrant t))
 
 
 (provide 'base-theme)
