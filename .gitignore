@@ -13,3 +13,7 @@ tramp
 eshell/
 *.elc
 emojis/
+image-dired/
+persp-confs/
+projectile-bookmarks.eld
+.lsp-session-v1
