@@ -122,8 +122,7 @@
 
 (use-package elcord
   :config
-  (setq elcord-use-major-mode-as-main-icon t)
-  (elcord-mode 1))
+  (setq elcord-use-major-mode-as-main-icon t))
 
 (use-package exec-path-from-shell
   :config
