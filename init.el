@@ -58,6 +58,7 @@
 
 (require 'xah-fly-keys-setup)
 
+(message "The almighty editor started in %s." (emacs-init-time))
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))

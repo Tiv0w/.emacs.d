@@ -194,8 +194,7 @@
 
 (use-package key-chord
   :config
-  (setq key-chord-two-keys-delay 0.03)
-  (key-chord-mode 1))
+  (setq key-chord-two-keys-delay 0.03))
 
 (use-package linum
   :hook ((prog-mode text-mode) . linum-mode)
