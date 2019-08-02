@@ -8,7 +8,8 @@
   "Save buffers, Quit, and Shutdown (kill) server"
   (interactive)
   (save-some-buffers)
-  (kill-emacs))
+  (when (y-or-n-p "Really shutdown the server ?")
+    (kill-emacs)))
 
 ;; neotree intergration with projectile
 (defun neotree-project-dir ()

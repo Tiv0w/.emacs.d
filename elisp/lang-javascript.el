@@ -8,7 +8,7 @@
                ("C-c C-l" . js-load-file-and-go)))
   :mode
   ("\\.js$" . js2-mode)
-  ("\\.json$" . js2-jsx-mode)
+  ;; ("\\.json$" . js2-jsx-mode)
   :config
   (custom-set-variables '(js2-strict-inconsistent-return-warning nil))
   (custom-set-variables '(js2-strict-missing-semi-warning nil))
@@ -50,7 +50,7 @@
     (js2r-add-keybindings-with-prefix "C-c j r"))
   (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
-(set-pretty-symbols! '(js2-mode rjsx-mode web-mode)
+(set-pretty-symbols! '(js2-mode rjsx-mode web-mode js-mode)
     ;; Functional
     :def "function"
     :lambda "() =>"
