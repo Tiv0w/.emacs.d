@@ -72,5 +72,18 @@
    (("s" mc/sort-regions "sort-regions" :color blue)
     ("r" mc/reverse-regions "reverse-regions" :color blue))))
 
+(pretty-hydra-define transpose-hydra
+  (:title "Transpose" :color pink :quit-key "q")
+  ("Normal"
+   (("s" transpose-chars "chars")
+    ("d" transpose-words "words")
+    ("f" transpose-lines "lines")
+    ("a" transpose-sentences "sentences")
+    ("g" transpose-paragraphs "paragraphs"))
+   "Sexps"
+   (("w" transpose-sexps "normal")
+    ("e" sp-transpose-sexp "sp")
+    ("r" sp-transpose-hybrid-sexp "sp hybrid"))))
+
 
 (provide 'base-functions)

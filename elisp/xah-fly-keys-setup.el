@@ -30,6 +30,7 @@
 (define-key xah-fly-hydra-keymap (kbd "b") 'buffer-move-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "SPC") 'multiple-cursors-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "s") 'counsel-spotify-hydra/body)
+(define-key xah-fly-hydra-keymap (kbd "t") 'transpose-hydra/body)
 
 ;; dot key map
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
