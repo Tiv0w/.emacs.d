@@ -74,3 +74,14 @@
             :action (lambda (x)
                       (insert (cdr (cdr x)))
                       (insert " "))))
+
+;;;###autoload
+(define-minor-mode gitmoji-chooser-mode
+  "Toggle gitmoji-chooser mode"
+  :init-value nil
+  :lighter " Gitmoji"
+  (if gitmoji-chooser-mode
+      (add-hook 'git-commit-mode-hook 'gitmoji-picker)
+    (remove-hook 'git-commit-mode-hook 'gitmoji-picker)))
+
+(provide 'gitmoji-chooser)
