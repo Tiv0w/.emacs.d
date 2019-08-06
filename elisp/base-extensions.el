@@ -48,7 +48,7 @@
 (use-package counsel-spotify
   :config
   (setq counsel-spotify-client-id "515f0ff545a349bcadf98efab945972f"
-	counsel-spotify-client-secret "7618bf445df14b568782b13e37cf63e6")
+        counsel-spotify-client-secret "7618bf445df14b568782b13e37cf63e6")
   :pretty-hydra
   ((:title "Counsel-Spotify" :color amaranth :quit-key "q")
    ("Commands"
@@ -159,21 +159,21 @@
 (use-package ibuffer-vc
   :config
   (setq ibuffer-formats
-	'((mark modified read-only vc-status-mini " "
-		(name 18 18 :left :elide)
-		" "
-		(size 9 -1 :right)
-		" "
-		(mode 16 16 :left :elide)
-		" "
-		(vc-status 16 16 :left)
-		" "
-		vc-relative-file)))
+        '((mark modified read-only vc-status-mini " "
+                (name 18 18 :left :elide)
+                " "
+                (size 9 -1 :right)
+                " "
+                (mode 16 16 :left :elide)
+                " "
+                (vc-status 16 16 :left)
+                " "
+                vc-relative-file)))
   (add-hook 'ibuffer-hook
-	    (lambda ()
-	      (ibuffer-vc-set-filter-groups-by-vc-root)
-	      (unless (eq ibuffer-sorting-mode 'alphabetic)
-		(ibuffer-do-sort-by-alphabetic)))))
+            (lambda ()
+              (ibuffer-vc-set-filter-groups-by-vc-root)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic)))))
 
 (use-package counsel
   :bind
@@ -257,8 +257,8 @@
   :config
   (setq org-directory "~/org-files"
         org-default-notes-file (concat org-directory "/todo.org")
-	org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
-	org-log-done 'time)
+        org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
+        org-log-done 'time)
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
@@ -290,6 +290,15 @@
             (lambda ()
               (org-bullets-mode t))))
 
+(use-package parrot
+  :hook (prog-mode . parrot-mode)
+  :config
+  (parrot-set-parrot-type 'default)
+  (dolist (entry '((:rot ("let" "const" "var"))
+                   (:rot ("beforeCreate" "created" "beforeMount" "mounted" "beforeDestroy" "destroyed"))
+                   (:rot ("$off" "$emit"))))
+    (add-to-list 'parrot-rotate-dict entry)))
+
 (use-package page-break-lines)
 
 (use-package persistent-scratch
@@ -312,10 +321,10 @@
 
   ;; Projectile setup for npm
   (projectile-register-project-type 'npm '("package.json")
-				    :compile "npm install"
-				    :test "npm test"
-				    :run "npm run serve"
-				    :test-suffix ".spec")
+                                    :compile "npm install"
+                                    :test "npm test"
+                                    :run "npm run serve"
+                                    :test-suffix ".spec")
 
   (projectile-global-mode))
 
