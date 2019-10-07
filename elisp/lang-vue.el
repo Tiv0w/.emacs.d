@@ -7,6 +7,7 @@
 (defun my-vue-mode-hook ()
   (use-package flycheck
     :hook ((web-mode js2-mode) . flycheck-mode)
+    :after add-node-modules-path
     :config
     ;; disable jshint since we prefer eslint checking
     (flycheck-add-mode 'javascript-eslint 'web-mode)
@@ -17,6 +18,15 @@
       (flycheck-select-checker 'javascript-eslint))
     (flycheck-mode)))
 
+(defun my/use-eslint-from-node-modules ()
+  "Gets eslint exe from local path."
+  (let (eslint)
+    (setq eslint (projectile-expand-root "node_modules/eslint/bin/eslint.js"))
+    (setq flycheck-eslintrc (projectile-expand-root ".eslintrc.js"))
+    (setq-default flycheck-javascript-eslint-executable eslint)))
+
+(use-package add-node-modules-path
+  :hook web-mode)
 
 (use-package web-mode
   :config
@@ -28,7 +38,8 @@
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-enable-auto-closing t))
 
-(add-hook 'web-mode-hook 'my-vue-mode-hook)
+(add-hook 'web-mode-hook #'my-vue-mode-hook)
+(add-hook 'web-mode-hook #'my/use-eslint-from-node-modules)
 
 (add-to-list 'auto-mode-alist '("\\.vue$" . web-mode))
 
