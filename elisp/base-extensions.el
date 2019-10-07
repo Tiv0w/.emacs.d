@@ -65,7 +65,7 @@
 
 (use-package dashboard
   :config
-  (setq dashboard-startup-banner "~/.emacs.d/private/logos/scream2.png")
+  (setq dashboard-startup-banner "~/.emacs.d/private/logos/logo.png")
   (setq dashboard-banner-logo-title
         "Vous entrez dans le monde de la peur et des poignets cassés")
   (setq dashboard-items '((recents . 5)
