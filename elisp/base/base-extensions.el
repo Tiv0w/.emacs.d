@@ -154,16 +154,6 @@
 
 (use-package flycheck)
 
-(use-package god-mode
-  :config
-  (defun god-mode-update-cursor ()
-    (setq cursor-type (if god-local-mode
-                          '(hbar . 2)
-                        't)))
-  :hook
-  ((god-mode-enabled . god-mode-update-cursor)
-   (god-mode-disabled . god-mode-update-cursor)))
-
 (use-package helpful
   :commands (helpful-callable
 	     helpful-at-point
