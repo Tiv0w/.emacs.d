@@ -12,6 +12,7 @@
   ("C-c SPC" . avy-goto-char))
 
 (use-package buffer-move
+  :commands buffer-move-hydra/body
   :init
   (require 'move-border)
   :pretty-hydra
@@ -46,6 +47,7 @@
   (setq company-idle-delay 0))
 
 (use-package counsel-spotify
+  :commands counsel-spotify-hydra/body
   :config
   (setq counsel-spotify-client-id "515f0ff545a349bcadf98efab945972f"
         counsel-spotify-client-secret "7618bf445df14b568782b13e37cf63e6")
@@ -80,7 +82,8 @@
   (setq dashboard-set-navigator t)
   (dashboard-setup-startup-hook))
 
-(use-package deadgrep)
+(use-package deadgrep
+  :commands deadgrep)
 
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
@@ -119,16 +122,21 @@
   :hook (after-init . doom-modeline-mode))
 
 (use-package dumb-jump
+  :commands (dumb-jump-go
+	     dumb-jump-go-prompt
+	     dumb-jump-back)
   :config
   (setq dumb-jump-selector 'ivy))
 
 (use-package ediff
+  :commands ediff
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
 
 (use-package elcord
+  :commands elcord-mode
   :config
   (setq elcord-use-major-mode-as-main-icon t))
 
@@ -156,9 +164,14 @@
   ((god-mode-enabled . god-mode-update-cursor)
    (god-mode-disabled . god-mode-update-cursor)))
 
-(use-package helpful)
+(use-package helpful
+  :commands (helpful-callable
+	     helpful-at-point
+	     helpful-variable
+	     helpful-key))
 
 (use-package ibuffer-vc
+  :commands ibuffer
   :config
   (setq ibuffer-formats
         '((mark modified read-only vc-status-mini " "
@@ -350,7 +363,8 @@
      (";" restclient-jump-next "next")
      ("SPC" restclient-http-send-current "send")))))
 
-(use-package scratch)
+(use-package scratch
+  :commands scratch)
 
 (use-package smartparens
   :chords
@@ -361,7 +375,8 @@
    ("jl" . sp-slurp-hybrid-sexp)
    ("ik" . sp-transpose-hybrid-sexp)))
 
-(use-package smex)
+(use-package smex
+  :commands smex)
 
 (use-package undo-tree
   :config
@@ -383,7 +398,8 @@
   ("S-<left>" . windmove-left)
   ("S-<right>" . windmove-right))
 
-(use-package wgrep)
+(use-package wgrep
+  :defer t)
 
 (use-package yasnippet
   :hook
