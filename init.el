@@ -14,7 +14,10 @@
 ;; You may delete these explanatory comments.
 ;; (package-initialize)
 
-(add-to-list 'load-path (concat user-emacs-directory "elisp"))
+(let ((default-directory (concat user-emacs-directory "elisp")))
+  (add-to-list 'load-path default-directory)
+  (normal-top-level-add-subdirs-to-load-path))
+
 
 (require 'base)
 (require 'base-theme)

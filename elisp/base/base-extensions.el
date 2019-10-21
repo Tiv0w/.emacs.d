@@ -176,6 +176,7 @@
                 (ibuffer-do-sort-by-alphabetic)))))
 
 (use-package counsel
+  :demand t
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-m" . counsel-M-x)
@@ -328,6 +329,9 @@
 
   (projectile-global-mode))
 
+(use-package rainbow-mode
+  :hook prog-mode)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -335,6 +339,14 @@
   :config
   (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
   (recentf-mode 1))
+
+(use-package restclient
+  :mode-hydra
+  ((:title "Restclient-mode" :color blue :quit-key "q")
+   ("Restclient"
+    (("j" restclient-jump-prev "prev")
+     (";" restclient-jump-next "next")
+     ("SPC" restclient-http-send-current "send")))))
 
 (use-package scratch)
 
