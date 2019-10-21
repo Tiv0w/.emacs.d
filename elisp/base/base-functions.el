@@ -4,12 +4,14 @@
 ;;    (do-something))
 
 ;; function to shutdown emacs server instance
-(defun server-shutdown ()
+(defun server-shutdown (&optional no-confirm)
   "Save buffers, Quit, and Shutdown (kill) server"
   (interactive)
   (save-some-buffers)
-  (when (y-or-n-p "Really shutdown the server ?")
-    (kill-emacs)))
+  (if no-confirm
+    (kill-emacs)
+    (when (y-or-n-p "Really shutdown the server ?")
+      (kill-emacs))))
 
 ;; neotree intergration with projectile
 (defun neotree-project-dir ()
@@ -33,7 +35,7 @@
 
 
 ;; Transparency support ?
-;; Works well on Emacs 26.2 built with toolkit=lucid on Manjaro Gnome
+;; Works well on Emacs 26.{2,3} built with toolkit={lucid,gtk} on Manjaro
 (defun transparency (value)
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive "nTransparency Value 0 - 100 opaque:")
