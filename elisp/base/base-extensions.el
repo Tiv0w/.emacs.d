@@ -351,7 +351,8 @@
    ("Restclient"
     (("j" restclient-jump-prev "prev")
      (";" restclient-jump-next "next")
-     ("SPC" restclient-http-send-current "send")))))
+     ("SPC" restclient-http-send-current-stay-in-window "send & stay")
+     ("SPC" restclient-http-send-current "send & go")))))
 
 (use-package scratch
   :commands scratch)

@@ -1,7 +1,7 @@
 
 (use-package clojure-mode
   :mode-hydra
-  ((:title "Clojure" :color amaranth :quit-key "q")
+  ((:title "Clojure" :color blue :quit-key "q")
    ("Essential"
     (("a" cider-jack-in "jack-in !")
      ("b" cider-load-buffer "load buffer")

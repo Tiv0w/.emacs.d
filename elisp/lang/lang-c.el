@@ -89,7 +89,7 @@
 (add-hook 'c-mode-hook 'alexott/cedet-hook)
 (add-hook 'c++-mode-hook 'alexott/cedet-hook)
 
-(set-pretty-symbols! '(c-mode c++-mode)
+(set-pretty-symbols! '(c-mode c++-mode cc-mode)
     ;; Functional
     ;; :def "void "
     ;; Types
