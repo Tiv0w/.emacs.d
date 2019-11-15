@@ -118,7 +118,9 @@
 (use-package doom-modeline
   :config
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
+  (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-icon t)
+  (display-battery-mode)
   :hook (after-init . doom-modeline-mode))
 
 (use-package dumb-jump
@@ -152,6 +154,9 @@
   :bind
   ("C-=" . er/expand-region))
 
+;; (use-package fancy-battery
+;;   :hook (doom-modeline-mode . fancy-battery-mode))
+
 (use-package flycheck)
 
 (use-package helpful
@@ -161,7 +166,6 @@
 	     helpful-key))
 
 (use-package ibuffer-vc
-  :commands ibuffer
   :config
   (setq ibuffer-formats
         '((mark modified read-only vc-status-mini " "

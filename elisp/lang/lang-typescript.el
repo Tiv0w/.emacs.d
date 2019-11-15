@@ -3,18 +3,20 @@
 
 (use-package typescript-mode
   :mode-hydra
-  ((:title "Typescript-mode" :color red :quit-key "q")
+  ((:title "Typescript-mode" :color blue :quit-key "q")
    ("Navigation"
     (("m" tide-jump-to-definition "jump to def")
      ("," tide-jump-back "jump back")
      ("." tide-jump-to-implementation "jump to impl"))
     "Editing"
-    (("s" tide-rename-symbol "rename symbol" :color blue)
-     ("d" tide-rename-file "rename file" :color blue)
-     ("f" tide-fix "fix" :color blue)
-     ("r" tide-refactor "refactor" :color blue)
-     ("s" tide-organize-imports "select" :color blue)
-     ("t" tide-add-tslint-disable-next-line "tslint disable" :color blue))))
+    (("s" tide-rename-symbol "rename symbol")
+     ("a" tide-rename-file "rename file")
+     ("f" tide-fix "fix")
+     ("r" tide-refactor "refactor"))
+    "Misc"
+    (("o" tide-organize-imports "organize imports")
+     ("d" tide-jsdoc-template "jsdoc")
+     ("t" tide-add-eslint-disable-next-line "eslint disable"))))
   :config
   (set-pretty-symbols! 'typescript-mode
     ;; Functional
@@ -41,15 +43,15 @@
   :after (typescript-mode add-node-modules-path)
   :config
   (setq-default flycheck-disabled-checkers
-		(append flycheck-disabled-checkers
-			'(javascript-jshint)))
+                (append flycheck-disabled-checkers
+                        '(javascript-jshint)))
   ;; we prefer tslint to eslint, hence the order
   (cond ;; ((executable-find "tslint")
-	;;  (flycheck-add-mode 'typescript-tslint 'typescript-mode)
-	;;  (flycheck-select-checker 'typescript-tslint))
-	((executable-find "eslint")
-	 (flycheck-add-mode 'javascript-eslint 'typescript-mode)
-	 (flycheck-select-checker 'javascript-eslint)))
+   ;;  (flycheck-add-mode 'typescript-tslint 'typescript-mode)
+   ;;  (flycheck-select-checker 'typescript-tslint))
+   ((executable-find "eslint")
+    (flycheck-add-mode 'javascript-eslint 'typescript-mode)
+    (flycheck-select-checker 'javascript-eslint)))
   (flycheck-mode))
 
 (use-package tide
@@ -59,7 +61,32 @@
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save))
   :config
-  (eldoc-mode +1))
+  (eldoc-mode +1)
+
+  (defconst tide-eslint-disable-next-line-regexp
+    "\\s *//\\s *eslint-disable-next-line\\s *:\\(.*\\)"
+    "Regexp matching an eslint flag disabling rules on the next line.")
+
+  (defun tide-add-eslint-disable-next-line ()
+    "Add an eslint flag to disable rules generating errors at point."
+    (interactive)
+    (let ((error-ids (delq nil (tide-get-flycheck-errors-ids-at-point)))
+          (start (point)))
+      (when error-ids
+        (save-excursion
+          (if (and (eq 0 (forward-line -1))
+                   (looking-at tide-eslint-disable-next-line-regexp))
+              ;; We'll update the old flag.
+              (let ((old-list (split-string (match-string 1))))
+                (delete-region (point) (point-at-eol))
+                (setq error-ids (append old-list error-ids)))
+            ;; We'll create a new flag.
+            (goto-char start)
+            (beginning-of-line)
+            (open-line 1))
+          (insert "// eslint-disable-next-line:"
+                  (string-join error-ids " "))
+          (typescript-indent-line))))))
 
 (use-package eslintd-fix
   :hook (typescript-mode . eslintd-fix-mode))
