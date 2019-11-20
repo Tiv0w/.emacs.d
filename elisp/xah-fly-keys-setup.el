@@ -34,7 +34,7 @@
 
 ;; dot key map
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
-(define-key xah-fly-dot-keymap (kbd "SPC") 'projectile-command-map)
+(define-key xah-fly-dot-keymap (kbd "SPC") 'counsel-rg)
 (define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
 (define-key xah-fly-dot-keymap (kbd "e") 'er/expand-region)
@@ -44,6 +44,7 @@
 (define-key xah-fly-dot-keymap (kbd "l") 'mc/mark-all-like-this-dwim)
 (define-key xah-fly-dot-keymap (kbd "n") 'web-mode-navigate)
 (define-key xah-fly-dot-keymap (kbd "o") 'dumb-jump-go-prompt)
+(define-key xah-fly-dot-keymap (kbd "p") 'projectile-command-map)
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
 ;; keybinds for git commit

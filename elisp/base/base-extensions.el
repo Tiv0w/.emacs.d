@@ -208,6 +208,15 @@
   (setq ivy-use-virtual-buffers nil)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
+(use-package ivy-rich
+  :after ivy
+  :config
+  (ivy-rich-mode 1))
+
+;; (use-package all-the-icons-ivy
+;;   :after ivy
+;;   :config
+;;   (all-the-icons-ivy-setup))
 
 (use-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode)
