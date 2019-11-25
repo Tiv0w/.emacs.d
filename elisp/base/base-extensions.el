@@ -360,12 +360,13 @@
 
 (use-package restclient
   :mode-hydra
-  ((:title "Restclient-mode" :color blue :quit-key "q")
+  (restclient-mode
+   (:color blue :quit-key "q")
    ("Restclient"
     (("j" restclient-jump-prev "prev")
      (";" restclient-jump-next "next")
      ("SPC" restclient-http-send-current-stay-in-window "send & stay")
-     ("SPC" restclient-http-send-current "send & go")))))
+     ("RET" restclient-http-send-current "send & go")))))
 
 (use-package scratch
   :commands scratch)

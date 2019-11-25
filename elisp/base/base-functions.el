@@ -99,4 +99,14 @@
     ("r" sp-transpose-hybrid-sexp "sp hybrid"))))
 
 
+(pretty-hydra-define smerge-hydra
+  (:title "Smerge" :color pink :quit-key "q")
+  ("Navigation"
+   (("o" smerge-next "next")
+    ("u" smerge-prev "prev"))
+   "Smerging"
+   (("f" smerge-keep-current "current")
+    ("e" smerge-keep-mine "mine/upper")
+    ("w" smerge-keep-other "other/lower"))))
+
 (provide 'base-functions)
