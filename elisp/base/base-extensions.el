@@ -85,6 +85,9 @@
 (use-package deadgrep
   :commands deadgrep)
 
+(use-package diff-hl
+  :hook (prog-mode . diff-hl-mode))
+
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
 
@@ -164,6 +167,9 @@
 	     helpful-at-point
 	     helpful-variable
 	     helpful-key))
+
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
 
 (use-package ibuffer-vc
   :config
@@ -254,6 +260,10 @@
   ("C-x g r" . magit-rebase-interactive))
 
 (use-package magit-popup)
+
+(use-package magit-todos
+  :after magit
+  :hook (magit-mode . magit-todos-mode))
 
 (use-package multiple-cursors
   :bind
