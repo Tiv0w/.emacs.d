@@ -64,6 +64,14 @@
               100)
          '(85 . 50) '(100 . 100)))))
 
+(defun counsel-rg-thing-at-point ()
+  "`counsel-rg' with `ivy-thing-at-point'."
+  (interactive)
+  (let ((thing (ivy-thing-at-point)))
+    (when (use-region-p)
+      (deactivate-mark))
+    (counsel-rg (regexp-quote thing))))
+
 
 (pretty-hydra-define multiple-cursors-hydra
   (:title "Multiple-cursors" :color amaranth :quit-key "q")
