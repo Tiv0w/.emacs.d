@@ -2,6 +2,7 @@
 
 ;; markdown-mode setup
 (use-package markdown-mode
+  :mode "\\.md\\"
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t
@@ -14,10 +15,12 @@
         markdown-gfm-uppercase-checkbox t))
 
 ;; to generate markdown table of contents
-(use-package markdown-toc)
+(use-package markdown-toc
+  :after markdown-mode)
 
 ;; super simple live preview, with the flymd-flyit command
 (use-package flymd
+  :after markdown-mode
   :config
   (defun my-flymd-browser-function (url)
     (let ((browse-url-browser-function 'browse-url-firefox))

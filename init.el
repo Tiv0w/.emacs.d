@@ -30,33 +30,21 @@
 
 
 ;; (require 'lang-python)
-
 ;; (require 'lang-ruby)
-
 ;; (require 'lang-go)
-
 ;; (require 'lang-php)
-
-(require 'lang-web)
-
-(require 'lang-javascript)
-
 ;; (require 'lang-haskell)
-
 ;; (require 'lang-elixir)
-
 ;; (require 'lang-rust)
-
 ;; (require 'lang-racket)
-
-(require 'lang-c)
-
-(require 'lang-vue)
-
-;; (require 'lang-markdown)
-
 ;; (require 'lang-clojure)
+(require 'lang-c)
+(require 'lang-web)
+(require 'lang-javascript)
+(require 'lang-vue)
+(require 'lang-typescript)
 
+(require 'lang-markdown)
 ;; (require 'lang-latex)
 
 (require 'xah-fly-keys-setup)
