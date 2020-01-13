@@ -230,21 +230,11 @@
   (setq highlight-indent-guides-method 'column))
   ;; (add-hook 'prog-mode-hook #'highlight-indent-guides-mode))
 
-(use-package hlinum
-  :config
-  (hlinum-activate))
-
 (use-package hydra)
 
 (use-package key-chord
   :config
   (setq key-chord-two-keys-delay 0.03))
-
-(use-package linum
-  :hook ((prog-mode text-mode) . linum-mode)
-  :config
-  (setq linum-format " %3d "))
-  ;; (global-linum-mode nil))
 
 (use-package magit
   :config
@@ -281,6 +271,11 @@
         neo-window-fixed-size nil))
   ;; Disable linum for neotree
   ;; (add-hook 'neo-after-create-hook #'(lambda (arg) (linum-mode 1))))
+
+(use-package nlinum
+  :hook ((prog-mode text-mode conf-mode) . nlinum-mode)
+  :config
+  (setq nlinum-format " %3d "))
 
 (use-package org
   :config
