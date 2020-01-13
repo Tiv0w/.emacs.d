@@ -17,11 +17,15 @@
   ;; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
   )
 
-;; intero-mode for a complete IDE solution to haskell
-;; commercialhaskell.github.io/intero
-(use-package intero
+(use-package dante
   :after haskell-mode
-  :hook (haskell-mode . intero-mode))
+  :hook (haskell-mode . dante-mode)
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  :config
+  (add-hook 'dante-mode-hook
+	    '(lambda () (flycheck-add-next-checker 'haskell-dante
+						   '(warning . haskell-hlint)))))
 
 ;; hindent - format haskell code automatically
 ;; https://github.com/chrisdone/hindent

@@ -33,7 +33,7 @@
 ;; (require 'lang-ruby)
 ;; (require 'lang-go)
 ;; (require 'lang-php)
-;; (require 'lang-haskell)
+(require 'lang-haskell)
 ;; (require 'lang-elixir)
 ;; (require 'lang-rust)
 ;; (require 'lang-racket)
