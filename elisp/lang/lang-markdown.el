@@ -2,7 +2,7 @@
 
 ;; markdown-mode setup
 (use-package markdown-mode
-  :mode "\\.md\\"
+  :mode "\\.md\\'"
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t
