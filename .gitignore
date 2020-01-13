@@ -17,3 +17,6 @@ image-dired/
 persp-confs/
 projectile-bookmarks.eld
 .lsp-session-v1
+elpy/
+.python-environments/
+.achievements
