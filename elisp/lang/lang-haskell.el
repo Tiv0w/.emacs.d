@@ -10,23 +10,27 @@
     "Hook for `haskell-mode'."
     (set (make-local-variable 'company-backends)
          '((company-intero company-files))))
+  (eval-after-load 'haskell-indentation
+    '(setcdr haskell-indentation-mode-map nil))
   (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
   (add-hook 'haskell-mode-hook 'company-mode)
-  (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+  ;; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+  )
 
-  ;; intero-mode for a complete IDE solution to haskell
-  ;; commercialhaskell.github.io/intero
-  (use-package intero
-    :config (add-hook 'haskell-mode-hook 'intero-mode))
+;; intero-mode for a complete IDE solution to haskell
+;; commercialhaskell.github.io/intero
+(use-package intero
+  :after haskell-mode
+  :hook (haskell-mode . intero-mode))
 
-  ;; hindent - format haskell code automatically
-  ;; https://github.com/chrisdone/hindent
-  (when (executable-find "hindent")
-    (use-package hindent
-      :diminish hindent-mode
-      :config
-      (add-hook 'haskell-mode-hook #'hindent-mode)
-      ;; reformat the buffer using hindent on save
-      (setq hindent-reformat-buffer-on-save t))))
+;; hindent - format haskell code automatically
+;; https://github.com/chrisdone/hindent
+(when (executable-find "hindent")
+  (use-package hindent
+    :after haskell-mode
+    :hook (haskell-mode . hindent-mode)
+    :config
+    ;; reformat the buffer using hindent on save
+    (setq hindent-reformat-buffer-on-save t)))
 
 (provide 'lang-haskell)
