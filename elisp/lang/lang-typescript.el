@@ -18,6 +18,7 @@
      ("d" tide-jsdoc-template "jsdoc")
      ("t" tide-add-eslint-disable-next-line "eslint disable"))))
   :config
+  (setq typescript-indent-level 2)
   (set-pretty-symbols! 'typescript-mode
     ;; Functional
     :def "function"
@@ -45,13 +46,9 @@
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers
                         '(javascript-jshint)))
-  ;; we prefer tslint to eslint, hence the order
-  (cond ;; ((executable-find "tslint")
-   ;;  (flycheck-add-mode 'typescript-tslint 'typescript-mode)
-   ;;  (flycheck-select-checker 'typescript-tslint))
-   ((executable-find "eslint")
-    (flycheck-add-mode 'javascript-eslint 'typescript-mode)
-    (flycheck-select-checker 'javascript-eslint)))
+  (if (executable-find "eslint")
+   (flycheck-add-mode 'javascript-eslint 'typescript-mode)
+   (flycheck-select-checker 'javascript-eslint))
   (flycheck-mode))
 
 (use-package tide

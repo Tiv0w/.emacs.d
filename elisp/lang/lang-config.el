@@ -2,9 +2,12 @@
 ;; For config files: YAML, JSON
 
 (use-package json-mode
-  :config
-  (add-to-list 'auto-mode-alist
-	       '("\\.json$" . json-mode)))
+  :mode "\\.json$\\'")
 
+(use-package yaml-mode
+  :mode "\\.yml$\\'")
+
+(use-package toml-mode
+  :mode "\\.toml$\\'")
 
 (provide 'lang-config)
