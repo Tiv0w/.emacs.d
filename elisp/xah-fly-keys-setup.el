@@ -29,12 +29,14 @@
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)
 
+
 ;; hydra key map
 (define-key xah-fly-hydra-keymap (kbd "b") 'buffer-move-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "SPC") 'multiple-cursors-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "s") 'counsel-spotify-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "t") 'transpose-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "f") 'smerge-hydra/body)
+
 
 ;; dot key map
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
@@ -53,13 +55,16 @@
 (define-key xah-fly-dot-keymap (kbd "p") 'projectile-command-map)
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
+(define-key xah-fly-dot-keymap (kbd "y") 'undo-tree-redo)
 ;; keybinds for git commit
 (define-key xah-fly-dot-keymap (kbd ";") 'with-editor-finish)
 (define-key xah-fly-dot-keymap (kbd "k") 'with-editor-cancel)
 
+
 ;; w key map
 (define-key xah-fly-w-keymap (kbd "SPC") 'eval-and-replace)
 (define-key xah-fly-w-keymap (kbd "x") 'server-shutdown)
+
 
 ;; h key map
 (define-key xah-fly-h-keymap (kbd "j") 'helpful-callable)
@@ -67,8 +72,10 @@
 (define-key xah-fly-h-keymap (kbd "l") 'helpful-variable)
 (define-key xah-fly-h-keymap (kbd "v") 'helpful-key)
 
+
 ;; send C-g when pressing ESC
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+
 
 (xah-fly-keys 1)
 

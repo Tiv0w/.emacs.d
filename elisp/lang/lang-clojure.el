@@ -15,16 +15,20 @@
      ("{" clojure-convert-collection-to-map "coll -> {")
      ("[" clojure-convert-collection-to-vector "coll -> [")
      ("#" clojure-convert-collection-to-set "coll -> #")
-     ("'" clojure-convert-collection-to-quoted-list "coll -> '("))
-    "Repl"
-    (("i" cider-repl-backward-input "previous input" :color red)
-     ("k" cider-repl-forward-input "next input" :color red)
-     ("c" cider-interrupt "cancel eval")))))
+     ("'" clojure-convert-collection-to-quoted-list "coll -> '(")))))
 
 (use-package cider
   :hook (clojure-mode-local-vars . cider-mode)
   :config
-  (add-hook 'cider-mode-hook 'eldoc-mode))
+  (add-hook 'cider-mode-hook 'eldoc-mode)
+  :mode-hydra
+  (cider-repl-mode
+   (:color blue :quit-key "q")
+   ("Cider REPL"
+    (("i" cider-repl-backward-input "previous input" :color red)
+     ("k" cider-repl-forward-input "next input" :color red)
+     ("c" cider-interrupt "cancel eval")))))
+
 
 (use-package paredit
   :config
