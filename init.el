@@ -7,7 +7,8 @@
 
 ;; Make startup faster by reducing the frequency of garbage
 ;; collection.  The default is 800 kilobytes.  Measured in bytes.
-(setq gc-cons-threshold 536870912) ; 512mb
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -52,5 +53,11 @@
 
 (message "The Almighty Editor started in %s." (emacs-init-time))
 
-;; Make gc pauses faster by decreasing the threshold.
-(setq gc-cons-threshold 16777216) ; 16mb
+
+;; restore some early optimizations, after most of the work is done
+(add-hook 'emacs-startup-hook
+  (lambda ()
+    (setq file-name-handler-alist copy--file-name-handler-alist
+          ;; Make gc pauses faster by decreasing the threshold.
+          gc-cons-threshold 16777216 ; 16mb
+          gc-cons-percentage 0.1)))
