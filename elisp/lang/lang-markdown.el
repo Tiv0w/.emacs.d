@@ -1,4 +1,4 @@
-;;; lang-markdown
+;;; elisp/lang/lang-markdown.el -*- lexical-binding: t; -*-
 
 ;; markdown-mode setup
 (use-package markdown-mode

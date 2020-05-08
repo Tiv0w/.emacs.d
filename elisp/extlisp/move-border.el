@@ -1,3 +1,5 @@
+;;; elisp/extlisp/move-border.el -*- lexical-binding: t; -*-
+
 ;;; move-border.el --- Move border to resize windows
 
 ;; Copyright (C) Unknown

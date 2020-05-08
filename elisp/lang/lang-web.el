@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-web.el -*- lexical-binding: t; -*-
+
 (use-package web-mode
   :bind (("C-c ]" . emmet-next-edit-point)
          ("C-c [" . emmet-prev-edit-point)

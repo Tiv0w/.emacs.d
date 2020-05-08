@@ -1,11 +1,14 @@
+;;; elisp/xah-fly-keys-setup.el -*- lexical-binding: t; -*-
 
-;; xah-fly-keys setup, and using preconfigured xah-fly
+;;; My own xah-fly-keys setup
+;;; Also using a custom xah-fly-keys package
 (require 'xah-fly-keys-custom)
 
 ;; required setup
 (xah-fly-keys-set-layout "qwerty")
 
-;; custom keybinds
+
+;;; Custom keybinds
 
 ;; main key map
 ;; doesn't work well

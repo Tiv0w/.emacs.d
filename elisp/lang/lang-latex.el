@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-latex.el -*- lexical-binding: t; -*-
+
 ;; AUCTeX configuration
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)

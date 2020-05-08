@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-c.el -*- lexical-binding: t; -*-
+
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
 (use-package cc-mode
   :hook c-mode

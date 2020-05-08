@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-rust.el -*- lexical-binding: t; -*-
+
 ;; rust-mode, racer, cargo
 
 ;; rust-mode

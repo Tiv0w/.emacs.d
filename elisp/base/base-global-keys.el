@@ -1,3 +1,4 @@
+;;; elisp/base/base-global-keys.el -*- lexical-binding: t; -*-
 ;; Add your keys here, as such
 
 ;; (global-set-key (kbd "[SHORTCUT]") '[FUNCTION])

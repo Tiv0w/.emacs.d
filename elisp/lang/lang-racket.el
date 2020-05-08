@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-racket.el -*- lexical-binding: t; -*-
+
 ;; racket-mode
 ;; https://github.com/greghendershott/racket-mode
 (use-package racket-mode

@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-go.el -*- lexical-binding: t; -*-
+
 (use-package go-mode
   :config
   ; Use goimports instead of go-fmt

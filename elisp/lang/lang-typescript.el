@@ -1,5 +1,6 @@
-;; typescript
-;; A setup for TypeScript support
+;;; elisp/lang/lang-typescript.el -*- lexical-binding: t; -*-
+
+;;; My setup for TypeScript support
 
 (use-package typescript-mode
   :mode-hydra

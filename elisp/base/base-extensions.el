@@ -1,3 +1,5 @@
+;;; elisp/base/base-extensions.el -*- lexical-binding: t; -*-
+
 (use-package use-package-chords
   :config
   (key-chord-mode 1))

@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-vue-helper.el -*- lexical-binding: t; -*-
+
 ;;; runs eslint --fix on the current file after save
 ;;; alpha quality -- use at your own risk
 

@@ -1,8 +1,6 @@
-;;; package --- python configs
-;;; Commentary:
-;;; Contains my python configs
+;;; elisp/lang/lang-python.el -*- lexical-binding: t; -*-
 
-;;; Code:
+;;; Python configuration
 
 (use-package elpy
   :mode ("\\.py$" . python-mode)

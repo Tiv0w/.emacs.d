@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-ruby.el -*- lexical-binding: t; -*-
+
 (use-package enh-ruby-mode
   :mode
   (("\\.rb\\'" . ruby-mode)))

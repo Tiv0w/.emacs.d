@@ -1,3 +1,5 @@
+;;; elisp/base/base-functions.el -*- lexical-binding: t; -*-
+
 ;; Add your custom functions here
 
 ;; (defun something

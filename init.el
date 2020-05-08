@@ -1,3 +1,4 @@
+;;; init.el -*- lexical-binding: t; -*-
 ;;; package --- Main init file
 ;;; Commentary:
 ;;; This is my init file

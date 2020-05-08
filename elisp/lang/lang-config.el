@@ -1,5 +1,6 @@
-;; config
-;; For config files: YAML, JSON
+;;; elisp/lang/lang-config.el -*- lexical-binding: t; -*-
+
+;;; For config files: YAML, JSON, TOML
 
 (use-package json-mode
   :mode "\\.json$\\'")

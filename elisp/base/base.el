@@ -1,3 +1,5 @@
+;;; elisp/base/base.el -*- lexical-binding: t; -*-
+
 
 (package-initialize)
 (add-to-list 'package-archives

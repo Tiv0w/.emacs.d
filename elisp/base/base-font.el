@@ -1,3 +1,4 @@
+;;; elisp/base/base-font.el -*- lexical-binding: t; -*-
 ;; Font setup
 
 ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono") ;; default

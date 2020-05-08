@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-php.el -*- lexical-binding: t; -*-
+
 (use-package ac-php)
 
 (use-package php-mode

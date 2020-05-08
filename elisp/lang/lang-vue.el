@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-vue.el -*- lexical-binding: t; -*-
+
 ;; vue
 ;; A setup with web-mode and mode-on-region.el for js2 on the script part
 

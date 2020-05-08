@@ -1,3 +1,5 @@
+;;; elisp/pretty-code.el -*- lexical-binding: t; -*-
+
 ;; (require 'prettify-utils)
 
 (add-hook 'prog-mode-hook 'prettify-symbols-mode)
@@ -101,7 +103,7 @@ Pretty symbols can be unset for emacs-lisp-mode with:
         (unless merge
           (delq (assq mode +pretty-code-symbols-alist)
                 +pretty-code-symbols-alist))
-	(push (cons mode results) +pretty-code-symbols-alist)))))
+        (push (cons mode results) +pretty-code-symbols-alist)))))
 
 
 (defun +pretty-code|init-pretty-symbols ()
@@ -111,8 +113,8 @@ modes, this function does nothing.
 Otherwise it builds `prettify-code-symbols-alist' according to
 `+pretty-code-symbols-alist' for the current major-mode."
   (setq prettify-symbols-alist
-	(append (cdr (assq major-mode +pretty-code-symbols-alist))
-		(default-value 'prettify-symbols-alist)))
+        (append (cdr (assq major-mode +pretty-code-symbols-alist))
+                (default-value 'prettify-symbols-alist)))
   (when prettify-symbols-mode
     (prettify-symbols-mode -1))
   (prettify-symbols-mode +1))

@@ -1,3 +1,5 @@
+;;; elisp/lang/lang-haskell.el -*- lexical-binding: t; -*-
+
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
 (use-package haskell-mode
