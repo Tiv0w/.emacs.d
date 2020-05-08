@@ -42,7 +42,8 @@
   (setq flycheck-grammalecte-report-apos nil))
 
 (use-package darkroom
-  :hook (markdown-mode . darkroom-mode)
+  :after markdown-mode
+  :commands (darkroom-mode darkroom-tentative-mode)
   :config
   (add-hook 'darkroom-mode-hook #'visual-line-mode))
 
