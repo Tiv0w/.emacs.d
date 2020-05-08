@@ -37,7 +37,7 @@
 ;; (require 'lang-elixir)
 ;; (require 'lang-rust)
 ;; (require 'lang-racket)
-;; (require 'lang-clojure)
+(require 'lang-clojure)
 (require 'lang-c)
 (require 'lang-web)
 (require 'lang-javascript)
@@ -49,7 +49,7 @@
 
 (require 'xah-fly-keys-setup)
 
-(message "The almighty editor started in %s." (emacs-init-time))
+(message "The Almighty Editor started in %s." (emacs-init-time))
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold 16777216) ; 16mb

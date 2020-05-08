@@ -18,6 +18,19 @@
       (flycheck-select-checker 'javascript-eslint))
     (flycheck-mode)))
 
+(use-package flycheck
+  :hook (web-mode . flycheck-mode)
+  :after (web-mode add-node-modules-path)
+  :config
+  (setq-default flycheck-disabled-checkers
+                (append flycheck-disabled-checkers
+                        '(javascript-jshint)))
+  (when (executable-find "eslint")
+    (flycheck-add-mode 'javascript-eslint 'web-mode)
+    (flycheck-select-checker 'javascript-eslint))
+  (flycheck-mode))
+
+
 (defun my/use-eslint-from-node-modules ()
   "Gets eslint exe from local path."
   (let (eslint)

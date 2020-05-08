@@ -40,6 +40,7 @@
 (define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
 (define-key xah-fly-dot-keymap (kbd "e") 'er/expand-region)
+(define-key xah-fly-dot-keymap (kbd "f") 'emmet-expand-line)
 (define-key xah-fly-dot-keymap (kbd "g") 'parrot-rotate-next-word-at-point)
 (define-key xah-fly-dot-keymap (kbd "h") 'parrot-rotate-prev-word-at-point)
 (define-key xah-fly-dot-keymap (kbd "i") 'dumb-jump-go)
