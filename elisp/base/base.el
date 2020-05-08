@@ -84,6 +84,18 @@
 (global-auto-revert-mode t)
 
 
+(defun defer-garbage-collection-h ()
+  (setq gc-cons-threshold most-positive-fixnum))
+
+(defun restore-garbage-collection-h ()
+  ;; Defer it so that commands launched immediately after will enjoy the
+  ;; benefits.
+  (run-at-time
+   1 nil (lambda () (setq gc-cons-threshold 16777216))))
+
+(add-hook 'minibuffer-setup-hook #'defer-garbage-collection-h)
+(add-hook 'minibuffer-exit-hook #'restore-garbage-collection-h)
+
 
 (show-paren-mode 1)
 (electric-pair-mode 1)
