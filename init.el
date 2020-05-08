@@ -21,6 +21,7 @@
   (normal-top-level-add-subdirs-to-load-path))
 
 
+;;; Base Emacs configurations
 (require 'base)
 (require 'base-theme)
 (require 'base-font)
@@ -30,17 +31,17 @@
 
 (require 'pretty-code)
 
-
+;;; Programming Languages
 ;; (require 'lang-python)
 ;; (require 'lang-ruby)
 ;; (require 'lang-go)
 ;; (require 'lang-php)
-(require 'lang-haskell)
+;; (require 'lang-haskell)
 ;; (require 'lang-elixir)
 ;; (require 'lang-rust)
 ;; (require 'lang-racket)
 (require 'lang-clojure)
-(require 'lang-c)
+;; (require 'lang-c)
 (require 'lang-web)
 (require 'lang-javascript)
 (require 'lang-vue)
@@ -51,6 +52,8 @@
 
 (require 'xah-fly-keys-setup)
 
+
+;;; And we're done!
 (message "The Almighty Editor started in %s." (emacs-init-time))
 
 

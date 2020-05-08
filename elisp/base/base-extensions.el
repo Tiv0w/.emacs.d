@@ -97,6 +97,7 @@
   :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package dired-rainbow
+  :after dired
   :config
   (progn
     (dired-rainbow-define-chmod directory "#6cb2eb" "d.*")
@@ -174,6 +175,7 @@
   :hook (prog-mode . hl-todo-mode))
 
 (use-package ibuffer-vc
+  :after ibuffer
   :config
   (setq ibuffer-formats
         '((mark modified read-only vc-status-mini " "
@@ -193,7 +195,7 @@
                 (ibuffer-do-sort-by-alphabetic)))))
 
 (use-package counsel
-  :demand t
+  :commands (counsel-M-x find-file counsel-find-file)
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-m" . counsel-M-x)
@@ -310,6 +312,7 @@
         org-agenda-files (append org-agenda-files (org-projectile-todo-files))))
 
 (use-package org-bullets
+  :after org
   :config
   (setq org-hide-leading-stars t)
   (add-hook 'org-mode-hook
@@ -355,14 +358,15 @@
   (projectile-global-mode))
 
 (use-package rainbow-mode
-  :hook prog-mode)
+  :hook (prog-mode conf-mode))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package recentf
   :config
-  (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf"))
+  (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf")
+	recentf-max-saved-items 25)
   (recentf-mode 1))
 
 (use-package restclient
@@ -389,6 +393,9 @@
 
 (use-package smex
   :commands smex)
+
+(use-package stupid-indent-mode
+  :hook conf-mode)
 
 (use-package undo-tree
   :config

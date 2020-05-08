@@ -14,6 +14,7 @@
    ("\\.erb\\'" . web-mode)
    ("\\.mustache\\'" . web-mode)
    ("\\.djhtml\\'" . web-mode)
+   ("\\.ejs\\'" . web-mode)
    ("\\.jsx$" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
@@ -103,6 +104,7 @@
 
 ;; configure CSS mode company backends
 (use-package css-mode
+  :mode "\\.css\\'"
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)

@@ -62,6 +62,10 @@
   (eldoc-mode +1)
 
   (defconst tide-eslint-disable-next-line-regexp
+    "\\s *//\\s *eslint-disable-next-line\\s *"
+    "Regexp matching an eslint flag disabling rules on the next line.")
+
+  (defconst tide-eslint-disable-next-line-with-error-regexp
     "\\s *//\\s *eslint-disable-next-line\\s *:\\(.*\\)"
     "Regexp matching an eslint flag disabling rules on the next line.")
 
@@ -82,9 +86,30 @@
             (goto-char start)
             (beginning-of-line)
             (open-line 1))
+          (insert "// eslint-disable-next-line")
+          (typescript-indent-line)))))
+
+  (defun tide-add-eslint-disable-next-line-with-error ()
+    "Add an eslint flag to disable rules generating errors at point."
+    (interactive)
+    (let ((error-ids (delq nil (tide-get-flycheck-errors-ids-at-point)))
+          (start (point)))
+      (when error-ids
+        (save-excursion
+          (if (and (eq 0 (forward-line -1))
+                   (looking-at tide-eslint-disable-next-line-with-error-regexp))
+              ;; We'll update the old flag.
+              (let ((old-list (split-string (match-string 1))))
+                (delete-region (point) (point-at-eol))
+                (setq error-ids (append old-list error-ids)))
+            ;; We'll create a new flag.
+            (goto-char start)
+            (beginning-of-line)
+            (open-line 1))
           (insert "// eslint-disable-next-line:"
                   (string-join error-ids " "))
           (typescript-indent-line))))))
+
 
 (use-package eslintd-fix
   :hook (typescript-mode . eslintd-fix-mode))
