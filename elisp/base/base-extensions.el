@@ -276,10 +276,10 @@
   ;; Disable linum for neotree
   ;; (add-hook 'neo-after-create-hook #'(lambda (arg) (linum-mode 1))))
 
-(use-package nlinum
-  :hook ((prog-mode text-mode conf-mode) . nlinum-mode)
+(use-package display-line-numbers
+  :hook ((prog-mode text-mode conf-mode markdown-mode fundamental-mode) . display-line-numbers-mode)
   :config
-  (setq nlinum-format " %3d "))
+  (setq display-line-numbers-width 3))
 
 (use-package org
   :config
