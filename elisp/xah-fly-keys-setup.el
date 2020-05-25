@@ -2,35 +2,35 @@
 
 ;;; My own xah-fly-keys setup
 ;;; Also using a custom xah-fly-keys package
-(require 'xah-fly-keys-custom)
+(require 'xah-fly-keys)
 
 ;; required setup
-(xah-fly-keys-set-layout "qwerty")
+(xah-fly-keys-set-layout 'qwerty)
 
 
 ;;; Custom keybinds
 
 ;; main key map
-;; doesn't work well
-(define-key xah-fly-key-map (kbd "n") 'isearch-forward-regexp)
-(define-key xah-fly-key-map (kbd "a") 'counsel-M-x)
+;; works really well since the xah-fly-keys engine rewrite
+(define-key xah-fly-command-map (kbd "+") 'text-scale-increase)
+(define-key xah-fly-command-map (kbd "-") 'text-scale-decrease)
+
 
 ;; leader key map
-
-;;;;;;;;;;;;;;;;;;;;
-;; too much power ;;
-(define-key xah-fly-leader-key-map (kbd "m") 'major-mode-hydra)
-;;;;;;;;;;;;;;;;;;;;
+(define-key xah-fly-leader-key-map (kbd "m") 'major-mode-hydra) ;; too much power
 (define-key xah-fly-leader-key-map (kbd "7") 'magit-status)
 (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
 (define-key xah-fly-leader-key-map (kbd "p") 'projectile-command-map)
 (define-key xah-fly-leader-key-map (kbd "q") 'exchange-point-and-mark)
 (define-key xah-fly-leader-key-map (kbd "s") 'multiple-cursors-hydra/body)
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
+(define-key xah-fly-leader-key-map (kbd "y") 'swiper-thing-at-point)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)
 
 
 ;; hydra key map
+(define-prefix-command 'xah-fly-hydra-keymap)
+(define-key xah-fly-leader-key-map (kbd "/") xah-fly-hydra-keymap)
 (define-key xah-fly-hydra-keymap (kbd "b") 'buffer-move-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "SPC") 'multiple-cursors-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "s") 'counsel-spotify-hydra/body)
@@ -73,8 +73,9 @@
 (define-key xah-fly-h-keymap (kbd "v") 'helpful-key)
 
 
+;;; NOT REALLY USEFUL SINCE ERGODOX
 ;; send C-g when pressing ESC
-(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 
 (xah-fly-keys 1)
