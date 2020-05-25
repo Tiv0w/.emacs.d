@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Sequelize typescript get({ plain: true })
+# key: gpt
+# --
+get({ plain: true })$0
