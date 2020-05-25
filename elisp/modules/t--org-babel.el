@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(use-package ob-js)
+(require 'ob-js)
+
 (use-package ob-typescript)
 
 (provide 't--org-babel)

@@ -44,11 +44,12 @@
             (lambda ()
               (org-bullets-mode t))))
 
-(use-package t--org-babel
-  :after org
-  :config
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((typescript . t)
-     (js . t))))
+
+(require 't--org-babel)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((typescript . t)
+   (js . t)))
+
+
 (provide 't--org)
