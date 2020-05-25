@@ -60,6 +60,7 @@
          (before-save . tide-format-before-save))
   :config
   (eldoc-mode +1)
+  (setq tide-native-json-parsing t)
 
   (defconst tide-eslint-disable-next-line-regexp
     "\\s *//\\s *eslint-disable-next-line\\s *"
