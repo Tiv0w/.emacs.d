@@ -300,7 +300,25 @@
     (("i" org-clock-in "in")
      ("o" org-clock-out "out")
      ("e" org-clock-modify-effort-estimate "update effort" :color amaranth)
-     ("p" org-clock-update-time-maybe "compute time")))))
+     ("p" org-clock-update-time-maybe "compute time"))
+    "Babel"
+    (("f" org-babel-execute-maybe "exec-maybe")))))
+
+(use-package ob-js
+  :after org
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((js . t))))
+
+(use-package ob-typescript
+  :after org
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((typescript . t)
+     (js . t))))
+
 
 (use-package org-projectile
   :bind
