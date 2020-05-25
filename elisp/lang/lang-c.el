@@ -34,6 +34,7 @@
   (global-ede-mode))
 
 (use-package ggtags
+  :disabled
   :hook c-mode
   :config
   (ggtags-mode 1)
@@ -56,7 +57,7 @@
 
 ;; company-c-headers
 (use-package company-c-headers
-  :hook c-mode
+  ;; :hook c-mode
   :after company
   :init
   (add-to-list 'company-backends 'company-c-headers))
