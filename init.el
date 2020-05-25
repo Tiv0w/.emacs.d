@@ -25,11 +25,11 @@
 (require 'base)
 (require 'base-theme)
 (require 'base-font)
-(require 'base-extensions)
 (require 'base-functions)
 (require 'base-global-keys)
 
-(require 'pretty-code)
+;;; Modules setup
+(require 't--core)
 
 ;;; Programming Languages
 ;; (require 'lang-python)
@@ -51,7 +51,7 @@
 (require 'lang-markdown)
 ;; (require 'lang-latex)
 
-(require 'xah-fly-keys-setup)
+(require 't--xah-fly-keys-setup)
 
 
 ;;; And we're done!

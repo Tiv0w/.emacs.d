@@ -122,4 +122,4 @@ Otherwise it builds `prettify-code-symbols-alist' according to
 (add-hook 'after-change-major-mode-hook #'+pretty-code|init-pretty-symbols)
 
 
-(provide 'pretty-code)
+(provide 't--pretty-code)

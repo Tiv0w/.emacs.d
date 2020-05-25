@@ -80,4 +80,4 @@
 
 (xah-fly-keys 1)
 
-(provide 'xah-fly-keys-setup)
+(provide 't--xah-fly-keys-setup)
