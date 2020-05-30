@@ -42,7 +42,14 @@
 (use-package highlight-indent-guides
   :hook ((prog-mode conf-mode) . highlight-indent-guides-mode)
   :config
-  (setq highlight-indent-guides-method 'column))
+  (setq highlight-indent-guides-method 'column)
+
+  ;; to fix a problem with indent-guides not showing in daemon
+  (defun t--setup-highlight-indent-guides ()
+    (when (display-graphic-p)
+      (highlight-indent-guides-auto-set-faces)))
+  (add-hook 'server-after-make-frame-hook
+	    't--setup-highlight-indent-guides))
 
 (use-package page-break-lines)
 
