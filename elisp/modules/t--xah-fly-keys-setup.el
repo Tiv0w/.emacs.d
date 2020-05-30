@@ -13,6 +13,7 @@
 ;; main key map
 ;; works really well since the xah-fly-keys engine rewrite
 (define-key xah-fly-command-map (kbd "+") 'text-scale-increase)
+(define-key xah-fly-command-map (kbd "=") 'text-scale-increase)
 (define-key xah-fly-command-map (kbd "-") 'text-scale-decrease)
 
 
@@ -42,6 +43,7 @@
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
 (define-key xah-fly-dot-keymap (kbd "SPC") 'counsel-rg-thing-at-point)
 (define-key xah-fly-dot-keymap (kbd "RET") 'counsel-rg)
+(define-key xah-fly-dot-keymap (kbd "a") 'browse-url)
 (define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
 (define-key xah-fly-dot-keymap (kbd "e") 'er/expand-region)
