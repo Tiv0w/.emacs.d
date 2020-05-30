@@ -36,19 +36,22 @@
   (setq org-projectile-per-project-filepath "todo.org"
         org-agenda-files (append org-agenda-files (org-projectile-todo-files))))
 
-(use-package org-bullets
+(use-package org-superstar
   :after org
   :config
-  (setq org-hide-leading-stars t)
+  (setq org-superstar-headline-bullets-list '("ᤀ" "ᤂ" "ᤃ" "ᤑ" "ᤖ")
+	org-superstar-item-bullet-alist '((?* . ?•)
+					  (?+ . ?➤)
+					  (?- . ?➾)))
   (add-hook 'org-mode-hook
             (lambda ()
-              (org-bullets-mode t))))
-
+              (org-superstar-mode t))))
 
 (require 't--org-babel)
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((typescript . t)
+   (restclient . t)
    (js . t)))
 
 
