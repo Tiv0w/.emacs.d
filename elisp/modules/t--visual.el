@@ -56,8 +56,7 @@
   :config
   (setq mixed-pitch-variable-pitch-cursor nil)
   (t--add-to-list-multiple 'mixed-pitch-fixed-pitch-faces
-                           '('line-number
-                             'line-number-current-line)))
+                           '(line-number line-number-current-line)))
 
 (use-package page-break-lines)
 
