@@ -46,6 +46,13 @@
   (mapcar #'disable-theme custom-enabled-themes))
 (advice-add 'load-theme :before #'load-theme--disable-old-theme)
 
+(defun t--add-to-list-multiple (list to-add)
+  "Adds multiple items to LIST.
+Allows for adding a sequence of items to the same list, rather
+than having to call `add-to-list' multiple times."
+  (interactive)
+  (dolist (item to-add)
+    (add-to-list list item)))
 
 ;; Transparency support ?
 ;; Works well on Emacs 26.{2,3} built with toolkit={lucid,gtk} on Manjaro
