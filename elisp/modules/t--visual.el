@@ -49,7 +49,15 @@
     (when (display-graphic-p)
       (highlight-indent-guides-auto-set-faces)))
   (add-hook 'server-after-make-frame-hook
-	    't--setup-highlight-indent-guides))
+            't--setup-highlight-indent-guides))
+
+(use-package mixed-pitch
+  :hook (org-mode . mixed-pitch-mode)
+  :config
+  (setq mixed-pitch-variable-pitch-cursor nil)
+  (t--add-to-list-multiple 'mixed-pitch-fixed-pitch-faces
+                           '('line-number
+                             'line-number-current-line)))
 
 (use-package page-break-lines)
 

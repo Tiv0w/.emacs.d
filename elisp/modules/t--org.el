@@ -39,10 +39,10 @@
 (use-package org-superstar
   :after org
   :config
-  (setq org-superstar-headline-bullets-list '("ᤀ" "ᤂ" "ᤃ" "ᤑ" "ᤖ")
-	org-superstar-item-bullet-alist '((?* . ?•)
-					  (?+ . ?➤)
-					  (?- . ?➾)))
+  (setq org-superstar-headline-bullets-list '("ᤃ" "ᤖ" "ᤀ" "ᤂ" "ᤑ")
+        org-superstar-item-bullet-alist '((?* . ?•)
+                                          (?+ . ?➤)
+                                          (?- . ?➾)))
   (add-hook 'org-mode-hook
             (lambda ()
               (org-superstar-mode t))))
