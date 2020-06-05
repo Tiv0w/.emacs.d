@@ -1,46 +1,44 @@
 ;;; elisp/lang/lang-rust.el -*- lexical-binding: t; -*-
 
-;; rust-mode, racer, cargo
+;;; Commentary:
+;; Support for the Rust language
+;; Linting, project config, live documentation and jump to definition
 
-;; rust-mode
-;; https://github.com/rust-lang/rust-mode
+;;; Code:
+
 (use-package rust-mode
-  :bind ( :map rust-mode-map
-         (("C-c C-t" . racer-describe)))
+  :bind (:map rust-mode-map
+              (("C-c C-t" . racer-describe)))
   :config
-  (progn
-    ;; add flycheck support for rust
-    ;; https://github.com/flycheck/flycheck-rust
-    (use-package flycheck-rust)
+  (add-hook 'rust-mode-hook 'flycheck-mode)
+  ;; format rust buffers on save using rustfmt
+  (add-hook 'before-save-hook
+            (lambda ()
+              (when (eq major-mode 'rust-mode)
+                (rust-format-buffer)))))
 
-    ;; cargo-mode for all the cargo related operations
-    ;; https://github.com/kwrooijen/cargo.el
-    (use-package cargo)
 
-    ;; racer-mode for getting IDE like features for rust-mode
-    ;; https://github.com/racer-rust/emacs-racer
-    (use-package racer
-      :config
-      (progn
-        ;; set racer rust source path environment variable
-        (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
-        (defun my-racer-mode-hook ()
-          (set (make-local-variable 'company-backends)
-               '((company-capf company-files))))
+(use-package flycheck-rust
+  :after rust-mode
+  :config
+  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
 
-        ;; enable company and eldoc minor modes in rust-mode
-        (add-hook 'racer-mode-hook 'company-mode)
-        (add-hook 'racer-mode-hook 'eldoc-mode)))
 
-    (add-hook 'rust-mode-hook 'flycheck-mode)
-    (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
-    (add-hook 'rust-mode-hook 'racer-mode)
-    (add-hook 'rust-mode-hook 'cargo-minor-mode)
+;; cargo-mode for all the cargo related operations
+(use-package cargo
+  :hook (rust-mode . cargo-minor-mode))
 
-    ;; format rust buffers on save using rustfmt
-    (add-hook 'before-save-hook
-              (lambda ()
-                (when (eq major-mode 'rust-mode)
-                  (rust-format-buffer))))))
+
+;; racer-mode for getting IDE like features for rust-mode
+(use-package racer
+  :hook (rust-mode . racer-mode)
+  :config
+  (setq racer-rust-src-path (getenv "RUST_SRC_PATH")) ;; needed
+  (defun my-racer-mode-hook ()
+    (set (make-local-variable 'company-backends)
+         '((company-capf company-files))))
+
+  (add-hook 'racer-mode-hook 'company-mode)
+  (add-hook 'racer-mode-hook 'eldoc-mode))
 
 (provide 'lang-rust)

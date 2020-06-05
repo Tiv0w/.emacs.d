@@ -38,7 +38,7 @@
 ;; (require 'lang-php)
 ;; (require 'lang-haskell)
 ;; (require 'lang-elixir)
-;; (require 'lang-rust)
+(require 'lang-rust)
 ;; (require 'lang-racket)
 (require 'lang-clojure)
 ;; (require 'lang-c)
