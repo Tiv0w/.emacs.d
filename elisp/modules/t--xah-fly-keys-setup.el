@@ -75,9 +75,10 @@
 (define-key xah-fly-h-keymap (kbd "v") 'helpful-key)
 
 
-;;; NOT REALLY USEFUL SINCE ERGODOX
+;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC
-;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+(when (getenv "IS_LAPTOP")
+  (define-key key-translation-map (kbd "ESC") (kbd "C-g")))
 
 
 (xah-fly-keys 1)
