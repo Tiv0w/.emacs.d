@@ -74,6 +74,8 @@
 (define-key xah-fly-h-keymap (kbd "l") 'helpful-variable)
 (define-key xah-fly-h-keymap (kbd "v") 'helpful-key)
 
+;; e key map
+(define-key xah-fly-e-keymap (kbd "'") 't--insert-right-single-quotation-mark)
 
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC

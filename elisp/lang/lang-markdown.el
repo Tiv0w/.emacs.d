@@ -39,7 +39,7 @@
   (setq flycheck-grammalecte-enabled-modes
 	'(org-mode text-mode mail-mode latex-mode markdown-mode))
   :config
-  (setq flycheck-grammalecte-report-apos nil))
+  (setq flycheck-grammalecte-report-apos t))
 
 (use-package darkroom
   :after markdown-mode

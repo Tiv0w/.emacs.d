@@ -5,15 +5,18 @@
 ;; (defun something
 ;;    (do-something))
 
+
 ;; function to shutdown emacs server instance
 (defun server-shutdown (&optional no-confirm)
-  "Save buffers, Quit, and Shutdown (kill) server"
+  "Save buffers, Quit, and Shutdown (kill) server.
+If `no-confirm' is set to t, don't ask."
   (interactive)
   (save-some-buffers)
   (if no-confirm
     (kill-emacs)
     (when (y-or-n-p "Really shutdown the server ?")
       (kill-emacs))))
+
 
 ;; eval-and-replace
 (defun eval-and-replace ()
@@ -25,6 +28,7 @@
              (current-buffer))
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
+
 
 ;; neotree intergration with projectile
 (defun neotree-project-dir ()
@@ -41,10 +45,12 @@
               (neotree-find file-name)))
       (message "Could not find git project root."))))
 
+
 (defun load-theme--disable-old-theme(theme &rest args)
   "Disable current theme before loading new one."
   (mapcar #'disable-theme custom-enabled-themes))
 (advice-add 'load-theme :before #'load-theme--disable-old-theme)
+
 
 (defun t--add-to-list-multiple (list to-add)
   "Adds multiple items to LIST.
@@ -54,12 +60,14 @@ than having to call `add-to-list' multiple times."
   (dolist (item to-add)
     (add-to-list list item)))
 
+
 ;; Transparency support ?
 ;; Works well on Emacs 26.{2,3} built with toolkit={lucid,gtk} on Manjaro
 (defun transparency (value)
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive "nTransparency Value 0 - 100 opaque:")
   (set-frame-parameter (selected-frame) 'alpha value))
+
 
 (defun toggle-transparency ()
   (interactive)
@@ -73,6 +81,7 @@ than having to call `add-to-list' multiple times."
               100)
          '(85 . 50) '(100 . 100)))))
 
+
 (defun counsel-rg-thing-at-point ()
   "`counsel-rg' with `ivy-thing-at-point'."
   (interactive)
@@ -80,6 +89,12 @@ than having to call `add-to-list' multiple times."
     (when (use-region-p)
       (deactivate-mark))
     (counsel-rg (regexp-quote thing))))
+
+
+(defun t--insert-right-single-quotation-mark ()
+  "Insert a RIGHT SINGLE QUOTATION MARK character."
+  (interactive)
+  (insert "’"))
 
 
 (pretty-hydra-define multiple-cursors-hydra
@@ -101,6 +116,7 @@ than having to call `add-to-list' multiple times."
    "Special 2"
    (("s" mc/sort-regions "sort-regions" :color blue)
     ("r" mc/reverse-regions "reverse-regions" :color blue))))
+
 
 (pretty-hydra-define transpose-hydra
   (:title "Transpose" :color pink :quit-key "q")
@@ -125,5 +141,6 @@ than having to call `add-to-list' multiple times."
    (("f" smerge-keep-current "current")
     ("e" smerge-keep-mine "mine/upper")
     ("w" smerge-keep-other "other/lower"))))
+
 
 (provide 'base-functions)
