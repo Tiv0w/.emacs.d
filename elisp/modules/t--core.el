@@ -16,6 +16,7 @@
 (require 't--pretty-code)
 (require 't--programming)
 (require 't--random)
+(require 't--sudo)
 (require 't--useless)
 (require 't--visual)
 
