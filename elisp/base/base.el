@@ -87,8 +87,7 @@
   (setq gc-cons-threshold most-positive-fixnum))
 
 (defun restore-garbage-collection-h ()
-  ;; Defer it so that commands launched immediately after will enjoy the
-  ;; benefits.
+  ;; Defer it: commands launched immediately after will enjoy the benefits.
   (run-at-time
    1 nil (lambda () (setq gc-cons-threshold 16777216))))
 
@@ -104,13 +103,14 @@
 
 ;; Start with maximized frame
 (add-to-list 'default-frame-alist '(fullscreen . maximized));;works with emacsclient too yay
-;;(toggle-frame-maximized)
 
 (add-to-list 'default-frame-alist '(alpha . 90))
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; Need to load custom file to avoid being overwritten
 ;; more at https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html
