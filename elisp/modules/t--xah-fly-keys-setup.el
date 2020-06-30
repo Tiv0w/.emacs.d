@@ -58,9 +58,18 @@
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify)
 (define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
 (define-key xah-fly-dot-keymap (kbd "y") 'undo-tree-redo)
+;;
 ;; keybinds for git commit
-(define-key xah-fly-dot-keymap (kbd ";") 'with-editor-finish)
-(define-key xah-fly-dot-keymap (kbd "k") 'with-editor-cancel)
+(defun setup-commit-keybinds ()
+  (define-key xah-fly-dot-keymap (kbd ";") 'with-editor-finish)
+  (define-key xah-fly-dot-keymap (kbd "k") 'with-editor-cancel))
+(defun unsetup-commit-keybinds ()
+  (define-key xah-fly-dot-keymap (kbd ";") nil)
+  (define-key xah-fly-dot-keymap (kbd "k") nil))
+
+(add-hook 'git-commit-setup-hook 'setup-commit-keybinds)
+(add-hook 'with-editor-post-cancel-hook 'unsetup-commit-keybinds)
+(add-hook 'with-editor-post-finish-hook 'unsetup-commit-keybinds)
 
 
 ;; w key map
