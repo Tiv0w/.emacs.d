@@ -16,7 +16,10 @@
   :mode-hydra
   (org-mode
    (:title "Org" :color blue :quit-key "q")
-   ("TODO"
+   ("Headlines"
+    (("j" org-promote-subtree "promote" :color amaranth)
+     ("l" org-demote-subtree "demote" :color amaranth))
+    "TODO"
     (("t" org-todo "cycle state" :color amaranth)
      ("y" org-insert-todo-subheading "insert"))
     "Clock"
