@@ -52,6 +52,7 @@
             't--setup-highlight-indent-guides))
 
 (use-package mixed-pitch
+  :disabled
   :hook (org-mode . mixed-pitch-mode)
   :config
   (setq mixed-pitch-variable-pitch-cursor nil)
