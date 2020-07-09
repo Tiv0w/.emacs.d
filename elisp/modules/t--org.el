@@ -50,9 +50,15 @@
 (require 't--org-babel)
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((typescript . t)
+ '(
+   ;; (awk . t)
+   ;; (dot . t)
+   (gnuplot . t)
+   (js . t)
    (restclient . t)
-   (js . t)))
+   (shell . t)
+   (typescript . t)
+   ))
 
 
 (provide 't--org)
