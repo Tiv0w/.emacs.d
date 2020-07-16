@@ -24,7 +24,7 @@
     :null          "∅"
     :true          "𝕋"
     :false         "𝔽"
-    :int           "ℤ"
+    :int           "ℕ"
     :float         "ℝ"
     :str           "𝕊"
     :bool          "𝔹"
