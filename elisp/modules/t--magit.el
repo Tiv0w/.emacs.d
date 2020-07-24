@@ -25,5 +25,15 @@
 
 (use-package gitmoji-commit
   :load-path "~/prog/elisp/gitmoji-commit/")
+(use-package forge
+  :after magit
+  :mode-hydra
+  (forge-topic-mode
+   (:color blue :quit-key "q")
+   ("Forge topic"
+    (("m" magit-edit-thing "edit at point")
+     ("p" forge-create-post "create post")
+     ("b" forge-browse-topic "browse topic")))))
+
 
 (provide 't--magit)
