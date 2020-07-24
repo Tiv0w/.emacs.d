@@ -11,8 +11,8 @@
 
 (use-package dumb-jump
   :commands (dumb-jump-go
-	     dumb-jump-go-prompt
-	     dumb-jump-back)
+             dumb-jump-go-prompt
+             dumb-jump-back)
   :config
   (setq dumb-jump-selector 'ivy))
 
@@ -33,9 +33,9 @@
   :bind
   ("C-c p" . projectile-command-map)
   :config
-  (setq projectile-known-projects-file
-        (expand-file-name "projectile-bookmarks.eld" temp-dir))
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
+        projectile-completion-system 'ivy
+        projectile-indexing-method 'hybrid)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   ;; Projectile setup for npm
   (projectile-register-project-type 'npm '("package.json")
