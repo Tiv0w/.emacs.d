@@ -23,8 +23,6 @@
   :after magit
   :hook (magit-mode . magit-todos-mode))
 
-(use-package gitmoji-commit
-  :load-path "~/prog/elisp/gitmoji-commit/")
 (use-package forge
   :after magit
   :mode-hydra
@@ -35,5 +33,9 @@
      ("p" forge-create-post "create post")
      ("b" forge-browse-topic "browse topic")))))
 
+(use-package gitmoji
+  :load-path "~/prog/elisp/gitmoji/"
+  :config
+  (gitmoji-commit-mode t))
 
 (provide 't--magit)
