@@ -41,6 +41,7 @@
 
 (use-package highlight-indent-guides
   :hook ((prog-mode conf-mode) . highlight-indent-guides-mode)
+  :defer nil
   :config
   (setq highlight-indent-guides-method 'column)
 
@@ -49,7 +50,7 @@
     (when (display-graphic-p)
       (highlight-indent-guides-auto-set-faces)))
   (add-hook 'server-after-make-frame-hook
-            't--setup-highlight-indent-guides))
+            #'t--setup-highlight-indent-guides))
 
 (use-package mixed-pitch
   :disabled
