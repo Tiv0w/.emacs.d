@@ -1,8 +1,12 @@
 ;;; elisp/modules/t--editing.el -*- lexical-binding: t; -*-
 ;;; Commentary:
-; These packages are here to enhance editing (useful for a text editor to be able to edit text).
+;; These packages are here to enhance editing (useful for a text editor to be able to edit text).
 
 ;;; Code:
+
+(use-package aggressive-indent-mode
+  :hook (prog-mode . aggressive-indent-mode)
+  :load-path "~/prog/elisp/aggressive-indent-mode/")
 
 (use-package avy
   :bind
@@ -63,6 +67,9 @@
 
 (use-package stupid-indent-mode
   :hook conf-mode)
+
+(use-package subword
+  :hook ((prog-mode conf-mode) . subword-mode))
 
 (use-package undo-tree
   :config
