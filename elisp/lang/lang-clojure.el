@@ -35,6 +35,11 @@
   (add-hook 'clojure-mode-hook 'enable-paredit-mode)
   (add-hook 'cider-repl-mode-hook 'paredit-mode))
 
+(use-package flycheck
+  :hook (clojure-mode . flycheck-mode)
+  :config
+  (use-package flycheck-clj-kondo))
+
 
 (set-pretty-symbols! 'clojure-mode
   :lambda  "fn"

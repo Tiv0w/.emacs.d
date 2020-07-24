@@ -74,6 +74,7 @@
 
 ;; w key map
 (define-key xah-fly-w-keymap (kbd "SPC") 'eval-and-replace)
+(define-key xah-fly-w-keymap (kbd "RET") 'eval-print-last-sexp)
 (define-key xah-fly-w-keymap (kbd "x") 'server-shutdown)
 
 
