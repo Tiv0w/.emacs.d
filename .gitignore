@@ -21,3 +21,6 @@ elpy/
 .python-environments/
 .achievements
 /request/
+/org-jira/
+/diary
+/forge-database.sqlite
