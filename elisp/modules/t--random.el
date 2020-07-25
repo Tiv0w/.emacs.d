@@ -36,4 +36,8 @@
                    (:rot ("$off" "$emit"))))
     (add-to-list 'parrot-rotate-dict entry)))
 
+(use-package browse-url-dwim
+  :config
+  (setq browse-url-dwim-search-url "https://duckduckgo.com/?q="))
+
 (provide 't--random)
