@@ -7,7 +7,9 @@
   :init
   (add-hook 'after-init-hook #'global-company-mode)
   :config
-  (setq company-idle-delay 0))
+  (setq company-idle-delay 0
+	company-minimum-prefix-length 2
+	company-require-match 'never))
 
 (use-package dumb-jump
   :commands (dumb-jump-go
