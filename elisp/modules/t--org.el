@@ -54,7 +54,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
-   ;; (awk . t)
+   (awk . t)
    ;; (dot . t)
    (gnuplot . t)
    (js . t)

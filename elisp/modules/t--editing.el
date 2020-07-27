@@ -9,8 +9,7 @@
   :load-path "~/prog/elisp/aggressive-indent-mode/")
 
 (use-package avy
-  :bind
-  ("C-c SPC" . avy-goto-char))
+  :commands avy-goto-char)
 
 (use-package buffer-move
   :commands buffer-move-hydra/body

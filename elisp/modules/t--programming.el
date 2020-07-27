@@ -68,7 +68,6 @@
   :commands scratch)
 
 (use-package yasnippet
-  :hook
-  (prog-mode . yas-global-mode))
+  :hook (prog-mode . yas-global-mode))
 
 (provide 't--programming)
