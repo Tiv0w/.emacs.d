@@ -48,6 +48,9 @@
   :bind
   ("C-=" . er/expand-region))
 
+(use-package iy-go-to-char
+  :commands iy-go-to-char)
+
 (use-package multiple-cursors
   :bind
   ("C-S-c C-S-c" . mc/edit-lines)
