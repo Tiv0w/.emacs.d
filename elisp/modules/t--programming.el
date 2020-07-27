@@ -18,6 +18,10 @@
   :config
   (setq dumb-jump-selector 'ivy))
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (use-package flycheck)
 
 (use-package hl-todo
