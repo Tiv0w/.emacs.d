@@ -41,6 +41,7 @@
      ("0" text-scale-adjust "reset")))))
 
 (use-package deadgrep
+  :ensure-system-package (rg . ripgrep)
   :commands deadgrep)
 
 (use-package expand-region
