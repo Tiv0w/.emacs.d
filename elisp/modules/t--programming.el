@@ -23,6 +23,9 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
+(use-package litable
+  :commands litable-mode)
+
 (use-package neotree
   :config
   (setq neo-theme 'icons
