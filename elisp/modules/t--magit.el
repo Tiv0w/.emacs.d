@@ -6,7 +6,8 @@
 
 (use-package magit
   :config
-  (setq magit-completing-read-function 'ivy-completing-read)
+  (setq magit-completing-read-function 'ivy-completing-read
+	magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
   :bind
   ;; Magic
   ("C-x g s" . magit-status)
