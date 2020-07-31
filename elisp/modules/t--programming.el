@@ -3,13 +3,17 @@
 ; These packages are the ones I use the most while doing some programming.
 
 (use-package company
-  :commands global-company-mode
-  :init
-  (add-hook 'after-init-hook #'global-company-mode)
+  :hook (prog-mode . company-mode)
   :config
   (setq company-idle-delay 0
 	company-minimum-prefix-length 2
 	company-require-match 'never))
+
+(use-package company-box
+  :after company
+  :hook (company-mode . company-box-mode)
+  :config
+  (setq company-box-icons-alist 'company-box-icons-all-the-icons))
 
 (use-package dumb-jump
   :commands (dumb-jump-go
