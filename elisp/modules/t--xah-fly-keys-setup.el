@@ -40,6 +40,11 @@
 (define-key xah-fly-hydra-keymap (kbd "t") 'transpose-hydra/body)
 (define-key xah-fly-hydra-keymap (kbd "f") 'smerge-hydra/body)
 
+;; apps key map
+(define-prefix-command 'xah-fly-apps-keymap)
+(define-key xah-fly-leader-key-map (kbd "g") xah-fly-apps-keymap)
+(define-key xah-fly-apps-keymap (kbd "g") #'hydra-cljr-help-menu/body)
+
 
 ;; dot key map
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
