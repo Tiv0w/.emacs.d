@@ -7,7 +7,8 @@
     (("a" cider-jack-in "jack-in !")
      ("b" cider-load-buffer "load buffer")
      ("t" cider-test-run-test "run tests")
-     ("e" cider-eval-last-sexp-to-repl "eval")
+     ("w" cider-inspect "inspect")
+     ("e" cider-eval-last-sexp "eval")
      ("d" cider-doc "doc")
      ("s" cider-switch-to-repl "switch to repl"))
     "Convert coll"
@@ -29,6 +30,9 @@
      ("k" cider-repl-forward-input "next input" :color red)
      ("c" cider-interrupt "cancel eval")))))
 
+(use-package clj-refactor)
+
+(use-package kibit-helper)
 
 (use-package paredit
   :config
