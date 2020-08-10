@@ -3,7 +3,10 @@
 ;;; For config files: YAML, JSON, TOML
 
 (use-package json-mode
-  :mode "\\.json$\\'")
+  :mode "\\.json$\\'"
+  :config
+  (setq json-reformat:indent-width 2
+	js-indent-level 2))
 
 (use-package yaml-mode
   :mode "\\.yml$\\'")
