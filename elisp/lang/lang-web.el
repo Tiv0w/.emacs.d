@@ -15,7 +15,8 @@
    ("\\.mustache\\'" . web-mode)
    ("\\.djhtml\\'" . web-mode)
    ("\\.ejs\\'" . web-mode)
-   ("\\.jsx$" . web-mode))
+   ("\\.jsx$" . web-mode)
+   ("\\.svelte$" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
