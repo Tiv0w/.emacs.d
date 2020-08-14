@@ -40,7 +40,7 @@
   :hook (after-init . doom-modeline-mode))
 
 (use-package highlight-indent-guides
-  :hook ((prog-mode conf-mode yaml-mode) . highlight-indent-guides-mode)
+  :hook ((prog-mode conf-mode yaml-mode restclient-mode) . highlight-indent-guides-mode)
   :defer nil
   :config
   (setq highlight-indent-guides-method 'column)
