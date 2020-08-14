@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: french date
+# key: frdate
+# --
+`(format-time-string "%d-%m-%Y")`$0
