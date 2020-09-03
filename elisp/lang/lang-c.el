@@ -17,7 +17,7 @@
   ;; "user": When you want to define your own style
   (setq c-default-style "cc-mode") ;; set style to "cc-mode"
   (setq gdb-many-windows t ;; use gdb-many-windows by default
-	gdb-show-main t))
+        gdb-show-main t))
 
 (use-package semantic
   :hook c-mode
@@ -27,21 +27,15 @@
   (global-semantic-stickyfunc-mode 1)
   (semantic-mode 1))
 
-(use-package ede
-  :hook c-mode
-  :config
-  ;; Enable EDE only in C/C++
-  (global-ede-mode))
-
 (use-package ggtags
   :disabled
   :hook c-mode
   :config
   (ggtags-mode 1)
   (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-		(ggtags-mode 1))))
+            (lambda ()
+              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+                (ggtags-mode 1))))
 
   (dolist (map (list ggtags-mode-map))
     (define-key map (kbd "C-c g s") 'ggtags-find-other-symbol)
