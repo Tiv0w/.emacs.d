@@ -41,7 +41,7 @@
 (require 'lang-rust)
 ;; (require 'lang-racket)
 (require 'lang-clojure)
-;; (require 'lang-c)
+(require 'lang-c)
 (require 'lang-web)
 (require 'lang-javascript)
 (require 'lang-vue)
