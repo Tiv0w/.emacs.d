@@ -25,3 +25,4 @@ elpy/
 /diary
 /forge-database.sqlite
 /.litable-lists.el
+/irony/

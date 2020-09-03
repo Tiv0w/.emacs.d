@@ -44,13 +44,15 @@
 (use-package irony-eldoc
   :hook (irony-mode . irony-eldoc))
 
-(use-package semantic
-  :hook c-mode
+(use-package yafolding
+  :hook (c-mode-common . yafolding-mode))
+
+(use-package basic-c-compile)
+
+(use-package makefile-executor
   :config
-  (global-semanticdb-minor-mode 1)
-  (global-semantic-idle-scheduler-mode 1)
-  (global-semantic-stickyfunc-mode 1)
-  (semantic-mode 1))
+  (add-hook 'makefile-mode-hook 'makefile-executor-mode))
+
 
 (use-package ggtags
   :disabled
