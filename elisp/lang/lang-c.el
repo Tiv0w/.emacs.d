@@ -19,6 +19,31 @@
   (setq gdb-many-windows t ;; use gdb-many-windows by default
         gdb-show-main t))
 
+(use-package irony
+  :hook ((c++-mode c-mode) . irony-mode)
+  :config
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+(use-package company-irony
+  :after company
+  :config
+  (add-to-list 'company-backends 'company-irony))
+
+(use-package company-irony-c-headers
+  :after company
+  :config
+  (add-to-list 'company-backends 'company-irony-c-headers))
+
+(use-package flycheck
+  :hook ((c++-mode c-mode) . flycheck-mode)
+  :config
+  (use-package flycheck-irony
+    :after flycheck
+    :hook (flycheck-mode . flycheck-irony-setup)))
+
+(use-package irony-eldoc
+  :hook (irony-mode . irony-eldoc))
+
 (use-package semantic
   :hook c-mode
   :config
@@ -49,32 +74,19 @@
     (define-key map (kbd "C-c <")   'ggtags-prev-mark)
     (define-key map (kbd "C-c >")   'ggtags-next-mark)))
 
-;; company-c-headers
-(use-package company-c-headers
-  ;; :hook c-mode
-  :after company
-  :init
-  (add-to-list 'company-backends 'company-c-headers))
-
-(use-package cc-mode
-  :after c-mode
-  :init
-  (define-key c-mode-map  [(tab)] 'company-complete)
-  (define-key c++-mode-map  [(tab)] 'company-complete))
-
 ;; git@github.com:syohex/emacs-counsel-gtags.git
-;(use-package counsel-gtags
-;  :load-path "vendor/emacs-counsel-gtags/"
-;  :ensure nil
-;  :config
-;  (add-hook 'c-mode-hook 'counsel-gtags-mode)
-;  (add-hook 'c++-mode-hook counsel-gtags-mode)
-;
-;  (with-eval-after-load 'counsel-gtags
-;    (define-key counsel-gtags-mode-map (kbd "M-t") 'counsel-gtags-find-definition)
-;    ;(define-key counsel-gtags-mode-map (kbd "M-r") 'counsel-gtags-find-reference)
-;    ;(define-key counsel-gtags-mode-map (kbd "M-s") 'counsel-gtags-find-symbol)
-;    (define-key counsel-gtags-mode-map (kbd "M-,") 'counsel-gtags-pop-stack)))
+;;(use-package counsel-gtags
+;;  :load-path "vendor/emacs-counsel-gtags/"
+;;  :ensure nil
+;;  :config
+;;  (add-hook 'c-mode-hook 'counsel-gtags-mode)
+;;  (add-hook 'c++-mode-hook counsel-gtags-mode)
+;;
+;;  (with-eval-after-load 'counsel-gtags
+;;    (define-key counsel-gtags-mode-map (kbd "M-t") 'counsel-gtags-find-definition)
+;;    ;(define-key counsel-gtags-mode-map (kbd "M-r") 'counsel-gtags-find-reference)
+;;    ;(define-key counsel-gtags-mode-map (kbd "M-s") 'counsel-gtags-find-symbol)
+;;    (define-key counsel-gtags-mode-map (kbd "M-,") 'counsel-gtags-pop-stack)))
 
 (defun alexott/cedet-hook ()
   (local-set-key (kbd "C-c C-j") 'semantic-ia-fast-jump)
