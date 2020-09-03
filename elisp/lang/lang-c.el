@@ -76,48 +76,42 @@
     (define-key map (kbd "C-c <")   'ggtags-prev-mark)
     (define-key map (kbd "C-c >")   'ggtags-next-mark)))
 
-;; git@github.com:syohex/emacs-counsel-gtags.git
-;;(use-package counsel-gtags
-;;  :load-path "vendor/emacs-counsel-gtags/"
-;;  :ensure nil
-;;  :config
-;;  (add-hook 'c-mode-hook 'counsel-gtags-mode)
-;;  (add-hook 'c++-mode-hook counsel-gtags-mode)
-;;
-;;  (with-eval-after-load 'counsel-gtags
-;;    (define-key counsel-gtags-mode-map (kbd "M-t") 'counsel-gtags-find-definition)
-;;    ;(define-key counsel-gtags-mode-map (kbd "M-r") 'counsel-gtags-find-reference)
-;;    ;(define-key counsel-gtags-mode-map (kbd "M-s") 'counsel-gtags-find-symbol)
-;;    (define-key counsel-gtags-mode-map (kbd "M-,") 'counsel-gtags-pop-stack)))
+;; https://github.com/syohex/emacs-counsel-gtags
+(use-package counsel-gtags
+  :disabled
+  :config
+  (add-hook 'c-mode-hook 'counsel-gtags-mode)
+  (add-hook 'c++-mode-hook counsel-gtags-mode)
 
-(defun alexott/cedet-hook ()
-  (local-set-key (kbd "C-c C-j") 'semantic-ia-fast-jump)
-  (local-set-key (kbd "C-c C-s") 'semantic-ia-show-summary))
+  (with-eval-after-load 'counsel-gtags
+    (define-key counsel-gtags-mode-map (kbd "M-t") 'counsel-gtags-find-definition)
+    ;;(define-key counsel-gtags-mode-map (kbd "M-r") 'counsel-gtags-find-reference)
+    ;;(define-key counsel-gtags-mode-map (kbd "M-s") 'counsel-gtags-find-symbol)
+    (define-key counsel-gtags-mode-map (kbd "M-,") 'counsel-gtags-pop-stack)))
 
-;; hs-minor-mode for folding source code
-(add-hook 'c-mode-common-hook 'hs-minor-mode)
-(add-hook 'c-mode-common-hook 'alexott/cedet-hook)
-(add-hook 'c-mode-hook 'alexott/cedet-hook)
-(add-hook 'c++-mode-hook 'alexott/cedet-hook)
+;; (defun alexott/cedet-hook ()
+;;   (local-set-key (kbd "C-c C-j") 'semantic-ia-fast-jump)
+;;   (local-set-key (kbd "C-c C-s") 'semantic-ia-show-summary))
+
 
 (set-pretty-symbols! '(c-mode c++-mode cc-mode)
-    ;; Functional
-    ;; :def "void "
-    ;; Types
-    :null "NULL"
-    :true "true"
-    :false "false"
-    :int "int"
-    :float "float"
-    :str "std::string"
-    :bool "bool"
-    ;; Flow
-    :not "!"
-    :and "&&"
-    :or "||"
-    :for "for"
-    :return "return"
-    :yield "#require")
+  ;; Functional
+  ;; :def "void "
+  ;; Types
+  :null "NULL"
+  :true "true"
+  :false "false"
+  :int "int"
+  :float "float"
+  :str "std::string"
+  :bool "bool"
+  ;; Flow
+  :not "!"
+  :and "&&"
+  :or "||"
+  :for "for"
+  :return "return"
+  :yield "#require")
 
 
 (provide 'lang-c)
