@@ -9,12 +9,26 @@ By default it changes the comments, keywords, builtins and types to italics."
   (set-face-attribute 'font-lock-builtin-face nil :slant 'italic)
   (set-face-attribute 'font-lock-type-face nil :slant 'italic))
 
+(defun t--light-env-setup ()
+  "Sets up my light working environement."
+  (interactive)
+  (load-theme 'doom-one-light t)
+  (t--setup-italics)
+  (transparency 100))
+
+(defun t--dark-env-setup ()
+  "Sets up my dark working environement."
+  (interactive)
+  (load-theme 'doom-vibrant t)
+  (t--setup-italics)
+  (transparency 90))
+
 
 (use-package doom-themes
   :defer nil
   :demand t
   :init
-  (load-theme 'doom-oceanic-next t))
+  (load-theme 'doom-vibrant t))
 
 (use-package ewal-doom-themes
   :load-path "./elisp/extlisp/ewal/doom-themes/ewal-doom-themes.el"
