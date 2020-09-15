@@ -63,5 +63,13 @@
    (typescript . t)
    ))
 
+(use-package org-jira
+  :defer t
+  :after org
+  :hook (org-mode . org-jira-mode)
+  :config
+  (setq org-jira-working-dir (concat user-emacs-directory "org-jira")
+	jiralib-url "how wow this data is obfuscated"))
+
 
 (provide 't--org)
