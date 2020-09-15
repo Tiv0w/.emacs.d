@@ -60,8 +60,8 @@
 
 ;; restore some early optimizations, after most of the work is done
 (add-hook 'emacs-startup-hook
-  (lambda ()
-    (setq file-name-handler-alist copy--file-name-handler-alist
-          ;; Make gc pauses faster by decreasing the threshold.
-          gc-cons-threshold 16777216 ; 16mb
-          gc-cons-percentage 0.1)))
+          (lambda ()
+            (setq file-name-handler-alist copy--file-name-handler-alist
+                  ;; Make gc pauses faster by decreasing the threshold.
+                  gc-cons-threshold 16777216 ; 16mb
+                  gc-cons-percentage 0.1)))
