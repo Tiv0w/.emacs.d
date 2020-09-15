@@ -57,14 +57,11 @@
 (define-key xah-fly-dot-keymap (kbd "f") 'emmet-expand-line)
 (define-key xah-fly-dot-keymap (kbd "g") 'parrot-rotate-next-word-at-point)
 (define-key xah-fly-dot-keymap (kbd "h") 'parrot-rotate-prev-word-at-point)
-(define-key xah-fly-dot-keymap (kbd "i") 'dumb-jump-go)
 (define-key xah-fly-dot-keymap (kbd "l") 'mc/mark-all-like-this-dwim)
 (define-key xah-fly-dot-keymap (kbd "n") 'web-mode-navigate)
-(define-key xah-fly-dot-keymap (kbd "o") 'dumb-jump-go-prompt)
 (define-key xah-fly-dot-keymap (kbd "p") 'projectile-command-map)
 (define-key xah-fly-dot-keymap (kbd "s") 'browse-url-dwim-search)
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify)
-(define-key xah-fly-dot-keymap (kbd "u") 'dumb-jump-back)
 (define-key xah-fly-dot-keymap (kbd "y") 'undo-tree-redo)
 ;;
 ;; keybinds for git commit

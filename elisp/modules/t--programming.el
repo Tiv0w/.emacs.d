@@ -16,11 +16,9 @@
   (setq company-box-icons-alist 'company-box-icons-all-the-icons))
 
 (use-package dumb-jump
-  :commands (dumb-jump-go
-             dumb-jump-go-prompt
-             dumb-jump-back)
   :config
-  (setq dumb-jump-selector 'ivy))
+  (setq dumb-jump-selector 'ivy)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package editorconfig
   :config
