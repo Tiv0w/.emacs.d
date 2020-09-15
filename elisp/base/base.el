@@ -34,6 +34,7 @@
 (setq confirm-kill-emacs                  'y-or-n-p
       confirm-nonexistent-file-or-buffer  t
       save-interprogram-paste-before-kill t
+      disabled-command-function           nil
       mouse-yank-at-point                 t
       electric-pair-mode                  t
       column-number-mode                  t
