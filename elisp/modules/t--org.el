@@ -64,6 +64,7 @@
    ))
 
 (use-package org-jira
+  :disabled
   :defer t
   :after org
   :hook (org-mode . org-jira-mode)
