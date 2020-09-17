@@ -12,14 +12,30 @@
 ;; (set-face-attribute 'default nil :font "Office Code Pro D")
 ;; (set-face-attribute 'default nil :font "Ubuntu Mono")
 
-(defvar-local font-height (if (getenv "IS_LAPTOP") 120 100))
+(defvar t--font-height (if (getenv "IS_LAPTOP") 120 100))
 
-(set-face-attribute 'default nil :family "Office Code Pro D" :height font-height)
+(set-face-attribute 'default nil :family "Office Code Pro D" :height t--font-height)
 (set-face-attribute 'fixed-pitch nil :family "Office Code Pro D")
-(set-face-attribute 'variable-pitch nil :family "Google Sans" :height font-height)
+(set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
 
 (add-hook 'after-make-frame-functions
 	  (lambda (frame)
 	    (set-face-font 'default "Office Code Pro D")))
+
+(defun t--setup-italics ()
+  "Sets up the italics how I like it.
+By default it changes the comments, keywords, builtins and types to italics."
+  (interactive)
+  (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-builtin-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-type-face nil :slant 'italic))
+
+(defun t--change-font-height (height)
+  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  (interactive "nFont height:")
+  (setq t--font-height height)
+  (set-face-attribute 'default nil :height height)
+  (set-face-attribute 'variable-pitch nil :height height))
 
 (provide 'base-font)

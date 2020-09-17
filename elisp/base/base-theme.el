@@ -1,14 +1,5 @@
 ;;; elisp/base/base-theme.el -*- lexical-binding: t; -*-
 
-(defun t--setup-italics ()
-  "Sets up the italics how I like it.
-By default it changes the comments, keywords, builtins and types to italics."
-  (interactive)
-  (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
-  (set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
-  (set-face-attribute 'font-lock-builtin-face nil :slant 'italic)
-  (set-face-attribute 'font-lock-type-face nil :slant 'italic))
-
 (defun t--light-env-setup ()
   "Sets up my light working environement."
   (interactive)
