@@ -62,7 +62,7 @@ than having to call `add-to-list' multiple times."
 
 
 ;; Transparency support ?
-;; Works well on Emacs 26.{2,3} built with toolkit={lucid,gtk} on Manjaro
+;; Works well on Emacs [26, 27] built with toolkit [lucid, gtk] on Manjaro
 (defun transparency (value)
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive "nTransparency Value 0 - 100 opaque:")
