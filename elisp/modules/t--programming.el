@@ -24,6 +24,13 @@
   :config
   (editorconfig-mode 1))
 
+(use-package eglot
+  :hook ((c++-mode c-mode) . eglot-ensure)
+  :config
+  (setq eglot-stay-out-of '(company))
+  (add-to-list 'eglot-server-programs
+	       '((c++-mode c-mode) "clangd")))
+
 (use-package flycheck)
 
 (use-package hl-todo
