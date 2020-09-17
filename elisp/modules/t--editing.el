@@ -5,8 +5,12 @@
 ;;; Code:
 
 (use-package aggressive-indent-mode
-  :hook (prog-mode . aggressive-indent-mode)
-  :load-path "~/prog/elisp/aggressive-indent-mode/")
+  :load-path "~/prog/elisp/aggressive-indent-mode/"
+  :config
+  (global-aggressive-indent-mode)
+  (add-hook 'makefile-mode-hook
+	    (lambda ()
+	      (aggressive-indent-mode -1)) 0 t))
 
 (use-package avy
   :commands avy-goto-char)
@@ -77,7 +81,7 @@
 (use-package undo-tree
   :config
   (setq undo-tree-auto-save-history nil
-	undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
+        undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
   (global-undo-tree-mode 1))
 
 (provide 't--editing)
