@@ -70,7 +70,19 @@
   :hook (org-mode . org-jira-mode)
   :config
   (setq org-jira-working-dir (concat user-emacs-directory "org-jira")
-	jiralib-url "how wow this data is obfuscated"))
+        jiralib-url "how wow this data is obfuscated"))
+
+
+(defun t--org-babel-display-images-after-execute ()
+  "Redisplay inline images after executing source blocks with graphics results."
+  (when-let ((info (org-babel-get-src-block-info t))
+         (params (org-babel-process-params (nth 2 info)))
+         (result-params (cdr (assq :result-params params)))
+         ((or (member "graphics" result-params)
+              (member "file" result-params))))
+    (org-display-inline-images)))
+
+(add-hook 'org-babel-after-execute-hook #'t--org-babel-display-images-after-execute)
 
 
 (provide 't--org)
