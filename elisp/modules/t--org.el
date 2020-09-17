@@ -55,7 +55,7 @@
  'org-babel-load-languages
  '(
    (awk . t)
-   ;; (dot . t)
+   (dot . t)
    (gnuplot . t)
    (js . t)
    (restclient . t)
