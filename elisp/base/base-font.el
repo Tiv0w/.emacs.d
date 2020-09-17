@@ -32,8 +32,9 @@ By default it changes the comments, keywords, builtins and types to italics."
   (set-face-attribute 'font-lock-type-face nil :slant 'italic))
 
 (defun t--change-font-height (height)
-  "Sets the transparency of the frame window. 0=transparent/100=opaque"
-  (interactive "nFont height:")
+  "Change the font height."
+  (interactive
+   (list (read-number (format "Font height (current: %d): " t--font-height))))
   (setq t--font-height height)
   (set-face-attribute 'default nil :height height)
   (set-face-attribute 'variable-pitch nil :height height))
