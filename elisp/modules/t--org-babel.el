@@ -4,6 +4,8 @@
 
 ;;; Code:
 
+(add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
+
 ;; Emacs builtins
 (require 'ob-js)
 
