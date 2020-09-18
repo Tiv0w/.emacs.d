@@ -9,11 +9,12 @@
 (require 't--ivy)
 (require 't--magit)
 
+(require 't--pretty-code) ;; pretty-code is required by org
+
 (require 't--editing)
 (require 't--emacs)
 (require 't--env)
 (require 't--org)
-(require 't--pretty-code)
 (require 't--programming)
 (require 't--random)
 (require 't--sudo)
