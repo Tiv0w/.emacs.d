@@ -15,7 +15,13 @@
   (if (listp exp) exp (list exp)))
 
 (defvar +pretty-code-symbols
-  '(;; Functional
+  '(;; Org
+    :name          "»"
+    :src_block     "»"
+    :src_block_end "«"
+    :quote         "“"
+    :quote_end     "”"
+    ;; Functional
     :lambda        "λ"
     :def           "ƒ"
     :composition   "∘"
