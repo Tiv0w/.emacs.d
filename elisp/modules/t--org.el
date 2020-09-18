@@ -9,7 +9,10 @@
   (setq org-directory "~/org-files"
         org-default-notes-file (concat org-directory "/todo.org")
         org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
-        org-log-done 'time)
+        org-log-done 'time
+        org-confirm-babel-evaluate nil
+        org-startup-with-inline-images t
+        org-highlight-latex-and-related '(native))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
@@ -28,7 +31,7 @@
      ("e" org-clock-modify-effort-estimate "update effort" :color amaranth)
      ("p" org-clock-update-time-maybe "compute time"))
     "Babel"
-    (("f" org-babel-execute-maybe "exec-maybe")))))
+    (("SPC" org-babel-execute-src-block "exec")))))
 
 (use-package org-projectile
   :bind
