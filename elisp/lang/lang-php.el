@@ -1,19 +1,9 @@
 ;;; elisp/lang/lang-php.el -*- lexical-binding: t; -*-
 
-(use-package ac-php)
-
-(use-package php-mode
-  :mode
-  (("\\.php\\'" . php-mode))
+(use-package company-php
+  :after company
   :config
-  (add-hook 'php-mode-hook
-	    '(lambda ()
-	       (require 'company-php)
-	       (company-mode t)
-	       (add-to-list 'company-backends 'company-ac-php-backend))))
+  (add-to-list 'company-backends 'company-ac-php-backend))
 
-(use-package phpunit
-  :mode
-  (("\\.php\\'" . phpunit-mode)))
 
 (provide 'lang-php)
