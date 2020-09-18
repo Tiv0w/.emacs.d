@@ -9,6 +9,10 @@
 ;; Emacs builtins
 (require 'ob-js)
 
+(setq org-src-lang-modes
+      (append '(("dot" . graphviz-dot))
+              (delete '("dot" . fundamental) org-src-lang-modes)))
+
 ;; External packages
 (use-package ob-typescript)
 (use-package ob-restclient)
