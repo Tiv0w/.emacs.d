@@ -1,13 +1,14 @@
 ;;; elisp/modules/t--programming.el -*- lexical-binding: t; -*-
 ;;; Commentary:
-; These packages are the ones I use the most while doing some programming.
+;; These packages are the ones I use the most while doing some programming.
+
 
 (use-package company
   :hook (prog-mode . company-mode)
   :config
   (setq company-idle-delay 0
-	company-minimum-prefix-length 2
-	company-require-match 'never))
+        company-minimum-prefix-length 2
+        company-require-match 'never))
 
 (use-package company-box
   :after company
@@ -29,7 +30,7 @@
   :config
   (setq eglot-stay-out-of '(company))
   (add-to-list 'eglot-server-programs
-	       '((c++-mode c-mode) "clangd")))
+               '((c++-mode c-mode) "clangd")))
 
 (use-package flycheck)
 
