@@ -1,6 +1,7 @@
 # .emacs.d
 **My personal .emacs.d**
 
+:information_source: This config is only intended for use with Emacs 27+ (because of `early-init.el`).
 
 ## Key features
 - :100: [xah-fly-keys](https://github.com/xahlee/xah-fly-keys): for powerful and ergonomics-based modal editing
