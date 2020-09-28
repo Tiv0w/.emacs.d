@@ -61,7 +61,7 @@
   ("C-<" . mc/mark-previous-like-this)
   ("C-c C->" . mc/mark-all-like-this)
   :config
-  (define-key mc/keymap (kbd "<return>") nil))
+  (define-key mc/keymap (kbd "RET") nil))
 
 (use-package smartparens
   :chords
