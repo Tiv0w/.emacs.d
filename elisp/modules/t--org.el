@@ -5,9 +5,10 @@
 ;;; Code:
 
 (use-package org
+  :init
+  (setq org-directory "~/org-files")
   :config
-  (setq org-directory "~/org-files"
-        org-default-notes-file (concat org-directory "/todo.org")
+  (setq org-default-notes-file (concat org-directory "/todo.org")
         org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
         org-log-done 'time
         org-confirm-babel-evaluate nil
