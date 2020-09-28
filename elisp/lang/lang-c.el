@@ -1,8 +1,17 @@
 ;;; elisp/lang/lang-c.el -*- lexical-binding: t; -*-
 
+(defun t--c-or-c++-mode ()
+  (let ((base (file-name-sans-extension (buffer-file-name (buffer-base-buffer)))))
+    (if (file-exists-p (or (concat base ".cpp")
+                           (concat base ".cc")
+                           (concat base ".cxx")
+                           (concat base ".c++")))
+        (c++-mode)
+      (c-mode))))
+
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
 (use-package cc-mode
-  :hook c-mode
+  :mode ("\\.h\\'" . t--c-or-c++-mode)
   :config
   ;; Available C style:
   ;; "gnu": The default style for GNU projects
