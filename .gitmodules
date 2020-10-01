@@ -1,0 +1,3 @@
+[submodule "elisp/extlisp/php-extras"]
+	path = elisp/extlisp/php-extras
+	url = git://github.com/arnested/php-extras.git
