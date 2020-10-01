@@ -7,9 +7,7 @@
   :mode
   (("\\.js\\'" . web-mode)
    ("\\.html?\\'" . web-mode)
-   ("\\.phtml?\\'" . web-mode)
-   ("\\.tpl\\.php\\'" . web-mode)
-   ("\\.php\\'" . web-mode)
+   ("\\.tpl\\'" . web-mode)
    ("\\.[agj]sp\\'" . web-mode)
    ("\\.as[cp]x\\'" . web-mode)
    ("\\.erb\\'" . web-mode)
@@ -44,20 +42,21 @@
   ;; editing enhancements for web-mode
   ;; https://github.com/jtkDvlp/web-mode-edit-element
   (use-package web-mode-edit-element
-    :config (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
+    :hook (web-mode . web-mode-edit-element-minor-mode))
 
   ;; snippets for HTML
   ;; https://github.com/smihica/emmet-mode
   (use-package emmet-mode
-    :init (setq emmet-move-cursor-between-quotes t) ;; default nil
-    :diminish (emmet-mode . " e"))
-  (add-hook 'web-mode-hook 'emmet-mode)
+    :hook web-mode
+    :diminish (emmet-mode . " e")
+    :config
+    (setq emmet-move-cursor-between-quotes t))
 
   (defun my-web-mode-hook ()
     "Hook for `web-mode' config for company-backends."
     (set (make-local-variable 'company-backends)
-         '((company-tern company-css company-web-html company-files))))
-  (add-hook 'web-mode-hook 'my-web-mode-hook)
+          '((company-tern company-css company-web-html company-files))))
+  ;; (add-hook 'web-mode-hook 'my-web-mode-hook)
 
   ;; Enable JavaScript completion between <script>...</script> etc.
   (defadvice company-tern (before web-mode-set-up-ac-sources activate)
