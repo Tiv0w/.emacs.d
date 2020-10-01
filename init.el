@@ -43,6 +43,7 @@
 (require 'lang-clojure)
 (require 'lang-c)
 (require 'lang-web)
+(require 'lang-svelte)
 (require 'lang-javascript)
 (require 'lang-vue)
 (require 'lang-typescript)
