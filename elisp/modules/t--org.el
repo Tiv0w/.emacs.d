@@ -79,6 +79,9 @@
   (setq org-jira-working-dir (concat user-emacs-directory "org-jira")
         jiralib-url "how wow this data is obfuscated"))
 
+(use-package cdlatex
+  :commands (org-cdlatex-mode))
+
 
 (set-pretty-symbols! 'org-mode
     :name "#+NAME:"
