@@ -15,6 +15,7 @@
 (require 't--emacs)
 (require 't--env)
 (require 't--org)
+(require 't--pdf)
 (require 't--programming)
 (require 't--random)
 (require 't--sudo)
