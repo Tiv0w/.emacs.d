@@ -92,6 +92,11 @@
 ;; e key map
 (define-key xah-fly-e-keymap (kbd "'") 't--insert-right-single-quotation-mark)
 
+;; c key map
+(define-key xah-fly-c-keymap (kbd "k") 'crux-rename-file-and-buffer)
+(define-key xah-fly-c-keymap (kbd "u") 'crux-delete-file-and-buffer)
+
+
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC
 (when (getenv "IS_LAPTOP")
@@ -99,5 +104,6 @@
 
 
 (xah-fly-keys 1)
+
 
 (provide 't--xah-fly-keys-setup)
