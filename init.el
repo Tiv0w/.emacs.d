@@ -27,6 +27,7 @@
 (require 'base-font)
 (require 'base-functions)
 (require 'base-global-keys)
+(require 'config)
 
 ;;; Modules setup
 (require 't--core)
@@ -51,6 +52,7 @@
 
 (require 'lang-markdown)
 ;; (require 'lang-latex)
+(require 'lang-graphviz)
 
 (require 't--xah-fly-keys-setup)
 

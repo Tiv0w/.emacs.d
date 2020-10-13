@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Org front matter
+# key: orgfront
+# --
+#+NAME: $1
+#+description: $1
+#+language: fr
+#+author: `user-full-name`
+#+email: `user-mail-address`
+#+date: `(format-time-string "%Y:%m:%d")`$0
