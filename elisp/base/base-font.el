@@ -6,6 +6,7 @@
 ;; (set-face-attribute 'default nil :font "Iosevka Term SS05" :height 110)
 ;; (set-face-attribute 'default nil :font "Space Mono")
 
+;; (set-face-attribute 'default nil :font "Julia Mono")
 ;; (set-face-attribute 'default nil :font "Fantasque Sans Mono")
 ;; (set-face-attribute 'default nil :font "Nimbus Mono PS")
 ;; (set-face-attribute 'default nil :font "Space Mono")
