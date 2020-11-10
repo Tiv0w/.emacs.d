@@ -33,10 +33,15 @@
     "Clock"
     (("i" org-clock-in "in")
      ("o" org-clock-out "out")
-     ("e" org-clock-modify-effort-estimate "update effort" :color amaranth)
      ("p" org-clock-update-time-maybe "compute time"))
     "Babel"
-    (("SPC" org-babel-execute-src-block "exec")))))
+    (("SPC" org-babel-execute-src-block "exec"))
+    "Display"
+    (("w" org-toggle-inline-images "inline images")
+     ("v" org-latex-preview "inline LaTeX"))
+    "Export"
+    (("d" org-export-dispatch "menu")
+     ("s" org-latex-export-to-pdf "-> PDF")))))
 
 (use-package org-projectile
   :bind
