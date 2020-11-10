@@ -16,6 +16,7 @@
         org-edit-src-content-indentation 0
         org-src-fontify-natively t
         org-src-tab-acts-natively t
+        org-format-latex-options (plist-put org-format-latex-options :scale 1.6)
         org-highlight-latex-and-related '(native))
   :bind
   ("C-c l" . org-store-link)
