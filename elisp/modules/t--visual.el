@@ -34,7 +34,6 @@
 (use-package doom-modeline
   :config
   (setq doom-modeline-buffer-file-name-style 'buffer-name)
-  (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-icon t)
   (display-battery-mode)
   :hook (after-init . doom-modeline-mode))
