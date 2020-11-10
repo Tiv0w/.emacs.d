@@ -68,6 +68,7 @@
  'org-babel-load-languages
  '(
    (awk . t)
+   (clojure . t)
    (dot . t)
    (gnuplot . t)
    (js . t)

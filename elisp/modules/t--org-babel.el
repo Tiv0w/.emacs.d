@@ -8,6 +8,7 @@
 
 ;; Emacs builtins
 (require 'ob-js)
+(require 'ob-clojure)
 
 (setq org-src-lang-modes
       (append '(("dot" . graphviz-dot))
