@@ -1,13 +1,13 @@
 # -*- mode: snippet -*-
-# name: Org front matter
+# name: org-front-matter
 # key: orgfront
 # --
-#+TITLE: $1
-#+DESCRIPTION: $1
-#+LANGUAGE: fr
-#+AUTHOR: `user-full-name`
-#+EMAIL: `user-mail-address`
-#+DATE: `(format-time-string "%Y-%m-%d")`
-#+OPTIONS: num:t toc:nil \n:t
-#+LATEX_CLASS: article
-#+LATEX_HEADER: \setlength{\parindent}{0pt}$0
+#+title: $1
+#+subtitle: $1
+#+language: fr
+#+author: `user-full-name`
+#+email: `user-mail-address`
+#+date: `(format-time-string "%Y-%m-%d")`
+#+options: num:t toc:nil \n:t
+#+latex_class: article
+#+latex_header: \setlength{\parindent}{0pt}$0
