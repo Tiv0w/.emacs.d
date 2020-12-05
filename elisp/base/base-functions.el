@@ -82,6 +82,19 @@ than having to call `add-to-list' multiple times."
       (deactivate-mark))
     (counsel-rg (regexp-quote thing))))
 
+(defun sort-lines-by-length (reverse beg end)
+  "Sort lines by length."
+  (interactive "P\nr")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (goto-char (point-min))
+      (let ((inhibit-field-text-motion t)) ;; To make `end-of-line' and etc. to ignore fields.
+        (sort-subr reverse 'forward-line 'end-of-line nil nil
+                   (lambda (l1 l2)
+                     (apply #'< (mapcar (lambda (range) (- (cdr range) (car range)))
+                                        (list l1 l2)))))))))
+
 
 (defun t--insert-right-single-quotation-mark ()
   "Insert a RIGHT SINGLE QUOTATION MARK character."
