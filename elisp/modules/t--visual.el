@@ -69,7 +69,7 @@
   :hook (prog-mode conf-mode))
 
 (use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :hook ((prog-mode org-mode) . rainbow-delimiters-mode))
 
 (use-package which-key
   :config

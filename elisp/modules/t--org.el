@@ -8,16 +8,34 @@
   :init
   (setq org-directory "~/org-files")
   :config
-  (setq org-default-notes-file (concat org-directory "/todo.org")
-        org-todo-keywords '((sequence "TODO" "DOING" "TEST" "DONE"))
-        org-log-done 'time
-        org-confirm-babel-evaluate nil
-        org-startup-with-inline-images t
-        org-edit-src-content-indentation 0
-        org-src-fontify-natively t
-        org-src-tab-acts-natively t
-        org-format-latex-options (plist-put org-format-latex-options :scale 1.6)
-        org-highlight-latex-and-related '(native))
+  (setq
+   org-adapt-indentation            nil
+   org-confirm-babel-evaluate       nil
+   org-default-notes-file           (concat org-directory "/todo.org")
+   org-edit-src-content-indentation 0
+   org-format-latex-options         (plist-put org-format-latex-options :scale 1.6)
+   org-highlight-latex-and-related  '(native)
+   org-latex-compiler               "pdflatex"
+   org-list-allow-alphabetical      t
+   org-log-done                     'time
+   org-src-fontify-natively         t
+   org-src-tab-acts-natively        t
+   org-startup-with-inline-images   t
+   org-todo-keywords                '((sequence "TODO" "DOING" "TEST" "DONE")))
+  ;; Highlight broken file links
+  (org-link-set-parameters
+   "file"
+   :face (lambda (path)
+           (if (or (file-remote-p path)
+                   (file-exists-p path))
+               'org-link
+             'error)))
+  (setq org-capture-templates
+	'(("i"
+	   "Ideas"
+	   entry
+	   (file+headline "ideas.org" "List")
+	   "** %?\n%i")))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
@@ -77,6 +95,10 @@
    (typescript . t)
    ))
 
+(use-package org-fragtog
+  :after org
+  :hook (org-mode . org-fragtog-mode))
+
 (use-package org-jira
   :disabled
   :defer t
@@ -91,16 +113,34 @@
 
 
 (set-pretty-symbols! 'org-mode
-    :name "#+NAME:"
-    :name "#+name:"
-    :src_block "#+BEGIN_SRC"
-    :src_block "#+begin_src"
-    :src_block_end "#+END_SRC"
+    :name          "#+name:"
+    :src_block     "#+begin_src"
     :src_block_end "#+end_src"
-    :quote "#+BEGIN_QUOTE"
-    :quote "#+begin_quote"
-    :quote_end "#+END_QUOTE"
-    :quote_end "#+end_quote")
+    :checkbox      "[ ]"
+    :pending       "[-]"
+    :checkedbox    "[X]"
+    :list_property "::"
+    :em_dash       "---"
+    :ellipsis      "..."
+    :title         "#+title:"
+    :subtitle      "#+subtitle:"
+    :language      "#+language:"
+    :author        "#+author:"
+    :email         "#+email:"
+    :date          "#+date:"
+    :options       "#+options:"
+    :latex_class   "#+latex_class:"
+    :latex_header  "#+latex_header:"
+    :beamer_header "#+beamer_header:"
+    :quote         "#+begin_quote"
+    :quote_end     "#+end_quote"
+    :caption       "#+caption:"
+    :header        "#+header:"
+    :begin_export  "#+begin_export"
+    :end_export    "#+end_export"
+    :results       "#+RESULTS:"
+    :properties    ":PROPERTIES:"
+    :end           ":END:")
 
 
 (provide 't--org)
