@@ -40,14 +40,6 @@
 (use-package litable
   :commands litable-mode)
 
-(use-package neotree
-  :config
-  (setq neo-theme 'icons
-        neo-smart-open t
-        neo-window-fixed-size nil))
-  ;; Disable linum for neotree
-  ;; (add-hook 'neo-after-create-hook #'(lambda (arg) (linum-mode 1))))
-
 (use-package projectile
   :bind
   ("C-c p" . projectile-command-map)
@@ -76,6 +68,15 @@
 
 (use-package scratch
   :commands scratch)
+
+(use-package treemacs)
+
+(use-package treemacs-magit
+  :after treemacs magit)
+
+(use-package treemacs-projectile
+  :after treemacs projectile)
+
 
 (use-package yasnippet
   :hook (prog-mode . yas-global-mode))

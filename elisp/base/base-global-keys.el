@@ -12,7 +12,7 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-(global-set-key [f7] 'neotree-project-dir)
+(global-set-key [f7] 'treemacs)
 (global-set-key (kbd "M-m") 'god-local-mode)
 
 (provide 'base-global-keys)
