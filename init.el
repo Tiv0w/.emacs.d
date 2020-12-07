@@ -51,7 +51,7 @@
 ;; (require 'lang-common-lisp)
 
 (require 'lang-markdown)
-;; (require 'lang-latex)
+(require 'lang-latex)
 (require 'lang-graphviz)
 
 (require 't--xah-fly-keys-setup)
