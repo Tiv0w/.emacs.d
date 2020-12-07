@@ -26,3 +26,4 @@ elpy/
 /forge-database.sqlite
 /.litable-lists.el
 /irony/
+/.org-id-locations
