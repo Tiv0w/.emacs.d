@@ -123,4 +123,6 @@
   :yield "#require")
 
 
+(use-package glsl-mode)
+
 (provide 'lang-c)

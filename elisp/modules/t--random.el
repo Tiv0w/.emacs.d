@@ -33,7 +33,9 @@
   (parrot-set-parrot-type 'default)
   (dolist (entry '((:rot ("let" "const" "var"))
                    (:rot ("beforeCreate" "created" "beforeMount" "mounted" "beforeDestroy" "destroyed"))
-                   (:rot ("$off" "$emit"))))
+                   (:rot ("$off" "$emit"))
+                   (:rot ("∃" "∀"))
+                   (:rot ("∨" "∧"))))
     (add-to-list 'parrot-rotate-dict entry)))
 
 (use-package browse-url-dwim
