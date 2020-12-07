@@ -47,10 +47,33 @@
 (use-package racer
   :hook (rust-mode . racer-mode)
   :config
-  (setq racer-rust-src-path (getenv "RUST_SRC_PATH")) ;; needed
+  (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library") ;; needed
   (defun my-racer-mode-hook ()
     (set (make-local-variable 'company-backends)
          '((company-capf company-files))))
+
+  (defun t--racer--describe-at-point (name)
+  "Get a descriptions of the symbols matching symbol at point and
+NAME.  If there are multiple possibilities with this NAME, prompt
+the user to choose.  Return a list of all possibilities that
+start with the user's selection."
+  (let* ((output-lines (save-excursion
+                         ;; Move to the end of the current symbol, to
+                         ;; increase racer accuracy.
+                         (skip-syntax-forward "w_")
+                         (racer--call-at-point "complete-with-snippet")))
+         (all-matches (--map (when (s-starts-with-p "MATCH " it)
+                               (racer--split-snippet-match it))
+                             output-lines))
+         (relevant-matches (--filter (equal (plist-get it :name) name)
+                                     all-matches)))
+    (racer--order-descriptions
+     (if (> (length relevant-matches) 1)
+         ;; We might have multiple matches with the same name but
+         ;; different types. E.g. Vec::from.
+         (first relevant-matches)
+       relevant-matches))))
+  (setq-local eldoc-documentation-function #'t--racer--describe-at-point)
 
   (add-hook 'racer-mode-hook 'company-mode)
   (add-hook 'racer-mode-hook 'eldoc-mode))
