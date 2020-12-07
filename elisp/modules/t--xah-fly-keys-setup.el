@@ -21,6 +21,7 @@
 
 ;; leader key map
 (define-key xah-fly-leader-key-map (kbd "m") 'major-mode-hydra) ;; too much power
+(define-key xah-fly-leader-key-map (kbd "'") 'flyspell-auto-correct-word)
 (define-key xah-fly-leader-key-map (kbd "7") 'magit-status)
 (define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
 (define-key xah-fly-leader-key-map (kbd "p") 'projectile-command-map)
