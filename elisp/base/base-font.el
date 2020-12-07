@@ -21,7 +21,7 @@
 
 (add-hook 'after-make-frame-functions
 	  (lambda (frame)
-	    (set-face-font 'default "Office Code Pro D")))
+	    (set-face-font 'default "Julia Mono")))
 
 (defun t--setup-italics ()
   "Sets up the italics how I like it.
