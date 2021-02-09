@@ -54,9 +54,10 @@
 
   (defun my-web-mode-hook ()
     "Hook for `web-mode' config for company-backends."
+    (require 'company-bulma)
     (set (make-local-variable 'company-backends)
-          '((company-tern company-css company-web-html company-files))))
-  ;; (add-hook 'web-mode-hook 'my-web-mode-hook)
+          '((company-bulma-backend company-css company-web-html company-files))))
+  (add-hook 'web-mode-hook 'my-web-mode-hook)
 
   ;; Enable JavaScript completion between <script>...</script> etc.
   (defadvice company-tern (before web-mode-set-up-ac-sources activate)
