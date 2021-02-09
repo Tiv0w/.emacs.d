@@ -36,6 +36,8 @@
 	   entry
 	   (file+headline "ideas.org" "List")
 	   "** %?\n%i")))
+  (modify-syntax-entry ?< "w" org-mode-syntax-table)
+  (modify-syntax-entry ?> "w" org-mode-syntax-table)
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
