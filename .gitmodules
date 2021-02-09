@@ -1,3 +1,6 @@
 [submodule "elisp/extlisp/php-extras"]
 	path = elisp/extlisp/php-extras
 	url = git://github.com/arnested/php-extras.git
+[submodule "elisp/extlisp/auto-activating-snippets"]
+	path = elisp/extlisp/auto-activating-snippets
+	url = git@github.com:ymarco/auto-activating-snippets.git
