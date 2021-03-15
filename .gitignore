@@ -27,3 +27,5 @@ elpy/
 /.litable-lists.el
 /irony/
 /.org-id-locations
+/meghanada/
+/eglot-eclipse-jdt-cache/
