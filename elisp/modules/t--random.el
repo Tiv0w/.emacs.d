@@ -39,6 +39,7 @@
     (add-to-list 'parrot-rotate-dict entry)))
 
 (use-package browse-url-dwim
+  :disabled
   :config
   (setq browse-url-dwim-search-url "https://duckduckgo.com/?q="))
 

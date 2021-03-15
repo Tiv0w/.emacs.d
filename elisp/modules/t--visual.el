@@ -8,7 +8,7 @@
 
 (use-package dashboard
   :config
-  (let ((logo "~/.emacs.d/private/logos/logo.png"))
+  (let ((logo (concat user-emacs-directory "private/logos/logo.png")))
     (if (file-exists-p logo)
         (setq dashboard-startup-banner logo)))
   (setq dashboard-banner-logo-title
@@ -33,8 +33,9 @@
 
 (use-package doom-modeline
   :config
-  (setq doom-modeline-buffer-file-name-style 'buffer-name)
-  (setq doom-modeline-icon t)
+  (setq doom-modeline-buffer-file-name-style 'buffer-name
+        doom-modeline-icon t
+        doom-modeline-percent-position nil)
   (display-battery-mode)
   :hook (after-init . doom-modeline-mode))
 
