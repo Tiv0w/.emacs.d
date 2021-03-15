@@ -109,5 +109,7 @@
 
 (xah-fly-keys 1)
 
+(if (daemonp)
+    (add-hook 'server-after-make-frame-hook (lambda () (xah-fly-keys 1))))
 
 (provide 't--xah-fly-keys-setup)
