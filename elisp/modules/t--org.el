@@ -31,13 +31,11 @@
                'org-link
              'error)))
   (setq org-capture-templates
-	'(("i"
-	   "Ideas"
-	   entry
-	   (file+headline "ideas.org" "List")
-	   "** %?\n%i")))
-  (modify-syntax-entry ?< "w" org-mode-syntax-table)
-  (modify-syntax-entry ?> "w" org-mode-syntax-table)
+        '(("i"
+           "Ideas"
+           entry
+           (file+headline "ideas.org" "List")
+           "** %?\n%i")))
   (add-hook 'org-mode-hook (lambda ()
                                (modify-syntax-entry ?< "w" org-mode-syntax-table)
                                (modify-syntax-entry ?> "w" org-mode-syntax-table)))
@@ -109,16 +107,16 @@
   :hook (org-mode . auto-activating-snippets-mode)
   :config
   (aas-set-snippets 'org-mode
-		    "AA"      "∀"
-		    ";->"     "→"
-		    "EE"      "∃"
-		    ";&&"     "∧"
-		    ";||"     "∨"
-		    ";!"      "¬"
-		    ";="      "⊢"
-		    ";square" "□"
-		    ";top"    "⊤"
-		    ";bot"    "⊥"))
+                    "AA"      "∀"
+                    ";->"     "→"
+                    "EE"      "∃"
+                    ";&&"     "∧"
+                    ";||"     "∨"
+                    ";!"      "¬"
+                    ";="      "⊢"
+                    ";square" "□"
+                    ";top"    "⊤"
+                    ";bot"    "⊥"))
 
 (use-package org-jira
   :disabled
