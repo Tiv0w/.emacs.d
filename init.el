@@ -48,6 +48,7 @@
 (require 'lang-vue)
 (require 'lang-typescript)
 ;; (require 'lang-common-lisp)
+(require 'lang-java)
 
 (require 'lang-markdown)
 (require 'lang-latex)
