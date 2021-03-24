@@ -1,6 +1,6 @@
 ;;; elisp/modules/t--random.el -*- lexical-binding: t; -*-
 ;;; Commentary:
-; These packages are just some various packages, mostly funny and/or not so much used
+;; These packages are just some various packages, mostly funny and/or not so much used
 
 (use-package counsel-spotify
   :after counsel

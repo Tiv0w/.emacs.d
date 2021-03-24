@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package aggressive-indent-mode
+  :disabled
   :load-path "~/prog/elisp/aggressive-indent-mode/"
   :config
   (global-aggressive-indent-mode)

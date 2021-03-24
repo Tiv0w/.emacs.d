@@ -60,6 +60,18 @@
   (t--add-to-list-multiple 'mixed-pitch-fixed-pitch-faces
                            '(line-number line-number-current-line)))
 
+(use-package mini-frame
+  :config
+  (setq resize-mini-frames t
+        mini-frame-show-parameters '((top . 30)
+                                     (width . 0.5)
+                                     (left . 0.5)))
+  ;; mini-frame-show-parameters '((top . -230)
+  ;;                              (width . 0.7)
+  ;;                              (left . 0.5)))
+  ;; (mini-frame-mode)
+  )
+
 (use-package page-break-lines)
 
 (use-package popwin
