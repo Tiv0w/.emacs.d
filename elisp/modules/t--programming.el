@@ -30,7 +30,7 @@
   :config
   (setq eglot-stay-out-of '(company))
   (add-to-list 'eglot-server-programs
-               '((c++-mode c-mode) "clangd")))
+               '((c++-mode c-mode) . ("clangd" "-j=3" "--clang-tidy"))))
 
 (use-package flycheck)
 

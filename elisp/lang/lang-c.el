@@ -9,6 +9,14 @@
         (c++-mode)
       (c-mode))))
 
+(defun t--jump-to-h-or-cpp (&optional arg)
+  (interactive "i")
+  (let ((base (file-name-sans-extension (buffer-file-name (buffer-base-buffer))))
+        (extension (file-name-extension (buffer-file-name (buffer-base-buffer)))))
+    (if (string-equal extension "cpp")
+        (find-file (concat base ".h"))
+      (find-file (concat base ".cpp")))))
+
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
 (use-package cc-mode
   :mode ("\\.h\\'" . t--c-or-c++-mode)
@@ -27,6 +35,18 @@
   (setq c-default-style "cc-mode") ;; set style to "cc-mode"
   (setq gdb-many-windows t ;; use gdb-many-windows by default
         gdb-show-main t))
+
+(major-mode-hydra-define c++-mode
+  (:title "C++" :color blue :quit-key "q")
+  ("Navigation"
+   (("m" t--jump-to-h-or-cpp "jump header/source")
+    ("," eglot-find-declaration "jump to def")
+    ("." eglot-find-implementation "jump to impl"))
+   "Editing"
+   (("s" eglot-rename "rename symbol")
+    ("f" eglot-code-actions "code actions"))
+   "Misc"
+   (("b" eglot-format-buffer "format buffer"))))
 
 (use-package irony
   :hook ((c++-mode c-mode) . irony-mode)
@@ -57,6 +77,9 @@
   :hook (c-mode-common . yafolding-mode))
 
 (use-package basic-c-compile)
+
+(use-package modern-cpp-font-lock
+  :hook (c++-mode . modern-c++-font-lock-mode))
 
 (use-package makefile-executor
   :config
