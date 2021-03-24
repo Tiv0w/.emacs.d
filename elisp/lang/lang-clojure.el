@@ -5,12 +5,16 @@
   ((:title "Clojure" :color blue :quit-key "q")
    ("Essential"
     (("a" cider-jack-in "jack-in !")
-     ("b" cider-load-buffer "load buffer")
      ("t" cider-test-run-test "run tests")
      ("w" cider-inspect "inspect")
-     ("e" cider-eval-last-sexp "eval")
      ("d" cider-doc "doc")
+     ("v" cider-find-var "view source")
      ("s" cider-switch-to-repl "switch to repl"))
+    "Eval"
+    (("ee" cider-eval-last-sexp "last sexp")
+     ("ed" cider-eval-defun-at-point "defun")
+     ("eb" cider-load-buffer "buffer")
+     ("en" cider-eval-ns-form "ns form"))
     "Convert coll"
     (("(" clojure-convert-collection-to-list "coll -> (")
      ("{" clojure-convert-collection-to-map "coll -> {")
@@ -21,6 +25,7 @@
 (use-package cider
   :hook (clojure-mode-local-vars . cider-mode)
   :config
+  (setq cider-repl-display-help-banner nil)
   (add-hook 'cider-mode-hook 'eldoc-mode)
   :mode-hydra
   (cider-repl-mode
@@ -28,7 +33,8 @@
    ("Cider REPL"
     (("i" cider-repl-backward-input "previous input" :color red)
      ("k" cider-repl-forward-input "next input" :color red)
-     ("c" cider-interrupt "cancel eval")))))
+     ("c" cider-interrupt "cancel eval")
+     ("d" cider-repl-clear-buffer "clear buffer")))))
 
 (use-package clj-refactor)
 
