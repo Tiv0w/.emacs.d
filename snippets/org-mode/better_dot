@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: better_dot
+# key: _dot
+# --
+#+begin_src dot :file ${1:file} :cmd dot :cmdline -T${2:png} :exports none :results silent
+$0
+#+end_src
+[[file:$1]]
