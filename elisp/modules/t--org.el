@@ -38,6 +38,9 @@
 	   "** %?\n%i")))
   (modify-syntax-entry ?< "w" org-mode-syntax-table)
   (modify-syntax-entry ?> "w" org-mode-syntax-table)
+  (add-hook 'org-mode-hook (lambda ()
+                               (modify-syntax-entry ?< "w" org-mode-syntax-table)
+                               (modify-syntax-entry ?> "w" org-mode-syntax-table)))
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
