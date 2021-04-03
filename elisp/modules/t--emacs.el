@@ -43,6 +43,12 @@
   (setq-default ediff-highlight-all-diffs 'nil)
   (setq ediff-diff-options "-w"))
 
+(use-package emacs-everywhere
+  :ensure-system-package ((xprop . xorg-xprop)
+			  (xwininfo . xorg-xwininfo)
+			  xclip
+			  xdotool))
+
 (use-package helpful
   :commands (helpful-callable
 	     helpful-at-point
