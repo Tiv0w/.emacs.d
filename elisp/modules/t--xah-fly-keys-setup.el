@@ -15,6 +15,7 @@
 (define-key xah-fly-command-map (kbd "+") 'text-scale-increase)
 (define-key xah-fly-command-map (kbd "=") 'text-scale-increase)
 (define-key xah-fly-command-map (kbd "-") 'text-scale-decrease)
+(define-key xah-fly-command-map (kbd "E") 'embrace-commander)
 (define-key xah-fly-command-map (kbd "r") 'iy-go-to-char)
 (define-key xah-fly-command-map (kbd "R") 'iy-go-to-char-backward)
 

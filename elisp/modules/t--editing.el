@@ -49,8 +49,12 @@
   :commands deadgrep)
 
 (use-package expand-region
+  :commands (er/expand-region)
   :bind
   ("C-=" . er/expand-region))
+
+(use-package embrace
+  :hook (org-mode . embrace-org-mode-hook))
 
 (use-package iy-go-to-char
   :commands iy-go-to-char)
