@@ -10,8 +10,8 @@
   :config
   (global-aggressive-indent-mode)
   (add-hook 'makefile-mode-hook
-	    (lambda ()
-	      (aggressive-indent-mode -1)) 0 t))
+            (lambda ()
+              (aggressive-indent-mode -1)) 0 t))
 
 (use-package avy
   :commands avy-goto-char)

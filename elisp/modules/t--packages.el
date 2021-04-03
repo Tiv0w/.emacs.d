@@ -1,6 +1,6 @@
 ;;; elisp/modules/t--packages.el -*- lexical-binding: t; -*-
 ;;; Commentary:
-; These packages are needed for the init of other packages.
+;; These packages are needed for the init of other packages.
 
 ;;; Code:
 
