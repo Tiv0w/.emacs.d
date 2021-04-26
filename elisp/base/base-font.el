@@ -15,8 +15,9 @@
 
 (defvar t--font-height (if (getenv "IS_LAPTOP") 120 100))
 
-(set-face-attribute 'default nil :family "Julia Mono" :height t--font-height)
-(set-face-attribute 'fixed-pitch nil :family "Julia Mono")
+(set-fontset-font "fontset-default" nil (font-spec :family "Julia Mono" :height t--font-height))
+(set-face-attribute 'default nil :family "Office Code Pro D" :height t--font-height)
+(set-face-attribute 'fixed-pitch nil :family "Office Code Pro D")
 (set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
 
 (add-hook 'after-make-frame-functions
