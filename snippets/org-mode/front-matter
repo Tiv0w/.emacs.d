@@ -3,7 +3,7 @@
 # key: orgfront
 # --
 #+title: $1
-#+subtitle: $1
+#+subtitle: $2
 #+language: fr
 #+author: `user-full-name`
 #+email: `user-mail-address`

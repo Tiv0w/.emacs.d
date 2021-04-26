@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Hugo Front Matter
+# key: hugofront
+# --
++++
+title = "$1"
+date = "`(format-time-string "%Y-%m-%d")`"
+draft = true
+tags = []
++++
+$0
