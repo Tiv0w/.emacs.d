@@ -90,4 +90,7 @@
         undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))
   (global-undo-tree-mode 1))
 
+(use-package ws-butler
+  :hook (prog-mode . ws-butler-mode))
+
 (provide 't--editing)

@@ -110,10 +110,6 @@
 
 (add-to-list 'default-frame-alist '(alpha . 90))
 
-;; Delete trailing whitespace before save
-(add-hook 'prog-mode-hook (lambda ()
-			    (add-hook 'before-save-hook 'delete-trailing-whitespace)))
-
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
