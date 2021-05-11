@@ -145,7 +145,8 @@ than having to call `add-to-list' multiple times."
    "Smerging"
    (("f" smerge-keep-current "current")
     ("e" smerge-keep-mine "mine/upper")
-    ("w" smerge-keep-other "other/lower"))))
+    ("w" smerge-keep-other "other/lower")
+    ("a" smerge-keep-all "all"))))
 
 
 (provide 'base-functions)
