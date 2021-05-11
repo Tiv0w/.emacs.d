@@ -57,6 +57,7 @@
   :hook (org-mode . embrace-org-mode-hook))
 
 (use-package iy-go-to-char
+  :load-path "./elisp/extlisp/iy-go-to-char.el"
   :commands iy-go-to-char)
 
 (use-package multiple-cursors
