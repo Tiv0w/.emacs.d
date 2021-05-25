@@ -2,6 +2,6 @@
 # name: Source Block
 # key: sb
 # --
-#+BEGIN_SRC $1
+#+begin_src $1 :results ${2:replace} :exports ${3:code}
 $0
-#+END_SRC
+#+end_src
