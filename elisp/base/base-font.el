@@ -14,15 +14,16 @@
 ;; (set-face-attribute 'default nil :font "Ubuntu Mono")
 
 (defvar t--font-height (if (getenv "IS_LAPTOP") 120 100))
+(defvar t--main-font "Office Code Pro D")
 
 (set-fontset-font "fontset-default" nil (font-spec :family "Julia Mono" :height t--font-height))
-(set-face-attribute 'default nil :family "Office Code Pro D" :height t--font-height)
-(set-face-attribute 'fixed-pitch nil :family "Office Code Pro D")
+(set-face-attribute 'default nil :family t--main-font :height t--font-height)
+(set-face-attribute 'fixed-pitch nil :family t--main-font)
 (set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
 
 (add-hook 'after-make-frame-functions
 	  (lambda (frame)
-	    (set-face-font 'default "Julia Mono")))
+	    (set-face-font 'default t--main-font)))
 
 (defun t--setup-italics ()
   "Sets up the italics how I like it.
