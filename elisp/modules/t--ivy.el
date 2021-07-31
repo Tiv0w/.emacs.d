@@ -29,6 +29,7 @@
 	ivy-re-builders-alist '((read-file-name-internal . ivy--regex-ignore-order)
 				(projectile-completing-read . ivy--regex-ignore-order)
 				(counsel-M-x . ivy--regex-ignore-order)
+				(insert-char . ivy--regex-ignore-order)
 				(t . ivy--regex-plus)))
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
