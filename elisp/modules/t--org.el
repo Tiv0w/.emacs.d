@@ -102,9 +102,8 @@
   :after org
   :hook (org-mode . org-fragtog-mode))
 
-(use-package auto-activating-snippets
-  :load-path "elisp/extlisp/auto-activating-snippets"
-  :hook (org-mode . auto-activating-snippets-mode)
+(use-package aas
+  :hook (org-mode . aas-activate-for-major-mode)
   :config
   (aas-set-snippets 'org-mode
                     "AA"      "∀"
@@ -116,7 +115,15 @@
                     ";="      "⊢"
                     ";square" "□"
                     ";top"    "⊤"
-                    ";bot"    "⊥"))
+                    ";bot"    "⊥"
+                    ";d"      "δ"
+                    ";D"      "Δ"
+                    ";a"      "α"
+                    ";A"      "Α"
+                    ";g"      "γ"
+                    ";G"      "Γ"
+                    ";s"      "σ"
+                    ";S"      "Σ"))
 
 (use-package org-jira
   :disabled
