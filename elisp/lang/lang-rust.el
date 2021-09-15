@@ -47,7 +47,13 @@
 (use-package racer
   :hook (rust-mode . racer-mode)
   :config
-  (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library") ;; needed
+  (let ((rustup-home (if (getenv "RUSTUP_HOME")
+                        (getenv "RUSTUP_HOME")
+                      "$HOME/.rustup")))
+    (setq racer-rust-src-path
+          (concat
+           rustup-home
+           "/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library"))) ;; needed
   (defun my-racer-mode-hook ()
     (set (make-local-variable 'company-backends)
          '((company-capf company-files))))
