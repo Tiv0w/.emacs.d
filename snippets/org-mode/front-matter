@@ -9,5 +9,8 @@
 #+email: `user-mail-address`
 #+date: `(format-time-string "%Y-%m-%d")`
 #+options: num:t toc:nil \n:t
+#+latex_compiler: lualatex
 #+latex_class: article
+#+latex_header: \usepackage[margin=2cm]{geometry}
+#+latex_header: \usepackage{unicode-math}
 #+latex_header: \setlength{\parindent}{0pt}$0
