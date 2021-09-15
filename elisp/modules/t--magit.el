@@ -26,7 +26,12 @@
      ("p" forge-create-post "create post")
      ("b" forge-browse-topic "browse topic")))))
 
+(use-package magit-gitflow
+  :after magit
+  :hook (magit-mode . turn-on-magit-gitflow))
+
 (use-package gitmoji
+  :disabled
   :load-path "~/prog/elisp/gitmoji/"
   :config
   (gitmoji-commit-mode t))
