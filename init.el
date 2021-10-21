@@ -49,6 +49,7 @@
 (require 'lang-typescript)
 ;; (require 'lang-common-lisp)
 (require 'lang-java)
+(require 'lang-coq)
 
 (require 'lang-markdown)
 (require 'lang-latex)
