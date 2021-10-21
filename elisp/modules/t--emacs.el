@@ -77,7 +77,8 @@
 
 (use-package recentf
   :config
-  (setq recentf-save-file (recentf-expand-file-name "~/.emacs.d/private/cache/recentf")
+  (setq recentf-save-file (recentf-expand-file-name
+			   (concat user-emacs-directory "private/cache/recentf"))
 	recentf-max-saved-items 25)
   (recentf-mode 1))
 
