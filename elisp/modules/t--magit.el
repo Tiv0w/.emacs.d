@@ -30,6 +30,14 @@
   :after magit
   :hook (magit-mode . turn-on-magit-gitflow))
 
+(use-package git-messenger
+  :after magit
+  :commands (git-messenger:popup-message))
+
+(use-package browse-at-remote
+  :after magit
+  :commands (browse-at-remote))
+
 (use-package gitmoji
   :disabled
   :load-path "~/prog/elisp/gitmoji/"
