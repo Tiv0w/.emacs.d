@@ -82,9 +82,7 @@
   :hook (c++-mode . modern-c++-font-lock-mode))
 
 (use-package makefile-executor
-  :config
-  (add-hook 'makefile-mode-hook 'makefile-executor-mode))
-
+  :hook (makefile-mode . makefile-executor-mode))
 
 (use-package ggtags
   :disabled
