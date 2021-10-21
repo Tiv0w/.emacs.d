@@ -38,6 +38,10 @@
                    (:rot ("∨" "∧"))))
     (add-to-list 'parrot-rotate-dict entry)))
 
+(use-package secret-mode
+  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/secret-mode.el"))
+  :commands secret-mode)
+
 (use-package browse-url-dwim
   :disabled
   :config
