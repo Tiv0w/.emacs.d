@@ -18,9 +18,12 @@
     (("o" tide-organize-imports "organize imports")
      ("d" tide-jsdoc-template "jsdoc")
      ("t" tide-add-eslint-disable-next-line "eslint disable"))))
+  :init
+  (define-derived-mode typescript-tsx-mode typescript-mode "tsx")
   :config
   (setq typescript-indent-level 2)
-  (set-pretty-symbols! 'typescript-mode
+  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-tsx-mode))
+  (set-pretty-symbols! '(typescript-mode typescript-tsx-mode)
     ;; Functional
     :def "function"
     :lambda "() =>"
@@ -38,11 +41,11 @@
     :return "return" :yield "import"))
 
 (use-package add-node-modules-path
-  :hook typescript-mode)
+  :hook (typescript-mode typescript-tsx-mode))
 
 (use-package flycheck
-  :hook (typescript-mode . flycheck-mode)
-  :after (typescript-mode add-node-modules-path)
+  :hook ((typescript-mode typescript-tsx-mode) . flycheck-mode)
+  :after (:all (:any typescript-mode typescript-tsx-mode) add-node-modules-path)
   :config
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers
@@ -54,9 +57,9 @@
 
 (use-package tide
   :ensure t
-  :after (typescript-mode company flycheck add-node-modules-path)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
+  :after (:all (:any typescript-mode typescript-tsx-mode) company flycheck add-node-modules-path)
+  :hook (((typescript-mode typescript-tsx-mode) . tide-setup)
+         (typescript-tsx-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save))
   :config
   (eldoc-mode +1)
@@ -113,6 +116,18 @@
 
 
 (use-package eslintd-fix
-  :hook (typescript-mode . eslintd-fix-mode))
+  :hook ((typescript-mode typescript-tsx-mode) . eslintd-fix-mode))
+
+(use-package tree-sitter
+  :ensure t
+  :hook ((typescript-mode . tree-sitter-hl-mode)
+	 (typescript-tsx-mode . tree-sitter-hl-mode)))
+
+(use-package tree-sitter-langs
+  :ensure t
+  :after tree-sitter
+  :config
+  (tree-sitter-require 'tsx)
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
 
 (provide 'lang-typescript)
