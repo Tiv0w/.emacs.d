@@ -27,5 +27,9 @@
 (use-package flycheck
   :hook (meghanada-mode . flycheck-mode))
 
+(use-package groovy-mode)
+
+(use-package kotlin-mode)
+
 
 (provide 'lang-java)
