@@ -9,13 +9,16 @@
         (c++-mode)
       (c-mode))))
 
-(defun t--jump-to-h-or-cpp (&optional arg)
+(defun t--jump-to-h-or-c/cpp (&optional arg)
   (interactive "i")
   (let ((base (file-name-sans-extension (buffer-file-name (buffer-base-buffer))))
         (extension (file-name-extension (buffer-file-name (buffer-base-buffer)))))
-    (if (string-equal extension "cpp")
+    (if (or (string-equal extension "cpp")
+            (string-equal extension "c"))
         (find-file (concat base ".h"))
-      (find-file (concat base ".cpp")))))
+      (if (eq major-mode 'c-mode)
+          (find-file (concat base ".c"))
+        (find-file (concat base ".cpp"))))))
 
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
 (use-package cc-mode
@@ -36,10 +39,10 @@
   (setq gdb-many-windows t ;; use gdb-many-windows by default
         gdb-show-main t))
 
-(major-mode-hydra-define c++-mode
-  (:title "C++" :color blue :quit-key "q")
+(major-mode-hydra-define (c++-mode c-mode)
+  (:title "C/C++" :color blue :quit-key "q")
   ("Navigation"
-   (("m" t--jump-to-h-or-cpp "jump header/source")
+   (("m" t--jump-to-h-or-c/cpp "jump header/source")
     ("," eglot-find-declaration "jump to def")
     ("." eglot-find-implementation "jump to impl"))
    "Editing"
