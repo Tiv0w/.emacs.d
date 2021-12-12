@@ -93,6 +93,7 @@
    (dot . t)
    (gnuplot . t)
    (js . t)
+   (plantuml . t)
    (restclient . t)
    (shell . t)
    (typescript . t)
