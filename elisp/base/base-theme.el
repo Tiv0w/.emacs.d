@@ -21,7 +21,7 @@
 (defun t--dark-env-setup ()
   "Sets up my dark working environement."
   (interactive)
-  (load-theme 'doom-vibrant t)
+  (load-theme 'doom-outrun-electric t)
   (t--setup-italics)
   (t--transparency 90))
 
@@ -30,7 +30,7 @@
   :defer nil
   :demand t
   :init
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-outrun-electric t))
 
 (use-package ewal-doom-themes
   :load-path "./elisp/extlisp/ewal/doom-themes/ewal-doom-themes.el"
