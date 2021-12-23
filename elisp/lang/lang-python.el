@@ -2,8 +2,20 @@
 
 ;;; Python configuration
 
+(use-package python-mode
+  :ensure nil
+  :mode-hydra
+  (python-mode
+   (:title "Python" :color blue :quit-key "q")
+   ("Essential"
+    (("s" python-shell-switch-to-shell "switch to repl"))
+    "Eval"
+    (("ee" python-shell-send-statement "statement")
+     ("ed" python-shell-send-defun "defun")
+     ("eb" python-shell-send-buffer "buffer")))))
+
 (use-package elpy
-  :mode ("\\.py$" . python-mode)
+  ;; :mode ("\\.py$" . python-mode)
   :hook python-mode
   :config
   (setq elpy-rpc-virtualenv-path 'current)

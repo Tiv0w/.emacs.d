@@ -35,6 +35,7 @@
 
 
 (use-package flycheck-grammalecte
+  :disabled
   :init
   (setq flycheck-grammalecte-enabled-modes
 	'(org-mode text-mode mail-mode latex-mode markdown-mode))
