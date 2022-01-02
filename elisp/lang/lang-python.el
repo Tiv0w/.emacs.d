@@ -8,24 +8,22 @@
   (python-mode
    (:title "Python" :color blue :quit-key "q")
    ("Essential"
-    (("s" python-shell-switch-to-shell "switch to repl"))
+    (("a" run-python "start interpreter")
+     ("s" python-shell-switch-to-shell "switch to repl"))
     "Eval"
     (("ee" python-shell-send-statement "statement")
      ("ed" python-shell-send-defun "defun")
      ("eb" python-shell-send-buffer "buffer")))))
 
 (use-package elpy
-  ;; :mode ("\\.py$" . python-mode)
-  :hook python-mode
+  :hook (python-mode . elpy-enable)
+  :after python-mode
   :config
   (setq elpy-rpc-virtualenv-path 'current)
   (setq elpy-rpc-backend "jedi")
   ;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
   ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
-  (elpy-enable)
-  :bind (:map elpy-mode-map
-              ("M-." . elpy-goto-definition)
-              ("M-," . pop-tag-mark)))
+  )
 
 (use-package pip-requirements
   :config
