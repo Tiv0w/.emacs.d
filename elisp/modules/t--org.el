@@ -18,6 +18,7 @@
    org-latex-compiler               "pdflatex"
    org-list-allow-alphabetical      t
    org-log-done                     'time
+   org-plantuml-exec-mode           'plantuml
    org-src-fontify-natively         t
    org-src-tab-acts-natively        t
    org-startup-with-inline-images   t
