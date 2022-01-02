@@ -17,6 +17,7 @@
 (defvar t--main-font "Office Code Pro D")
 
 (set-fontset-font "fontset-default" nil (font-spec :family "Julia Mono" :height t--font-height))
+(set-fontset-font t '(#x1f000 . #x1faff) (font-spec :family "Noto Color Emoji" :height t--font-height))
 (set-face-attribute 'default nil :family t--main-font :height t--font-height)
 (set-face-attribute 'fixed-pitch nil :family t--main-font)
 (set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
