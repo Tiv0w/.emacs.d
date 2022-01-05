@@ -14,4 +14,7 @@
 (use-package toml-mode
   :mode "\\.toml$\\'")
 
+(use-package rainbow-mode
+  :hook (json-mode toml-mode yaml-mode))
+
 (provide 'lang-config)
