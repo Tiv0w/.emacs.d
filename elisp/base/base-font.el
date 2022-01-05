@@ -16,15 +16,19 @@
 (defvar t--font-height (if (getenv "IS_LAPTOP") 120 100))
 (defvar t--main-font "Office Code Pro D")
 
-(set-fontset-font "fontset-default" nil (font-spec :family "Julia Mono" :height t--font-height))
-(set-fontset-font t '(#x1f000 . #x1faff) (font-spec :family "Noto Color Emoji" :height t--font-height))
-(set-face-attribute 'default nil :family t--main-font :height t--font-height)
-(set-face-attribute 'fixed-pitch nil :family t--main-font)
-(set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
+(defun t--setup-fonts (frame)
+  "Sets up the fonts with a main font, Unicode fallback and emojis.
+This function is hooked to `after-make-frame-functions'."
+  (set-face-attribute 'default nil :family t--main-font :height t--font-height)
+  (set-face-attribute 'fixed-pitch nil :family t--main-font)
+  (set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
+  (set-fontset-font t nil
+                    (font-spec :family "Julia Mono" :height t--font-height))
+  (set-fontset-font t '(#x1f000 . #x1faff)
+                    (font-spec :family "Noto Color Emoji" :height t--font-height))
+  (set-face-font 'default t--main-font))
 
-(add-hook 'after-make-frame-functions
-	  (lambda (frame)
-	    (set-face-font 'default t--main-font)))
+(add-hook 'after-make-frame-functions #'t--setup-fonts)
 
 (defun t--setup-italics ()
   "Sets up the italics how I like it.
@@ -36,7 +40,7 @@ By default it changes the comments, keywords, builtins and types to italics."
   (set-face-attribute 'font-lock-type-face nil :slant 'italic))
 
 (defun t--change-font-height (height)
-  "Change the font height."
+  "Change the font height of the default and variable-pitch faces."
   (interactive
    (list (read-number (format "Font height (current: %d): " t--font-height))))
   (setq t--font-height height)
