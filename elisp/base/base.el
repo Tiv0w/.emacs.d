@@ -84,6 +84,7 @@
                        (make-directory (concat temp-dir "/auto-save-list") :parents))
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(blink-cursor-mode -1)
 (global-auto-revert-mode t)
 
 
