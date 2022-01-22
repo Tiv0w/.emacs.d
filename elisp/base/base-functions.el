@@ -102,6 +102,10 @@ than having to call `add-to-list' multiple times."
   (insert "’"))
 
 
+(unless (package-installed-p 'major-mode-hydra)
+  (package-install 'major-mode-hydra))
+(require 'pretty-hydra)
+
 (pretty-hydra-define multiple-cursors-hydra
   (:title "Multiple-cursors" :color amaranth :quit-key "q")
   ("Mark"
