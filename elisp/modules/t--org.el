@@ -90,15 +90,15 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
-   (awk . t)
-   (clojure . t)
+   ;; (awk . t)
+   ;; (clojure . t)
    (dot . t)
-   (gnuplot . t)
-   (js . t)
+   ;; (gnuplot . t)
+   ;; (js . t)
    (plantuml . t)
-   (restclient . t)
+   ;; (restclient . t)
    (shell . t)
-   (typescript . t)
+   ;; (typescript . t)
    ))
 
 (use-package org-fragtog
