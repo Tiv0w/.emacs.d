@@ -51,6 +51,7 @@
 (require 'lang-java)
 (require 'lang-coq)
 (require 'lang-scheme)
+;; (require 'lang-carp)
 
 (require 'lang-markdown)
 (require 'lang-latex)
