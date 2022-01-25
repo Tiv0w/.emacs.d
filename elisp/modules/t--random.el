@@ -43,8 +43,16 @@
   :commands secret-mode)
 
 (use-package browse-url-dwim
-  :disabled
   :config
   (setq browse-url-dwim-search-url "https://duckduckgo.com/?q="))
+
+(use-package fireplace
+  :commands (fireplace))
+
+(use-package minesweeper
+  :commands (minesweeper))
+
+(use-package speed-type
+  :commands (speed-type-text speed-type-region speed-type-buffer))
 
 (provide 't--random)
