@@ -14,6 +14,7 @@
 (require 't--editing)
 (require 't--emacs)
 (require 't--env)
+(require 't--language)
 (require 't--org)
 (require 't--pdf)
 (require 't--programming)
