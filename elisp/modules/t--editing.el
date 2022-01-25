@@ -78,6 +78,21 @@
    ("jl" . sp-slurp-hybrid-sexp)
    ("ik" . sp-transpose-hybrid-sexp)))
 
+(use-package string-inflection
+  :config
+  (defun string-inflection-cycle-auto ()
+    "Switching string case by major-mode."
+    (interactive)
+    (cond
+     ((eq major-mode 'emacs-lisp-mode)
+      (string-inflection-all-cycle))
+     ((eq major-mode 'python-mode)
+      (string-inflection-python-style-cycle))
+     ((eq major-mode 'java-mode)
+      (string-inflection-java-style-cycle))
+     (t
+      (string-inflection-ruby-style-cycle)))))
+
 (use-package stupid-indent-mode
   :hook conf-mode)
 
