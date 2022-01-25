@@ -36,6 +36,9 @@
      ("c" cider-interrupt "cancel eval")
      ("d" cider-repl-clear-buffer "clear buffer")))))
 
+(use-package clojure-snippets
+  :after (clojure-mode yasnippet))
+
 (use-package clj-refactor)
 
 (use-package kibit-helper)
