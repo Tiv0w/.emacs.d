@@ -36,7 +36,7 @@
   (setq doom-modeline-buffer-file-name-style 'buffer-name
         doom-modeline-icon t
         doom-modeline-percent-position nil)
-  (display-battery-mode)
+  (when (getenv "IS_LAPTOP") (display-battery-mode))
   :hook (after-init . doom-modeline-mode))
 
 (use-package highlight-indent-guides
