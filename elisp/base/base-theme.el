@@ -33,14 +33,10 @@
   (load-theme 'doom-outrun-electric t))
 
 (use-package ewal-doom-themes
-  :load-path "./elisp/extlisp/ewal/doom-themes/ewal-doom-themes.el"
-  :commands load-theme
+  :defer nil
+  :demand t
   :config
-  (progn
-    (load-file (concat user-emacs-directory "/elisp/extlisp/ewal/doom-themes/ewal-doom-themes.el"))
-    (load-file (concat user-emacs-directory "/elisp/extlisp/ewal/doom-themes/ewal-doom-vibrant-theme.el"))
-    (load-theme 'ewal-doom-vibrant t)
-    (enable-theme 'ewal-doom-vibrant)))
+  (enable-theme 'ewal-doom-vibrant))
 
 
 (provide 'base-theme)
