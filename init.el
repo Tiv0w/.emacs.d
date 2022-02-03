@@ -49,7 +49,8 @@
 (require 'lang-typescript)
 ;; (require 'lang-common-lisp)
 (require 'lang-java)
-(require 'lang-coq)
+;; (require 'lang-ocaml)
+;; (require 'lang-coq)
 (require 'lang-scheme)
 ;; (require 'lang-carp)
 

@@ -2,4 +2,7 @@
 
 (use-package tuareg)
 
+(use-package merlin
+  :hook ((tuareg-mode caml-mode) . merlin-mode))
+
 (provide 'lang-ocaml)
