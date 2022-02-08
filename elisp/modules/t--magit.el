@@ -5,12 +5,13 @@
 ;;; Code:
 
 (use-package magit
-  :commands (magit-status)
+  :commands magit-status
   :config
   (setq magit-completing-read-function 'ivy-completing-read
-	magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
+        magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
 
-(use-package magit-popup)
+(use-package magit-popup
+  :after magit)
 
 (use-package magit-todos
   :after magit
@@ -32,16 +33,17 @@
 
 (use-package git-messenger
   :after magit
-  :commands (git-messenger:popup-message))
+  :commands git-messenger:popup-message)
 
 (use-package browse-at-remote
   :after magit
-  :commands (browse-at-remote))
+  :commands browse-at-remote)
 
 (use-package gitmoji
   :disabled
   :load-path "~/prog/elisp/gitmoji/"
   :config
   (gitmoji-commit-mode t))
+
 
 (provide 't--magit)

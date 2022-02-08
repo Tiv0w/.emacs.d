@@ -43,6 +43,9 @@
   :commands secret-mode)
 
 (use-package browse-url-dwim
+  :commands (browse-url-dwim
+             browse-url-dwim-guess
+             browse-url-dwim-search)
   :config
   (setq browse-url-dwim-search-url "https://duckduckgo.com/?q="))
 

@@ -29,7 +29,8 @@
 
 (use-package groovy-mode)
 
-(use-package kotlin-mode)
+(use-package kotlin-mode
+  :mode "\\.kts?\\'")
 
 
 (provide 'lang-java)

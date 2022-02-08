@@ -57,12 +57,12 @@
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 (use-package company-irony
-  :after company
+  :after (company irony)
   :config
   (add-to-list 'company-backends 'company-irony))
 
 (use-package company-irony-c-headers
-  :after company
+  :after (company irony)
   :config
   (add-to-list 'company-backends 'company-irony-c-headers))
 
@@ -79,7 +79,10 @@
 (use-package yafolding
   :hook (c-mode-common . yafolding-mode))
 
-(use-package basic-c-compile)
+(use-package basic-c-compile
+  :commands (basic-c-compile-file
+             basic-c-compile-makefile
+             basic-c-compile-run-c))
 
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode))
@@ -147,6 +150,7 @@
   :yield "#require")
 
 
-(use-package glsl-mode)
+(use-package glsl-mode
+  :commands glsl-mode)
 
 (provide 'lang-c)

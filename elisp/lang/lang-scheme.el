@@ -17,7 +17,8 @@
     "Misc"
     (("(" geiser-squarify "() <-> []")))))
 
-(use-package geiser)
+(use-package geiser
+  :hook (scheme-mode . geiser-mode))
 
 (use-package geiser-chicken
   :after geiser)

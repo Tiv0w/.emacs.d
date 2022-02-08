@@ -57,6 +57,7 @@
   (projectile-global-mode))
 
 (use-package restclient
+  :commands restclient-mode
   :mode-hydra
   (restclient-mode
    (:color blue :quit-key "q")
@@ -69,7 +70,8 @@
 (use-package scratch
   :commands scratch)
 
-(use-package treemacs)
+(use-package treemacs
+  :commands treemacs)
 
 (use-package treemacs-magit
   :after treemacs magit)

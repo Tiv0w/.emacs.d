@@ -10,8 +10,10 @@
   (setq graphviz-dot-indent-width 4))
 
 (use-package company-graphviz-dot
-  :ensure graphviz-dot-mode)
+  :ensure graphviz-dot-mode
+  :after graphviz-dot-mode)
 
-(use-package gvpr-mode)
+(use-package gvpr-mode
+  :commands gvpr-mode)
 
 (provide 'lang-graphviz)

@@ -76,15 +76,12 @@
         org-agenda-files (append org-agenda-files (org-projectile-todo-files))))
 
 (use-package org-superstar
-  :after org
+  :hook (org-mode . org-superstar-mode)
   :config
   (setq org-superstar-headline-bullets-list '("ᤃ" "ᤖ" "ᤀ" "ᤂ" "ᤑ")
         org-superstar-item-bullet-alist '((?* . ?•)
                                           (?+ . ?➤)
-                                          (?- . ?➾)))
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (org-superstar-mode t))))
+                                          (?- . ?➾))))
 
 (require 't--org-babel)
 (org-babel-do-load-languages

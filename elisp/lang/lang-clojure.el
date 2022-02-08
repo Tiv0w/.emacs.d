@@ -39,7 +39,8 @@
 (use-package clojure-snippets
   :after (clojure-mode yasnippet))
 
-(use-package clj-refactor)
+(use-package clj-refactor
+  :hook (clojure-mode . clj-refactor-mode))
 
 (use-package kibit-helper)
 

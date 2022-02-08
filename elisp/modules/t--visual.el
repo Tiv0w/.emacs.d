@@ -32,12 +32,12 @@
   (setq display-line-numbers-width 3))
 
 (use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-buffer-file-name-style 'buffer-name
         doom-modeline-icon t
         doom-modeline-percent-position nil)
-  (when (getenv "IS_LAPTOP") (display-battery-mode))
-  :hook (after-init . doom-modeline-mode))
+  (when (getenv "IS_LAPTOP") (display-battery-mode)))
 
 (use-package highlight-indent-guides
   :hook ((prog-mode conf-mode yaml-mode restclient-mode) . highlight-indent-guides-mode)
