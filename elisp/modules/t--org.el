@@ -41,6 +41,20 @@
   (add-hook 'org-mode-hook (lambda ()
                                (modify-syntax-entry ?< "w" org-mode-syntax-table)
                                (modify-syntax-entry ?> "w" org-mode-syntax-table)))
+  (defun t--org-inhibit-mode-hooks-advice (orig-fn datum name &optional initialize &rest args)
+    "Prevent potentially expensive mode hooks in `org-babel-do-in-edit-buffer' ops."
+    (apply orig-fn datum name
+           (if (and (eq org-src-window-setup 'switch-invisibly)
+                    (functionp initialize))
+               ;; org-babel-do-in-edit-buffer is used to execute quick, one-off
+               ;; logic in the context of another major mode. Initializing this
+               ;; major mode can be terribly expensive (particular its mode
+               ;; hooks), so we inhibit them.
+               (lambda ()
+                 (delay-mode-hooks (funcall initialize)))
+             initialize)
+           args))
+  (advice-add 'org-src--edit-element :around #'t--org-inhibit-mode-hooks-advice)
   :bind
   ("C-c l" . org-store-link)
   ("C-c a" . org-agenda)
@@ -93,6 +107,7 @@
    ;; (gnuplot . t)
    ;; (js . t)
    (plantuml . t)
+   (python . t)
    ;; (restclient . t)
    (shell . t)
    ;; (typescript . t)
