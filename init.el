@@ -33,6 +33,7 @@
 
 ;;; Programming Languages
 ;; (require 'lang-python)
+(require 'lang-shell)
 ;; (require 'lang-ruby)
 ;; (require 'lang-go)
 ;; (require 'lang-php)
