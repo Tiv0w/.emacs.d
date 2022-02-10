@@ -11,5 +11,10 @@
   (setq guess-language-languages '(en fr)
 	guess-language-min-paragraph-length 35))
 
+(use-package company-ispell
+  :ensure company
+  :config
+  (push 'company-ispell company-backends))
+
 
 (provide 't--language)
