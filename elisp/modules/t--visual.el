@@ -81,6 +81,9 @@
 (use-package rainbow-mode
   :hook (prog-mode conf-mode))
 
+(use-package rainbow-blocks
+  :commands rainbow-blocks-mode)
+
 (use-package rainbow-delimiters
   :hook ((prog-mode org-mode) . rainbow-delimiters-mode))
 
