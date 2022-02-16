@@ -3,6 +3,11 @@
 ;; These packages are the ones I use the most while doing some programming.
 
 
+(use-package apheleia
+  :config
+  (push '(vfmt . ("v" "fmt" "-w")) apheleia-formatters)
+  (push '(v-mode . vfmt) apheleia-mode-alist))
+
 (use-package company
   :hook (prog-mode . company-mode)
   :config
