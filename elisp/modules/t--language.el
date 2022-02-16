@@ -16,7 +16,7 @@
 (use-package company-ispell
   :ensure company
   :config
-  (push 'company-ispell company-backends))
+  (add-to-list 'company-backends 'company-ispell t))
 
 (use-package guess-language
   :hook (text-mode . guess-language-mode)
