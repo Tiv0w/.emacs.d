@@ -7,3 +7,6 @@
 [submodule "elisp/extlisp/carp-emacs"]
 	path = elisp/extlisp/carp-emacs
 	url = git@github.com:carp-lang/carp-emacs.git
+[submodule "elisp/extlisp/v-mode"]
+	path = elisp/extlisp/v-mode
+	url = git@github.com:Tiv0w/v-mode.git
