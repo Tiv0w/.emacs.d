@@ -52,6 +52,7 @@
 (require 'lang-shell)
 ;; (require 'lang-svelte)
 (require 'lang-typescript)
+(require 'lang-v)
 (require 'lang-vue)
 (require 'lang-web)
 

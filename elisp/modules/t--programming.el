@@ -26,11 +26,12 @@
   (editorconfig-mode 1))
 
 (use-package eglot
-  :hook ((c++-mode c-mode) . eglot-ensure)
+  :hook ((c++-mode c-mode v-mode) . eglot-ensure)
   :config
   (setq eglot-stay-out-of '(company))
   (add-to-list 'eglot-server-programs
-               '((c++-mode c-mode) . ("clangd" "-j=3" "--clang-tidy"))))
+               '((c++-mode c-mode) . ("clangd" "-j=3" "--clang-tidy")))
+  (add-to-list 'eglot-server-programs '(v-mode . ("vls"))))
 
 (use-package flycheck)
 
