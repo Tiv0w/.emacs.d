@@ -2,7 +2,7 @@
 
 
 (use-package v-mode
-  :mode ("\\(\\.v?v|\\.vsh\\)\\'" . v-mode)
+  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/v-mode/"))
   :mode-hydra
   (v-mode
    (:title "V" :color blue :quit-key "q")
