@@ -49,6 +49,9 @@
   :config
   (setq browse-url-dwim-search-url "https://duckduckgo.com/?q="))
 
+(use-package carbon-now-sh
+  :commands (carbon-now-sh))
+
 (use-package fireplace
   :commands (fireplace))
 
