@@ -60,6 +60,19 @@
   :load-path "./elisp/extlisp/iy-go-to-char.el"
   :commands iy-go-to-char)
 
+(use-package keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  (setq keyfreq-excluded-commands
+        '(self-insert-command
+          forward-char
+          backward-char
+          previous-line
+          next-line
+          xah-fly-insert-mode-activate
+          xah-fly-command-mode-activate)))
+
 (use-package multiple-cursors
   :bind
   ("C-S-c C-S-c" . mc/edit-lines)
