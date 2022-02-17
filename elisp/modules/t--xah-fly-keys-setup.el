@@ -102,6 +102,9 @@
 (define-key xah-fly-c-keymap (kbd "k") 'crux-rename-file-and-buffer)
 (define-key xah-fly-c-keymap (kbd "u") 'crux-delete-file-and-buffer)
 
+;; t key map
+(define-key xah-fly-t-keymap (kbd "j") 'xah-close-current-buffer)
+(define-key xah-fly-t-keymap (kbd "z") 'repeat-complex-command)
 
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC
