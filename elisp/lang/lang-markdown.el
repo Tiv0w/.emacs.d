@@ -27,21 +27,6 @@
       (browse-url url)))
   (setq flymd-browser-open-function 'my-flymd-browser-function))
 
-;; (use-package flycheck
-;;   :hook (markdown-mode . flycheck-mode)
-;;   :config
-;;   (setq ispell-program-name "hunspell")
-;;   (ispell-change-dictionary "francais"))
-
-
-(use-package flycheck-grammalecte
-  :disabled
-  :init
-  (setq flycheck-grammalecte-enabled-modes
-	'(org-mode text-mode mail-mode latex-mode markdown-mode))
-  :config
-  (setq flycheck-grammalecte-report-apos t))
-
 (use-package darkroom
   :after markdown-mode
   :commands (darkroom-mode darkroom-tentative-mode)

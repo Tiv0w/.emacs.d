@@ -18,6 +18,17 @@
   :config
   (add-to-list 'company-backends 'company-ispell t))
 
+(use-package flycheck-grammalecte
+  :after flycheck
+  :init
+  (setq flycheck-grammalecte-enabled-modes
+        '(org-mode text-mode mail-mode latex-mode markdown-mode))
+  :config
+  (setq flycheck-grammalecte-report-apos nil)
+  (setq flycheck-grammalecte-report-esp nil)
+  (setq flycheck-grammalecte-report-nbsp nil)
+  (flycheck-grammalecte-setup))
+
 (use-package guess-language
   :hook (text-mode . guess-language-mode)
   :config
