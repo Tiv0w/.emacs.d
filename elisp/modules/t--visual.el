@@ -6,6 +6,15 @@
 
 (use-package all-the-icons)
 
+(use-package centaur-tabs
+  :commands centaur-tabs-mode
+  :config
+  (setq centaur-tabs-set-icons t
+	centaur-tabs-gray-out-icons 'buffer
+	centaur-tabs-set-bar 'left
+	centaur-tabs-set-modified-marker t
+	centaur-tabs-cycle-scope 'tabs))
+
 (use-package dashboard
   :config
   (let ((logo (concat user-emacs-directory "private/logos/logo.png")))
