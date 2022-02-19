@@ -106,6 +106,9 @@
 (define-key xah-fly-t-keymap (kbd "j") 'xah-close-current-buffer)
 (define-key xah-fly-t-keymap (kbd "z") 'repeat-complex-command)
 
+;; n key map
+(define-key xah-fly-n-keymap (kbd "l") 'narrow-or-widen-dwim)
+
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC
 (when (getenv "IS_LAPTOP")

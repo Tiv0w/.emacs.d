@@ -46,6 +46,32 @@ If `no-confirm' is set to t, don't ask."
       (message "Could not find git project root."))))
 
 
+(defun narrow-or-widen-dwim (p)
+  "Widen if buffer is narrowed, narrow-dwim otherwise.
+Dwim means: region, org-src-block, org-subtree, or
+defun, whichever applies first. Narrowing to
+org-src-block actually calls `org-edit-src-code'.
+
+With prefix P, don't widen, just narrow even if buffer
+is already narrowed."
+  (interactive "P")
+  (declare (interactive-only))
+  (cond ((and (buffer-narrowed-p) (not p)) (widen))
+        ((region-active-p)
+         (narrow-to-region (region-beginning)
+                           (region-end)))
+        ((derived-mode-p 'org-mode)
+         ;; `org-edit-src-code' is not a real narrowing
+         ;; command. Remove this first conditional if
+         ;; you don't want it.
+         (cond ((ignore-errors (org-edit-src-code) t)
+                (delete-other-windows))
+               ((ignore-errors (org-narrow-to-block) t))
+               (t (org-narrow-to-subtree))))
+        ((derived-mode-p 'latex-mode)
+         (LaTeX-narrow-to-environment))
+        (t (narrow-to-defun))))
+
 (defun load-theme--disable-old-theme(theme &rest args)
   "Disable current theme before loading new one."
   (mapcar #'disable-theme custom-enabled-themes))
