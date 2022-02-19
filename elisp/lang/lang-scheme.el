@@ -3,6 +3,7 @@
 
 (use-package scheme-mode
   :ensure nil
+  :mode "\\.egg\\'"
   :mode-hydra
   (scheme-mode
    (:title "Scheme" :color blue :quit-key "q")
