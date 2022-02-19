@@ -1,7 +1,8 @@
 ;;; elisp/base/base-theme.el -*- lexical-binding: t; -*-
 
 ;; Transparency support
-;; Works well on Emacs [26, 27] built with toolkit [lucid, gtk] on Manjaro
+;; Works well on Emacs [26, 27, 28] built with toolkit [lucid, gtk] on Manjaro
+;; Requires a compositor, works well with picom
 (defun t--transparency (value)
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive
