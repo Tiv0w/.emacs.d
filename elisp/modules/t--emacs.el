@@ -47,7 +47,9 @@
   :ensure-system-package ((xprop . xorg-xprop)
 			  (xwininfo . xorg-xwininfo)
 			  xclip
-			  xdotool))
+			  xdotool)
+  :init
+  (setq emacs-everywhere-frame-name-format "emacs-everywhere"))
 
 (use-package helpful
   :commands (helpful-callable
