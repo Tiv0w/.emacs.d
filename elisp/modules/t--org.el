@@ -7,7 +7,8 @@
 (use-package org
   :pin gnu
   :init
-  (setq org-directory "~/org-files")
+  (setq org-directory "~/org-files"
+	org-modules '(ol-bibtex))
   :config
   (setq
    org-adapt-indentation            nil
@@ -152,6 +153,8 @@
 (use-package cdlatex
   :commands (org-cdlatex-mode))
 
+(use-package gnuplot
+  :ensure-system-package gnuplot)
 
 (set-pretty-symbols! 'org-mode
     :name          "#+name:"

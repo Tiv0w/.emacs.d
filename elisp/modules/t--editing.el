@@ -54,7 +54,7 @@
   ("C-=" . er/expand-region))
 
 (use-package embrace
-  :hook (org-mode . embrace-org-mode-hook))
+  :commands embrace-commander)
 
 (use-package iy-go-to-char
   :load-path "./elisp/extlisp/iy-go-to-char.el"
