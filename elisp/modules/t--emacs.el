@@ -77,6 +77,12 @@
               (unless (eq ibuffer-sorting-mode 'alphabetic)
                 (ibuffer-do-sort-by-alphabetic)))))
 
+(use-package profiler
+  :ensure nil
+  :bind
+  (("C-c t p" . profiler-start)
+   ("C-c t s" . profiler-stop)))
+
 (use-package recentf
   :config
   (setq recentf-save-file (recentf-expand-file-name

@@ -66,12 +66,14 @@
   (keyfreq-autosave-mode 1)
   (setq keyfreq-excluded-commands
         '(self-insert-command
+          org-self-insert-command
           forward-char
           backward-char
           previous-line
           next-line
           xah-fly-insert-mode-activate
-          xah-fly-command-mode-activate)))
+          xah-fly-command-mode-activate
+          mwheel-scroll)))
 
 (use-package multiple-cursors
   :bind
