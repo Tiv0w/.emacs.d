@@ -48,6 +48,7 @@
 			  (xwininfo . xorg-xwininfo)
 			  xclip
 			  xdotool)
+  :commands emacs-everywhere
   :init
   (setq emacs-everywhere-frame-name-format "emacs-everywhere"))
 

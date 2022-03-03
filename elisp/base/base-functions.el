@@ -45,6 +45,11 @@ If `no-confirm' is set to t, don't ask."
               (neotree-find file-name)))
       (message "Could not find git project root."))))
 
+;; untabify buffer
+(defun untabify-buffer ()
+  "Untabify the entire buffer."
+  (interactive)
+  (untabify (point-min) (point-max)))
 
 (defun narrow-or-widen-dwim (p)
   "Widen if buffer is narrowed, narrow-dwim otherwise.

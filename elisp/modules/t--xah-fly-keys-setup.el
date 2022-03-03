@@ -67,7 +67,7 @@
 (define-key xah-fly-dot-keymap (kbd "p") 'projectile-command-map)
 (define-key xah-fly-dot-keymap (kbd "q") 'flyspell-correct-word-before-point)
 (define-key xah-fly-dot-keymap (kbd "s") 'browse-url-dwim-search)
-(define-key xah-fly-dot-keymap (kbd "t") 'untabify)
+(define-key xah-fly-dot-keymap (kbd "t") 'untabify-buffer)
 (define-key xah-fly-dot-keymap (kbd "w") 'flyspell-auto-correct-word)
 (define-key xah-fly-dot-keymap (kbd "y") 'undo-tree-redo)
 ;;

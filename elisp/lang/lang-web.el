@@ -106,6 +106,7 @@
 ;; configure CSS mode company backends
 (use-package css-mode
   :mode "\\.css\\'"
+  :mode "\\.rasi\\'"
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
