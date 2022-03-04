@@ -117,6 +117,9 @@
   (define-key key-translation-map (kbd "ESC") (kbd "C-g")))
 
 
+(add-hook 'calc-start-hook #'xah-fly-insert-mode-activate)
+(advice-add 'calcDigit-start :after #'xah-fly-insert-mode-activate)
+
 (xah-fly-keys 1)
 
 (if (daemonp)
