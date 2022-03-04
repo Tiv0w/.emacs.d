@@ -4,19 +4,19 @@
 (major-mode-hydra-define java-mode
   (:title "Java" :color blue :quit-key "q")
   ("Navigation"
-   (("m" meghanada-jump-declaration "jump to def")
-    ("," meghanada-back-jump "jump back")
-    ("." meghanada-jump-symbol "jump to impl"))
+   (("m" lsp-find-definition "jump to def")
+    ("," lsp-find-references "jump back")
+    ("." lsp-find-implementation "jump to impl"))
    "Imports"
-   (("i" meghanada-import-at-point "import at point")
-    ("o" meghanada-optimize-import "optimize import")
+   (("i" lsp-java-add-import "add import")
+    ("o" lsp-java-organize-imports "organize imports")
     ("u" meghanada-import-all "import all"))
    "Refactors"
-   (("f" eglot-code-actions "eglot actions")
-    ("r" eglot-rename "rename"))
+   (("f" lsp-execute-code-action "lsp actions")
+    ("r" lsp-rename "rename"))
    "Misc"
    (("b" meghanada-code-beautify "beautify code")
-    ("l" meghanada-local-variable "local variable"))))
+    ("l" lsp-java-extract-to-local-variable "local variable"))))
 
 (use-package meghanada
   ;; :after java-mode
