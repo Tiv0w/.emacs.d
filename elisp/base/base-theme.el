@@ -15,14 +15,14 @@
 (defun t--light-env-setup ()
   "Sets up my light working environement."
   (interactive)
-  (load-theme 'doom-one-light t)
+  (load-theme 'doom-solarized-light t)
   (t--setup-italics)
   (t--transparency 100))
 
 (defun t--dark-env-setup ()
   "Sets up my dark working environement."
   (interactive)
-  (load-theme 'doom-outrun-electric t)
+  (load-theme 'doom-vibrant t)
   (t--setup-italics)
   (t--transparency 90))
 
@@ -31,7 +31,7 @@
   :defer nil
   :demand t
   :init
-  (load-theme 'doom-outrun-electric t))
+  (load-theme 'doom-vibrant t))
 
 (use-package ewal-doom-themes
   :defer nil
