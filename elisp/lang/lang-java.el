@@ -20,9 +20,14 @@
 
 (use-package meghanada
   ;; :after java-mode
+  :disabled
   :hook (java-mode . meghanada-mode)
   :config
   (setq meghanada-java-path "java"))
+
+
+(use-package lsp-java
+  :hook (java-mode . lsp))
 
 (use-package flycheck
   :hook (meghanada-mode . flycheck-mode))
