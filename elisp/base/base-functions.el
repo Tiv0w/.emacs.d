@@ -65,6 +65,7 @@ is already narrowed."
         ((region-active-p)
          (narrow-to-region (region-beginning)
                            (region-end)))
+        ((org-src-edit-buffer-p) (org-edit-src-exit))
         ((derived-mode-p 'org-mode)
          ;; `org-edit-src-code' is not a real narrowing
          ;; command. Remove this first conditional if
