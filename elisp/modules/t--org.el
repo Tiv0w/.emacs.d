@@ -98,6 +98,12 @@
                                           (?+ . ?➤)
                                           (?- . ?➾))))
 
+(use-package ox-md
+  :ensure nil
+  :after org
+  :config
+  (add-to-list 'org-export-backends 'md))
+
 (require 't--org-babel)
 (org-babel-do-load-languages
  'org-babel-load-languages
