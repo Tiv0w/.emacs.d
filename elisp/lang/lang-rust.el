@@ -10,13 +10,9 @@
   :bind (:map rust-mode-map
               (("C-c C-t" . racer-describe)))
   :config
-  (setq indent-tabs-mode nil)
+  (setq indent-tabs-mode nil
+        rust-format-on-save t)
   (add-hook 'rust-mode-hook 'flycheck-mode)
-  ;; format rust buffers on save using rustfmt
-  (add-hook 'before-save-hook
-            (lambda ()
-              (when (eq major-mode 'rust-mode)
-                (rust-format-buffer))))
   :mode-hydra
   ((:quit-key "q")
    ("Rust"
