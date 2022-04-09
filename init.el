@@ -46,7 +46,7 @@
 ;; (require 'lang-php)
 (require 'lang-python)
 ;; (require 'lang-racket)
-;; (require 'lang-ruby)
+(require 'lang-ruby)
 (require 'lang-rust)
 (require 'lang-scheme)
 (require 'lang-shell)
