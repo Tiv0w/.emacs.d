@@ -37,6 +37,7 @@
 (require 'lang-clojure)
 ;; (require 'lang-common-lisp)
 ;; (require 'lang-coq)
+(require 'lang-crystal)
 ;; (require 'lang-elixir)
 ;; (require 'lang-go)
 ;; (require 'lang-haskell)
