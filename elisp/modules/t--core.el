@@ -23,4 +23,7 @@
 (require 't--useless)
 (require 't--visual)
 
+;; Load configuration for particular tools and systems
+(require 't--ansible)
+
 (provide 't--core)
