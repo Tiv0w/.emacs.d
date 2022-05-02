@@ -30,13 +30,15 @@
   :config
   (editorconfig-mode 1))
 
-(use-package eglot
-  :hook ((c++-mode c-mode v-mode) . eglot-ensure)
-  :config
-  (setq eglot-stay-out-of '(company))
-  (add-to-list 'eglot-server-programs
-               '((c++-mode c-mode) . ("clangd" "-j=3" "--clang-tidy")))
-  (add-to-list 'eglot-server-programs '(v-mode . ("vls"))))
+;; (use-package eglot
+;;   :hook ((c++-mode c-mode v-mode) . eglot-ensure)
+;;   :config
+;;   (setq eglot-stay-out-of '(company))
+;;   (setq eglot-stay-out-of '())
+;;   (add-to-list 'eglot-server-programs
+;;                '((c++-mode c-mode) . ("clangd" "-j=3" "--clang-tidy")))
+;;   (add-to-list 'eglot-server-programs '(v-mode . ("vls")))
+;;   (add-to-list 'eglot-server-programs '(java-mode . ("jdtls"))))
 
 (use-package flycheck)
 
@@ -84,7 +86,6 @@
 
 (use-package treemacs-projectile
   :after treemacs projectile)
-
 
 (use-package yasnippet
   :hook (prog-mode . yas-global-mode))

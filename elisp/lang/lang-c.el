@@ -129,6 +129,9 @@
 ;;   (local-set-key (kbd "C-c C-j") 'semantic-ia-fast-jump)
 ;;   (local-set-key (kbd "C-c C-s") 'semantic-ia-show-summary))
 
+(use-package lsp-mode
+  :hook ((c-mode c++-mode) . lsp))
+
 
 (set-pretty-symbols! '(c-mode c++-mode cc-mode)
   ;; Functional
