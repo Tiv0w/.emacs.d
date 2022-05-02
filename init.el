@@ -39,6 +39,7 @@
 ;; (require 'lang-coq)
 (require 'lang-crystal)
 ;; (require 'lang-elixir)
+;; (require 'lang-elm)
 ;; (require 'lang-go)
 ;; (require 'lang-haskell)
 (require 'lang-java)
