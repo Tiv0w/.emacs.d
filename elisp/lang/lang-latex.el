@@ -15,7 +15,8 @@
   (add-to-list 'TeX-view-program-selection '(output-pdf "PDF Tools"))
   ;; (when (executable-find "zathura")
   ;;        (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))
-  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+  (add-hook 'TeX-update-style-hook #'rainbow-delimiters-mode))
 
 
 ;; (add-hook 'LaTeX-mode-hook (lambda () (setq ispell-parser 'tex)))
@@ -32,6 +33,15 @@
   :config
   (set (make-local-variable 'company-backends)
        '((company-auctex-environments company-auctex-macros company-files))))
+
+;; TODO: setup reftex and tout le blabla
+(use-package company-reftex
+  :hook (LaTeX-mode . reftex-mode)
+  :config
+  (add-to-list 'company-backends 'company-reftex-citations))
+
+;; (use-package latex-extra
+;;   :config)
 
 ;; (use-package flycheck
 ;;   :hook (LaTeX-mode . flycheck-mode))
