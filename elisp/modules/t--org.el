@@ -17,7 +17,10 @@
    org-edit-src-content-indentation 0
    org-format-latex-options         (plist-put org-format-latex-options :scale 1.6)
    org-highlight-latex-and-related  '(native)
-   org-latex-compiler               "pdflatex"
+   org-latex-compiler               "lualatex"
+   org-latex-listings               'minted
+   org-latex-pdf-process
+   '("latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f")
    org-list-allow-alphabetical      t
    org-log-done                     'time
    org-plantuml-exec-mode           'plantuml
@@ -79,6 +82,7 @@
      ("v" org-latex-preview "inline LaTeX"))
     "Export"
     (("d" org-export-dispatch "menu")
+     ("b" org-beamer-export-to-pdf "Beamer PDF")
      ("s" org-latex-export-to-pdf "-> PDF")))))
 
 (use-package org-projectile
@@ -103,6 +107,12 @@
   :after org
   :config
   (add-to-list 'org-export-backends 'md))
+
+(use-package ox-beamer
+  :ensure nil
+  :after org
+  :config
+  (add-to-list 'org-export-backends 'beamer))
 
 (require 't--org-babel)
 (org-babel-do-load-languages
