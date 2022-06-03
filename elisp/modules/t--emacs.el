@@ -50,7 +50,8 @@
 			  xdotool)
   :commands emacs-everywhere
   :init
-  (setq emacs-everywhere-frame-name-format "emacs-everywhere"))
+  (setq emacs-everywhere-frame-name-format "emacs-everywhere"
+	emacs-everywhere-mode-initial-map nil))
 
 (use-package helpful
   :commands (helpful-callable

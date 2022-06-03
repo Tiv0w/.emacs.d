@@ -123,6 +123,7 @@
    (dot . t)
    ;; (gnuplot . t)
    ;; (js . t)
+   (latex . t)
    (plantuml . t)
    (python . t)
    ;; (restclient . t)
