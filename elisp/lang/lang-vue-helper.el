@@ -17,17 +17,16 @@
           (lambda ()
             (add-hook 'after-save-hook #'eslint-fix-file-and-revert)) nil t)
 
-
-;; careful it does not take the this.
-(defun log-this ()
-  "Logs the thing at point."
+(defun log-at-point ()
+  "console.logs the thing at point.
+Does not take the `this' in JS, use a region for that."
   (interactive "")
   (save-excursion
-    (save-restriction
-      (let ((x (thing-at-point 'symbol)))
-        (end-of-line)
-        (newline)
-        (insert (format "console.log('%s: ', %s)" x x))))))
-
+    (let ((x (if (region-active-p)
+                 (buffer-substring (region-beginning) (region-end))
+               (thing-at-point 'symbol))))
+      (end-of-line)
+      (reindent-then-newline-and-indent)
+      (insert (format "console.log('%s: ', %s);" x x)))))
 
 (provide 'lang-vue-helper)
