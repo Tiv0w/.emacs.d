@@ -38,6 +38,7 @@
 ;; (require 'lang-common-lisp)
 ;; (require 'lang-coq)
 (require 'lang-crystal)
+(require 'lang-elisp)
 ;; (require 'lang-elixir)
 ;; (require 'lang-elm)
 ;; (require 'lang-go)

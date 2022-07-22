@@ -45,19 +45,19 @@
 
 (use-package emacs-everywhere
   :ensure-system-package ((xprop . xorg-xprop)
-			  (xwininfo . xorg-xwininfo)
-			  xclip
-			  xdotool)
+                          (xwininfo . xorg-xwininfo)
+                          xclip
+                          xdotool)
   :commands emacs-everywhere
   :init
   (setq emacs-everywhere-frame-name-format "emacs-everywhere"
-	emacs-everywhere-mode-initial-map nil))
+        emacs-everywhere-mode-initial-map nil))
 
 (use-package helpful
   :commands (helpful-callable
-	     helpful-at-point
-	     helpful-variable
-	     helpful-key))
+             helpful-at-point
+             helpful-variable
+             helpful-key))
 
 (use-package ibuffer-vc
   :after ibuffer
@@ -88,8 +88,8 @@
 (use-package recentf
   :config
   (setq recentf-save-file (recentf-expand-file-name
-			   (concat user-emacs-directory "private/cache/recentf"))
-	recentf-max-saved-items 25)
+                           (concat user-emacs-directory "private/cache/recentf"))
+        recentf-max-saved-items 25)
   (recentf-mode 1))
 
 (use-package persistent-scratch
