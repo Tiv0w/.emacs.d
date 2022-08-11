@@ -21,6 +21,9 @@
   :config
   (setq company-box-icons-alist 'company-box-icons-all-the-icons))
 
+(use-package devdocs
+  :commands (devdocs-lookup))
+
 (use-package dumb-jump
   :config
   (setq dumb-jump-selector 'ivy)
@@ -65,6 +68,7 @@
   (projectile-global-mode))
 
 (use-package restclient
+  :mode ("\\.http\\'" . restclient-mode)
   :commands restclient-mode
   :mode-hydra
   (restclient-mode
@@ -87,7 +91,13 @@
 (use-package treemacs-projectile
   :after treemacs projectile)
 
+(use-package vterm
+  :commands vterm)
+
 (use-package yasnippet
   :hook (prog-mode . yas-global-mode))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
 
 (provide 't--programming)

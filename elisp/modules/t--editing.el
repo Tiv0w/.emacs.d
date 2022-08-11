@@ -14,7 +14,19 @@
               (aggressive-indent-mode -1)) 0 t))
 
 (use-package avy
-  :commands avy-goto-char)
+  :commands (avy-goto-char
+             avy-goto-char-timer)
+  :config
+  (defun avy-action-kill-whole-line (pt)
+    (save-excursion
+      (goto-char pt)
+      (kill-whole-line))
+    (select-window
+     (cdr
+      (ring-ref avy-ring 0)))
+    t)
+
+  (setf (alist-get ?K avy-dispatch-alist) 'avy-action-kill-whole-line))
 
 (use-package buffer-move
   :commands buffer-move-hydra/body
@@ -43,6 +55,8 @@
      ("=" text-scale-increase)
      ("-" text-scale-decrease "out")
      ("0" text-scale-adjust "reset")))))
+
+(use-package crux)
 
 (use-package deadgrep
   :ensure-system-package (rg . ripgrep)
@@ -116,6 +130,15 @@
 
 (use-package subword
   :hook ((prog-mode conf-mode) . subword-mode))
+
+(use-package ace-window
+  :config
+  (setq aw-ignored-buffers (delete 'treemacs-mode aw-ignored-buffers)
+        aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (set-face-attribute
+   'aw-leading-char-face nil
+   :foreground "white" :background "red"
+   :weight 'bold :height 2.5 :box '(:line-width 10 :color "red")))
 
 (use-package undo-tree
   :config

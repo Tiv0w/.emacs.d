@@ -224,7 +224,7 @@
 
 (defun company-bulma-backend (command &optional arg &rest ignored)
   (interactive (list 'interactive))
-  (case command
+  (cl-case command
     (interactive (company-begin-backend 'company-bulma-backend))
     (prefix (and (eq major-mode 'web-mode)
                  (company-grab-symbol)))

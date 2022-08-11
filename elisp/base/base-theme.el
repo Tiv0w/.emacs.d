@@ -34,6 +34,7 @@
   (load-theme 'doom-vibrant t))
 
 (use-package ewal-doom-themes
+  :disabled
   :defer nil
   :demand t
   :config

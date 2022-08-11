@@ -8,7 +8,7 @@
   :config
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-copy-env "GOPATH")
-    (exec-path-from-shell-copy-env "PYTHONPATH")
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-copy-env "PYTHONPATH"))
+  (exec-path-from-shell-initialize))
 
 (provide 't--env)

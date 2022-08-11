@@ -79,6 +79,10 @@
               (unless (eq ibuffer-sorting-mode 'alphabetic)
                 (ibuffer-do-sort-by-alphabetic)))))
 
+(use-package lacarte
+  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/lacarte.el"))
+  :commands (lacarte-execute-menu-command))
+
 (use-package profiler
   :ensure nil
   :bind
@@ -96,6 +100,8 @@
   :config
   (persistent-scratch-setup-default))
 
+(use-package shell-command+
+  :commands (shell-command+))
 
 ;;; Taken from
 ;;; endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html
@@ -108,5 +114,12 @@
      compilation-filter-start (point))))
 
 (add-hook 'compilation-filter-hook #'endless/colorize-compilation)
+
+(defun t--ansi-colorize ()
+  "ANSI-colorize buffer."
+  (interactive)
+  (if (region-active-p)
+      (ansi-color-apply-on-region (region-beginning) (region-end))
+    (ansi-color-apply-on-region (point-min) (point-max))))
 
 (provide 't--emacs)

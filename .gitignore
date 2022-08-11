@@ -36,3 +36,6 @@ elpy/
 /recentf
 /eclipse.jdt.ls/
 /workspace/
+/devdocs/
+/.cache/
+/.dap-breakpoints

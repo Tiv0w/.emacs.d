@@ -20,6 +20,7 @@
 (define-key xah-fly-command-map (kbd "G") 'avy-goto-word-or-subword-1)
 (define-key xah-fly-command-map (kbd "r") 'iy-go-to-char)
 (define-key xah-fly-command-map (kbd "R") 'iy-go-to-char-backward)
+(define-key xah-fly-command-map (kbd "<") 'ace-window)
 
 
 ;; leader key map
@@ -111,6 +112,7 @@
 
 ;; n key map
 (define-key xah-fly-n-keymap (kbd "l") 'narrow-or-widen-dwim)
+(define-key xah-fly-n-keymap (kbd "V") 'lacarte-execute-menu-command)
 
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC

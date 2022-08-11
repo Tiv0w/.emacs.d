@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: v-tooltip
+# key: vue-v-tooltip
+# --
+<v-tooltip $1>
+  <template v-slot:activator="{ on }">
+    <$2 v-on="on">
+      $3
+    </$2>
+  </template>
+  <$4 v-text="$5" />
+</v-tooltip>$0

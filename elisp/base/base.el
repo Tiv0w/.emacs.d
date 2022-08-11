@@ -59,9 +59,11 @@
       inhibit-startup-message            t
       fringes-outside-margins            t
       select-enable-clipboard            t
-      use-package-always-ensure          t)
+      use-package-always-ensure          t
+      use-package-verbose                t)
 
-;; (setq use-package-verbose t)
+;; Makes Tramp only check for Git, might make it a bit faster
+(setq-default vc-handled-backends '(Git))
 
 ;; Bookmarks
 (setq

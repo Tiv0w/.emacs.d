@@ -37,7 +37,7 @@
 (require 'lang-clojure)
 ;; (require 'lang-common-lisp)
 ;; (require 'lang-coq)
-(require 'lang-crystal)
+;; (require 'lang-crystal)
 (require 'lang-elisp)
 ;; (require 'lang-elixir)
 ;; (require 'lang-elm)
@@ -61,6 +61,7 @@
 
 (require 'lang-graphviz)
 (require 'lang-latex)
+(require 'lang-config)
 (require 'lang-markdown)
 
 (require 't--xah-fly-keys-setup)

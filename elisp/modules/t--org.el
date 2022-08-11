@@ -97,7 +97,8 @@
 (use-package org-superstar
   :hook (org-mode . org-superstar-mode)
   :config
-  (setq org-superstar-headline-bullets-list '("ᤃ" "ᤖ" "ᤀ" "ᤂ" "ᤑ")
+  ;; (setq org-superstar-headline-bullets-list '("ᤃ" "ᤖ" "ᤀ" "ᤂ" "ᤑ")
+  (setq org-superstar-headline-bullets-list '("◉" "◈" "⁜" "⚜" "⬡")
         org-superstar-item-bullet-alist '((?* . ?•)
                                           (?+ . ?➤)
                                           (?- . ?➾))))
@@ -136,6 +137,7 @@
   :hook (org-mode . org-fragtog-mode))
 
 (use-package aas
+  :disabled
   :hook (org-mode . aas-activate-for-major-mode)
   :config
   (aas-set-snippets 'org-mode

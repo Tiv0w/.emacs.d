@@ -5,8 +5,7 @@
          ("C-c [" . emmet-prev-edit-point)
          ("C-c o b" . browse-url-of-file))
   :mode
-  (("\\.js\\'" . web-mode)
-   ("\\.html?\\'" . web-mode)
+  (("\\.html?\\'" . web-mode)
    ("\\.tpl\\'" . web-mode)
    ("\\.[agj]sp\\'" . web-mode)
    ("\\.as[cp]x\\'" . web-mode)
