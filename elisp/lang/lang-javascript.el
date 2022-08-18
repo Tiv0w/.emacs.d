@@ -15,9 +15,11 @@
   (custom-set-variables '(js2-strict-inconsistent-return-warning nil))
   (custom-set-variables '(js2-strict-missing-semi-warning nil))
 
-  (setq js-indent-level 4)
-  (setq js2-indent-level 4)
-  (setq js2-basic-offset 4)
+  (setq t--js-global-indent 4
+        js-indent-level t--js-global-indent
+        js2-indent-level t--js-global-indent
+        js2-basic-offset t--js-global-indent
+        js-switch-indent-offset t--js-global-indent)
   :mode-hydra
   ((:title "JavaScript-mode" :color blue :quit-key "q")
    ("Navigation"

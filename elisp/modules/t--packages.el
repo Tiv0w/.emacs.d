@@ -6,7 +6,8 @@
 
 (use-package use-package-chords
   :config
-  (key-chord-mode 1))
+  ;; (key-chord-mode 1)
+  )
 
 (use-package major-mode-hydra)
 
