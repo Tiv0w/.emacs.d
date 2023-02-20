@@ -9,7 +9,7 @@
   (push '(v-mode . vfmt) apheleia-mode-alist))
 
 (use-package company
-  :hook (prog-mode . company-mode)
+  :hook ((prog-mode comint-mode) . company-mode)
   :config
   (setq company-idle-delay 0
         company-minimum-prefix-length 2

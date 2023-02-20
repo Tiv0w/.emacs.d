@@ -21,6 +21,7 @@
 (define-key xah-fly-command-map (kbd "r") 'iy-go-to-char)
 (define-key xah-fly-command-map (kbd "R") 'iy-go-to-char-backward)
 (define-key xah-fly-command-map (kbd "<") 'ace-window)
+(define-key xah-fly-command-map (kbd "C-SPC") 'company-complete)
 
 
 ;; leader key map

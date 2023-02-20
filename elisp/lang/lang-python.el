@@ -13,7 +13,8 @@
     "Eval"
     (("ee" python-shell-send-statement "statement")
      ("ed" python-shell-send-defun "defun")
-     ("eb" python-shell-send-buffer "buffer")))))
+     ("eb" python-shell-send-buffer "buffer")
+     ("er" python-shell-send-region "region")))))
 
 (use-package elpy
   :hook (python-mode . elpy-enable)
@@ -33,31 +34,44 @@
 
 
 (use-package pyvenv
-  :commands pyvenv-activate)
+  :commands (pyvenv-activate pyvenv-workon)
+  :config
+   ;; Set correct Python interpreter
+  (setq pyvenv-post-activate-hooks
+        (list (lambda ()
+                (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python")))))
+  (setq pyvenv-post-deactivate-hooks
+        (list (lambda ()
+                (setq python-shell-interpreter "python3")))))
+
+(use-package pyvenv-auto
+  :hook (python-mode . pyvenv-auto-mode)
+  :config
+  (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
 
 
-(set-pretty-symbols! 'python-mode
-  ;; Functional
-  :def "def"
-  :lambda "lambda"
-  ;; Types
-  :null "None"
-  :true "True"
-  :false "False"
-  :int "int"
-  :str "str"
-  :float "float"
-  :bool "bool"
-  :tuple "tuple"
-  ;; Flow
-  :not "not"
-  :in "in"
-  :not-in "not in"
-  :and "and"
-  :or "or"
-  :for "for"
-  :return "return"
-  :yield "yield")
+;; (set-pretty-symbols! 'python-mode
+;;   ;; Functional
+;;   :def "def"
+;;   :lambda "lambda"
+;;   ;; Types
+;;   :null "None"
+;;   :true "True"
+;;   :false "False"
+;;   :int "int"
+;;   :str "str"
+;;   :float "float"
+;;   :bool "bool"
+;;   :tuple "tuple"
+;;   ;; Flow
+;;   :not "not"
+;;   :in "in"
+;;   :not-in "not in"
+;;   :and "and"
+;;   :or "or"
+;;   :for "for"
+;;   :return "return"
+;;   :yield "yield")
 
 (provide 'lang-python)
 ;;; base-python.el ends here
