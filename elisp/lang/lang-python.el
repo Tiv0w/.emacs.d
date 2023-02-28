@@ -45,7 +45,7 @@
                 (setq python-shell-interpreter "python3")))))
 
 (use-package pyvenv-auto
-  :hook (python-mode . pyvenv-auto-mode)
+  :hook (python-mode . pyvenv-auto-run)
   :config
   (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
 
