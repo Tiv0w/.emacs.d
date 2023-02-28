@@ -5,7 +5,7 @@
 ;;; Code:
 
 (use-package ansible
-  :hook yaml-mode
+  :hook (yaml-mode . ansible)
   :if (executable-find "ansible")
   :config
   (setq ansible-section-face 'font-lock-doc-face
