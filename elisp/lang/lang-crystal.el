@@ -28,26 +28,34 @@
 ;;                '(crystal-mode . ("crystalline"))))
 
 
-;; (use-package lsp-mode
-;;   :hook (crystal-mode . lsp)
-;;   ;; :config
-;;   ;; (defgroup lsp-crystalline nil
-;;   ;;   "LSP support for Crystal via crystalline."
-;;   ;;   :group 'lsp-mode
-;;   ;;   :link '(url-link "https://github.com/elbywan/crystalline"))
+(use-package lsp-mode
+  :hook (crystal-mode . lsp)
+  ;; :config
+  ;; (defgroup lsp-crystalline nil
+  ;;   "LSP support for Crystal via crystalline."
+  ;;   :group 'lsp-mode
+  ;;   :link '(url-link "https://github.com/elbywan/crystalline"))
 
-;;   ;; (defcustom lsp-clients-crystalline-executable '("crystalline" "--stdio")
-;;   ;;   "Command to start the crystalline language server."
-;;   ;;   :group 'lsp-crystalline
-;;   ;;   :risky t
-;;   ;;   :type 'file)
+  ;; (defcustom lsp-clients-crystalline-executable '("crystalline" "--stdio")
+  ;;   "Command to start the crystalline language server."
+  ;;   :group 'lsp-crystalline
+  ;;   :risky t
+  ;;   :type 'file)
 
-;;   ;; (lsp-register-client
-;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection lsp-clients-crystalline-executable)
-;;   ;;                   :major-modes '(crystal-mode)
-;;   ;;                   :server-id 'crystalline))
+  ;; (lsp-register-client
+  ;;  (make-lsp-client :new-connection (lsp-stdio-connection lsp-clients-crystalline-executable)
+  ;;                   :major-modes '(crystal-mode)
+  ;;                   :server-id 'crystalline))
 
-;;   ;; (lsp-consistency-check lsp-crystal)
-;; )
+  ;; (lsp-consistency-check lsp-crystal)
+  :config
+  (add-to-list 'lsp-language-id-configuration
+               '(crystal-mode . "crystal"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("crystalline"))
+                    :activation-fn (lsp-activate-on "crystal")
+                    :priority '1
+                    :server-id 'crystalline))
+)
 
 (provide 'lang-crystal)

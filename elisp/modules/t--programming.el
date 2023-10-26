@@ -12,7 +12,7 @@
   :hook ((prog-mode comint-mode) . company-mode)
   :config
   (setq company-idle-delay 0
-        company-minimum-prefix-length 2
+        company-minimum-prefix-length 0
         company-require-match 'never))
 
 (use-package company-box

@@ -119,22 +119,22 @@
   :diminish (impatient-mode . " i")
   :commands (impatient-mode))
 
-(set-pretty-symbols! '(js2-mode rjsx-mode web-mode)
-    ;; Functional
-    :def "function"
-    :lambda "() =>"
-    :composition "compose"
-    ;; Types
-    :null "null"
-    :true "true"
-    :false "false"
-    ;; Flow
-    :not "!"
-    :and "&&"
-    :or "||"
-    :for "for"
-    :return "return"
-    ;; Other
-    :yield "import")
+;; (set-pretty-symbols! '(js2-mode rjsx-mode web-mode)
+;;     ;; Functional
+;;     :def "function"
+;;     :lambda "() =>"
+;;     :composition "compose"
+;;     ;; Types
+;;     :null "null"
+;;     :true "true"
+;;     :false "false"
+;;     ;; Flow
+;;     :not "!"
+;;     :and "&&"
+;;     :or "||"
+;;     :for "for"
+;;     :return "return"
+;;     ;; Other
+;;     :yield "import")
 
 (provide 'lang-web)

@@ -85,6 +85,13 @@
      ("b" org-beamer-export-to-pdf "Beamer PDF")
      ("s" org-latex-export-to-pdf "-> PDF")))))
 
+(use-package lsp-ltex
+  :hook (org-mode . (lambda ()
+		      (require 'lsp-ltex)
+		      (lsp-deferred)))
+  :init
+  (setq lsp-ltex-version "16.0.0"))
+
 (use-package org-projectile
   :bind
   (("C-c n p" . org-projectile-project-todo-completing-read)

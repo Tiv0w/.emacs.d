@@ -22,11 +22,8 @@
         (setq dashboard-startup-banner logo)))
   (setq dashboard-banner-logo-title
         "Vous entrez dans le monde de la peur et des poignets cassés")
-  (setq dashboard-items '((recents . 7)
-                          (projects . 7)
-                          (bookmarks . 2)
-                          (agenda . 2)
-                          (registers . 2)))
+  (setq dashboard-items '((recents . 10)
+                          (projects . 7)))
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-set-navigator t)
@@ -70,6 +67,7 @@
                            '(line-number line-number-current-line)))
 
 (use-package mini-frame
+  :disabled
   :config
   (setq resize-mini-frames t
         mini-frame-show-parameters '((top . 30)

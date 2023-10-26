@@ -49,6 +49,9 @@
   :config
   (setq browse-url-dwim-search-url "https://duckduckgo.com/?q="))
 
+(use-package screenshot
+  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/screenshot/")))
+
 (use-package carbon-now-sh
   :commands (carbon-now-sh))
 

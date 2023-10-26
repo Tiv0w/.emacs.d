@@ -36,7 +36,7 @@
 (use-package pyvenv
   :commands (pyvenv-activate pyvenv-workon)
   :config
-   ;; Set correct Python interpreter
+  ;; Set correct Python interpreter
   (setq pyvenv-post-activate-hooks
         (list (lambda ()
                 (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python")))))
@@ -49,6 +49,22 @@
   :config
   (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
 
+
+(use-package lsp-mode
+  :hook
+  (python-mode . lsp-deferred)
+  (lsp-mode . lsp-lens-mode)
+  :config
+  ;; general LSP config
+  (setq lsp-prefer-flymake nil
+        lsp-keep-workspace-alive nil)
+  ;; specific Python config
+  (setq lsp-pylsp-plugins-flake8-max-line-length 100
+	lsp-pylsp-plugins-pycodestyle-max-line-length 100))
+
+(use-package tree-sitter
+  :ensure t
+  :hook (python-mode . tree-sitter-hl-mode))
 
 ;; (set-pretty-symbols! 'python-mode
 ;;   ;; Functional
