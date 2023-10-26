@@ -10,3 +10,6 @@
 [submodule "elisp/extlisp/v-mode"]
 	path = elisp/extlisp/v-mode
 	url = git@github.com:Tiv0w/v-mode.git
+[submodule "elisp/extlisp/screenshot"]
+	path = elisp/extlisp/screenshot
+	url = https://github.com/tecosaur/screenshot

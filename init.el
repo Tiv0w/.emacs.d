@@ -51,6 +51,7 @@
 ;; (require 'lang-racket)
 (require 'lang-ruby)
 (require 'lang-rust)
+;; (require 'lang-scala)
 (require 'lang-scheme)
 (require 'lang-shell)
 ;; (require 'lang-svelte)
