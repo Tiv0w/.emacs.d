@@ -39,3 +39,4 @@ elpy/
 /devdocs/
 /.cache/
 /.dap-breakpoints
+/lsp-ltex/
