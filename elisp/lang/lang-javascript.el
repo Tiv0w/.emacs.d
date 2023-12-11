@@ -78,7 +78,7 @@
                              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
 
 (use-package add-node-modules-path
-  :hook js2-mode)
+  :hook (js2-mode . add-node-modules-path))
 
 (use-package flycheck
   :hook (js2-mode . flycheck-mode)

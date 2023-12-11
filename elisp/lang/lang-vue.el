@@ -48,7 +48,7 @@
     ("b" lsp-eslint-fix-all "lint code"))))
 
 (use-package add-node-modules-path
-  :hook vue-mode)
+  :hook (vue-mode . add-node-modules-path))
 
 (use-package emmet-mode
   :hook vue-mode

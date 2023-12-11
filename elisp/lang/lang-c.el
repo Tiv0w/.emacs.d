@@ -133,24 +133,24 @@
   :hook ((c-mode c++-mode) . lsp))
 
 
-(set-pretty-symbols! '(c-mode c++-mode cc-mode)
-  ;; Functional
-  ;; :def "void "
-  ;; Types
-  :null "NULL"
-  :true "true"
-  :false "false"
-  :int "int"
-  :float "float"
-  :str "std::string"
-  :bool "bool"
-  ;; Flow
-  :not "!"
-  :and "&&"
-  :or "||"
-  :for "for"
-  :return "return"
-  :yield "#require")
+;; (set-pretty-symbols! '(c-mode c++-mode cc-mode)
+;;   ;; Functional
+;;   ;; :def "void "
+;;   ;; Types
+;;   :null "NULL"
+;;   :true "true"
+;;   :false "false"
+;;   :int "int"
+;;   :float "float"
+;;   :str "std::string"
+;;   :bool "bool"
+;;   ;; Flow
+;;   :not "!"
+;;   :and "&&"
+;;   :or "||"
+;;   :for "for"
+;;   :return "return"
+;;   :yield "#require")
 
 
 (use-package glsl-mode

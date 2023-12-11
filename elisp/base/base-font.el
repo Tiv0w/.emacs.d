@@ -25,7 +25,9 @@ This function is hooked to `after-make-frame-functions'."
   (set-fontset-font t nil
                     (font-spec :family "Julia Mono" :height t--font-height))
   (set-fontset-font t '(#x1f000 . #x1faff)
-                    (font-spec :family "Noto Color Emoji" :height t--font-height))
+                    (font-spec :family "Blobmoji" :height t--font-height))
+  ;; (set-fontset-font t '(#x1f000 . #x1faff)
+  ;;                   (font-spec :family "Noto Color Emoji" :height t--font-height))
   (set-face-font 'default t--main-font))
 
 (add-hook 'after-make-frame-functions #'t--setup-fonts)

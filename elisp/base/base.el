@@ -6,8 +6,8 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
-(add-to-list 'package-archives
-	     '("org" . "https://orgmode.org/elpa/") t)
+;; (add-to-list 'package-archives
+;; 	     '("org" . "https://orgmode.org/elpa/") t)
 
 (when (not package-archive-contents)
   (package-refresh-contents))

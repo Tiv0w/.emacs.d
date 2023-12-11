@@ -26,6 +26,18 @@
   ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
   )
 
+(use-package lsp-mode
+  :hook
+  (python-mode . lsp-deferred)
+  (lsp-mode . lsp-lens-mode)
+  :config
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-keep-workspace-alive nil))
+
+(use-package tree-sitter
+  :ensure t
+  :hook (python-mode . tree-sitter-hl-mode))
+
 (use-package pip-requirements
   :config
   (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup))
