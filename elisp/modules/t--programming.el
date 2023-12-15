@@ -85,6 +85,10 @@
 (use-package treemacs
   :commands treemacs)
 
+(use-package treemacs-nerd-icons
+  :config
+  (treemacs-load-theme "nerd-icons"))
+
 (use-package treemacs-magit
   :after treemacs magit)
 

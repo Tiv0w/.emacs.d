@@ -7,9 +7,9 @@
   :after dired
   :hook (dired-mode . diredfl-mode))
 
-(use-package all-the-icons-dired
+(use-package nerd-icons-dired
   :after dired
-  :hook (dired-mode . all-the-icons-dired-mode))
+  :hook (dired-mode . nerd-icons-dired-mode))
 
 (use-package dired-rainbow
   :after dired
@@ -78,6 +78,10 @@
               (ibuffer-vc-set-filter-groups-by-vc-root)
               (unless (eq ibuffer-sorting-mode 'alphabetic)
                 (ibuffer-do-sort-by-alphabetic)))))
+
+(use-package nerd-icons-ibuffer
+  :after ibuffer
+  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
 (use-package lacarte
   :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/lacarte.el"))

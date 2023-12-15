@@ -33,8 +33,8 @@
 				(t . ivy--regex-plus)))
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
-(use-package all-the-icons-ivy-rich
-  :init (all-the-icons-ivy-rich-mode 1))
+(use-package nerd-icons-ivy-rich
+  :init (nerd-icons-ivy-rich-mode 1))
 
 (use-package ivy-rich
   :after ivy
