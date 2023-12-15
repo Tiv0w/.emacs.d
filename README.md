@@ -50,6 +50,13 @@ In addition, packages configuration is much more easier with it.
 Nice work John! :+1:
 
 
+## Installation
+
+### External programs needed
+- ripgrep (`rg` command, `ripgrep` package on Arch)
+- a Nerd font (probably `Symbols Nerd Fonts Mono`, available as `ttf-nerd-fonts-symbols-mono` on Arch)
+- Blobmoji font (`noto-fonts-emoji-blob` on Arch)
+
 
 ---
 
