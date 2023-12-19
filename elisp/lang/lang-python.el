@@ -4,6 +4,11 @@
 
 (use-package python-mode
   :ensure nil
+  :init
+  ;; specific Python LSP config
+  (setq lsp-pylsp-plugins-flake8-max-line-length 100
+	lsp-pylsp-plugins-pycodestyle-max-line-length 100)
+  (add-hook 'python-mode-hook #'lsp-deferred)
   :mode-hydra
   (python-mode
    (:title "Python" :color blue :quit-key "q")
@@ -26,24 +31,16 @@
   ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
   )
 
-(use-package lsp-mode
-  :hook
-  (python-mode . lsp-deferred)
-  (lsp-mode . lsp-lens-mode)
-  :config
-  (setq lsp-prefer-flymake nil)
-  (setq lsp-keep-workspace-alive nil))
-
 (use-package tree-sitter
-  :ensure t
   :hook (python-mode . tree-sitter-hl-mode))
 
 (use-package pip-requirements
+  :defer t
   :config
   (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup))
 
-(use-package py-autopep8)
-
+(use-package py-autopep8
+  :after python-mode)
 
 (use-package pyvenv
   :commands (pyvenv-activate pyvenv-workon)
@@ -60,23 +57,6 @@
   :hook (python-mode . pyvenv-auto-run)
   :config
   (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
-
-
-(use-package lsp-mode
-  :hook
-  (python-mode . lsp-deferred)
-  (lsp-mode . lsp-lens-mode)
-  :config
-  ;; general LSP config
-  (setq lsp-prefer-flymake nil
-        lsp-keep-workspace-alive nil)
-  ;; specific Python config
-  (setq lsp-pylsp-plugins-flake8-max-line-length 100
-	lsp-pylsp-plugins-pycodestyle-max-line-length 100))
-
-(use-package tree-sitter
-  :ensure t
-  :hook (python-mode . tree-sitter-hl-mode))
 
 ;; (set-pretty-symbols! 'python-mode
 ;;   ;; Functional
