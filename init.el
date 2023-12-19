@@ -76,5 +76,5 @@
           (lambda ()
             (setq file-name-handler-alist copy--file-name-handler-alist
                   ;; Make gc pauses faster by decreasing the threshold.
-                  gc-cons-threshold 16777216 ; 16mb
+                  gc-cons-threshold 104857600 ; 100mb
                   gc-cons-percentage 0.1)))

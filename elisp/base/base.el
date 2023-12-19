@@ -101,6 +101,8 @@
 (add-hook 'minibuffer-setup-hook #'defer-garbage-collection-h)
 (add-hook 'minibuffer-exit-hook #'restore-garbage-collection-h)
 
+;; LSP performance tuning
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (show-paren-mode 1)
 (electric-pair-mode 1)
