@@ -111,7 +111,11 @@
 ;; Start with maximized frame
 (add-to-list 'default-frame-alist '(fullscreen . maximized));;works with emacsclient too yay
 
-(add-to-list 'default-frame-alist '(alpha . 90))
+(if (version< emacs-version "29")
+    (add-to-list 'default-frame-alist '(alpha . 90))
+  (progn
+    (add-to-list 'default-frame-alist '(alpha-background . 90))
+    (add-to-list 'default-frame-alist '(alpha . 100))))
 
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
