@@ -6,6 +6,7 @@
 
 
 (use-package graphviz-dot-mode
+  :defer t
   :config
   (setq graphviz-dot-indent-width 4))
 

@@ -4,11 +4,11 @@
 
 (use-package python-mode
   :ensure nil
+  :hook (python-mode . lsp-deferred)
   :init
   ;; specific Python LSP config
   (setq lsp-pylsp-plugins-flake8-max-line-length 100
 	lsp-pylsp-plugins-pycodestyle-max-line-length 100)
-  (add-hook 'python-mode-hook #'lsp-deferred)
   :mode-hydra
   (python-mode
    (:title "Python" :color blue :quit-key "q")

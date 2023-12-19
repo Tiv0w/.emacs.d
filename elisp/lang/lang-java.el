@@ -27,6 +27,7 @@
 
 
 (use-package lsp-java
+  :after (lsp-mode java-mode)
   :hook (java-mode . lsp)
   :config
   (setq lsp-java-format-enabled nil
@@ -42,9 +43,11 @@
 (use-package flycheck
   :hook (meghanada-mode . flycheck-mode))
 
-(use-package groovy-mode)
+(use-package groovy-mode
+  :defer t)
 
 (use-package kotlin-mode
+  :defer t
   :mode "\\.kts?\\'")
 
 

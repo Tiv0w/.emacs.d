@@ -3,6 +3,7 @@
 ;; AUCTeX configuration
 (use-package tex
   :ensure auctex
+  :defer t
   :mode ("\\.tex\\'" . LaTeX-mode)
   :config
   (setq TeX-auto-save t

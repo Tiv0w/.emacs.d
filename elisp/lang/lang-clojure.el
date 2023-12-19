@@ -1,6 +1,7 @@
 ;;; elisp/lang/lang-clojure.el -*- lexical-binding: t; -*-
 
 (use-package clojure-mode
+  :defer t
   :mode-hydra
   ((:title "Clojure" :color blue :quit-key "q")
    ("Essential"
@@ -23,10 +24,11 @@
      ("'" clojure-convert-collection-to-quoted-list "coll -> '(")))))
 
 (use-package cider
-  :hook (clojure-mode-local-vars . cider-mode)
+  :hook
+  (clojure-mode-local-vars . cider-mode)
+  (cider-mode . eldoc-mode)
   :config
   (setq cider-repl-display-help-banner nil)
-  (add-hook 'cider-mode-hook 'eldoc-mode)
   :mode-hydra
   (cider-repl-mode
    (:color blue :quit-key "q")
@@ -42,17 +44,21 @@
 (use-package clj-refactor
   :hook (clojure-mode . clj-refactor-mode))
 
-(use-package kibit-helper)
+(use-package kibit-helper
+  :commands (kibit
+	     kibit-current-file
+	     kibit-accept-proposed-change))
 
 (use-package paredit
-  :config
-  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-  (add-hook 'cider-repl-mode-hook 'paredit-mode))
+  :hook
+  (clojure-mode . enable-paredit-mode)
+  (cider-repl-mode . paredit-mode))
 
 (use-package flycheck
-  :hook (clojure-mode . flycheck-mode)
-  :config
-  (use-package flycheck-clj-kondo))
+  :hook (clojure-mode . flycheck-mode))
+
+(use-package flycheck-clj-kondo
+  :after (flycheck clojure-mode))
 
 
 ;; (set-pretty-symbols! 'clojure-mode

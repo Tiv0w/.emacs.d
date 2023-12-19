@@ -1,9 +1,7 @@
 ;;; elisp/lang/lang-web.el -*- lexical-binding: t; -*-
 
 (use-package web-mode
-  :bind (("C-c ]" . emmet-next-edit-point)
-         ("C-c [" . emmet-prev-edit-point)
-         ("C-c o b" . browse-url-of-file))
+  :defer t
   :mode
   (("\\.html?\\'" . web-mode)
    ("\\.tpl\\'" . web-mode)
@@ -71,14 +69,10 @@
             (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
 
-  ;; to get completion data for angularJS
-  (use-package ac-html-angular :defer t)
-  ;; to get completion for twitter bootstrap
-  (use-package ac-html-bootstrap :defer t)
-
   ;; to get completion for HTML stuff
   ;; https://github.com/osv/company-web
-  (use-package company-web)
+  (use-package company-web
+    :after company)
 
   (add-hook 'web-mode-hook 'company-mode)
 

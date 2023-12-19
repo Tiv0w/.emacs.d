@@ -3,6 +3,7 @@
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
 (use-package haskell-mode
+  :defer t
   ;; haskell-mode swaps `C-m' and `C-j' behavior. Revert it back
   :bind (:map haskell-mode-map
               ("C-m" . newline)
@@ -26,17 +27,17 @@
   (add-hook 'haskell-mode-hook 'flycheck-mode)
   :config
   (add-hook 'dante-mode-hook
-	    '(lambda () (flycheck-add-next-checker 'haskell-dante
-						   '(warning . haskell-hlint)))))
+	    (lambda () (flycheck-add-next-checker 'haskell-dante
+						  '(warning . haskell-hlint)))))
 
 ;; hindent - format haskell code automatically
 ;; https://github.com/chrisdone/hindent
-(when (executable-find "hindent")
-  (use-package hindent
-    :after haskell-mode
-    :hook (haskell-mode . hindent-mode)
-    :config
-    ;; reformat the buffer using hindent on save
-    (setq hindent-reformat-buffer-on-save t)))
+(use-package hindent
+  :if (executable-find "hindent")
+  :after haskell-mode
+  :hook (haskell-mode . hindent-mode)
+  :config
+  ;; reformat the buffer using hindent on save
+  (setq hindent-reformat-buffer-on-save t))
 
 (provide 'lang-haskell)

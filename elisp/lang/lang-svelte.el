@@ -2,6 +2,7 @@
 
 
 (use-package svelte-mode
+  :defer t
   :mode "\\.svelte\\'")
 
 (use-package tree-sitter
