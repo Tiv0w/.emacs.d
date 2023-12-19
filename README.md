@@ -57,6 +57,8 @@ Nice work John! :+1:
 - a Nerd font (probably `Symbols Nerd Fonts Mono`, available as `ttf-nerd-fonts-symbols-mono` on Arch)
 - Blobmoji font (`noto-fonts-emoji-blob` on Arch)
 
+### Initial setup
+You should have an logo for the dashboard in `private/logos/logo.{png,webp}`. Prioritizes WEBP for transparency in Emacs 29 (or XPM).
 
 ---
 
