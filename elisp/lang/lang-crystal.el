@@ -1,7 +1,8 @@
 ;;; elisp/lang/lang-crystal.el -*- lexical-binding: t; -*-
 
 
-(use-package crystal-mode)
+(use-package crystal-mode
+  :defer t)
 
 (use-package flycheck
   :hook (crystal-mode . flycheck-mode)
@@ -29,7 +30,7 @@
 
 
 (use-package lsp-mode
-  :hook (crystal-mode . lsp)
+  :hook (crystal-mode . lsp-deferred)
   ;; :config
   ;; (defgroup lsp-crystalline nil
   ;;   "LSP support for Crystal via crystalline."

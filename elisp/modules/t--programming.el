@@ -86,6 +86,7 @@
   :commands treemacs)
 
 (use-package treemacs-nerd-icons
+  :after treemacs
   :config
   (treemacs-load-theme "nerd-icons"))
 

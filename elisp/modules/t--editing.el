@@ -56,7 +56,11 @@
      ("-" text-scale-decrease "out")
      ("0" text-scale-adjust "reset")))))
 
-(use-package crux)
+(use-package crux
+  :commands
+  (crux-duplicate-and-comment-current-line-or-region
+   crux-rename-file-and-buffer
+   crux-delete-file-and-buffer))
 
 (use-package deadgrep
   :ensure-system-package (rg . ripgrep)

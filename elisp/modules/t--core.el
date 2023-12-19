@@ -14,8 +14,12 @@
 (require 't--editing)
 (require 't--emacs)
 (require 't--env)
-(require 't--language)
-(require 't--org)
+(use-package t--language
+  :ensure nil
+  :defer 10)
+(use-package t--org
+  :ensure nil
+  :defer 10)
 (require 't--pdf)
 (require 't--programming)
 (require 't--random)

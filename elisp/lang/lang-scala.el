@@ -40,7 +40,8 @@
   (setq lsp-keep-workspace-alive nil))
 
 ;; Add metals backend for lsp-mode
-(use-package lsp-metals)
+(use-package lsp-metals
+  :after (scala-mode lsp-mode))
 
 ;; Use the Debug Adapter Protocol for running tests and debugging
 (use-package dap-mode
