@@ -8,6 +8,7 @@
 
 (require 't--ivy)
 (require 't--magit)
+(require 't--lsp)
 
 (require 't--pretty-code) ;; pretty-code is required by org
 
