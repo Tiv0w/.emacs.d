@@ -19,7 +19,7 @@
   :after company
   :hook (company-mode . company-box-mode)
   :config
-  (setq company-box-icons-alist 'company-box-icons-all-the-icons))
+  (setq company-box-icons-alist 'company-box-icons-images))
 
 (use-package devdocs
   :commands (devdocs-lookup))

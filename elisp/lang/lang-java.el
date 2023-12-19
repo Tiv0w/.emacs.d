@@ -28,17 +28,10 @@
 
 (use-package lsp-java
   :after (lsp-mode java-mode)
-  :hook (java-mode . lsp)
+  :hook (java-mode . lsp-deferred)
   :config
   (setq lsp-java-format-enabled nil
         lsp-java-format-comments-enabled nil))
-
-(use-package lsp-ui
-  :hook (java-mode . lsp-ui-sideline-mode)
-  :config
-  (setq lsp-ui-sideline-diagnostic-max-lines 2
-        lsp-ui-sideline-show-hover nil
-        lsp-ui-sideline-show-diagnostics t))
 
 (use-package flycheck
   :hook (meghanada-mode . flycheck-mode))

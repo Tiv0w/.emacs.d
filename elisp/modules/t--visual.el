@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :disabled)
 
 (use-package centaur-tabs
   :commands centaur-tabs-mode
