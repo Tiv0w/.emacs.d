@@ -117,6 +117,10 @@
     (add-to-list 'default-frame-alist '(alpha-background . 90))
     (add-to-list 'default-frame-alist '(alpha . 100))))
 
+;; Emacs 29 changes
+(when (>= emacs-major-version 29)
+  (setq pixel-scroll-precision-mode t))
+
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
