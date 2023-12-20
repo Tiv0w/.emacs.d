@@ -12,6 +12,7 @@
   :hook (dired-mode . nerd-icons-dired-mode))
 
 (use-package dired-rainbow
+  :disabled
   :after dired
   :config
   (progn

@@ -6,10 +6,15 @@
 (defun t--transparency (value)
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive
-   (let ((transparency-val (frame-parameter (selected-frame) 'alpha)))
+   (let ((transparency-val (frame-parameter
+			    (selected-frame)
+			    (if (version< emacs-version "29") 'alpha 'alpha-background))))
      (list (read-number
             (format "Transparency (0 to 100, current value: %d): " transparency-val)))))
-  (set-frame-parameter (selected-frame) 'alpha value))
+  (set-frame-parameter
+   (selected-frame)
+   (if (version< emacs-version "29") 'alpha 'alpha-background)
+   value))
 
 
 (defun t--light-env-setup ()

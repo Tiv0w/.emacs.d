@@ -4,7 +4,15 @@
 ;; Enable scala-mode for highlighting, indentation and motion commands
 (use-package scala-mode
   :mode ("\\.sc\\'" . scala-mode)
-  :interpreter ("scala" . scala-mode))
+  :interpreter ("scala" . scala-mode)
+  :config
+  (add-hook 'scala-mode-hook #'lsp-deferred))
+
+;; Add metals backend for lsp-mode
+(use-package lsp-metals
+  :after (scala-mode lsp-mode)
+  :config
+  (setq-local lsp-eldoc-exclude-line-regexps '("^Expression type:$")))
 
 ;; Enable sbt mode for executing sbt commands
 (use-package sbt-mode
@@ -27,25 +35,5 @@
 ;; Enable nice rendering of diagnostics like compile errors.
 (use-package flycheck
   :hook (scala-mode . flycheck-mode))
-
-(use-package lsp-mode
-  ;; Optional - enable lsp-mode automatically in scala files
-  ;; You could also swap out lsp for lsp-deffered in order to defer loading
-  :hook  (scala-mode . lsp-deferred)
-         (lsp-mode . lsp-lens-mode)
-  :config
-  (setq lsp-prefer-flymake nil)
-  ;; Makes LSP shutdown the metals server when all buffers in the project are closed.
-  ;; https://emacs-lsp.github.io/lsp-mode/page/settings/mode/#lsp-keep-workspace-alive
-  (setq lsp-keep-workspace-alive nil))
-
-;; Add metals backend for lsp-mode
-(use-package lsp-metals)
-
-;; Use the Debug Adapter Protocol for running tests and debugging
-(use-package dap-mode
-  :hook
-  (lsp-mode . dap-mode)
-  (lsp-mode . dap-ui-mode))
 
 (provide 'lang-scala)

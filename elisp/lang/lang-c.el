@@ -22,7 +22,9 @@
 
 ;; C-IDE based on https://github.com/tuhdo/emacs-c-ide-demo
 (use-package cc-mode
+  :defer t
   :mode ("\\.h\\'" . t--c-or-c++-mode)
+  :hook ((c-mode c++-mode) . lsp-deferred)
   :config
   ;; Available C style:
   ;; "gnu": The default style for GNU projects
@@ -52,9 +54,9 @@
    (("b" eglot-format-buffer "format buffer"))))
 
 (use-package irony
-  :hook ((c++-mode c-mode) . irony-mode)
-  :config
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  :hook
+  ((c++-mode c-mode) . irony-mode)
+  (irony-mode . irony-cdb-autosetup-compile-options))
 
 (use-package company-irony
   :after (company irony)
@@ -67,11 +69,11 @@
   (add-to-list 'company-backends 'company-irony-c-headers))
 
 (use-package flycheck
-  :hook ((c++-mode c-mode) . flycheck-mode)
-  :config
-  (use-package flycheck-irony
-    :after flycheck
-    :hook (flycheck-mode . flycheck-irony-setup)))
+  :hook ((c++-mode c-mode) . flycheck-mode))
+
+(use-package flycheck-irony
+  :after (flycheck (:any cc-mode c++-mode c-mode))
+  :hook (flycheck-mode . flycheck-irony-setup))
 
 (use-package irony-eldoc
   :hook (irony-mode . irony-eldoc))
@@ -128,10 +130,6 @@
 ;; (defun alexott/cedet-hook ()
 ;;   (local-set-key (kbd "C-c C-j") 'semantic-ia-fast-jump)
 ;;   (local-set-key (kbd "C-c C-s") 'semantic-ia-show-summary))
-
-(use-package lsp-mode
-  :hook ((c-mode c++-mode) . lsp))
-
 
 ;; (set-pretty-symbols! '(c-mode c++-mode cc-mode)
 ;;   ;; Functional

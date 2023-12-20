@@ -2,6 +2,7 @@
 
 ;; markdown-mode setup
 (use-package markdown-mode
+  :defer t
   :mode "\\.md$\\'"
   :init
   (setq markdown-enable-wiki-links t

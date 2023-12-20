@@ -101,7 +101,6 @@
 (add-hook 'minibuffer-setup-hook #'defer-garbage-collection-h)
 (add-hook 'minibuffer-exit-hook #'restore-garbage-collection-h)
 
-
 (show-paren-mode 1)
 (electric-pair-mode 1)
 
@@ -111,7 +110,15 @@
 ;; Start with maximized frame
 (add-to-list 'default-frame-alist '(fullscreen . maximized));;works with emacsclient too yay
 
-(add-to-list 'default-frame-alist '(alpha . 90))
+(if (version< emacs-version "29")
+    (add-to-list 'default-frame-alist '(alpha . 90))
+  (progn
+    (add-to-list 'default-frame-alist '(alpha-background . 90))
+    (add-to-list 'default-frame-alist '(alpha . 100))))
+
+;; Emacs 29 changes
+(when (>= emacs-major-version 29)
+  (setq pixel-scroll-precision-mode t))
 
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)

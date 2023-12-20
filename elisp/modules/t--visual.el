@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :disabled)
 
 (use-package centaur-tabs
   :commands centaur-tabs-mode
@@ -17,16 +18,19 @@
 
 (use-package dashboard
   :config
-  (let ((logo (concat user-emacs-directory "private/logos/logo.png")))
+  (let ((logo (concat user-emacs-directory "private/logos/logo.webp")))
     (if (file-exists-p logo)
         (setq dashboard-startup-banner logo)))
-  (setq dashboard-banner-logo-title
-        "Vous entrez dans le monde de la peur et des poignets cassés")
-  (setq dashboard-items '((recents . 10)
-                          (projects . 7)))
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-navigator t)
+  (setq dashboard-banner-logo-title "Vous entrez dans le monde de la peur et des poignets cassés"
+	dashboard-items '((recents . 10)
+                          (projects . 7))
+	dashboard-set-heading-icons t
+	dashboard-set-file-icons t
+	dashboard-set-navigator t
+	dashboard-show-shortcuts nil
+	;; Always display (term and GUI) with nerd-icons
+	dashboard-display-icons-p t
+	dashboard-icon-type 'nerd-icons)
   (dashboard-setup-startup-hook))
 
 (use-package diff-hl

@@ -7,8 +7,7 @@
 ;;; Code:
 
 (use-package rust-mode
-  :bind (:map rust-mode-map
-              (("C-c C-t" . racer-describe)))
+  :defer t
   :config
   (setq indent-tabs-mode nil
         rust-format-on-save t)
@@ -27,17 +26,13 @@
     (("d" racer-describe "doc")
      ("s" racer-find-definition "find def")))))
 
-
 (use-package flycheck-rust
-  :after rust-mode
-  :config
-  (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
-
+  :after (flycheck-mode rust-mode)
+  :hook (flycheck-mode . flycheck-rust-setup))
 
 ;; cargo-mode for all the cargo related operations
 (use-package cargo
   :hook (rust-mode . cargo-minor-mode))
-
 
 ;; racer-mode for getting IDE like features for rust-mode
 (use-package racer

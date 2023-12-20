@@ -56,7 +56,11 @@
      ("-" text-scale-decrease "out")
      ("0" text-scale-adjust "reset")))))
 
-(use-package crux)
+(use-package crux
+  :commands
+  (crux-duplicate-and-comment-current-line-or-region
+   crux-rename-file-and-buffer
+   crux-delete-file-and-buffer))
 
 (use-package deadgrep
   :ensure-system-package (rg . ripgrep)
@@ -78,6 +82,7 @@
   :commands iy-go-to-char)
 
 (use-package keyfreq
+  :disabled
   :config
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1)
@@ -111,7 +116,8 @@
    ("ik" . sp-transpose-hybrid-sexp)))
 
 (use-package string-inflection
-  :config
+  :commands string-inflection-cycle-auto
+  :preface
   (defun string-inflection-cycle-auto ()
     "Switching string case by major-mode."
     (interactive)
@@ -132,6 +138,7 @@
   :hook ((prog-mode conf-mode) . subword-mode))
 
 (use-package ace-window
+  :commands ace-window
   :config
   (setq aw-ignored-buffers (delete 'treemacs-mode aw-ignored-buffers)
         aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
@@ -141,6 +148,7 @@
    :weight 'bold :height 2.5 :box '(:line-width 10 :color "red")))
 
 (use-package undo-tree
+  :defer 1
   :config
   (setq undo-tree-auto-save-history nil
         undo-tree-history-directory-alist `(("." . ,(concat temp-dir "/undo/"))))

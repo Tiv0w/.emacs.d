@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package org
+  :defer t
   :pin gnu
   :init
   (setq org-directory "~/org-files"

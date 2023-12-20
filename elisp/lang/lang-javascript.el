@@ -49,6 +49,7 @@
   (add-hook 'js2-mode-hook 'js2-refactor-mode))
 
 (use-package xref-js2
+  :after js2-mode
   :config
   (setq xref-js2-search-program 'rg)
   (message "xref-js2: DON'T FORGET TO UPSTREAM THE FIX (file-remote-p support)")

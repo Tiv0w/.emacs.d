@@ -27,24 +27,20 @@
 
 
 (use-package lsp-java
-  :hook (java-mode . lsp)
+  :after (lsp-mode java-mode)
+  :hook (java-mode . lsp-deferred)
   :config
   (setq lsp-java-format-enabled nil
         lsp-java-format-comments-enabled nil))
 
-(use-package lsp-ui
-  :hook (java-mode . lsp-ui-sideline-mode)
-  :config
-  (setq lsp-ui-sideline-diagnostic-max-lines 2
-        lsp-ui-sideline-show-hover nil
-        lsp-ui-sideline-show-diagnostics t))
-
 (use-package flycheck
   :hook (meghanada-mode . flycheck-mode))
 
-(use-package groovy-mode)
+(use-package groovy-mode
+  :defer t)
 
 (use-package kotlin-mode
+  :defer t
   :mode "\\.kts?\\'")
 
 
