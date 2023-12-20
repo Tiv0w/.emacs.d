@@ -10,7 +10,9 @@
 
 ;; Add metals backend for lsp-mode
 (use-package lsp-metals
-  :after (scala-mode lsp-mode))
+  :after (scala-mode lsp-mode)
+  :config
+  (setq-local lsp-eldoc-exclude-line-regexps '("^Expression type:$")))
 
 ;; Enable sbt mode for executing sbt commands
 (use-package sbt-mode
