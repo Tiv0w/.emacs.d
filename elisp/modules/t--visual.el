@@ -17,7 +17,7 @@
         centaur-tabs-cycle-scope 'tabs))
 
 (use-package dashboard
-  :config
+  :init
   (let ((logo (concat user-emacs-directory "private/logos/logo.webp")))
     (if (file-exists-p logo)
         (setq dashboard-startup-banner logo)))
@@ -31,6 +31,7 @@
 	;; Always display (term and GUI) with nerd-icons
 	dashboard-display-icons-p t
 	dashboard-icon-type 'nerd-icons)
+  :config
   (dashboard-setup-startup-hook))
 
 (use-package diff-hl
