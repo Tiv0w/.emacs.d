@@ -8,7 +8,7 @@
   :init
   ;; specific Python LSP config
   (setq lsp-pylsp-plugins-flake8-max-line-length 100
-	lsp-pylsp-plugins-pycodestyle-max-line-length 100)
+        lsp-pylsp-plugins-pycodestyle-max-line-length 100)
   :mode-hydra
   (python-mode
    (:title "Python" :color blue :quit-key "q")
@@ -57,6 +57,13 @@
   :hook (python-mode . pyvenv-auto-run)
   :config
   (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
+
+;; Python pkgs `importmagic' & `epc' are needed in the venv to use this utility.
+(use-package importmagic
+  :hook (python-mode . importmagic-mode)
+  :config
+  ;; (setq importmagic-be-quiet t) ; if you want to limit verbosity
+  )
 
 ;; (set-pretty-symbols! 'python-mode
 ;;   ;; Functional
