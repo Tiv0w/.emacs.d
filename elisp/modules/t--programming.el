@@ -6,7 +6,9 @@
 (use-package apheleia
   :config
   (push '(vfmt . ("v" "fmt" "-w")) apheleia-formatters)
-  (push '(v-mode . vfmt) apheleia-mode-alist))
+  (push '(v-mode . vfmt) apheleia-mode-alist)
+  (push '(sqlfluff . ("sqlfluff" "fix" "--disable-progress-bar" "-")) apheleia-formatters)
+  (push '(sql-mode . sqlfluff) apheleia-mode-alist))
 
 (use-package company
   :hook ((prog-mode comint-mode) . company-mode)
