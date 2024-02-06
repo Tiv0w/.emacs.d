@@ -28,6 +28,7 @@
   (setq elcord-use-major-mode-as-main-icon t))
 
 (use-package parrot
+  :disabled
   :hook (prog-mode . parrot-mode)
   :config
   (parrot-set-parrot-type 'default)

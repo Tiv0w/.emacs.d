@@ -60,6 +60,13 @@ Nice work John! :+1:
 ### Initial setup
 You should have an logo for the dashboard in `private/logos/logo.{png,webp}`. Prioritizes WEBP for transparency in Emacs 29 (or XPM).
 
+
+# TODOS
+
+- [ ] Add LSP keybindings
+- [ ] Revamp entire main keymap
+- [ ] (Maybe?) integrate treesit
+
 ---
 
 :warning: If you intend to use this configuration, it is heavily opinionated, hacky in some ways, not optimal in others.

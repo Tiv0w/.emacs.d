@@ -40,3 +40,4 @@ elpy/
 /.cache/
 /.dap-breakpoints
 /lsp-ltex/
+/*.sql
