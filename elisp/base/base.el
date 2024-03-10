@@ -45,6 +45,7 @@
       load-prefer-newer                   t
       visible-bell                        t
       ring-bell-function                  'ignore
+      dired-listing-switches              "-alhF"
       custom-file                         (concat user-emacs-directory ".custom.el")
       ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
       minibuffer-prompt-properties

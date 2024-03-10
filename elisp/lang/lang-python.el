@@ -60,7 +60,7 @@
 
 ;; Python pkgs `importmagic' & `epc' are needed in the venv to use this utility.
 (use-package importmagic
-  :hook (python-mode . importmagic-mode)
+  ;; :hook (python-mode . importmagic-mode)
   :config
   ;; (setq importmagic-be-quiet t) ; if you want to limit verbosity
   )

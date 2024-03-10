@@ -5,14 +5,15 @@
 (use-package scala-mode
   :mode ("\\.sc\\'" . scala-mode)
   :interpreter ("scala" . scala-mode)
-  :config
-  (add-hook 'scala-mode-hook #'lsp-deferred))
+  :hook
+  (scala-mode . apheleia-mode)
+  (scala-mode . lsp-deferred))
 
 ;; Add metals backend for lsp-mode
 (use-package lsp-metals
   :after (scala-mode lsp-mode)
   :config
-  (setq-local lsp-eldoc-exclude-line-regexps '("^Expression type:$")))
+  (setq lsp-eldoc-exclude-line-regexps '("^Expression type:.*$")))
 
 ;; Enable sbt mode for executing sbt commands
 (use-package sbt-mode

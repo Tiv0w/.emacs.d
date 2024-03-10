@@ -8,7 +8,16 @@
   (push '(vfmt . ("v" "fmt" "-w")) apheleia-formatters)
   (push '(v-mode . vfmt) apheleia-mode-alist)
   (push '(sqlfluff . ("sqlfluff" "fix" "--disable-progress-bar" "-")) apheleia-formatters)
-  (push '(sql-mode . sqlfluff) apheleia-mode-alist))
+  (push '(sql-mode . sqlfluff) apheleia-mode-alist)
+  (if (executable-find "scalafmt-native")
+      (push '(scalafmt . ("scalafmt-native" "--stdin" "--non-interactive" "--quiet" "--stdout")) apheleia-formatters)
+    (progn
+      (warn "scalafmt-native is not present on the path, reverting to scalafmt jar.")
+      (push '(scalafmt . ("scalafmt" "--stdin" "--non-interactive" "--quiet" "--stdout")) apheleia-formatters)))
+  (push '(scala-mode . scalafmt) apheleia-mode-alist))
+
+(use-package bury-successful-compilation
+  :disabled)
 
 (use-package company
   :hook ((prog-mode comint-mode) . company-mode)
@@ -44,6 +53,11 @@
 ;;                '((c++-mode c-mode) . ("clangd" "-j=3" "--clang-tidy")))
 ;;   (add-to-list 'eglot-server-programs '(v-mode . ("vls")))
 ;;   (add-to-list 'eglot-server-programs '(java-mode . ("jdtls"))))
+
+(use-package fancy-compilation
+  :config
+  (setq fancy-compilation-override-colors nil)
+  (fancy-compilation-mode t))
 
 (use-package flycheck)
 
