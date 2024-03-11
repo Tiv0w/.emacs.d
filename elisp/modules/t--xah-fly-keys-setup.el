@@ -116,6 +116,14 @@
 (define-key xah-fly-n-keymap (kbd "l") 'narrow-or-widen-dwim)
 (define-key xah-fly-n-keymap (kbd "V") 'lacarte-execute-menu-command)
 
+;; comma key map
+;; LSP
+(define-key xah-fly-comma-keymap (kbd "o") 'lsp-organize-imports)
+(define-key xah-fly-comma-keymap (kbd "a") 'lsp-execute-code-action)
+(define-key xah-fly-comma-keymap (kbd "d") 'lsp-ui-doc-glance)
+(define-key xah-fly-comma-keymap (kbd "r") 'lsp-rename)
+(define-key xah-fly-comma-keymap (kbd "L") 'lsp-command-map)
+
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC
 (when (getenv "IS_LAPTOP")
