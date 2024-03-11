@@ -22,15 +22,15 @@
     (if (file-exists-p logo)
         (setq dashboard-startup-banner logo)))
   (setq dashboard-banner-logo-title "Vous entrez dans le monde de la peur et des poignets cassés"
-	dashboard-items '((recents . 10)
+        dashboard-items '((recents . 10)
                           (projects . 7))
-	dashboard-set-heading-icons t
-	dashboard-set-file-icons t
-	dashboard-set-navigator t
-	dashboard-show-shortcuts nil
-	;; Always display (term and GUI) with nerd-icons
-	dashboard-display-icons-p t
-	dashboard-icon-type 'nerd-icons)
+        dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        dashboard-set-navigator t
+        dashboard-show-shortcuts nil
+        ;; Always display (term and GUI) with nerd-icons
+        dashboard-display-icons-p t
+        dashboard-icon-type 'nerd-icons)
   :config
   (dashboard-setup-startup-hook))
 
@@ -58,10 +58,12 @@
 
   ;; to fix a problem with indent-guides not showing in daemon
   (defun t--setup-highlight-indent-guides ()
-    (when (display-graphic-p)
+    (when (and (display-graphic-p) (frame-focus-state))
       (highlight-indent-guides-auto-set-faces)))
   (add-hook 'server-after-make-frame-hook
-            #'t--setup-highlight-indent-guides))
+            #'t--setup-highlight-indent-guides)
+  (add-function :after after-focus-change-function
+                #'t--setup-highlight-indent-guides))
 
 (use-package mixed-pitch
   :disabled
