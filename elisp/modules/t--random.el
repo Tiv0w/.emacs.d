@@ -65,4 +65,8 @@
 (use-package speed-type
   :commands (speed-type-text speed-type-region speed-type-buffer))
 
+(use-package explain-pause-mode
+  :vc (:fetcher github :repo "lastquestion/explain-pause-mode")
+  :commands explain-pause-mode)
+
 (provide 't--random)

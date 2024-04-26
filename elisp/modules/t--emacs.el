@@ -94,6 +94,9 @@
   (("C-c t p" . profiler-start)
    ("C-c t s" . profiler-stop)))
 
+(use-package paradox
+  :commands paradox-list-packages)
+
 (use-package recentf
   :config
   (setq recentf-save-file (recentf-expand-file-name
