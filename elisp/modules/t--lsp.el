@@ -10,13 +10,18 @@
 (use-package lsp-mode
   :hook (lsp-mode . lsp-lens-mode)
   :config
-  (setq
-   ;; LSP performance tuning
-   read-process-output-max (* 1024 1024) ;; 1mb
-   gc-cons-threshold 104857600 ; 100mb
-   lsp-prefer-flymake nil
-   ;; Makes LSP shutdown the server when all buffers in the project are closed.
-   lsp-keep-workspace-alive nil)
+  (setq lsp-modeline-code-actions-segments '(count icon name)
+	lsp-signature-doc-lines 3
+	;; Might need some per language server tweaking
+	lsp-completion-show-detail nil
+	lsp-completion-show-kind nil
+
+	;; LSP performance tuning
+	read-process-output-max (* 3 1024 1024) ;; 3mb
+	gc-cons-threshold 104857600 ; 100mb
+	lsp-prefer-flymake nil
+	;; Makes LSP shutdown the server when all project buffers are closed.
+	lsp-keep-workspace-alive nil)
 
   ;; HACK: some patch for LSP-mode, mainly for Metals
   (cl-defmethod lsp-clients-extract-signature-on-hover (contents _server-id)
@@ -55,7 +60,7 @@ Useful for LSPs that format differently their output."
         lsp-ui-sideline-show-hover nil
         lsp-ui-sideline-show-diagnostics t
         lsp-ui-peek-enable t
-        lsp-ui-doc-max-height 8
+        lsp-ui-doc-max-height 20 ; default 13
         lsp-ui-doc-max-width 72 ; default 150
         lsp-ui-doc-delay 0.75   ; default 0.2
         lsp-ui-doc-show-with-mouse nil

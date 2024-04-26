@@ -21,7 +21,7 @@
   (let ((logo (concat user-emacs-directory "private/logos/logo.webp")))
     (if (file-exists-p logo)
         (setq dashboard-startup-banner logo)))
-  (setq dashboard-banner-logo-title "Vous entrez dans le monde de la peur et des poignets cassés"
+  (setq dashboard-banner-logo-title ""
         dashboard-items '((recents . 10)
                           (projects . 7))
         dashboard-set-heading-icons t
@@ -47,6 +47,7 @@
   :config
   (setq doom-modeline-buffer-file-name-style 'buffer-name
         doom-modeline-icon t
+	doom-modeline-modal-icon nil
         doom-modeline-percent-position nil)
   (when (getenv "IS_LAPTOP") (display-battery-mode)))
 

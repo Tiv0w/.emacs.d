@@ -8,7 +8,7 @@
   :config
   (setq exec-path-from-shell-arguments '("-l"))
   (when (memq window-system '(mac ns x))
-    (dolist (var '("GOPATH" "PYTHONPATH"))
+    (dolist (var '("GOPATH" "PYTHONPATH" "JAVA_HOME"))
       (add-to-list 'exec-path-from-shell-variables var))
     (exec-path-from-shell-initialize)))
 

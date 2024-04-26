@@ -7,13 +7,26 @@
   :interpreter ("scala" . scala-mode)
   :hook
   (scala-mode . apheleia-mode)
-  (scala-mode . lsp-deferred))
+  (scala-mode . lsp-deferred)
+  :config
+  (setq-local company-idle-delay 0.7
+	      company-minimum-prefix-length 2))
 
 ;; Add metals backend for lsp-mode
 (use-package lsp-metals
   :after (scala-mode lsp-mode)
+  :custom
+  (lsp-metals-server-args '("-J-Dmetals.excluded-packages=scala.runtime.stdLibPatches,"))
+  :init
+  (lsp-interface
+   (DidChangeConfigurationCapabilities nil (:dynamicRegistration)))
   :config
-  (setq lsp-eldoc-exclude-line-regexps '("^Expression type:.*$")))
+  (setq lsp-eldoc-exclude-line-regexps '("^Expression type:.*$"))
+  ;; (setq lsp-log-io t)
+  ;; (lsp-register-custom-settings
+  ;;  '(("metals.excluded-packages" ("org.apache.pekko.actor.typed.javadsl"
+  ;; 				  "scala.runtime.stdLibPatches.language"))))
+  )
 
 ;; Enable sbt mode for executing sbt commands
 (use-package sbt-mode
