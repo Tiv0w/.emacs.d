@@ -70,6 +70,7 @@
 (define-key xah-fly-dot-keymap (kbd "n") 'web-mode-navigate)
 (define-key xah-fly-dot-keymap (kbd "p") 'projectile-command-map)
 (define-key xah-fly-dot-keymap (kbd "q") 'flyspell-correct-word-before-point)
+(define-key xah-fly-dot-keymap (kbd "r") 'iedit-mode)
 (define-key xah-fly-dot-keymap (kbd "s") 'browse-url-dwim-search)
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify-buffer)
 (define-key xah-fly-dot-keymap (kbd "w") 'flyspell-auto-correct-word)
@@ -121,8 +122,11 @@
 (define-key xah-fly-comma-keymap (kbd "o") 'lsp-organize-imports)
 (define-key xah-fly-comma-keymap (kbd "a") 'lsp-execute-code-action)
 (define-key xah-fly-comma-keymap (kbd "d") 'lsp-ui-doc-glance)
+(define-key xah-fly-comma-keymap (kbd "D") 'lsp-ui-doc-toggle)
 (define-key xah-fly-comma-keymap (kbd "r") 'lsp-rename)
-(define-key xah-fly-comma-keymap (kbd "L") 'lsp-command-map)
+(define-key xah-fly-comma-keymap (kbd "R") 'lsp-iedit-highlights)
+;; (define-key xah-fly-comma-keymap (kbd "L") lsp-command-map)
+;; (setq lsp-keymap-prefix " wL")
 
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC

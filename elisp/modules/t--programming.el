@@ -64,6 +64,8 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
+(use-package iedit)
+
 (use-package litable
   :commands litable-mode)
 
