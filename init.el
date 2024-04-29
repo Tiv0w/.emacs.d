@@ -42,6 +42,7 @@
 ;; (require 'lang-elixir)
 ;; (require 'lang-elm)
 ;; (require 'lang-go)
+;; (require 'lang-godot)
 ;; (require 'lang-haskell)
 ;; (require 'lang-java)
 (require 'lang-javascript)
