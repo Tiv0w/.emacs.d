@@ -3,19 +3,6 @@
 ;; These packages are the ones I use the most while doing some programming.
 
 
-(use-package apheleia
-  :config
-  (push '(vfmt . ("v" "fmt" "-w")) apheleia-formatters)
-  (push '(v-mode . vfmt) apheleia-mode-alist)
-  (push '(sqlfluff . ("sqlfluff" "fix" "--disable-progress-bar" "-")) apheleia-formatters)
-  (push '(sql-mode . sqlfluff) apheleia-mode-alist)
-  (if (executable-find "scalafmt-native")
-      (push '(scalafmt . ("scalafmt-native" "--stdin" "--non-interactive" "--quiet" "--stdout")) apheleia-formatters)
-    (progn
-      (warn "scalafmt-native is not present on the path, reverting to scalafmt jar.")
-      (push '(scalafmt . ("scalafmt" "--stdin" "--non-interactive" "--quiet" "--stdout")) apheleia-formatters)))
-  (push '(scala-mode . scalafmt) apheleia-mode-alist))
-
 (use-package bury-successful-compilation
   :disabled)
 
