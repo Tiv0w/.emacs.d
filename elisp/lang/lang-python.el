@@ -4,11 +4,18 @@
 
 (use-package python-mode
   :ensure nil
-  :hook (python-mode . lsp-deferred)
+  :hook
+  (python-mode . lsp-deferred)
+  (python-mode . apheleia-mode)
   :init
   ;; specific Python LSP config
   (setq lsp-pylsp-plugins-flake8-max-line-length 100
         lsp-pylsp-plugins-pycodestyle-max-line-length 100)
+  (when (and (executable-find "python3")
+	     (string= python-shell-interpreter "python"))
+    (setq python-shell-interpreter "python3"))
+  :config
+  (t--set-formatter 'ruff nil :modes '(python-mode python-ts-mode))
   :mode-hydra
   (python-mode
    (:title "Python" :color blue :quit-key "q")
@@ -19,7 +26,10 @@
     (("ee" python-shell-send-statement "statement")
      ("ed" python-shell-send-defun "defun")
      ("eb" python-shell-send-buffer "buffer")
-     ("er" python-shell-send-region "region")))))
+     ("er" python-shell-send-region "region"))
+    "Tools"
+    (("t" python-pytest-dispatch "pytest")
+     ("p" poetry "poetry")))))
 
 (use-package elpy
   :hook (python-mode . elpy-enable)
@@ -57,6 +67,12 @@
   :hook (python-mode . pyvenv-auto-run)
   :config
   (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
+
+(use-package python-pytest
+  :commands python-pytest-dispatch)
+
+(use-package poetry
+  :commands poetry)
 
 ;; Python pkgs `importmagic' & `epc' are needed in the venv to use this utility.
 (use-package importmagic
