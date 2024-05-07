@@ -5,9 +5,9 @@
 
 ;; Main gdscript package
 (use-package gdscript-mode
-  :hook
-  (gdscript-mode . lsp-deferred)
-  (gdscript-mode . tree-sitter-hl-mode)
+  ;; :hook
+  ;; (gdscript-mode . lsp-deferred)
+  ;; (gdscript-mode . tree-sitter-hl-mode)
   :config
   (t--set-formatter 'gdformat '("gdformat" "-") :modes '(gdscript-mode))
   (add-to-list 'projectile-project-root-files "project.godot")
