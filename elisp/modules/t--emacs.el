@@ -111,6 +111,9 @@
 (use-package shell-command+
   :commands (shell-command+))
 
+(use-package casual
+  :bind (:map calc-mode-map ("M" . 'casual-main-menu)))
+
 ;;; Taken from
 ;;; endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html
 ;; Fix ANSI colors in compilation-mode
