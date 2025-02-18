@@ -26,11 +26,11 @@
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers nil
-	ivy-re-builders-alist '((read-file-name-internal . ivy--regex-ignore-order)
-				(projectile-completing-read . ivy--regex-ignore-order)
-				(counsel-M-x . ivy--regex-ignore-order)
-				(insert-char . ivy--regex-ignore-order)
-				(t . ivy--regex-plus)))
+        ivy-re-builders-alist '((read-file-name-internal . ivy--regex-ignore-order)
+                                (projectile-completing-read . ivy--regex-ignore-order)
+                                (counsel-M-x . ivy--regex-ignore-order)
+                                (insert-char . ivy--regex-ignore-order)
+                                (t . ivy--regex-plus)))
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
 (use-package nerd-icons-ivy-rich

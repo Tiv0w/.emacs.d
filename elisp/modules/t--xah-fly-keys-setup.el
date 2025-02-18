@@ -21,6 +21,7 @@
 (define-key xah-fly-command-map (kbd "r") 'iy-go-to-char)
 (define-key xah-fly-command-map (kbd "R") 'iy-go-to-char-backward)
 (define-key xah-fly-command-map (kbd "<") 'ace-window)
+(define-key xah-fly-command-map (kbd "n") 'isearch-forward)
 (define-key xah-fly-command-map (kbd "Z") 'crux-duplicate-and-comment-current-line-or-region)
 (define-key xah-fly-command-map (kbd "C-SPC") 'company-complete)
 
@@ -30,7 +31,7 @@
 (define-key xah-fly-leader-key-map (kbd "'") 'flyspell-correct-wrapper)
 (define-key xah-fly-leader-key-map (kbd "\"") 'flycheck-grammalecte-correct-error-at-point)
 (define-key xah-fly-leader-key-map (kbd "7") 'magit-status)
-(define-key xah-fly-leader-key-map (kbd "f") 'counsel-switch-buffer)
+(define-key xah-fly-leader-key-map (kbd "f") 'switch-to-buffer)
 (define-key xah-fly-leader-key-map (kbd "p") 'projectile-command-map)
 (define-key xah-fly-leader-key-map (kbd "q") 'exchange-point-and-mark)
 (define-key xah-fly-leader-key-map (kbd "s") 'multiple-cursors-hydra/body)
@@ -138,6 +139,8 @@
 
 (add-hook 'calc-start-hook #'xah-fly-insert-mode-activate)
 (advice-add 'calcDigit-start :after #'xah-fly-insert-mode-activate)
+
+(setq xah-fly-M-x-command 'execute-extended-command)
 
 (xah-fly-keys 1)
 

@@ -6,7 +6,8 @@
 
 (require 't--packages) ;; load it first because it sets up things for the rest
 
-(require 't--ivy)
+;; (require 't--ivy)
+(require 't--vertico)
 (require 't--magit)
 (require 't--lsp)
 (require 't--tree-sitter)

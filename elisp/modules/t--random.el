@@ -3,6 +3,7 @@
 ;; These packages are just some various packages, mostly funny and/or not so much used
 
 (use-package counsel-spotify
+  :disabled
   :after counsel
   :commands counsel-spotify-hydra/body
   :config

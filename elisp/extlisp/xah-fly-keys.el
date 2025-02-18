@@ -2257,19 +2257,25 @@ Version: 2020-10-17 2021-02-24 2021-08-14 2021-09-19 2021-10-16"
     (defalias 'xah-display-line-numbers-mode #'linum-mode)
   (defalias 'xah-display-line-numbers-mode #'global-display-line-numbers-mode))
 
+(defvar xah-fly-M-x-command nil "Command to call for emacs `execute-extended-command' replacement, used by `xah-fly-M-x'. Value should be a lisp symbol.")
+
+(setq xah-fly-M-x-command nil)
+
 (defun xah-fly-M-x ()
   "Calls `execute-extended-command' or an alternative.
-
-Calls one of the following, in order: `smex', `helm-M-x', `counsel-M-x', `execute-extended-command'.
-Version 2020-04-09"
+If `xah-fly-M-x-command' is non-nil, call it, else call one of the following, in order: `smex', `helm-M-x', `counsel-M-x', `execute-extended-command'.
+Version: 2020-04-09 2021-02-24"
   (interactive)
-  (command-execute (cond ((fboundp 'counsel-M-x) 'counsel-M-x)
-                         ((fboundp 'smex) 'smex)
-                         ((fboundp 'helm-M-x) 'helm-M-x)
-                         (t 'execute-extended-command))
-                   nil
-                   nil
-                   :special))
+  (command-execute
+   (cond
+    ((and (boundp 'xah-fly-M-x-command) xah-fly-M-x-command) xah-fly-M-x-command )
+    ((fboundp 'smex) 'smex)
+    ((fboundp 'helm-M-x) 'helm-M-x)
+    ((fboundp 'counsel-M-x) 'counsel-M-x)
+    (t 'execute-extended-command))
+   nil
+   nil
+   :special))
 
 ;; HHH___________________________________________________________________
 
