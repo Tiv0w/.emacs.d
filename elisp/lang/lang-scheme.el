@@ -27,16 +27,16 @@
 (use-package geiser-gambit
   :after geiser)
 
-(set-pretty-symbols! 'scheme-mode
-  :lambda  "lambda"
-  :map     "map"
-  :def     "define"
-  :true    "#t"
-  :false   "#f"
-  :null    "nil"
-  :or      "or"
-  :and     "and"
-  :not     "not")
+;; (set-pretty-symbols! 'scheme-mode
+;;   :lambda  "lambda"
+;;   :map     "map"
+;;   :def     "define"
+;;   :true    "#t"
+;;   :false   "#f"
+;;   :null    "nil"
+;;   :or      "or"
+;;   :and     "and"
+;;   :not     "not")
 
 
 (provide 'lang-scheme)

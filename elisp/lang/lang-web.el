@@ -4,6 +4,7 @@
   :defer t
   :mode
   (("\\.html?\\'" . web-mode)
+   ("\\.html.j2\\'" . web-mode)
    ("\\.tpl\\'" . web-mode)
    ("\\.[agj]sp\\'" . web-mode)
    ("\\.as[cp]x\\'" . web-mode)
@@ -11,13 +12,15 @@
    ("\\.mustache\\'" . web-mode)
    ("\\.djhtml\\'" . web-mode)
    ("\\.ejs\\'" . web-mode)
-   ("\\.jsx$" . web-mode))
+   ("\\.jsx\\'" . web-mode))
   :config
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
         web-mode-script-padding 0
-        web-mode-style-padding 0)
+        web-mode-style-padding 0
+        web-mode-enable-engine-detection t
+        web-mode-enable-auto-closing t)
 
   (add-hook 'web-mode-hook 'jsx-flycheck)
 
