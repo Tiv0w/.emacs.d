@@ -5,7 +5,9 @@
 ;;; Code:
 
 (use-package ansible
-  :hook (yaml-mode . ansible)
+  :hook
+  (yaml-mode . ansible-mode)
+  (ansible-mode . lsp-deferred)
   :if (executable-find "ansible")
   :config
   (setq ansible-section-face 'font-lock-doc-face
@@ -25,6 +27,7 @@
      ("e" ansible-encrypt-buffer "encrypt buffer")))))
 
 (use-package company-ansible
+  :disabled
   :after (ansible company))
 
 (use-package jinja2-mode

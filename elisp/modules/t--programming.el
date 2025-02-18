@@ -57,6 +57,8 @@
   :commands litable-mode)
 
 (use-package projectile
+  :init
+  (projectile-mode +1)
   :bind
   ("C-c p" . projectile-command-map)
   :config

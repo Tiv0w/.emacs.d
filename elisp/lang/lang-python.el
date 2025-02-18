@@ -11,10 +11,10 @@
   ;; specific Python LSP config
   (setq lsp-pylsp-plugins-flake8-max-line-length 100
         lsp-pylsp-plugins-pycodestyle-max-line-length 100)
-  (when (and (executable-find "python3")
-	     (string= python-shell-interpreter "python"))
-    (setq python-shell-interpreter "python3"))
   :config
+  (when (and (executable-find "python3")
+             (string= python-shell-interpreter "python"))
+    (setq python-shell-interpreter "python3"))
   (t--set-formatter 'ruff nil :modes '(python-mode python-ts-mode))
   :mode-hydra
   (python-mode
@@ -30,6 +30,17 @@
     "Tools"
     (("t" python-pytest-dispatch "pytest")
      ("p" poetry "poetry")))))
+
+(use-package lsp-pyright
+  :after (python-mode lsp-mode)
+  :ensure t
+  ;; :config
+  ;; (setq lsp-eldoc-exclude-line-regexps '("^Expression type:.*$"))
+  ;; (setq lsp-log-io t)
+  ;; (lsp-register-custom-settings
+  ;;  '(("metals.excluded-packages" ("org.apache.pekko.actor.typed.javadsl"
+  ;;                              "scala.runtime.stdLibPatches.language"))))
+  )
 
 (use-package elpy
   :hook (python-mode . elpy-enable)
@@ -56,12 +67,15 @@
   :commands (pyvenv-activate pyvenv-workon)
   :config
   ;; Set correct Python interpreter
-  (setq pyvenv-post-activate-hooks
-        (list (lambda ()
-                (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python")))))
-  (setq pyvenv-post-deactivate-hooks
-        (list (lambda ()
-                (setq python-shell-interpreter "python3")))))
+  (add-hook 'pyvenv-post-activate-hooks
+            (lambda ()
+              (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python"))))
+  (add-hook 'pyvenv-post-deactivate-hooks
+            (lambda ()
+              (setq python-shell-interpreter "python3")))
+  ;; Run lsp-restart-workspace whenever the pyvenv changes
+  (add-hook 'pyvenv-post-activate-hooks (lambda () (lsp-restart-workspace)))
+  (add-hook 'pyvenv-post-deactivate-hooks (lambda () (lsp-restart-workspace))))
 
 (use-package pyvenv-auto
   :hook (python-mode . pyvenv-auto-run)

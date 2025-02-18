@@ -73,23 +73,23 @@ Does not take the `this' in JS, use a region for that."
       (reindent-then-newline-and-indent)
       (insert (format "console.log('%s: ', %s);" x x)))))
 
-(set-pretty-symbols! '(vue-mode)
-    ;; Functional
-    :def "function"
-    :lambda "() =>"
-    :composition "compose"
-    ;; Types
-    :null "null"
-    :true "true"
-    :false "false"
-    ;; Flow
-    :not "!"
-    :and "&&"
-    :or "||"
-    :for "for"
-    :return "return"
-    ;; Other
-    :yield "import")
+;; (set-pretty-symbols! '(vue-mode)
+;;     ;; Functional
+;;     :def "function"
+;;     :lambda "() =>"
+;;     :composition "compose"
+;;     ;; Types
+;;     :null "null"
+;;     :true "true"
+;;     :false "false"
+;;     ;; Flow
+;;     :not "!"
+;;     :and "&&"
+;;     :or "||"
+;;     :for "for"
+;;     :return "return"
+;;     ;; Other
+;;     :yield "import")
 
 (provide 'lang-vue)
 ;;; lang-vue.el ends here

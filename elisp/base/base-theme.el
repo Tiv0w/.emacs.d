@@ -7,8 +7,8 @@
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive
    (let ((transparency-val (frame-parameter
-			    (selected-frame)
-			    (if (version< emacs-version "29") 'alpha 'alpha-background))))
+                            (selected-frame)
+                            (if (version< emacs-version "29") 'alpha 'alpha-background))))
      (list (read-number
             (format "Transparency (0 to 100, current value: %d): " transparency-val)))))
   (set-frame-parameter
@@ -29,7 +29,8 @@
   (interactive)
   (load-theme 'doom-vibrant t)
   (t--setup-italics)
-  (t--transparency 90))
+  ;; (t--transparency 90)
+  (t--transparency 100))
 
 
 (use-package doom-themes

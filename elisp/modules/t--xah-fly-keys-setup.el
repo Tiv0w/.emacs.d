@@ -116,6 +116,8 @@
 ;; n key map
 (define-key xah-fly-n-keymap (kbd "l") 'narrow-or-widen-dwim)
 (define-key xah-fly-n-keymap (kbd "V") 'lacarte-execute-menu-command)
+(define-key xah-fly-n-keymap (kbd "1") 'profiler-start)
+(define-key xah-fly-n-keymap (kbd "2") 'profiler-stop)
 
 ;; comma key map
 ;; LSP
