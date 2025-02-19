@@ -13,7 +13,7 @@ If `no-confirm' is set to t, don't ask."
   (interactive)
   (save-some-buffers)
   (if no-confirm
-    (kill-emacs)
+      (kill-emacs)
     (when (y-or-n-p "Really shutdown the server ?")
       (kill-emacs))))
 
@@ -113,6 +113,29 @@ than having to call `add-to-list' multiple times."
     (when (use-region-p)
       (deactivate-mark))
     (counsel-rg (regexp-quote thing))))
+
+(defun thing-at-point-boosted ()
+  "Return a string that corresponds to the current thing at point.
+Copied and adapted from Ivy (originally called ivy-thing-at-point)."
+  (substring-no-properties
+   (cond
+    ((use-region-p)
+     (let* ((beg (region-beginning))
+            (end (region-end))
+            (eol (save-excursion (goto-char beg) (line-end-position))))
+       (buffer-substring-no-properties beg (min end eol))))
+    ((let ((url (thing-at-point 'url)))
+       ;; Work around `https://bugs.gnu.org/58091'.
+       (and (stringp url) url)))
+    ((let ((s (thing-at-point 'symbol)))
+       (and (stringp s)
+            (if (string-match "\\`[`']?\\(.*?\\)'?\\'" s)
+                (match-string 1 s)
+              s))))
+    ((looking-at "(+\\(\\(?:\\sw\\|\\s_\\)+\\)\\_>")
+     (match-string-no-properties 1))
+    (t
+     ""))))
 
 (defun sort-lines-by-length (reverse beg end)
   "Sort lines by length."

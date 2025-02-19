@@ -102,12 +102,24 @@
   :config
   (setq recentf-save-file (recentf-expand-file-name
                            (concat user-emacs-directory "private/cache/recentf"))
-        recentf-max-saved-items 25)
+        recentf-max-saved-items 50)
   (recentf-mode 1))
 
 (use-package persistent-scratch
   :config
   (persistent-scratch-setup-default))
+
+(use-package savehist
+  :init
+  (savehist-mode +1)
+  :config
+  (setq savehist-save-minibuffer-history t
+        savehist-file (expand-file-name
+                       (concat user-emacs-directory "private/cache/savehist"))
+        savehist-additional-variables
+        '(kill-ring                        ; persist clipboard
+          search-ring regexp-search-ring)) ; persist searches
+  )
 
 (use-package shell-command+
   :commands (shell-command+))

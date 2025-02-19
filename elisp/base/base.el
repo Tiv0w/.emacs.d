@@ -16,14 +16,19 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Uncomment for packages load times (run `use-package-report' command after)
+;; (setq use-package-compute-statistics t)
+
 ;; remove these 3 lines when using Emacs 30+
 (unless (package-installed-p 'vc-use-package)
   (package-vc-install "https://github.com/slotThe/vc-use-package"))
 (require 'vc-use-package)
 
-(defconst private-dir  (expand-file-name "private" user-emacs-directory))
+(defconst private-dir (expand-file-name "private" user-emacs-directory))
 (defconst temp-dir (format "%s/cache" private-dir)
   "Hostname-based elisp temp directories")
+(setq custom-file (expand-file-name ".custom.el" user-emacs-directory)
+
 
 ;; Core settings
 ;; UTF-8 please
@@ -42,6 +47,7 @@
 (setq confirm-kill-emacs                  'y-or-n-p
       confirm-nonexistent-file-or-buffer  t
       save-interprogram-paste-before-kill t
+      kill-do-not-save-duplicates         t
       disabled-command-function           nil
       mouse-yank-at-point                 t
       electric-pair-mode                  t
@@ -51,7 +57,6 @@
       visible-bell                        t
       ring-bell-function                  'ignore
       dired-listing-switches              "-alhF"
-      custom-file                         (concat user-emacs-directory ".custom.el")
       ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
       minibuffer-prompt-properties
       '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)

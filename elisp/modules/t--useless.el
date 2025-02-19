@@ -14,7 +14,4 @@
   ("S-<left>" . windmove-left)
   ("S-<right>" . windmove-right))
 
-(use-package wgrep
-  :defer t)
-
 (provide 't--useless)

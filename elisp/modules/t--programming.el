@@ -24,7 +24,7 @@
 
 (use-package dumb-jump
   :config
-  (setq dumb-jump-selector 'ivy)
+  (setq dumb-jump-selector 'completing-read)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package editorconfig
@@ -63,7 +63,7 @@
   ("C-c p" . projectile-command-map)
   :config
   (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
-        projectile-completion-system 'ivy
+        projectile-completion-system 'auto
         projectile-indexing-method 'hybrid)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   ;; Projectile setup for npm

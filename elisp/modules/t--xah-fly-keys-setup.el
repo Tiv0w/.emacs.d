@@ -36,7 +36,7 @@
 (define-key xah-fly-leader-key-map (kbd "q") 'exchange-point-and-mark)
 (define-key xah-fly-leader-key-map (kbd "s") 'multiple-cursors-hydra/body)
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
-(define-key xah-fly-leader-key-map (kbd "y") 'swiper-thing-at-point)
+(define-key xah-fly-leader-key-map (kbd "y") 'consult-line-thing-at-point)
 (define-key xah-fly-leader-key-map (kbd "z") 'avy-goto-char)
 
 
@@ -57,8 +57,8 @@
 
 ;; dot key map
 ;; (define-key xah-fly-dot-keymap (kbd "a") 'flyspell-correct-at-point)
-(define-key xah-fly-dot-keymap (kbd "SPC") 'counsel-rg-thing-at-point)
-(define-key xah-fly-dot-keymap (kbd "RET") 'counsel-rg)
+(define-key xah-fly-dot-keymap (kbd "SPC") 'consult-ripgrep-thing-at-point)
+(define-key xah-fly-dot-keymap (kbd "RET") 'consult-ripgrep)
 (define-key xah-fly-dot-keymap (kbd "a") 'browse-url-dwim-guess)
 (define-key xah-fly-dot-keymap (kbd "b") 'revert-buffer)
 (define-key xah-fly-dot-keymap (kbd "d") 'deadgrep)
@@ -121,6 +121,8 @@
 (define-key xah-fly-n-keymap (kbd "2") 'profiler-stop)
 
 ;; comma key map
+(define-key xah-fly-comma-keymap (kbd "k") 'xref-find-definitions)
+(define-key xah-fly-comma-keymap (kbd "l") 'xref-go-back)
 ;; LSP
 (define-key xah-fly-comma-keymap (kbd "o") 'lsp-organize-imports)
 (define-key xah-fly-comma-keymap (kbd "a") 'lsp-execute-code-action)
