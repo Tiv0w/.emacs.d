@@ -27,7 +27,7 @@
 (defconst private-dir (expand-file-name "private" user-emacs-directory))
 (defconst temp-dir (format "%s/cache" private-dir)
   "Hostname-based elisp temp directories")
-(setq custom-file (expand-file-name ".custom.el" user-emacs-directory)
+(setq custom-file (expand-file-name ".custom.el" user-emacs-directory))
 
 
 ;; Core settings

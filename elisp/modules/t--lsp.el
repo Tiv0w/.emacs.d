@@ -20,13 +20,13 @@
     (or
      (when (equal (following-char) ?#)
        (let ((bytecode (read (current-buffer))))
-	 (when (byte-code-function-p bytecode)
+         (when (byte-code-function-p bytecode)
            (funcall bytecode))))
      (apply old-fn args)))
   (advice-add (if (progn (require 'json)
-			 (fboundp 'json-parse-buffer))
+                         (fboundp 'json-parse-buffer))
                   'json-parse-buffer
-		'json-read)
+                'json-read)
               :around
               #'lsp-booster--advice-json-parse)
 
@@ -43,21 +43,25 @@
               (setcar orig-result command-from-exec-path))
             (message "Using emacs-lsp-booster for %s!" orig-result)
             (cons "emacs-lsp-booster" orig-result))
-	orig-result)))
+        orig-result)))
   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+
   :config
   (setq lsp-modeline-code-actions-segments '(count icon name)
-	lsp-signature-doc-lines 3
-	;; Might need some per language server tweaking
-	lsp-completion-show-detail nil
-	lsp-completion-show-kind nil
+        lsp-signature-doc-lines 3
+        ;; Might need some per language server tweaking
+        lsp-completion-show-detail nil
+        lsp-completion-show-kind nil
 
-	;; LSP performance tuning
-	read-process-output-max (* 3 1024 1024) ;; 3mb
-	gc-cons-threshold 104857600 ; 100mb
-	lsp-prefer-flymake nil
-	;; Makes LSP shutdown the server when all project buffers are closed.
-	lsp-keep-workspace-alive nil)
+        ;; Use :capf if used with company
+        lsp-completion-provider :none
+
+        ;; LSP performance tuning
+        read-process-output-max (* 3 1024 1024) ;; 3mb
+        gc-cons-threshold 104857600 ; 100mb
+        lsp-prefer-flymake nil
+        ;; Makes LSP shutdown the server when all project buffers are closed.
+        lsp-keep-workspace-alive nil)
 
   ;; (add-to-list 'lsp-language-id-configuration '(web-mode . "html"))
 
@@ -103,7 +107,7 @@ Useful for LSPs that format differently their output."
   (defun ++lsp--path-is-watchable-directory-a
       (fn path dir ignored-directories)
     (and (not (++git-ignore-p (f-join dir path)))
-	 (funcall fn path dir ignored-directories)))
+         (funcall fn path dir ignored-directories)))
 
   (advice-add 'lsp--path-is-watchable-directory
               :around #'++lsp--path-is-watchable-directory-a)

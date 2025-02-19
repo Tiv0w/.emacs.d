@@ -6,8 +6,10 @@
 
 (require 't--packages) ;; load it first because it sets up things for the rest
 
-;; (require 't--ivy)
+;; (require 't--ivy) ;; Superseded by Vertico&co
 (require 't--vertico)
+;; (require 't--company)
+(require 't--corfu)
 (require 't--magit)
 (require 't--lsp)
 (require 't--tree-sitter)
