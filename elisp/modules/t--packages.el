@@ -17,6 +17,4 @@
   :config
   (setq key-chord-two-keys-delay 0.03))
 
-(use-package use-package-ensure-system-package)
-
 (provide 't--packages)

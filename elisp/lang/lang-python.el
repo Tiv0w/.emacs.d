@@ -32,15 +32,8 @@
      ("p" poetry "poetry")))))
 
 (use-package lsp-pyright
-  :after (python-mode lsp-mode)
-  :ensure t
-  ;; :config
-  ;; (setq lsp-eldoc-exclude-line-regexps '("^Expression type:.*$"))
-  ;; (setq lsp-log-io t)
-  ;; (lsp-register-custom-settings
-  ;;  '(("metals.excluded-packages" ("org.apache.pekko.actor.typed.javadsl"
-  ;;                              "scala.runtime.stdLibPatches.language"))))
-  )
+  :hook (python-mode . (lambda () (require 'lsp-pyright)))
+  :custom (lsp-pyright-langserver-command "basedpyright"))
 
 (use-package elpy
   :hook (python-mode . elpy-enable)

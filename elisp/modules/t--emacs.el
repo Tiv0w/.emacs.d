@@ -45,6 +45,7 @@
   (setq ediff-diff-options "-w"))
 
 (use-package emacs-everywhere
+  :disabled
   :ensure-system-package ((xprop . xorg-xprop)
                           (xwininfo . xorg-xwininfo)
                           xclip
@@ -112,6 +113,7 @@
   :commands (shell-command+))
 
 (use-package casual
+  :after calc-mode
   :bind (:map calc-mode-map ("M" . 'casual-main-menu)))
 
 ;;; Taken from

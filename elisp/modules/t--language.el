@@ -19,6 +19,7 @@
   (add-to-list 'company-backends 'company-ispell t))
 
 (use-package flycheck-grammalecte
+  :disabled
   :after flycheck
   :init
   (setq flycheck-grammalecte-enabled-modes

@@ -184,7 +184,7 @@
   :commands (org-cdlatex-mode))
 
 (use-package gnuplot
-  :ensure-system-package gnuplot)
+  :if (executable-find "gnuplot"))
 
 (set-pretty-symbols! 'org-mode
     :name          "#+name:"
