@@ -18,7 +18,7 @@
 ;; (require 't--pretty-code) ;; pretty-code is required by org
 
 (require 't--editing)
-;; (require 't--emacs)
+(require 't--emacs)
 (require 't--env)
 ;; (use-package t--language
 ;;   :ensure nil

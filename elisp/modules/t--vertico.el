@@ -9,7 +9,7 @@
   :init
   (vertico-mode 1)
   :config
-  (setq vertico-count 17
+  (setq vertico-count 12
         vertico-cycle t)
   (vertico-mouse-mode 1)
   (add-hook 'minibuffer-setup-hook #'vertico-repeat-save))

@@ -1,6 +1,6 @@
 ;;; elisp/modules/t--emacs.el -*- lexical-binding: t; -*-
 ;;; Commentary:
-; These packages are relative to some Emacs built-in features.
+;; These packages are relative to some Emacs built-in features.
 
 ;;; Dired
 (use-package diredfl
@@ -99,27 +99,51 @@
   :commands paradox-list-packages)
 
 (use-package recentf
+  :hook (dashboard-after-initialize . recentf-mode)
   :config
   (setq recentf-save-file (recentf-expand-file-name
                            (concat user-emacs-directory "private/cache/recentf"))
-        recentf-max-saved-items 50)
-  (recentf-mode 1))
+        recentf-max-saved-items 50
+        ;; recentf-show-abbreviated t  ; add when supported in Emacs
+        )
+  ;; (recentf-mode 1)
+
+  ;; Anything in runtime folders
+  (add-to-list 'recentf-exclude
+               (concat "^" (regexp-quote (or (getenv "XDG_RUNTIME_DIR")
+                                             "/run"))))
+
+  ;; Text properties inflate the size of recentf's files, and there is
+  ;; no purpose in persisting them (Must be first in the list!)
+  (add-to-list 'recentf-filename-handlers #'substring-no-properties)
+
+  (add-hook
+   'write-file-functions
+   (defun t--recentf-touch-buffer-h ()
+     "Bump file in recent file list when it is switched or written to."
+     (when buffer-file-name
+       (recentf-add-file buffer-file-name))
+     ;; Return nil for `write-file-functions'
+     nil))
+
+  ;; The most sensible time to clean up your recent files list is when you quit
+  ;; Emacs (unless this is a long-running daemon session).
+  (setq recentf-auto-cleanup (if (daemonp) 300))
+  (add-hook 'kill-emacs-hook #'recentf-cleanup))
 
 (use-package persistent-scratch
   :config
   (persistent-scratch-setup-default))
 
 (use-package savehist
-  :init
-  (savehist-mode +1)
   :config
   (setq savehist-save-minibuffer-history t
         savehist-file (expand-file-name
                        (concat user-emacs-directory "private/cache/savehist"))
         savehist-additional-variables
         '(kill-ring                        ; persist clipboard
-          search-ring regexp-search-ring)) ; persist searches
-  )
+          search-ring regexp-search-ring))
+  (savehist-mode +1)) ; persist searches
 
 (use-package shell-command+
   :commands (shell-command+))
