@@ -43,6 +43,7 @@ Basic examples:
 
 
 (use-package apheleia
+  :defer t
   :config
   (push '(vfmt . ("v" "fmt" "-w")) apheleia-formatters)
   (push '(v-mode . vfmt) apheleia-mode-alist)

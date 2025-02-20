@@ -38,7 +38,8 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
-(use-package iedit)
+(use-package iedit
+  :commands (iedit-mode lsp-iedit-highlights))
 
 (use-package litable
   :commands litable-mode)

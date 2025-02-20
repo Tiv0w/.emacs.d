@@ -32,6 +32,7 @@
      ("p" poetry "poetry")))))
 
 (use-package lsp-pyright
+  :defer t
   :hook (python-mode . (lambda () (require 'lsp-pyright)))
   :custom (lsp-pyright-langserver-command "basedpyright"))
 
@@ -83,6 +84,7 @@
 
 ;; Python pkgs `importmagic' & `epc' are needed in the venv to use this utility.
 (use-package importmagic
+  :commands (importmagic-mode)
   ;; :hook (python-mode . importmagic-mode)
   :config
   ;; (setq importmagic-be-quiet t) ; if you want to limit verbosity

@@ -3,7 +3,8 @@
 ;; This configures tree-sitter correctly.
 
 (use-package tree-sitter
-  :ensure t)
+  :ensure t
+  :commands (tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs
   :ensure t
