@@ -147,6 +147,15 @@
 
 (xah-fly-keys 1)
 
+(defun t--term-cursor-change ()
+  "Change the cursor shape in supported terminals to match the GUI behavior."
+  (unless (display-graphic-p)
+    (if xah-fly-insert-state-p
+        (send-string-to-terminal "\e[6 q") ; Vertical solid bar
+      (send-string-to-terminal "\e[2 q")))) ; Solid block
+(add-hook 'xah-fly-command-mode-activate-hook #'t--term-cursor-change)
+(add-hook 'xah-fly-insert-mode-activate-hook #'t--term-cursor-change)
+
 (if (daemonp)
     (add-hook 'server-after-make-frame-hook (lambda () (xah-fly-keys 1))))
 
