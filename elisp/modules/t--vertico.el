@@ -87,14 +87,34 @@
   ;; the mode gets enabled right away. Note: this forces loading the package.
   (marginalia-mode)
   :config
-  (add-to-list 'marginalia-command-categories '(projectile-switch-to-buffer . buffer)))
+  (setq marginalia--project-root #'projectile-project-root)
+  (add-to-list 'marginalia-command-categories '(projectile-switch-to-buffer . buffer))
+
+  ;; Hack to add annotation to marginalia showing if minor-mode is on or not.
+  (defun marginalia--mode-state (mode)
+    "Return MODE state string."
+    (if (and (boundp mode) (symbol-value mode))
+        #(" [On]" 1 5 (face marginalia-on))
+      #(" [Off]" 1 6 (face marginalia-off))))
+  (defun marginalia--annotate-minor-mode-command (orig cand)
+    "Annotate minor-mode command CAND with mode state."
+    (concat
+     (when-let* ((sym (intern-soft cand))
+                 (mode (if (and sym (boundp sym))
+                           sym
+                         (lookup-minor-mode-from-indicator cand))))
+       (marginalia--mode-state mode))
+     (funcall orig cand)))
+  (advice-add #'marginalia-annotate-command
+              :around #'marginalia--annotate-minor-mode-command)
+  )
 
 (use-package nerd-icons-completion
   :after marginalia
-  :config
-  (nerd-icons-completion-mode)
-  (setq marginalia--project-root #'projectile-project-root)
-  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
+  :hook
+  (marginalia-mode . nerd-icons-completion-marginalia-setup)
+  :init
+  (nerd-icons-completion-mode))
 
 
 (use-package wgrep

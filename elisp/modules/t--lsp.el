@@ -63,6 +63,11 @@
         ;; Makes LSP shutdown the server when all project buffers are closed.
         lsp-keep-workspace-alive nil)
 
+  (add-hook 'lsp-completion-mode-hook
+            (defun lsp-mode-setup-completion ()
+              (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+                    '(substring))))
+
   ;; (add-to-list 'lsp-language-id-configuration '(web-mode . "html"))
 
   ;; HACK: some patch for LSP-mode, mainly for Metals

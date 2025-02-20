@@ -12,9 +12,9 @@
         corfu-auto-delay 0.24
         corfu-auto-prefix 2
         corfu-cycle t
-        corfu-preselect 'prompt
+        corfu-preselect 'valid
         corfu-count 10
-	corfu-preview-current nil
+        corfu-preview-current nil
         corfu-on-exact-match nil
         corfu-quit-no-match t
         corfu-quit-at-boundary t)
@@ -32,7 +32,7 @@
   :ensure corfu
   :hook (corfu-mode . corfu-popupinfo-mode)
   :bind (("C-c d" . corfu-popupinfo-map)
-	 ("C-c f" . corfu-popupinfo-toggle))
+         ("C-c f" . corfu-popupinfo-toggle))
   :config
   (setq corfu-popupinfo-delay '(0.5 . 1.0)))
 
@@ -55,8 +55,8 @@
   :bind ("C-c c" . cape-prefix-map)
   :init
   (add-hook 'prog-mode-hook
-	    (defun corfu-add-cape-file-h ()
-	      (add-hook 'completion-at-point-functions #'cape-file -10 t)))
+            (defun corfu-add-cape-file-h ()
+              (add-hook 'completion-at-point-functions #'cape-file -10 t)))
   (advice-add #'lsp-completion-at-point :around #'cape-wrap-noninterruptible)
   (advice-add #'lsp-completion-at-point :around #'cape-wrap-nonexclusive)
   (advice-add #'comint-completion-at-point :around #'cape-wrap-nonexclusive)
