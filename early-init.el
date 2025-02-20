@@ -33,3 +33,7 @@
 
 (defvar copy--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
+
+
+;; Setting this value should reduce PGTK build lag
+(setq-default pgtk-wait-for-event-timeout 0)
