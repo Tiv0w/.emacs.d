@@ -7,7 +7,7 @@
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
 ;; (add-to-list 'package-archives
-;; 	     '("org" . "https://orgmode.org/elpa/") t)
+;;       '("org" . "https://orgmode.org/elpa/") t)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -17,7 +17,8 @@
 (require 'use-package)
 
 ;; Uncomment for packages load times (run `use-package-report' command after)
-;; (setq use-package-compute-statistics t)
+(setq use-package-compute-statistics t
+      use-package-minimum-reported-time 0.005)
 
 ;; remove these 3 lines when using Emacs 30+
 (unless (package-installed-p 'vc-use-package)
@@ -52,26 +53,38 @@
       mouse-yank-at-point                 t
       electric-pair-mode                  t
       column-number-mode                  t
-      require-final-newline               t
       load-prefer-newer                   t
       visible-bell                        t
       ring-bell-function                  'ignore
       dired-listing-switches              "-alhF"
+      enable-recursive-minibuffers        t
       ;; http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
       minibuffer-prompt-properties
-      '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)
+      '(read-only t cursor-intangible t point-entered minibuffer-avoid-prompt face minibuffer-prompt)
 
       ;; Disable non selected window highlight
       cursor-in-non-selected-windows     nil
       highlight-nonselected-windows      nil
       ;; PATH
       exec-path                          (append exec-path '("/usr/local/bin/"))
-      indent-tabs-mode                   nil
       inhibit-startup-message            t
       fringes-outside-margins            t
       select-enable-clipboard            t
       use-package-always-ensure          t
       use-package-verbose                t)
+
+;; File handling customizations
+(setq find-file-visit-truename t
+      vc-follow-symlinks       t)
+
+;; Text formatting customizations
+(setq-default indent-tabs-mode           nil
+              tab-width                  4
+              fill-column                80
+              require-final-newline      t
+              word-wrap                  t
+              sentence-end-double-space  nil)
+(add-hook 'text-mode-hook #'visual-line-mode)
 
 ;; Makes Tramp only check for Git, might make it a bit faster
 (setq-default vc-handled-backends '(Git))
@@ -82,19 +95,27 @@
  bookmark-save-flag                      t
  bookmark-default-file              (concat temp-dir "/bookmarks"))
 
-;; Backups enabled, use nil to disable
+;; Backups and lockfiles disables, autosave enabled
 (setq
- history-length                     1000
- backup-inhibited                   nil
- make-backup-files                  t
- auto-save-default                  t
- auto-save-list-file-name           (concat temp-dir "/autosave")
  create-lockfiles                   nil
+ make-backup-files                  nil
+ backup-inhibited                   nil
+ history-length                     1000
+ version-control                    t
+ backup-by-copying                  t
+ delete-old-versions                t
+ kept-old-versions                  5
+ kept-new-versions                  5
  backup-directory-alist            `((".*" . ,(concat temp-dir "/backup/")))
+
+ auto-save-default                  t
+ auto-save-include-big-deletions    t
+
+ auto-save-list-file-name           (concat temp-dir "/autosave")
  auto-save-file-name-transforms    `((".*" ,(concat temp-dir "/auto-save-list/") t)))
 
 (unless (file-exists-p (concat temp-dir "/auto-save-list"))
-                       (make-directory (concat temp-dir "/auto-save-list") :parents))
+  (make-directory (concat temp-dir "/auto-save-list") :parents))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (blink-cursor-mode -1)
