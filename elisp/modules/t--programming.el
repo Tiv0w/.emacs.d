@@ -33,7 +33,9 @@
   (setq fancy-compilation-override-colors nil)
   (fancy-compilation-mode t))
 
-(use-package flycheck)
+(use-package flycheck
+  :commands (flycheck-list-errors flycheck-buffer)
+  :hook (after-init . global-flycheck-mode))
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
@@ -45,22 +47,22 @@
   :commands litable-mode)
 
 (use-package projectile
-  :init
-  (projectile-mode +1)
+  :commands (projectile-project-root
+             projectile-project-name
+             projectile-project-p)
   :bind
   ("C-c p" . projectile-command-map)
   :config
   (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
         projectile-completion-system 'auto
         projectile-indexing-method 'hybrid)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   ;; Projectile setup for npm
   (projectile-register-project-type 'npm '("package.json")
                                     :compile "npm install"
                                     :test "npm test"
                                     :run "npm run serve"
                                     :test-suffix ".spec")
-  (projectile-global-mode))
+  (projectile-mode +1))
 
 (use-package restclient
   :mode ("\\.http\\'" . restclient-mode)

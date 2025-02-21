@@ -63,6 +63,12 @@
 
 (use-package ibuffer-vc
   :after ibuffer
+  :hook (ibuffer . ibuffer-vc-setup)
+  :init
+  (defun ibuffer-vc-setup ()
+    (ibuffer-vc-set-filter-groups-by-vc-root)
+    (unless (eq ibuffer-sorting-mode 'alphabetic)
+      (ibuffer-do-sort-by-alphabetic)))
   :config
   (setq ibuffer-formats
         '((mark modified read-only vc-status-mini " "
@@ -74,12 +80,7 @@
                 " "
                 (vc-status 16 16 :left)
                 " "
-                vc-relative-file)))
-  (add-hook 'ibuffer-hook
-            (lambda ()
-              (ibuffer-vc-set-filter-groups-by-vc-root)
-              (unless (eq ibuffer-sorting-mode 'alphabetic)
-                (ibuffer-do-sort-by-alphabetic)))))
+                vc-relative-file))))
 
 (use-package nerd-icons-ibuffer
   :after ibuffer
@@ -132,6 +133,7 @@
   (add-hook 'kill-emacs-hook #'recentf-cleanup))
 
 (use-package persistent-scratch
+  :disabled
   :config
   (persistent-scratch-setup-default))
 

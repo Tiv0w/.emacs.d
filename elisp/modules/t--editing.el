@@ -107,13 +107,15 @@
   (define-key mc/keymap (kbd "RET") nil))
 
 (use-package smartparens
-  :chords
-  (("kj" . sp-backward-slurp-sexp)
-   ("kl" . sp-forward-slurp-sexp)
-   ("ij" . sp-backward-barf-sexp)
-   ("il" . sp-forward-barf-sexp)
-   ("jl" . sp-slurp-hybrid-sexp)
-   ("ik" . sp-transpose-hybrid-sexp)))
+  :defer t
+  ;; :chords
+  ;; (("kj" . sp-backward-slurp-sexp)
+  ;;  ("kl" . sp-forward-slurp-sexp)
+  ;;  ("ij" . sp-backward-barf-sexp)
+  ;;  ("il" . sp-forward-barf-sexp)
+  ;;  ("jl" . sp-slurp-hybrid-sexp)
+  ;;  ("ik" . sp-transpose-hybrid-sexp))
+  )
 
 (use-package string-inflection
   :commands string-inflection-cycle-auto
