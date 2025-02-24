@@ -61,16 +61,4 @@
   :after (flycheck clojure-mode))
 
 
-;; (set-pretty-symbols! 'clojure-mode
-;;   :lambda  "fn"
-;;   :map     "map"
-;;   :def     "defn"
-;;   :true    "true"
-;;   :false   "false"
-;;   :null    "nil"
-;;   :or      "or"
-;;   :and     "and"
-;;   :not     "not")
-
-
 (provide 'lang-clojure)

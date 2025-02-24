@@ -19,24 +19,5 @@
 (use-package yafolding
   :hook (v-mode . yafolding-mode))
 
-;; (set-pretty-symbols! 'v-mode
-;;   ;; Functional
-;;   :def "fn"
-;;   ;; Types
-;;   ;; :null "NULL"
-;;   :true "true"
-;;   :false "false"
-;;   :int "int"
-;;   :float "float"
-;;   :str "string"
-;;   :bool "bool"
-;;   ;; Flow
-;;   :not "!"
-;;   :and "&&"
-;;   :or "||"
-;;   :for "for"
-;;   :return "return"
-;;   :yield "import")
-
 
 (provide 'lang-v)

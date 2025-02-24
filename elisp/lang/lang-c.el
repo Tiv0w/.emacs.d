@@ -131,26 +131,6 @@
 ;;   (local-set-key (kbd "C-c C-j") 'semantic-ia-fast-jump)
 ;;   (local-set-key (kbd "C-c C-s") 'semantic-ia-show-summary))
 
-;; (set-pretty-symbols! '(c-mode c++-mode cc-mode)
-;;   ;; Functional
-;;   ;; :def "void "
-;;   ;; Types
-;;   :null "NULL"
-;;   :true "true"
-;;   :false "false"
-;;   :int "int"
-;;   :float "float"
-;;   :str "std::string"
-;;   :bool "bool"
-;;   ;; Flow
-;;   :not "!"
-;;   :and "&&"
-;;   :or "||"
-;;   :for "for"
-;;   :return "return"
-;;   :yield "#require")
-
-
 (use-package glsl-mode
   :commands glsl-mode)
 

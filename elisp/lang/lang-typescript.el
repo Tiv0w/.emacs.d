@@ -22,24 +22,7 @@
   (define-derived-mode typescript-tsx-mode typescript-mode "tsx")
   :config
   (setq typescript-indent-level 2)
-  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-tsx-mode))
-  ;; (set-pretty-symbols! '(typescript-mode typescript-tsx-mode)
-  ;;   ;; Functional
-  ;;   :def "function"
-  ;;   :lambda "() =>"
-  ;;   :composition "compose"
-  ;;   ;; Types
-  ;;   :null "null"
-  ;;   :true "true" :false "false"
-  ;;   :int "number"
-  ;;   :str "string"
-  ;;   :bool "boolean"
-  ;;   ;; Flow
-  ;;   :not "!"
-  ;;   :and "&&" :or "||"
-  ;;   :for "for"
-  ;;   :return "return" :yield "import")
-  )
+  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-tsx-mode)))
 
 (use-package add-node-modules-path
   :hook ((typescript-mode typescript-tsx-mode) . add-node-modules-path))

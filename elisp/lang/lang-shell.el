@@ -4,19 +4,7 @@
 
 (use-package sh-script
   :ensure nil ; builtin
-  :mode ("/bspwmrc\\'" . sh-mode)
-  ;; :config
-  ;; (set-pretty-symbols! '(sh-mode)
-  ;;   :def "function"
-  ;;   :true "true"
-  ;;   :false "false"
-  ;;   :not "!"
-  ;;   :and "&&"
-  ;;   :or "||"
-  ;;   :in "in"
-  ;;   :for "for"
-  ;;   :return "return")
-  )
+  :mode ("/bspwmrc\\'" . sh-mode))
 
 (use-package company-shell
   :after (company sh-script)

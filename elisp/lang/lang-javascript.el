@@ -134,24 +134,6 @@
 ;;   )
 
 
-;; (set-pretty-symbols! '(js2-mode rjsx-mode web-mode js-mode)
-;;   ;; Functional
-;;   :def "function"
-;;   :lambda "() =>"
-;;   :composition "compose"
-;;   ;; Types
-;;   :null "null"
-;;   :true "true"
-;;   :false "false"
-;;   ;; Flow
-;;   :not "!"
-;;   :and "&&"
-;;   :or "||"
-;;   :for "for"
-;;   :return "return"
-;;   ;; Other
-;;   :yield "import")
-
 (use-package eslintd-fix
   :hook (js2-mode . eslintd-fix-mode))
 

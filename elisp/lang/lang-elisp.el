@@ -1,5 +1,7 @@
 ;;; elisp/lang/lang-elisp.el -*- lexical-binding: t; -*-
 
+;;; Code:
+
 (use-package emacs-lisp-mode
   :ensure nil
   :mode-hydra
@@ -11,3 +13,4 @@
      ("er" eval-and-replace "eval and replace")))))
 
 (provide 'lang-elisp)
+;;; lang-elisp.el ends here
