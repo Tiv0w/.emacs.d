@@ -10,8 +10,11 @@
   :commands (devdocs-lookup))
 
 (use-package dumb-jump
+  :defer 3
   :config
-  (setq dumb-jump-selector 'completing-read)
+  (setq dumb-jump-selector 'completing-read
+        dumb-jump-prefer-searcher 'rg
+        dumb-jump-aggressive nil)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package editorconfig
@@ -55,6 +58,7 @@
   :config
   (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)
         projectile-completion-system 'auto
+        projectile-dynamic-mode-line nil
         projectile-indexing-method 'hybrid)
   ;; Projectile setup for npm
   (projectile-register-project-type 'npm '("package.json")

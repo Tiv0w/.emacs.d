@@ -13,9 +13,14 @@
             (lambda ()
               (aggressive-indent-mode -1)) 0 t))
 
+(use-package anzu
+  :commands (anzu-query-replace anzu-query-replace-regexp)
+  :bind
+  ([remap query-replace] . anzu-query-replace)
+  ([remap query-replace-regexp] . anzu-query-replace-regexp))
+
 (use-package avy
-  :commands (avy-goto-char
-             avy-goto-char-timer)
+  :commands (avy-goto-char avy-goto-char-timer)
   :config
   (defun avy-action-kill-whole-line (pt)
     (save-excursion

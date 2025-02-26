@@ -3,6 +3,8 @@
 ;; These packages setup up completion with corfu.
 
 
+;;; Code:
+
 (use-package corfu
   ;; :hook ((prog-mode comint-mode) . company-mode)
   :init

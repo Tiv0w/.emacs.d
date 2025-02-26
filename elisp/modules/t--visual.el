@@ -19,14 +19,20 @@
 (use-package dashboard
   :init
   (let ((logo (concat user-emacs-directory "private/logos/logo.webp")))
-    (if (file-exists-p logo)
-        (setq dashboard-startup-banner logo)))
-  (setq dashboard-banner-logo-title ""
-        dashboard-items '((recents . 10)
+    (setq dashboard-startup-banner (if (file-exists-p logo) logo 1)))
+  (setq dashboard-items '((recents . 10)
                           (projects . 7))
+        dashboard-startupify-list '(dashboard-insert-banner
+                                    ;; dashboard-insert-banner-title
+                                    ;; dashboard-insert-newline
+                                    dashboard-insert-navigator
+                                    dashboard-insert-newline
+                                    dashboard-insert-init-info
+                                    dashboard-insert-items
+                                    dashboard-insert-newline
+                                    dashboard-insert-footer)
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
-        dashboard-set-navigator t
         dashboard-show-shortcuts nil
         ;; Always display (term and GUI) with nerd-icons
         dashboard-display-icons-p t
@@ -40,18 +46,21 @@
 (use-package display-line-numbers
   :hook ((prog-mode text-mode conf-mode markdown-mode fundamental-mode) . display-line-numbers-mode)
   :config
-  (setq display-line-numbers-width 3))
+  (setq-default display-line-numbers-width 3))
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-buffer-file-name-style 'buffer-name
+  :init
+  (setq doom-modeline-buffer-file-name-style 'relative-from-project
         doom-modeline-icon t
-	doom-modeline-modal-icon nil
-        doom-modeline-percent-position nil)
-  (when (getenv "IS_LAPTOP") (display-battery-mode)))
+        doom-modeline-bar-width 3
+        doom-modeline-modal-icon nil
+        doom-modeline-battery nil
+        doom-modeline-buffer-encoding 'nondefault
+        doom-modeline-percent-position nil))
 
 (use-package highlight-indent-guides
+  ;; :disabled
   :hook ((prog-mode conf-mode yaml-mode restclient-mode) . highlight-indent-guides-mode)
   :defer nil
   :config
@@ -65,6 +74,29 @@
             #'t--setup-highlight-indent-guides)
   (add-function :after after-focus-change-function
                 #'t--setup-highlight-indent-guides))
+
+;; TODO: change for indent-bars in Emacs 30
+(use-package indent-bars
+  :disabled
+  :hook ((prog-mode conf-mode text-mode restclient-mode) . t--enable-indent-bars)
+  :init
+  (setq indent-bars-prefer-character
+        ;; FIX: A bitmap init bug in emacs-pgtk (before v30) could cause
+        ;; crashes (see jdtsmith/indent-bars#3).
+        (and (featurep 'pgtk) (< emacs-major-version 30))
+        indent-bars-color '(highlight :face-bg t :blend 0.2)
+        indent-bars-width-frac 0.1
+        indent-bars-pad-frac 0.1
+        indent-bars-starting-column 0
+        indent-bars-color-by-depth nil
+        indent-bars-highlight-current-depth nil)
+  (defun t--enable-indent-bars ()
+    (unless (frame-parameter nil 'frame-parent)
+      (indent-bars-mode +1)))
+
+  (eval-after-load 'magit-blame
+    (add-to-list 'magit-blame-disable-modes 'indent-bars-mode)))
+
 
 (use-package mixed-pitch
   :disabled
@@ -116,3 +148,4 @@
   (which-key-mode))
 
 (provide 't--visual)
+;;; t--visual.el ends here

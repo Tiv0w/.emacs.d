@@ -13,7 +13,7 @@
 (use-package lsp-mode
   :defer nil
   :hook (lsp-mode . lsp-lens-mode)
-  :commands (lsp lsp-deferred lsp-restart-workspace)
+  :commands (lsp lsp-deferred lsp-workspace-restart)
   :init
   (defun lsp-booster--advice-json-parse (old-fn &rest args)
     "Try to parse bytecode instead of json."

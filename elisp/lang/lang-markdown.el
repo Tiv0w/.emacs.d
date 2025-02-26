@@ -22,6 +22,7 @@
 ;; super simple live preview, with the flymd-flyit command
 (use-package flymd
   :after markdown-mode
+  :commands (flymd-flyit)
   :config
   (defun my-flymd-browser-function (url)
     (let ((browse-url-browser-function 'browse-url-firefox))

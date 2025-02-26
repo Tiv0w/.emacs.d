@@ -1,6 +1,7 @@
 ;;; elisp/lang/lang-typescript.el -*- lexical-binding: t; -*-
-
 ;;; My setup for TypeScript support
+
+;;; Code:
 
 (use-package typescript-mode
   :mode-hydra
@@ -20,6 +21,9 @@
      ("t" tide-add-eslint-disable-next-line "eslint disable"))))
   :init
   (define-derived-mode typescript-tsx-mode typescript-mode "tsx")
+  :hook
+  ((typescript-mode typescript-tsx-mode) . lsp-deferred)
+  ((typescript-mode typescript-tsx-mode) . t--env/setup-fnm-env)
   :config
   (setq typescript-indent-level 2)
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-tsx-mode)))
@@ -28,6 +32,7 @@
   :hook ((typescript-mode typescript-tsx-mode) . add-node-modules-path))
 
 (use-package flycheck
+  :disabled
   :hook ((typescript-mode typescript-tsx-mode) . flycheck-mode)
   :after (:all (:any typescript-mode typescript-tsx-mode) add-node-modules-path)
   :config
@@ -35,11 +40,12 @@
                 (append flycheck-disabled-checkers
                         '(javascript-jshint)))
   (if (executable-find "eslint")
-   (flycheck-add-mode 'javascript-eslint 'typescript-mode)
-   (flycheck-select-checker 'javascript-eslint))
+      (flycheck-add-mode 'javascript-eslint 'typescript-mode)
+    (flycheck-select-checker 'javascript-eslint))
   (flycheck-mode))
 
 (use-package tide
+  :disabled
   :ensure t
   :after (:all (:any typescript-mode typescript-tsx-mode) company flycheck add-node-modules-path)
   :hook (((typescript-mode typescript-tsx-mode) . tide-setup)
@@ -100,12 +106,12 @@
 
 
 (use-package eslintd-fix
+  :disabled
   :hook ((typescript-mode typescript-tsx-mode) . eslintd-fix-mode))
 
 (use-package tree-sitter
   :ensure t
-  :hook ((typescript-mode . tree-sitter-hl-mode)
-         (typescript-tsx-mode . tree-sitter-hl-mode)))
+  :hook ((typescript-mode typescript-tsx-mode) . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs
   :ensure t
@@ -115,3 +121,4 @@
   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx)))
 
 (provide 'lang-typescript)
+;;; lang-typescript.el ends here
