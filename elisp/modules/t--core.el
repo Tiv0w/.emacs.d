@@ -1,6 +1,6 @@
-;;; elisp/modules/t--core.el -*- lexical-binding: t; -*-
+;;; t--core.el --- Main file for loading modules -*- lexical-binding: t; -*-
 ;;; Commentary:
-; These packages are a very important part of my setup, and need to be well loaded.
+;; These packages are a very important part of my setup, and need to be well loaded.
 
 ;;; Code:
 
@@ -36,4 +36,6 @@
 ;; Load configuration for particular tools and systems
 (require 't--ansible)
 
+
 (provide 't--core)
+;;; t--core.el ends here

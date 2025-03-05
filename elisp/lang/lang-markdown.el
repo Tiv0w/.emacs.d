@@ -1,8 +1,10 @@
-;;; elisp/lang/lang-markdown.el -*- lexical-binding: t; -*-
+;;; lang-markdown.el --- Markdown setup -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Markdown editing setup
 
-;; markdown-mode setup
+;;; Code:
+
 (use-package markdown-mode
-  :defer t
   :mode "\\.md$\\'"
   :init
   (setq markdown-enable-wiki-links t
@@ -17,7 +19,8 @@
 
 ;; to generate markdown table of contents
 (use-package markdown-toc
-  :after markdown-mode)
+  :after markdown-mode
+  :commands (markdown-toc-generate-toc markdown-toc-generate-or-refresh-toc))
 
 ;; super simple live preview, with the flymd-flyit command
 (use-package flymd
@@ -35,4 +38,6 @@
   :config
   (add-hook 'darkroom-mode-hook #'visual-line-mode))
 
+
 (provide 'lang-markdown)
+;;; lang-markdown.el ends here

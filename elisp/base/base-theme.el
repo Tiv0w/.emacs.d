@@ -29,10 +29,6 @@
   (interactive)
   (load-theme 'doom-vibrant t)
   (t--setup-italics)
-<<<<<<< Updated upstream
-  ;; (t--transparency 90)
-=======
->>>>>>> Stashed changes
   (t--transparency 100))
 
 

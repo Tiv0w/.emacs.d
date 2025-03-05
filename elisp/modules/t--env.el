@@ -15,7 +15,9 @@
 
   (defun t--env/setup-fnm-env ()
     (let ((exec-path-from-shell-arguments '("-l" "-i")))
-      (exec-path-from-shell-copy-env "PATH"))))
+      (exec-path-from-shell-copy-env "PATH")))
+
+  (add-hook 'prog-mode-hook 't--env/setup-fnm-env))
 
 (provide 't--env)
 ;;; t--env.el ends here

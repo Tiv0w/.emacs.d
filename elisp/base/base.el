@@ -1,5 +1,6 @@
 ;;; elisp/base/base.el -*- lexical-binding: t; -*-
 
+;;; Code:
 
 (package-initialize)
 (add-to-list 'package-archives
@@ -20,14 +21,14 @@
 (setq use-package-compute-statistics t
       use-package-minimum-reported-time 0.005)
 
-;; remove these 3 lines when using Emacs 30+
-(unless (package-installed-p 'vc-use-package)
-  (package-vc-install "https://github.com/slotThe/vc-use-package"))
+(when (< emacs-major-version 30)
+  (unless (package-installed-p 'vc-use-package)
+    (package-vc-install "https://github.com/slotThe/vc-use-package")))
 (require 'vc-use-package)
 
 (defconst private-dir (expand-file-name "private" user-emacs-directory))
 (defconst temp-dir (format "%s/cache" private-dir)
-  "Hostname-based elisp temp directories")
+  "Hostname-based elisp temp directories.")
 (setq custom-file (expand-file-name ".custom.el" user-emacs-directory))
 
 
@@ -71,7 +72,8 @@
       fringes-outside-margins            t
       select-enable-clipboard            t
       use-package-always-ensure          t
-      use-package-verbose                t)
+      use-package-verbose                t
+      native-comp-async-report-warnings-errors 'silent)
 
 ;; File handling customizations
 (setq find-file-visit-truename t
@@ -123,10 +125,11 @@
 
 
 (defun defer-garbage-collection-h ()
+  "Try the hardest we can to avoid garbage collection."
   (setq gc-cons-threshold most-positive-fixnum))
 
 (defun restore-garbage-collection-h ()
-  ;; Defer it: commands launched immediately after will enjoy the benefits.
+  "Defer it: commands launched immediately after will enjoy the benefits."
   (run-at-time
    1 nil (lambda () (setq gc-cons-threshold 16777216))))
 
@@ -152,6 +155,10 @@
 (when (>= emacs-major-version 29)
   (setq pixel-scroll-precision-mode t))
 
+;; Emacs 30 changes
+(when (>= emacs-major-version 30)
+  (kill-ring-deindent-mode 1))
+
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
@@ -161,4 +168,4 @@
 
 
 (provide 'base)
-;;; base ends here
+;;; base.el ends here

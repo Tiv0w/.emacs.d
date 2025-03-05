@@ -1,5 +1,4 @@
-;;; init.el -*- lexical-binding: t; -*-
-;;; package --- Main init file
+;;; init.el --- Main init file -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; This is my init file
 
@@ -60,7 +59,7 @@
 (require 'lang-typescript)
 (require 'lang-v)
 ;; (require 'lang-vue)
-(require 'lang-web)
+;; (require 'lang-web)
 
 (require 'lang-graphviz)
 (require 'lang-latex)
@@ -80,3 +79,4 @@
                   ;; Make gc pauses faster by decreasing the threshold.
                   gc-cons-threshold 104857600 ; 100mb
                   gc-cons-percentage 0.1)))
+;;; init.el ends here

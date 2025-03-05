@@ -1,5 +1,8 @@
-;;; elisp/base/base-font.el -*- lexical-binding: t; -*-
+;;; base-font.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
 ;; Font setup
+
+;;; Code:
 
 ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono") ;; default
 ;; (set-face-attribute 'default nil :font "Fira Mono" :height 100)
@@ -13,11 +16,11 @@
 ;; (set-face-attribute 'default nil :font "Office Code Pro D")
 ;; (set-face-attribute 'default nil :font "Ubuntu Mono")
 
-(defvar t--font-height (if (getenv "IS_LAPTOP") 120 100))
+(defvar t--font-height (if (getenv "IS_LAPTOP") 110 100))
 (defvar t--main-font "Office Code Pro D")
 
 (defun t--setup-fonts (frame)
-  "Sets up the fonts with a main font, Unicode fallback and emojis.
+  "Set up the fonts with a main font, Unicode fallback and emojis.
 This function is hooked to `after-make-frame-functions'."
   (set-face-attribute 'default nil :family t--main-font :height t--font-height)
   (set-face-attribute 'fixed-pitch nil :family t--main-font)
@@ -33,7 +36,7 @@ This function is hooked to `after-make-frame-functions'."
 (add-hook 'after-make-frame-functions #'t--setup-fonts)
 
 (defun t--setup-italics ()
-  "Sets up the italics how I like it.
+  "Set up the italics how I like it.
 By default it changes the comments, keywords, builtins and types to italics."
   (interactive)
   (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
@@ -42,7 +45,7 @@ By default it changes the comments, keywords, builtins and types to italics."
   (set-face-attribute 'font-lock-type-face nil :slant 'italic))
 
 (defun t--change-font-height (height)
-  "Change the font height of the default and variable-pitch faces."
+  "Change the font HEIGHT of the default and variable-pitch faces."
   (interactive
    (list (read-number (format "Font height (current: %d): " t--font-height))))
   (setq t--font-height height)
@@ -50,3 +53,4 @@ By default it changes the comments, keywords, builtins and types to italics."
   (set-face-attribute 'variable-pitch nil :height height))
 
 (provide 'base-font)
+;;; base-font.el ends here
