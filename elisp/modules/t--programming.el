@@ -1,7 +1,8 @@
-;;; elisp/modules/t--programming.el -*- lexical-binding: t; -*-
+;;; t--programming.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; These packages are the ones I use the most while doing some programming.
 
+;;; Code:
 
 (use-package bury-successful-compilation
   :disabled)
@@ -19,7 +20,10 @@
 
 (use-package editorconfig
   :ensure nil
-  :hook (prog-mode . editorconfig-mode))
+  :hook (prog-mode . editorconfig-mode)
+  :config
+  (when (require 'ws-butler nil t)
+    (setq editorconfig-trim-whitespaces-mode 'ws-butler-mode)))
 
 ;; (use-package eglot
 ;;   :hook ((c++-mode c-mode v-mode) . eglot-ensure)
@@ -106,4 +110,6 @@
 (use-package yasnippet-snippets
   :after yasnippet)
 
+
 (provide 't--programming)
+;;; t--programming.el ends here
