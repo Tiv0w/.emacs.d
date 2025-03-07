@@ -83,8 +83,15 @@
   :commands ialign)
 
 (use-package iy-go-to-char
-  :load-path "./elisp/extlisp/iy-go-to-char.el"
-  :commands iy-go-to-char)
+  :vc (:fetcher github :repo "doitian/iy-go-to-char")
+  :commands iy-go-to-char
+  :config
+  (advice-add
+   'iy-go-to-char
+   :around
+   (defun iy-go-to-char-insert-mode-activate (fn &rest args)
+     (apply fn args)
+     (xah-fly-insert-mode-activate))))
 
 (use-package keyfreq
   :disabled
