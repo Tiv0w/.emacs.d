@@ -1,7 +1,10 @@
 ;;; elisp/xah-fly-keys-setup.el -*- lexical-binding: t; -*-
-
+;;; Commentary:
 ;;; My own xah-fly-keys setup
 ;;; Also using a custom xah-fly-keys package
+
+;;; Code:
+
 (require 'xah-fly-keys)
 
 ;; required setup
@@ -138,7 +141,10 @@
 ;; send C-g when pressing ESC
 (when (getenv "IS_LAPTOP")
   (define-key key-translation-map (kbd "ESC") (kbd "C-g")))
+;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
+;; (define-key xah-fly-command-map (kbd "5") 'keyboard-escape-quit)
+;; (define-key xah-fly-insert-map (kbd "<escape>") 'keyboard-escape-quit)
 
 (add-hook 'calc-start-hook #'xah-fly-insert-mode-activate)
 (advice-add 'calcDigit-start :after #'xah-fly-insert-mode-activate)
@@ -160,3 +166,4 @@
     (add-hook 'server-after-make-frame-hook (lambda () (xah-fly-keys 1))))
 
 (provide 't--xah-fly-keys-setup)
+;;; t--xah-fly-keys-setup.el ends here

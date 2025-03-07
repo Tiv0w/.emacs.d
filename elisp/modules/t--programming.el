@@ -18,8 +18,8 @@
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package editorconfig
-  :config
-  (editorconfig-mode 1))
+  :ensure nil
+  :hook (prog-mode . editorconfig-mode))
 
 ;; (use-package eglot
 ;;   :hook ((c++-mode c-mode v-mode) . eglot-ensure)

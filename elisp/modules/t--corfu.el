@@ -1,7 +1,6 @@
-;;; elisp/modules/t--corfu.el -*- lexical-binding: t; -*-
+;;; t--corfu.el --- Corfu completion setup -*- lexical-binding: t; -*-
 ;;; Commentary:
-;; These packages setup up completion with corfu.
-
+;; These packages setup up in buffer completion with corfu.
 
 ;;; Code:
 
@@ -10,25 +9,39 @@
   :init
   (global-corfu-mode)
   :config
-  (setq corfu-auto t
-        corfu-auto-delay 0.24
-        corfu-auto-prefix 2
-        corfu-cycle t
-        corfu-preselect 'valid
-        corfu-count 10
-        corfu-preview-current nil
-        corfu-on-exact-match nil
-        corfu-quit-no-match t
-        corfu-quit-at-boundary t)
+  (setopt corfu-auto t
+          corfu-auto-delay 0.24
+          corfu-auto-prefix 2
+          corfu-cycle t
+          corfu-preselect 'valid
+          corfu-count 10
+          corfu-preview-current nil
+          corfu-on-exact-match nil
+          corfu-quit-no-match t
+          corfu-quit-at-boundary 'separator
+          corfu-separator ?-)
+  (eldoc-add-command #'corfu-insert)
 
-  (defun corfu-enable-in-minibuffer ()
-    "Enable Corfu in the minibuffer if `completion-at-point' is bound."
-    (when (where-is-internal #'completion-at-point (list (current-local-map)))
-      ;; (setq-local corfu-auto nil) ;; Enable/disable auto completion
-      (setq-local corfu-echo-delay nil ;; Disable automatic echo and popup
-                  corfu-popupinfo-delay nil)
-      (corfu-mode 1)))
-  (add-hook 'minibuffer-setup-hook #'corfu-enable-in-minibuffer))
+  (add-hook
+   'minibuffer-setup-hook
+   (defun corfu-enable-in-minibuffer ()
+     "Enable Corfu in the minibuffer if `completion-at-point' is bound."
+     (when (where-is-internal #'completion-at-point (list (current-local-map)))
+       ;; (setq-local corfu-auto nil) ;; Enable/disable auto completion
+       (setq-local corfu-echo-delay nil ;; Disable automatic echo and popup
+                   corfu-popupinfo-delay nil)
+       (corfu-mode 1))))
+
+  (add-hook
+   'corfu-mode-hook
+   (defun corfu-setup-completion-styles ()
+     "Set up specific orderless style for corfu (different than minibuffer)."
+     (setq-local completion-styles '(orderless-corfu-prefixes basic)
+                 completion-category-overrides nil
+                 completion-category-defaults nil
+                 orderless-component-separator "-"
+                 corfu-separator ?-))))
+
 
 (use-package corfu-popupinfo
   :ensure corfu
@@ -36,7 +49,9 @@
   :bind (("C-c d" . corfu-popupinfo-map)
          ("C-c f" . corfu-popupinfo-toggle))
   :config
-  (setq corfu-popupinfo-delay '(0.5 . 1.0)))
+  (setq corfu-popupinfo-delay '(0.5 . 0.5)
+        corfu-popupinfo-max-height 15
+        corfu-popupinfo-hide nil))
 
 (use-package corfu-echo
   :ensure corfu
@@ -65,11 +80,6 @@
   (advice-add #'eglot-completion-at-point :around #'cape-wrap-nonexclusive)
   (advice-add #'pcomplete-completions-at-point :around #'cape-wrap-nonexclusive))
 
-;; (use-package company-box
-;;   :after company
-;;   :hook (company-mode . company-box-mode)
-;;   :config
-;;   (setq company-box-icons-alist 'company-box-icons-images))
-
 
 (provide 't--corfu)
+;;; t--corfu.el ends here

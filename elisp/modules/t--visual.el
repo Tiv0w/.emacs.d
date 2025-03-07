@@ -60,7 +60,7 @@
         doom-modeline-percent-position nil))
 
 (use-package highlight-indent-guides
-  ;; :disabled
+  :if (< emacs-major-version 30)
   :hook ((prog-mode conf-mode yaml-mode restclient-mode) . highlight-indent-guides-mode)
   :defer nil
   :config
@@ -77,24 +77,27 @@
 
 ;; TODO: change for indent-bars in Emacs 30
 (use-package indent-bars
-  :disabled
+  ;; FIX: A bitmap init bug in emacs-pgtk (before v30) could cause
+  ;; crashes (see jdtsmith/indent-bars#3).
+  :if (>= emacs-major-version 30)
   :hook ((prog-mode conf-mode text-mode restclient-mode) . t--enable-indent-bars)
   :init
-  (setq indent-bars-prefer-character
-        ;; FIX: A bitmap init bug in emacs-pgtk (before v30) could cause
-        ;; crashes (see jdtsmith/indent-bars#3).
-        (and (featurep 'pgtk) (< emacs-major-version 30))
+  (setq ;; indent-bars-prefer-character (not (display-graphic-p))
         indent-bars-color '(highlight :face-bg t :blend 0.2)
+        indent-bars-pattern "."
         indent-bars-width-frac 0.1
         indent-bars-pad-frac 0.1
+        indent-bars-zigzag nil
         indent-bars-starting-column 0
+        indent-bars-display-on-blank-lines nil
+        indent-bars-no-descend-lists nil
         indent-bars-color-by-depth nil
-        indent-bars-highlight-current-depth nil)
+        indent-bars-highlight-current-depth '(:face default :blend 0.3))
   (defun t--enable-indent-bars ()
     (unless (frame-parameter nil 'frame-parent)
       (indent-bars-mode +1)))
 
-  (eval-after-load 'magit-blame
+  (with-eval-after-load 'magit-blame
     (add-to-list 'magit-blame-disable-modes 'indent-bars-mode)))
 
 

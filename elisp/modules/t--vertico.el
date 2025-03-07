@@ -1,4 +1,4 @@
-;;; elisp/modules/t--vertico.el -*- lexical-binding: t; -*-
+;;; elisp/modules/t--vertico.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ; Vertico/Consult/Marginalia setup.
 
@@ -9,9 +9,14 @@
   :init
   (vertico-mode 1)
   :config
-  (setq vertico-count 12
-        vertico-cycle t)
+  (setopt vertico-count 12
+          vertico-cycle t)
   (vertico-mouse-mode 1)
+  (vertico-multiform-mode 1)
+
+  (setopt vertico-multiform-categories
+          '((file (vertico-sort-function . vertico-sort-alpha))))
+
   (add-hook 'minibuffer-setup-hook #'vertico-repeat-save))
 
 (use-package vertico-directory
@@ -29,6 +34,11 @@
   :config
   (setq completion-styles '(orderless basic)
         completion-category-overrides '((file (styles basic partial-completion))))
+
+  (orderless-define-completion-style orderless-corfu-prefixes
+    (orderless-style-dispatchers nil)
+    (orderless-matching-styles '(orderless-prefixes orderless-literal orderless-regexp)))
+
   ;; ...otherwise find-file gets different highlighting than other commands
   (set-face-attribute 'completions-first-difference nil :inherit nil))
 
@@ -38,11 +48,12 @@
   :bind (([remap switch-to-buffer] . consult-buffer)
          ([remap isearch-forward] . 'consult-line)
          ([remap goto-line] . 'consult-goto-line)
-         ;; ([remap imenu] . 'consult-imenu)
-         )
+         ([remap recentf-open-files] . 'consult-recent-file)
+         ([remap imenu] . 'consult-imenu))
   :init
-  (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref)
+  (setopt xref-show-xrefs-function #'consult-xref
+          xref-show-definitions-function #'consult-xref)
+
   :config
   (setq consult-project-function #'projectile-project-root
         consult-line-start-from-top nil)
@@ -123,3 +134,4 @@
 
 
 (provide 't--vertico)
+;;; t--vertico.el ends here
