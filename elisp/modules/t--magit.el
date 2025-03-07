@@ -8,6 +8,8 @@
   :commands magit-status
   :config
   (setq magit-completing-read-function 'ivy-completing-read
+        magit-diff-refine-hunk t
+        magit-save-repository-buffers nil
         magit-section-initial-visibility-alist '((stashes . hide)
                                                  (unpushed . show))
         magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
