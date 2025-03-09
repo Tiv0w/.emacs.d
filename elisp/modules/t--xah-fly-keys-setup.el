@@ -83,11 +83,13 @@
 ;;
 ;; keybinds for git commit
 (defun setup-commit-keybinds ()
-  (define-key xah-fly-dot-keymap (kbd ";") 'with-editor-finish)
-  (define-key xah-fly-dot-keymap (kbd "k") 'with-editor-cancel))
+  "Setup keybinds in git commit mode."
+  (define-key xah-fly-leader-key-map (kbd ";") 'with-editor-finish)
+  (define-key xah-fly-t-keymap (kbd "j") 'with-editor-cancel))
 (defun unsetup-commit-keybinds ()
-  (define-key xah-fly-dot-keymap (kbd ";") nil)
-  (define-key xah-fly-dot-keymap (kbd "k") nil))
+  "Remove keybinds specific to git commit mode."
+  (define-key xah-fly-leader-key-map (kbd ";") 'save-buffer)
+  (define-key xah-fly-t-keymap (kbd "j") 'xah-close-current-buffer))
 
 (add-hook 'git-commit-setup-hook 'setup-commit-keybinds)
 (add-hook 'with-editor-post-cancel-hook 'unsetup-commit-keybinds)
