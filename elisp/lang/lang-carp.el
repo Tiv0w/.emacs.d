@@ -1,13 +1,12 @@
-;;; elisp/lang/lang-carp.el -*- lexical-binding: t; -*-
+;;; lang-carp.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ; These packages provide an environment to code in Carp.
 
 ;;; Code:
 
-
 (use-package carp-mode
   :defer t
-  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/carp-emacs/"))
+  :vc (:url "https://github.com/carp-lang/carp-emacs")
   :mode "\\.carp\\'")
 
 (use-package flycheck
@@ -15,7 +14,8 @@
 
 (use-package carp-flycheck
   :after (flycheck carp-mode)
-  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/carp-emacs/")))
+  :vc (:url "https://github.com/carp-lang/carp-emacs"))
 
 
 (provide 'lang-carp)
+;;; lang-carp.el ends here

@@ -15,7 +15,7 @@
 
 (use-package ts-fold-indicators
   :disabled
-  :vc (:fetcher github :repo "emacs-tree-sitter/ts-fold")
+  :vc (:url "https://github.com/emacs-tree-sitter/ts-fold")
   :custom
   (ts-fold-replacement "   [...]   ")
   :custom-face

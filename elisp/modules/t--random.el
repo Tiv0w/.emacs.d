@@ -53,7 +53,7 @@
 
 (use-package screenshot
   :disabled
-  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/screenshot/")))
+  :vc (:url "https://github.com/tecosaur/screenshot"))
 
 (use-package carbon-now-sh
   :commands (carbon-now-sh))
@@ -68,7 +68,7 @@
   :commands (speed-type-text speed-type-region speed-type-buffer))
 
 (use-package explain-pause-mode
-  :vc (:fetcher github :repo "lastquestion/explain-pause-mode")
+  :vc (:url "https://github.com/lastquestion/explain-pause-mode")
   :commands explain-pause-mode)
 
 (provide 't--random)

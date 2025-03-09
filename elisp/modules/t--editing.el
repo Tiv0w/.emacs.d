@@ -83,7 +83,7 @@
   :commands ialign)
 
 (use-package iy-go-to-char
-  :vc (:fetcher github :repo "doitian/iy-go-to-char")
+  :vc (:url "https://github.com/doitian/iy-go-to-char")
   :commands iy-go-to-char
   :config
   (advice-add

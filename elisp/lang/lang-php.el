@@ -7,7 +7,7 @@
   :after company)
 
 (use-package php-extras
-  :load-path "./elisp/extlisp/php-extras/"
+  :vc (:url "https://github.com/arnested/php-extras")
   :after php
   :config
   (require 'php-extras-eldoc-functions php-extras-eldoc-functions-file t))

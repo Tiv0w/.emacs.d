@@ -3,7 +3,7 @@
 
 (use-package v-mode
   :defer t
-  :load-path (lambda () (concat user-emacs-directory "elisp/extlisp/v-mode/"))
+  :vc (:url "https://github.com/Tiv0w/v-mode")
   :mode-hydra
   (v-mode
    (:title "V" :color blue :quit-key "q")
