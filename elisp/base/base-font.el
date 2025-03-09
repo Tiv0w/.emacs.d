@@ -26,7 +26,7 @@ This function is hooked to `after-make-frame-functions'."
   (set-face-attribute 'fixed-pitch nil :family t--main-font)
   (set-face-attribute 'variable-pitch nil :family "Google Sans" :height t--font-height)
   (set-fontset-font t nil
-                    (font-spec :family "Julia Mono" :height t--font-height))
+                    (font-spec :family "JuliaMono Nerd Font Mono" :height t--font-height))
   (set-fontset-font t '(#x1f000 . #x1faff)
                     (font-spec :family "Blobmoji" :height t--font-height))
   ;; (set-fontset-font t '(#x1f000 . #x1faff)
