@@ -12,7 +12,8 @@
         magit-save-repository-buffers nil
         magit-section-initial-visibility-alist '((stashes . hide)
                                                  (unpushed . show))
-        magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
+        magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")
+        transient-default-level 5))
 
 (use-package magit-popup
   :after magit)

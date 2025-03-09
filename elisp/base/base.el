@@ -97,6 +97,9 @@
  bookmark-save-flag                      t
  bookmark-default-file              (concat temp-dir "/bookmarks"))
 
+;; Tramp history file cleanup
+(setopt tramp-persistency-file-name (expand-file-name "tramp" temp-dir))
+
 ;; Backups and lockfiles disables, autosave enabled
 (setq
  create-lockfiles                   nil
