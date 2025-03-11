@@ -25,9 +25,9 @@
   :hook
   ((typescript-mode typescript-tsx-mode) . lsp-deferred)
   ((typescript-mode typescript-tsx-mode) . t--env/setup-fnm-env)
+  ((typescript-mode typescript-tsx-mode) . apheleia-mode)
   :config
-  (setq typescript-indent-level 2)
-  (setq-local indent-bars-spacing-override 2)
+  (setq typescript-indent-level 4)
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-tsx-mode)))
 
 (use-package add-node-modules-path

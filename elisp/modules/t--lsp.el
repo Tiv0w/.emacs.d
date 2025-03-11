@@ -53,6 +53,9 @@
         lsp-completion-show-detail nil
         lsp-completion-show-kind nil
 
+        ;; Prompt for the action, even if there's only one possible
+        lsp-auto-execute-action nil
+
         ;; Use :capf if used with company
         lsp-completion-provider :none
 
