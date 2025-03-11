@@ -1,13 +1,16 @@
-;;; elisp/lang/lang-sql.el -*- lexical-binding: t; -*-
-
+;;; lang-sql.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
 ;;; SQL configuration
+
+;;; Code:
 
 (use-package sql-mode
   :ensure nil
-  :hook (sql-mode . apheleia-mode))
+  :hook
+  (sql-mode . apheleia-mode)
+  (sql-mode . tree-sitter-hl-mode)
+  (sql-mode . lsp-deferred))
 
-(use-package tree-sitter
-  :hook (sql-mode . tree-sitter-hl-mode))
 
 (provide 'lang-sql)
 ;;; lang-sql.el ends here

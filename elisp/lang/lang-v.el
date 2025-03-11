@@ -1,5 +1,7 @@
-;;; elisp/lang/lang-v.el -*- lexical-binding: t; -*-
+;;; lang-v.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
 
+;;; Code:
 
 (use-package v-mode
   :defer t
@@ -21,3 +23,4 @@
 
 
 (provide 'lang-v)
+;;; lang-v.el ends here

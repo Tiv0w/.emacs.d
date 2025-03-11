@@ -1,4 +1,5 @@
-;;; elisp/lang/lang-typescript.el -*- lexical-binding: t; -*-
+;;; lang-typescript.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
 ;;; My setup for TypeScript support
 
 ;;; Code:
@@ -26,6 +27,7 @@
   ((typescript-mode typescript-tsx-mode) . t--env/setup-fnm-env)
   :config
   (setq typescript-indent-level 2)
+  (setq-local indent-bars-spacing-override 2)
   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-tsx-mode)))
 
 (use-package add-node-modules-path
