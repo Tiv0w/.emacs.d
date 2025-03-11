@@ -54,10 +54,12 @@
   :commands litable-mode)
 
 (use-package projectile
+  :defer nil
+  :demand t
   :commands (projectile-project-root
              projectile-project-name
              projectile-project-p)
-  :bind
+  :bind-keymap
   ("C-c p" . projectile-command-map)
   :config
   (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" temp-dir)

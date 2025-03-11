@@ -7,7 +7,7 @@
 (use-package magit
   :commands magit-status
   :config
-  (setq magit-completing-read-function 'ivy-completing-read
+  (setq magit-completing-read-function 'magit-builtin-completing-read
         magit-diff-refine-hunk t
         magit-save-repository-buffers nil
         magit-section-initial-visibility-alist '((stashes . hide)

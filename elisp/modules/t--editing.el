@@ -1,4 +1,4 @@
-;;; elisp/modules/t--editing.el -*- lexical-binding: t; -*-
+;;; t--editing.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; These packages are here to enhance editing (useful for a text editor to be able to edit text).
 
@@ -171,4 +171,6 @@
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
+
 (provide 't--editing)
+;;; t--editing.el ends here
