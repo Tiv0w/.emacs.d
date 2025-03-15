@@ -1,8 +1,9 @@
-;;; elisp/modules/t--formatter.el -*- lexical-binding: t; -*-
+;;; t--formatter.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; Formatter setup.
 ;; Wraps and configure apheleia.
 
+;;; Code:
 
 ;;;###autoload
 (cl-defun t--set-formatter (name args &key modes)
@@ -52,10 +53,12 @@ Basic examples:
   (if (executable-find "scalafmt-native")
       (push '(scalafmt . ("scalafmt-native" "--stdin" "--non-interactive" "--quiet" "--stdout")) apheleia-formatters)
     (progn
-      (warn "scalafmt-native is not present on the path, reverting to scalafmt jar.")
+      (message "scalafmt-native is not present on the path, reverting to scalafmt jar.")
       (push '(scalafmt . ("scalafmt" "--stdin" "--non-interactive" "--quiet" "--stdout")) apheleia-formatters)))
   (push '(scala-mode . scalafmt) apheleia-mode-alist)
   (push '(gdformat . ("gdformat" "-")) apheleia-formatters)
   (push '(gdscript-mode . gdformat) apheleia-mode-alist))
 
+
 (provide 't--formatter)
+;;; t--formatter.el ends here

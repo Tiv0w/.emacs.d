@@ -60,7 +60,7 @@
         doom-modeline-percent-position nil))
 
 (use-package highlight-indent-guides
-  :if (< emacs-major-version 30)
+  ;; :if (< emacs-major-version 30)
   :hook ((prog-mode conf-mode yaml-mode restclient-mode) . highlight-indent-guides-mode)
   :defer nil
   :config
@@ -79,7 +79,8 @@
 (use-package indent-bars
   ;; FIX: A bitmap init bug in emacs-pgtk (before v30) could cause
   ;; crashes (see jdtsmith/indent-bars#3).
-  :if (>= emacs-major-version 30)
+  ;; :if (>= emacs-major-version 30)
+  :disabled
   :hook ((prog-mode conf-mode text-mode restclient-mode) . t--enable-indent-bars)
   :init
   (setq ;; indent-bars-prefer-character (not (display-graphic-p))

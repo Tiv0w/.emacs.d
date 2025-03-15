@@ -20,10 +20,24 @@
 
 (use-package editorconfig
   :ensure nil
-  :hook (prog-mode . editorconfig-mode)
+  :init
+  (editorconfig-mode 1)
   :config
   (when (require 'ws-butler nil t)
-    (setq editorconfig-trim-whitespaces-mode 'ws-butler-mode)))
+    (setq editorconfig-trim-whitespaces-mode 'ws-butler-mode))
+
+  (when (featurep 'indent-bars-mode)
+    ;; Taken from
+    ;; https://github.com/jdtsmith/indent-bars/wiki/integration-with-Editorconfig
+    (defun t--update-indent-bars-with-editorconfig (size)
+      (when (bound-and-true-p indent-bars-mode)
+        (setq indent-bars-spacing-override size)
+        (indent-bars-reset)))
+
+    (dolist (_mode editorconfig-indentation-alist)
+      (let ((_varlist (cdr _mode)))
+        (setcdr _mode (append '((_ . t--update-indent-bars-with-editorconfig))
+                              (if (listp _varlist) _varlist `(,_varlist))))))))
 
 ;; (use-package eglot
 ;;   :hook ((c++-mode c-mode v-mode) . eglot-ensure)
