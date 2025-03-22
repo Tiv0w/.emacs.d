@@ -40,6 +40,7 @@
 (require 'lang-elisp)
 ;; (require 'lang-elixir)
 ;; (require 'lang-elm)
+;; (require 'lang-gleam)
 ;; (require 'lang-go)
 ;; (require 'lang-godot)
 ;; (require 'lang-haskell)
