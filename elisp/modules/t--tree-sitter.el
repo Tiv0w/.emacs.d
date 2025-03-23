@@ -1,6 +1,8 @@
-;;; elisp/modules/t--tree-sitter.el -*- lexical-binding: t; -*-
+;;; t--tree-sitter.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; This configures tree-sitter correctly.
+
+;;; Code:
 
 (use-package tree-sitter
   :ensure t
@@ -27,4 +29,6 @@
   :config
   (global-ts-fold-indicators-mode))
 
+
 (provide 't--tree-sitter)
+;;; t--tree-sitter.el ends here

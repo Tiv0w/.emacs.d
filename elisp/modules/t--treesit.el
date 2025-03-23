@@ -1,10 +1,12 @@
-;;; elisp/modules/t--treesit.el -*- lexical-binding: t; -*-
+;;; t--treesit.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; This configures treesit correctly.
 
+;;; Code:
+
 (use-package treesit
   :ensure nil
-  :disabled
+  ;; :disabled
   :config
   (setq treesit-language-source-alist
 	'((bash "https://github.com/tree-sitter/tree-sitter-bash")
@@ -45,6 +47,16 @@
 	  (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
 	  (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
 	  (vue "https://github.com/ikatyang/tree-sitter-vue")
-	  (yaml "https://github.com/ikatyang/tree-sitter-yaml"))))
+	  (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+
+  (setq treesit-font-lock-level 4))
+
+(use-package treesit-auto
+  :config
+  (setq treesit-auto-install 'prompt
+        treesit-auto-langs '(typescript tsx))
+  (global-treesit-auto-mode))
+
 
 (provide 't--treesit)
+;;; t--treesit.el ends here
