@@ -1,12 +1,14 @@
-;;; elisp/lang/lang-python.el -*- lexical-binding: t; -*-
-
-;;; Python configuration
+;;; lang-python.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
+;; Python configuration
+;;; Code:
 
 (use-package python-mode
   :ensure nil
   :hook
-  (python-mode . lsp-deferred)
-  (python-mode . apheleia-mode)
+  ;; ((python-mode python-ts-mode) . lsp-deferred)
+  ((python-mode python-ts-mode) . apheleia-mode)
+  (python-mode . tree-sitter-hl-mode)
   :init
   ;; specific Python LSP config
   (setq lsp-pylsp-plugins-flake8-max-line-length 100
@@ -32,13 +34,13 @@
      ("p" poetry "poetry")))))
 
 (use-package lsp-pyright
-  :defer t
-  :hook (python-mode . (lambda () (require 'lsp-pyright)))
+  ;; :defer t
+  :hook ((python-mode python-ts-mode) . (lambda () (require 'lsp-pyright) (lsp-deferred)))
   :custom (lsp-pyright-langserver-command "basedpyright"))
 
 (use-package elpy
-  :hook (python-mode . elpy-enable)
-  :after python-mode
+  :hook ((python-mode python-ts-mode) . elpy-enable)
+  :after (:any python-mode python-ts-mode)
   :config
   (setq elpy-rpc-virtualenv-path 'current)
   (setq elpy-rpc-backend "jedi")
@@ -46,16 +48,13 @@
   ;;flycheck-python-flake8-executable "/usr/local/bin/flake8"
   )
 
-(use-package tree-sitter
-  :hook (python-mode . tree-sitter-hl-mode))
-
 (use-package pip-requirements
   :defer t
   :config
   (add-hook 'pip-requirements-mode-hook #'pip-requirements-auto-complete-setup))
 
 (use-package py-autopep8
-  :after python-mode)
+  :after (python-mode python-ts-mode))
 
 (use-package pyvenv
   :commands (pyvenv-activate pyvenv-workon)
@@ -68,11 +67,14 @@
             (lambda ()
               (setq python-shell-interpreter "python3")))
   ;; Run lsp-restart-workspace whenever the pyvenv changes
-  (add-hook 'pyvenv-post-activate-hooks (lambda () (lsp-restart-workspace)))
-  (add-hook 'pyvenv-post-deactivate-hooks (lambda () (lsp-restart-workspace))))
+  ;; (add-hook 'pyvenv-post-activate-hooks
+  ;;           (lambda () (lsp-workspace-restart (lsp-workspace-root))))
+  ;; (add-hook 'pyvenv-post-deactivate-hooks
+  ;;           (lambda () (lsp-workspace-restart (lsp-workspace-root))))
+  )
 
 (use-package pyvenv-auto
-  :hook (python-mode . pyvenv-auto-run)
+  :hook ((python-mode python-ts-mode) . pyvenv-auto-run)
   :config
   (setq pyvenv-auto-venv-dirnames '("venv" ".venv" "env")))
 

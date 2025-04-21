@@ -81,7 +81,7 @@
   ;; crashes (see jdtsmith/indent-bars#3).
   ;; :if (>= emacs-major-version 30)
   :disabled
-  :hook ((prog-mode conf-mode text-mode restclient-mode) . t--enable-indent-bars)
+  :hook ((typescript-ts-mode) . t--enable-indent-bars)
   :init
   (setq ;; indent-bars-prefer-character (not (display-graphic-p))
         indent-bars-color '(highlight :face-bg t :blend 0.2)

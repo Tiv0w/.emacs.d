@@ -13,6 +13,7 @@
 (require 't--magit)
 (require 't--lsp)
 (require 't--tree-sitter)
+(require 't--treesit)
 (require 't--formatter)
 
 ;; (require 't--pretty-code) ;; pretty-code is required by org

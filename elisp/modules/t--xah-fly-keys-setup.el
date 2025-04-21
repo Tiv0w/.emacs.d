@@ -57,6 +57,7 @@
 (define-prefix-command 'xah-fly-apps-keymap)
 (define-key xah-fly-leader-key-map (kbd "g") xah-fly-apps-keymap)
 (define-key xah-fly-apps-keymap (kbd "g") #'hydra-cljr-help-menu/body)
+(define-key xah-fly-apps-keymap (kbd "l") 'lsp-command-map)
 
 
 ;; dot key map
@@ -78,6 +79,7 @@
 (define-key xah-fly-dot-keymap (kbd "r") 'iedit-mode)
 (define-key xah-fly-dot-keymap (kbd "s") 'browse-url-dwim-search)
 (define-key xah-fly-dot-keymap (kbd "t") 'untabify-buffer)
+(define-key xah-fly-dot-keymap (kbd "T") 't--toggle-between-light-and-dark-themes)
 (define-key xah-fly-dot-keymap (kbd "w") 'flyspell-auto-correct-word)
 (define-key xah-fly-dot-keymap (kbd "y") 'undo-tree-redo)
 ;;
@@ -141,8 +143,11 @@
 
 ;;; NOT REALLY USEFUL SINCE ERGODOX, but still useful for laptop
 ;; send C-g when pressing ESC
-(when (getenv "IS_LAPTOP")
-  (define-key key-translation-map (kbd "ESC") (kbd "C-g")))
+;; (when (getenv "IS_LAPTOP")
+;;  (define-key key-translation-map (kbd "ESC") (kbd "C-g")))
+
+(define-key xah-fly-insert-map (kbd "<escape>") 'xah-fly-command-mode-activate)
+(define-key xah-fly-command-map (kbd "<escape>") 'keyboard-escape-quit)
 ;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 ;; (define-key xah-fly-command-map (kbd "5") 'keyboard-escape-quit)

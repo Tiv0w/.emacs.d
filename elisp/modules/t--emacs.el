@@ -96,7 +96,9 @@
   (("C-c t p" . profiler-start)
    ("C-c t s" . profiler-stop)))
 
+;; paradox has been archived, and doesn't work with latest versions of Emacs
 (use-package paradox
+  :disabled
   :commands paradox-list-packages)
 
 (use-package recentf

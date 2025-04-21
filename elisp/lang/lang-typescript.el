@@ -25,6 +25,19 @@
   :hook ((typescript-mode ;; typescript-tsx-mode
                           ) . add-node-modules-path))
 
+
+
+ ;; (setq-local treesit-range-settings
+ ;;             (treesit-range-rules
+ ;;              :embed 'sql
+ ;;              :host 'typescript
+ ;;              '((call_expression
+ ;;                 function: (identifier) @_template-string-name
+ ;;                 '(#x23eq? @_template-string-name "sql")
+ ;;                 arguments:
+ ;;                 (template_string (string_fragment) @capture)))))
+
+
 ;; (use-package tree-sitter-langs
 ;;   :ensure t
 ;;   :after tree-sitter

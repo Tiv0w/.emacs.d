@@ -41,7 +41,7 @@
 	  (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
 	  (rust "https://github.com/tree-sitter/tree-sitter-rust")
 	  (scala "https://github.com/tree-sitter/tree-sitter-scala")
-	  (sql "https://github.com/DerekStride/tree-sitter-sql")
+	  (sql . ("https://github.com/DerekStride/tree-sitter-sql" "gh-pages"))
 	  (svelte "https://github.com/Himujjal/tree-sitter-svelte")
 	  (toml "https://github.com/tree-sitter/tree-sitter-toml")
 	  (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
@@ -54,7 +54,7 @@
 (use-package treesit-auto
   :config
   (setq treesit-auto-install 'prompt
-        treesit-auto-langs '(typescript tsx))
+        treesit-auto-langs '(typescript tsx sql toml yaml json python))
   (global-treesit-auto-mode))
 
 
