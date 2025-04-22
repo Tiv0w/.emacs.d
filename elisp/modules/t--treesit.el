@@ -54,7 +54,7 @@
 (use-package treesit-auto
   :config
   (setq treesit-auto-install 'prompt
-        treesit-auto-langs '(typescript tsx sql toml yaml json python))
+        treesit-auto-langs '(typescript tsx sql toml yaml json python svelte))
   (global-treesit-auto-mode))
 
 
