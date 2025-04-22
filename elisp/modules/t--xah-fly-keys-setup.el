@@ -25,6 +25,8 @@
 (define-key xah-fly-command-map (kbd "R") 'iy-go-to-char-backward)
 (define-key xah-fly-command-map (kbd "<") 'ace-window)
 (define-key xah-fly-command-map (kbd "n") 'isearch-forward)
+(define-key xah-fly-command-map (kbd "H") 't--scroll-half-page-down)
+(define-key xah-fly-command-map (kbd ":") 't--scroll-half-page-up)
 (define-key xah-fly-command-map (kbd "Z") 'crux-duplicate-and-comment-current-line-or-region)
 (define-key xah-fly-command-map (kbd "C-SPC") 'corfu-complete)
 (define-key xah-fly-command-map (kbd "A") 'execute-extended-command-for-buffer)

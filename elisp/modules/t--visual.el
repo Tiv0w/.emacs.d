@@ -1,4 +1,4 @@
-;;; elisp/modules/t--visual.el -*- lexical-binding: t; -*-
+;;; elisp/modules/t--visual.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ; These packages have a visual effect on Emacs.
 
@@ -6,6 +6,10 @@
 
 (use-package all-the-icons
   :disabled)
+
+(use-package beacon
+  :config
+  (beacon-mode 1))
 
 (use-package centaur-tabs
   :commands centaur-tabs-mode

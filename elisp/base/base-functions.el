@@ -232,6 +232,15 @@ or cancel the use of the current buffer (for special-purpose buffers)."
     ((string-match "^ \\*" (buffer-name (current-buffer)))
      (bury-buffer))))
 
+(defun t--scroll-half-page-down ()
+  "Scroll down half the page."
+  (interactive)
+  (scroll-down (/ (window-body-height) 2)))
+
+(defun t--scroll-half-page-up ()
+  "Scroll up half the page."
+  (interactive)
+  (scroll-up (/ (window-body-height) 2)))
 
 (provide 'base-functions)
 ;;; base-functions.el ends here
