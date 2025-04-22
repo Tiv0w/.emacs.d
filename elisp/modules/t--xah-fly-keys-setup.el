@@ -1,4 +1,4 @@
-;;; elisp/xah-fly-keys-setup.el -*- lexical-binding: t; -*-
+;;; elisp/xah-fly-keys-setup.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; My own xah-fly-keys setup
 ;;; Also using a custom xah-fly-keys package
@@ -147,7 +147,7 @@
 ;;  (define-key key-translation-map (kbd "ESC") (kbd "C-g")))
 
 (define-key xah-fly-insert-map (kbd "<escape>") 'xah-fly-command-mode-activate)
-(define-key xah-fly-command-map (kbd "<escape>") 'keyboard-escape-quit)
+(define-key xah-fly-command-map (kbd "<escape>") 't--keyboard-escape-quit)
 ;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 ;; (define-key xah-fly-command-map (kbd "5") 'keyboard-escape-quit)

@@ -1,15 +1,17 @@
-;;; elisp/base/base-functions.el -*- lexical-binding: t; -*-
-
+;;; elisp/base/base-functions.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
 ;; Add your custom functions here
 
 ;; (defun something
 ;;    (do-something))
 
 
+;;; Code:
+
 ;; function to shutdown emacs server instance
 (defun server-shutdown (&optional no-confirm)
   "Save buffers, Quit, and Shutdown (kill) server.
-If `no-confirm' is set to t, don't ask."
+If `NO-CONFIRM' is set to t, don't ask."
   (interactive)
   (save-some-buffers)
   (if no-confirm
@@ -78,14 +80,14 @@ is already narrowed."
          (LaTeX-narrow-to-environment))
         (t (narrow-to-defun))))
 
-(defun load-theme--disable-old-theme(theme &rest args)
+(defun load-theme--disable-old-theme (_theme &rest _args)
   "Disable current theme before loading new one."
   (mapcar #'disable-theme custom-enabled-themes))
 (advice-add 'load-theme :before #'load-theme--disable-old-theme)
 
 
 (defun t--add-to-list-multiple (list to-add)
-  "Adds multiple items to LIST.
+  "Add multiple items to LIST.
 Allows for adding a sequence of items to the same list, rather
 than having to call `add-to-list' multiple times."
   (interactive)
@@ -207,5 +209,29 @@ Copied and adapted from Ivy (originally called ivy-thing-at-point)."
     ("w" smerge-keep-other "other/lower")
     ("a" smerge-keep-all "all"))))
 
+(defun t--keyboard-escape-quit ()
+  "Exit the current \"mode\" (in a generalized sense of the word).
+This command can exit an interactive command such as `query-replace',
+can clear out a prefix argument or a region,
+can get out of the minibuffer or other recursive edit
+or cancel the use of the current buffer (for special-purpose buffers)."
+  (interactive)
+  (cond ((eq last-command 'mode-exited) nil)
+    ((region-active-p)
+     (deactivate-mark))
+    ((> (minibuffer-depth) 0)
+     (abort-recursive-edit))
+    (current-prefix-arg
+     nil)
+    ((> (recursion-depth) 0)
+     (exit-recursive-edit))
+    (buffer-quit-function
+     (funcall buffer-quit-function))
+    ;; ((not (one-window-p t))
+    ;;  (delete-other-windows))
+    ((string-match "^ \\*" (buffer-name (current-buffer)))
+     (bury-buffer))))
+
 
 (provide 'base-functions)
+;;; base-functions.el ends here
