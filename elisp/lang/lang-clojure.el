@@ -1,4 +1,8 @@
-;;; elisp/lang/lang-clojure.el -*- lexical-binding: t; -*-
+;;; elisp/lang/lang-clojure.el --- -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Clojure setup. Currently uses only Cider
+
+;;; Code:
 
 (use-package clojure-mode
   :defer t
@@ -23,9 +27,36 @@
      ("#" clojure-convert-collection-to-set "coll -> #")
      ("'" clojure-convert-collection-to-quoted-list "coll -> '(")))))
 
+(use-package clojure-ts-mode
+  :hook
+  (clojure-ts-mode . lsp-deferred)
+  (clojure-ts-mode . apheleia-mode)
+  :mode-hydra
+((:title "Clojure" :color blue :quit-key "q")
+ ("Essential"
+  (("a" cider-jack-in "jack-in !")
+   ("t" cider-test-run-test "run tests")
+   ("w" cider-inspect "inspect")
+   ("d" cider-doc "doc")
+   ("v" cider-find-var "view source")
+   ("s" cider-switch-to-repl "switch to repl"))
+  "Eval"
+  (("ee" cider-eval-last-sexp "last sexp")
+   ("ed" cider-eval-defun-at-point "defun")
+   ("eb" cider-load-buffer "buffer")
+   ("en" cider-eval-ns-form "ns form"))
+  "Convert coll"
+  (("(" clojure-convert-collection-to-list "coll -> (")
+   ("{" clojure-convert-collection-to-map "coll -> {")
+   ("[" clojure-convert-collection-to-vector "coll -> [")
+   ("#" clojure-convert-collection-to-set "coll -> #")
+   ("'" clojure-convert-collection-to-quoted-list "coll -> '(")))))
+
+
+
 (use-package cider
   :hook
-  (clojure-mode-local-vars . cider-mode)
+  ((clojure-mode-local-vars) . cider-mode)
   (cider-mode . eldoc-mode)
   :config
   (setq cider-repl-display-help-banner nil)
@@ -62,3 +93,4 @@
 
 
 (provide 'lang-clojure)
+;;; lang-clojure.el ends here

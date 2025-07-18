@@ -35,6 +35,7 @@
 	  (lua "https://github.com/Azganoth/tree-sitter-lua")
 	  (make "https://github.com/alemuller/tree-sitter-make")
 	  (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+      (nix "https://github.com/nix-community/tree-sitter-nix")
 	  (ocaml "https://github.com/tree-sitter/tree-sitter-ocaml")
 	  (python "https://github.com/tree-sitter/tree-sitter-python")
 	  (r "https://github.com/r-lib/tree-sitter-r")
@@ -54,7 +55,7 @@
 (use-package treesit-auto
   :config
   (setq treesit-auto-install 'prompt
-        treesit-auto-langs '(typescript tsx sql toml yaml json python svelte))
+        treesit-auto-langs '(typescript tsx sql toml yaml json python svelte nix clojure dockerfile))
   (global-treesit-auto-mode))
 
 

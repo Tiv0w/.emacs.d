@@ -11,6 +11,11 @@
   :after dired
   :hook (dired-mode . nerd-icons-dired-mode))
 
+(use-package nerd-icons-xref
+  :after nerd-icons
+  :init
+  (nerd-icons-xref-mode))
+
 (use-package dired-rainbow
   :disabled
   :after dired

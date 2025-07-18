@@ -58,6 +58,14 @@
   :commands (flycheck-list-errors flycheck-buffer)
   :hook (after-init . global-flycheck-mode))
 
+(use-package flyover
+  :vc (:url "https://github.com/konrad1977/flyover")
+  :hook (flycheck-mode . flyover-mode)
+  :config
+  (setq flyover-use-theme-colors t
+        flyover-checkers '(flycheck)
+        flyover-virtual-line-type 'straight-arrow))
+
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 

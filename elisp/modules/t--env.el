@@ -1,4 +1,4 @@
-;;; elisp/modules/t--env.el -*- lexical-binding: t; -*-
+;;; elisp/modules/t--env.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ; Environment related packages.
 
@@ -18,6 +18,9 @@
       (exec-path-from-shell-copy-env "PATH")))
 
   (add-hook 'prog-mode-hook 't--env/setup-fnm-env))
+
+(use-package yadm
+  :vc (:url "https://github.com/seanfarley/yadm.el"))
 
 (provide 't--env)
 ;;; t--env.el ends here

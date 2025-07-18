@@ -8,6 +8,7 @@
   :disabled)
 
 (use-package beacon
+  :disabled
   :config
   (beacon-mode 1))
 

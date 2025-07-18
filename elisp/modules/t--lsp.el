@@ -127,7 +127,9 @@ Useful for LSPs that format differently their output."
   (setq lsp-ui-sideline-diagnostic-max-lines 2
         lsp-ui-sideline-show-hover nil
         lsp-ui-sideline-show-diagnostics t
+        lsp-ui-sideline-diagnostic-max-line-length 80
         lsp-ui-peek-enable t
+        lsp-lens-enable nil
         lsp-ui-doc-max-height 20 ; default 13
         lsp-ui-doc-max-width 72 ; default 150
         lsp-ui-doc-delay 0.75   ; default 0.2
