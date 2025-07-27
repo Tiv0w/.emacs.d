@@ -20,6 +20,7 @@
   (add-hook 'prog-mode-hook 't--env/setup-fnm-env))
 
 (use-package yadm
+  :disabled
   :vc (:url "https://github.com/seanfarley/yadm.el"))
 
 (provide 't--env)

@@ -66,7 +66,7 @@
 
 (use-package highlight-indent-guides
   ;; :if (< emacs-major-version 30)
-  :hook ((prog-mode conf-mode yaml-mode restclient-mode) . highlight-indent-guides-mode)
+  :hook ((prog-mode conf-mode yaml-mode yaml-ts-mode restclient-mode) . highlight-indent-guides-mode)
   :defer nil
   :config
   (setq highlight-indent-guides-method 'column)

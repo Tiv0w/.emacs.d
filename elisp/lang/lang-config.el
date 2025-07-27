@@ -21,7 +21,12 @@
 (use-package toml-mode
   :defer t
   ;; :mode "\\.toml$\\'"
-  :hook ((toml-mode toml-ts-mode) . rainbow-mode))
+  :hook
+  ((toml-mode toml-ts-mode) . rainbow-mode)
+  ;; ((toml-mode toml-ts-mode) . apheleia-mode)
+  :config
+  ;; (t--set-formatter 'taplo '("taplo" "format" "--option" "column_width=200" "--option" "align_entries=true" "-") :modes '(toml-mode toml-ts-mode))
+  )
 
 
 (provide 'lang-config)

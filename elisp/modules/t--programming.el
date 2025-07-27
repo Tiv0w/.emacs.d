@@ -59,6 +59,7 @@
   :hook (after-init . global-flycheck-mode))
 
 (use-package flyover
+  :disabled
   :vc (:url "https://github.com/konrad1977/flyover")
   :hook (flycheck-mode . flyover-mode)
   :config
