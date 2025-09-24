@@ -40,6 +40,7 @@
 (define-key xah-fly-leader-key-map (kbd "f") 'switch-to-buffer)
 (define-key xah-fly-leader-key-map (kbd "p") 'projectile-command-map)
 (define-key xah-fly-leader-key-map (kbd "q") 'exchange-point-and-mark)
+(define-key xah-fly-leader-key-map (kbd "R") 'query-replace-regexp)
 (define-key xah-fly-leader-key-map (kbd "s") 'multiple-cursors-hydra/body)
 (define-key xah-fly-leader-key-map (kbd "u") 'delete-region)
 (define-key xah-fly-leader-key-map (kbd "y") 'consult-line-thing-at-point)
@@ -150,6 +151,7 @@
 
 (define-key xah-fly-insert-map (kbd "<escape>") 'xah-fly-command-mode-activate)
 (define-key xah-fly-command-map (kbd "<escape>") 't--keyboard-escape-quit)
+(define-key transient-map (kbd "<escape>") 'transient-quit-one)
 ;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 ;; (define-key xah-fly-command-map (kbd "5") 'keyboard-escape-quit)

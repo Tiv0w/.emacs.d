@@ -86,12 +86,15 @@
   :vc (:url "https://github.com/doitian/iy-go-to-char")
   :commands iy-go-to-char
   :config
-  (advice-add
-   'iy-go-to-char
-   :around
-   (defun iy-go-to-char-insert-mode-activate (fn &rest args)
-     (apply fn args)
-     (xah-fly-insert-mode-activate))))
+  (defun iy-go-to-char-insert-mode-activate (fn &rest args)
+    (apply fn args)
+    (xah-fly-insert-mode-activate))
+  (advice-add 'iy-go-to-char
+              :around
+              #'iy-go-to-char-insert-mode-activate)
+  (advice-add 'iy-go-to-char-backward
+              :around
+              #'iy-go-to-char-insert-mode-activate))
 
 (use-package keyfreq
   :disabled

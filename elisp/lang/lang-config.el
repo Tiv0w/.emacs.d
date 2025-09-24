@@ -16,7 +16,9 @@
 (use-package yaml-mode
   :defer t
   ;; :mode "\\.yml$\\'"
-  :hook ((yaml-mode yaml-ts-mode) . rainbow-mode))
+  :hook
+  ((yaml-mode yaml-ts-mode) . rainbow-mode)
+  ((yaml-mode yaml-ts-mode) . (lambda () (setq-local tab-width 2))))
 
 (use-package toml-mode
   :defer t

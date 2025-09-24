@@ -1,4 +1,4 @@
-;;; elisp/modules/t--magit.el -*- lexical-binding: t; -*-
+;;; elisp/modules/t--magit.el --- -*- lexical-binding: t; -*-
 ;;; Commentary:
 ; Magit setup.
 
@@ -36,6 +36,10 @@
   :after magit
   :hook (magit-mode . turn-on-magit-gitflow))
 
+(use-package magit-prime
+  :config
+  (add-hook 'magit-pre-refresh-hook 'magit-prime-refresh-cache))
+
 (use-package git-messenger
   :after magit
   :commands git-messenger:popup-message)
@@ -52,3 +56,4 @@
 
 
 (provide 't--magit)
+;;; t--magit.el ends here

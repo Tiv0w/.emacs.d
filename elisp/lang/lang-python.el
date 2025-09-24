@@ -17,9 +17,12 @@
   (when (and (executable-find "python3")
              (string= python-shell-interpreter "python"))
     (setq python-shell-interpreter "python3"))
-  (t--set-formatter 'ruff nil :modes '(python-mode python-ts-mode))
+  (with-eval-after-load 'apheleia
+    (add-to-list 'apheleia-mode-alist '(python-mode . ruff))
+    (add-to-list 'apheleia-mode-alist '(python-ts-mode . ruff)))
+  ;; (t--set-formatter 'ruff nil :modes '(python-mode python-ts-mode))
   :mode-hydra
-  (python-mode
+  ((python-mode python-ts-mode)
    (:title "Python" :color blue :quit-key "q")
    ("Essential"
     (("a" run-python "start interpreter")

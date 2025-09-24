@@ -19,9 +19,15 @@
 
   (add-hook 'prog-mode-hook 't--env/setup-fnm-env))
 
-(use-package yadm
-  :disabled
-  :vc (:url "https://github.com/seanfarley/yadm.el"))
+;; (use-package tramp-yadm
+;;   ;; :disabled
+;;   :vc (:url "https://github.com/seanfarley/tramp-yadm")
+;;   :after (tramp projectile)
+;;   :init
+;;   (advice-add #'magit-list-files
+;;               :around
+;;               #'tramp-yadm-magit-list-files)
+;;   (add-to-list 'projectile-known-projects "/yadm::~"))
 
 (provide 't--env)
 ;;; t--env.el ends here
